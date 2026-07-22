@@ -69,7 +69,7 @@ verbs_ratings = [
     ('command', '-val+dom'),
     ('dislike', '-val+dom'),
     ('phone', '+val-dom'),
-    ('subdue', '+val-dom'),
+    ('challenge', '+val-dom'),
     ('surprise', '+val-dom'),
     ('hypnotize', '+val-dom'),
     ('resurrect', '+val-dom'),
