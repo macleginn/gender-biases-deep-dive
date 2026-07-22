@@ -1,0 +1,23 @@
+{
+  "formula": "log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance) + log_frequency + lex_emb_norm + C(tense):C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):log_frequency + C(tense):lex_emb_norm + C(semantic_role):C(syntactic_role) + C(semantic_role):C(valence) + C(semantic_role):log_frequency + C(semantic_role):lex_emb_norm + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):log_frequency + C(syntactic_role):lex_emb_norm + C(valence):C(dominance) + C(valence):log_frequency + C(valence):lex_emb_norm + C(dominance):log_frequency + C(dominance):lex_emb_norm + log_frequency:lex_emb_norm",
+  "re_formula": "1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)",
+  "group_col": "profession",
+  "optimizer": "lbfgs",
+  "converged": true,
+  "warning_count": 1,
+  "warnings": [
+    "ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite."
+  ],
+  "numerical_issue_warnings": true,
+  "aic": 9218.096584687533,
+  "bic": 9768.142169170053,
+  "log_likelihood": -4537.048292343767,
+  "nobs": 15360,
+  "residual_variance": 0.09979173437001272,
+  "R2m": 0.047326276921273724,
+  "R2c": 0.9636170840875556,
+  "random_effect_variance_semantic_role": 0.12175371472157233,
+  "random_effect_variance_syntactic_role": 0.1221146110017538,
+  "random_effect_variance_valence": 0.1235315861192724,
+  "random_effect_variance_dominance": 0.115876114247414
+}

@@ -1,0 +1,84 @@
+{
+  "input_csv": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__gpt2.csv",
+  "copied_input_csv": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/inputs/he_she_odds_results__gpt2.csv",
+  "rows": 15360,
+  "columns": [
+    "model_tag",
+    "template",
+    "tense",
+    "syntactic_role",
+    "semantic_role",
+    "valence",
+    "dominance",
+    "verb",
+    "profession",
+    "frequency",
+    "lex_emb_norm",
+    "prefix",
+    "he_prob",
+    "she_prob",
+    "he_she_odds_ratio",
+    "log_he_she_odds",
+    "log_frequency"
+  ],
+  "category_levels": {
+    "dominance": [
+      "+dom",
+      "-dom"
+    ],
+    "profession": [
+      "CEO",
+      "accountant",
+      "administrator",
+      "agronomist",
+      "binman",
+      "bodyguard",
+      "bookbinder",
+      "builder",
+      "cashier",
+      "chauffeur",
+      "colonel",
+      "doctor",
+      "electrician",
+      "farmer",
+      "farmhand",
+      "fisherman",
+      "hawker",
+      "housekeeper",
+      "manager",
+      "midwife",
+      "molder",
+      "paralegal",
+      "programmer",
+      "salesperson",
+      "scientist",
+      "scrivener",
+      "sergeant",
+      "soldier",
+      "solicitor",
+      "teacher",
+      "tradesperson",
+      "welder"
+    ],
+    "semantic_role": [
+      "agent",
+      "patient"
+    ],
+    "syntactic_role": [
+      "non-subject",
+      "subject"
+    ],
+    "tense": [
+      "past continuous",
+      "past perfect",
+      "present continuous",
+      "present perfect",
+      "simple future",
+      "simple past"
+    ],
+    "valence": [
+      "+val",
+      "-val"
+    ]
+  }
+}

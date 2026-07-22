@@ -1,0 +1,29 @@
+{
+  "started_at_utc": "2026-07-22T12:23:15.217569+00:00",
+  "data_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data",
+  "report_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_report",
+  "maxiter": 1000,
+  "alpha": 0.05,
+  "reuse_existing": false,
+  "starting_fixed_effect_interactions": true,
+  "inputs": [
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__Qwen_Qwen3-4B-Base.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__Qwen_Qwen3-8B-Base.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__allenai_Olmo-3-1025-7B.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__google_gemma-3-12b-pt.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__google_gemma-3-4b-pt.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__gpt2.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__mistralai_Mistral-7B-v0.3.csv"
+  ],
+  "run_dirs": [
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__Qwen_Qwen3-4B-Base__30e60832",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__Qwen_Qwen3-8B-Base__3794e0cc",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__allenai_Olmo-3-1025-7B__9ed18bc1",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__google_gemma-3-12b-pt__dea67b94",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__google_gemma-3-4b-pt__2a3d43bc",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__gpt2__8961fea3",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__mistralai_Mistral-7B-v0.3__0cb67515"
+  ],
+  "finished_at_utc": "2026-07-22T12:32:35.442648+00:00",
+  "report_html": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_report/report.html"
+}

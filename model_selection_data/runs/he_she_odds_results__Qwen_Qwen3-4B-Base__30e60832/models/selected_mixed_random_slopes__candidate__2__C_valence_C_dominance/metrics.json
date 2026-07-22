@@ -1,0 +1,18 @@
+{
+  "formula": "log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance) + log_frequency + lex_emb_norm + C(tense):C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):log_frequency + C(tense):lex_emb_norm + C(semantic_role):C(syntactic_role) + C(semantic_role):C(valence) + C(semantic_role):C(dominance) + C(semantic_role):log_frequency + C(semantic_role):lex_emb_norm + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):lex_emb_norm + C(valence):log_frequency + C(dominance):log_frequency + C(dominance):lex_emb_norm + log_frequency:lex_emb_norm",
+  "re_formula": "1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)",
+  "group_col": "profession",
+  "optimizer": "lbfgs",
+  "converged": true,
+  "aic": 17258.738359567884,
+  "bic": 17793.504900037,
+  "log_likelihood": -8559.369179783942,
+  "nobs": 15360,
+  "residual_variance": 0.1729107418050008,
+  "R2m": 0.04694930151596231,
+  "R2c": 0.9217194233735874,
+  "random_effect_variance_semantic_role": 0.01081840429113235,
+  "random_effect_variance_syntactic_role": 0.04856723539081472,
+  "random_effect_variance_valence": 0.004823338869740209,
+  "random_effect_variance_dominance": 0.00313270647126563
+}

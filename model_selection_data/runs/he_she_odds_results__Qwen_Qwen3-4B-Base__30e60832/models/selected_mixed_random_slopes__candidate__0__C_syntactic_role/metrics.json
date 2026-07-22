@@ -1,0 +1,18 @@
+{
+  "formula": "log_he_she_odds ~ C(tense) + C(semantic_role) + C(valence) + C(dominance) + log_frequency + lex_emb_norm",
+  "re_formula": "1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)",
+  "group_col": "profession",
+  "optimizer": "lbfgs",
+  "converged": true,
+  "aic": 17711.340185936046,
+  "bic": 17917.60728011699,
+  "log_likelihood": -8828.670092968023,
+  "nobs": 15360,
+  "residual_variance": 0.17845136265277292,
+  "R2m": 0.010530876459270217,
+  "R2c": 0.949708497203799,
+  "random_effect_variance_semantic_role": 0.011697428184734675,
+  "random_effect_variance_syntactic_role": 0.2219744145580015,
+  "random_effect_variance_valence": 0.0067520374019852366,
+  "random_effect_variance_dominance": 0.004136983198716275
+}

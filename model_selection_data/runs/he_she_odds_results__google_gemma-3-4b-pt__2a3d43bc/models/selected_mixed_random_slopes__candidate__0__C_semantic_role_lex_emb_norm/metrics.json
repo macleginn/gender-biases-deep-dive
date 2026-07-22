@@ -1,0 +1,26 @@
+{
+  "formula": "log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance) + log_frequency + lex_emb_norm + C(tense):C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):log_frequency + C(tense):lex_emb_norm + C(semantic_role):C(syntactic_role) + C(semantic_role):C(valence) + C(semantic_role):C(dominance) + C(semantic_role):log_frequency + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):log_frequency + C(syntactic_role):lex_emb_norm + C(valence):C(dominance) + C(valence):log_frequency + C(valence):lex_emb_norm + C(dominance):log_frequency + C(dominance):lex_emb_norm + log_frequency:lex_emb_norm",
+  "re_formula": "1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)",
+  "group_col": "profession",
+  "optimizer": "lbfgs",
+  "converged": false,
+  "warning_count": 4,
+  "warnings": [
+    "ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals",
+    "ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.",
+    "ConvergenceWarning: Gradient optimization failed, |grad| = 58.690302",
+    "ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite."
+  ],
+  "numerical_issue_warnings": true,
+  "aic": 9215.113761729357,
+  "bic": 9765.159346211876,
+  "log_likelihood": -4535.5568808646785,
+  "nobs": 15360,
+  "residual_variance": 0.09977904995728912,
+  "R2m": 0.04634118717481036,
+  "R2c": 0.9635356962699898,
+  "random_effect_variance_semantic_role": 0.11882648606075152,
+  "random_effect_variance_syntactic_role": 0.12200371056158575,
+  "random_effect_variance_valence": 0.12340483114147016,
+  "random_effect_variance_dominance": 0.11575458737044451
+}

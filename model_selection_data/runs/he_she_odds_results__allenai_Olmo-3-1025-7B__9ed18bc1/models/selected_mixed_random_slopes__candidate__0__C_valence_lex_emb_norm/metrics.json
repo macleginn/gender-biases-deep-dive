@@ -1,0 +1,23 @@
+{
+  "formula": "log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance) + log_frequency + lex_emb_norm + C(tense):C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):log_frequency + C(tense):lex_emb_norm + C(semantic_role):C(syntactic_role) + C(semantic_role):C(valence) + C(semantic_role):C(dominance) + C(semantic_role):log_frequency + C(semantic_role):lex_emb_norm + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):log_frequency + C(syntactic_role):lex_emb_norm + C(valence):C(dominance) + C(valence):log_frequency + C(dominance):log_frequency + C(dominance):lex_emb_norm + log_frequency:lex_emb_norm",
+  "re_formula": "1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)",
+  "group_col": "profession",
+  "optimizer": "lbfgs",
+  "converged": true,
+  "warning_count": 1,
+  "warnings": [
+    "ConvergenceWarning: The MLE may be on the boundary of the parameter space."
+  ],
+  "numerical_issue_warnings": true,
+  "aic": 15928.563183345628,
+  "bic": 16478.608767828147,
+  "log_likelihood": -7892.281591672814,
+  "nobs": 15360,
+  "residual_variance": 0.1584669331825882,
+  "R2m": 0.025297118759695203,
+  "R2c": 0.9330605860328381,
+  "random_effect_variance_semantic_role": 0.003923398871678684,
+  "random_effect_variance_syntactic_role": 0.0338985274954142,
+  "random_effect_variance_valence": 0.012645330498043283,
+  "random_effect_variance_dominance": 0.0031746637683965255
+}

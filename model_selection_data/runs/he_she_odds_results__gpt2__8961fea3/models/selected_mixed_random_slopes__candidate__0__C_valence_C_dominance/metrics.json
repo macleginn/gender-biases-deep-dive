@@ -1,0 +1,27 @@
+{
+  "formula": "log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance) + log_frequency + lex_emb_norm + C(tense):C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):log_frequency + C(tense):lex_emb_norm + C(semantic_role):C(syntactic_role) + C(semantic_role):C(valence) + C(semantic_role):C(dominance) + C(semantic_role):log_frequency + C(semantic_role):lex_emb_norm + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):log_frequency + C(syntactic_role):lex_emb_norm + C(valence):log_frequency + C(valence):lex_emb_norm + C(dominance):log_frequency + C(dominance):lex_emb_norm + log_frequency:lex_emb_norm",
+  "re_formula": "1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)",
+  "group_col": "profession",
+  "optimizer": "lbfgs",
+  "converged": false,
+  "warning_count": 5,
+  "warnings": [
+    "ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals",
+    "ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.",
+    "ConvergenceWarning: Gradient optimization failed, |grad| = 132.002722",
+    "ConvergenceWarning: The MLE may be on the boundary of the parameter space.",
+    "ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite."
+  ],
+  "numerical_issue_warnings": true,
+  "aic": 6091.576878393447,
+  "bic": 6641.622462875967,
+  "log_likelihood": -2973.7884391967236,
+  "nobs": 15360,
+  "residual_variance": 0.08307960693294994,
+  "R2m": 0.1503449422432048,
+  "R2c": 0.9397155827759012,
+  "random_effect_variance_semantic_role": 0.00421820171001521,
+  "random_effect_variance_syntactic_role": 0.03437726338451959,
+  "random_effect_variance_valence": 0.004209682714280222,
+  "random_effect_variance_dominance": 0.006725762417476477
+}

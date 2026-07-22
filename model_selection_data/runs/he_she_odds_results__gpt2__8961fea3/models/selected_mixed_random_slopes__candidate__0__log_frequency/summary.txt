@@ -1,0 +1,38 @@
+                                  Mixed Linear Model Regression Results
+==========================================================================================================
+Model:                           MixedLM                Dependent Variable:                log_he_she_odds
+No. Observations:                15360                  Method:                            ML             
+No. Groups:                      32                     Scale:                             0.0890         
+Min. group size:                 480                    Log-Likelihood:                    -3523.0058     
+Max. group size:                 480                    Converged:                         No             
+Mean group size:                 480.0                                                                    
+----------------------------------------------------------------------------------------------------------
+                                                               Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------------------------------------------
+Intercept                                                      -0.577    0.979  -0.590 0.555 -2.495  1.341
+C(tense)[T.past perfect]                                        0.045    0.008   5.391 0.000  0.029  0.061
+C(tense)[T.present continuous]                                  0.175    0.008  21.017 0.000  0.159  0.192
+C(tense)[T.present perfect]                                    -0.088    0.008 -10.519 0.000 -0.104 -0.071
+C(tense)[T.simple future]                                       0.275    0.008  32.991 0.000  0.259  0.291
+C(tense)[T.simple past]                                         0.030    0.008   3.625 0.000  0.014  0.047
+C(semantic_role)[T.patient]                                    -0.105    0.015  -6.841 0.000 -0.135 -0.075
+C(syntactic_role)[T.subject]                                   -0.002    0.032  -0.075 0.940 -0.065  0.061
+C(valence)[T.-val]                                              0.028    0.016   1.779 0.075 -0.003  0.059
+C(dominance)[T.-dom]                                            0.025    0.017   1.423 0.155 -0.009  0.059
+lex_emb_norm                                                    0.643    0.300   2.143 0.032  0.055  1.231
+Group Var                                                       1.030    0.802                            
+Group x C(semantic_role)[T.patient] Cov                        -0.022    0.062                            
+C(semantic_role)[T.patient] Var                                 0.007                                     
+Group x C(syntactic_role)[T.subject] Cov                        0.080    0.099                            
+C(semantic_role)[T.patient] x C(syntactic_role)[T.subject] Cov -0.003    0.005                            
+C(syntactic_role)[T.subject] Var                                0.032    0.019                            
+Group x C(valence)[T.-val] Cov                                  0.002    0.075                            
+C(semantic_role)[T.patient] x C(valence)[T.-val] Cov            0.000                                     
+C(syntactic_role)[T.subject] x C(valence)[T.-val] Cov          -0.001    0.009                            
+C(valence)[T.-val] Var                                          0.007                                     
+Group x C(dominance)[T.-dom] Cov                                0.053    0.059                            
+C(semantic_role)[T.patient] x C(dominance)[T.-dom] Cov         -0.001                                     
+C(syntactic_role)[T.subject] x C(dominance)[T.-dom] Cov         0.007    0.006                            
+C(valence)[T.-val] x C(dominance)[T.-dom] Cov                  -0.000                                     
+C(dominance)[T.-dom] Var                                        0.009                                     
+==========================================================================================================

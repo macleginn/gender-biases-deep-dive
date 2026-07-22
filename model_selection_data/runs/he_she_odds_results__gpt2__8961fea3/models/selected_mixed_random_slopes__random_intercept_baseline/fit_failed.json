@@ -1,0 +1,31 @@
+{
+  "status": "failed",
+  "spec": {
+    "name": "selected_mixed_random_slopes__random_intercept_baseline",
+    "fixed_predictors": [],
+    "group_col": "profession",
+    "random_predictors": []
+  },
+  "fit_errors": [
+    {
+      "optimizer": "lbfgs",
+      "error": "PatsyError(\"Error evaluating factor: NameError: name 'log' is not defined\")"
+    },
+    {
+      "optimizer": "bfgs",
+      "error": "PatsyError(\"Error evaluating factor: NameError: name 'log' is not defined\")"
+    },
+    {
+      "optimizer": "cg",
+      "error": "PatsyError(\"Error evaluating factor: NameError: name 'log' is not defined\")"
+    },
+    {
+      "optimizer": "powell",
+      "error": "PatsyError(\"Error evaluating factor: NameError: name 'log' is not defined\")"
+    },
+    {
+      "optimizer": "nm",
+      "error": "PatsyError(\"Error evaluating factor: NameError: name 'log' is not defined\")"
+    }
+  ]
+}
