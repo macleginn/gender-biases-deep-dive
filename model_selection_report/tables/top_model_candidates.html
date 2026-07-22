@@ -1,0 +1,214 @@
+<table class="dataframe data-table compact">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>Candidate</th>
+      <th>Candidate detail</th>
+      <th>Converged</th>
+      <th>AIC</th>
+      <th>Delta AIC</th>
+      <th>BIC</th>
+      <th>Marginal R2</th>
+      <th>Conditional R2</th>
+      <th>Formula</th>
+      <th>Random formula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected_mixed_random_slopes__candidate__1__lex_emb_norm</td>
+      <td>lex_emb_norm</td>
+      <td>True</td>
+      <td>17662.938</td>
+      <td>0.000</td>
+      <td>17861.566</td>
+      <td>0.030</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected_mixed_random_slopes__candidate__2__C_dominance</td>
+      <td>C(dominance)</td>
+      <td>True</td>
+      <td>17663.772</td>
+      <td>0.834</td>
+      <td>17854.760</td>
+      <td>0.030</td>
+      <td>0.921</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence)</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected_mixed_random_slopes__candidate__0__log_frequency</td>
+      <td>log_frequency</td>
+      <td>True</td>
+      <td>17663.919</td>
+      <td>0.981</td>
+      <td>17870.186</td>
+      <td>0.037</td>
+      <td>0.921</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance) + lex_emb_norm</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected_mixed_random_slopes__candidate__0__lex_emb_norm</td>
+      <td>lex_emb_norm</td>
+      <td>True</td>
+      <td>17664.687</td>
+      <td>1.749</td>
+      <td>17870.954</td>
+      <td>0.032</td>
+      <td>0.921</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance) + log_frequency</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected_mixed_random_slopes__candidate__1__C_dominance</td>
+      <td>C(dominance)</td>
+      <td>True</td>
+      <td>17664.753</td>
+      <td>1.814</td>
+      <td>17863.380</td>
+      <td>0.037</td>
+      <td>0.922</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + lex_emb_norm</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-8B-Base</td>
+      <td>selected_mixed_random_slopes__candidate__0__lex_emb_norm</td>
+      <td>lex_emb_norm</td>
+      <td>True</td>
+      <td>21652.993</td>
+      <td>0.000</td>
+      <td>21859.260</td>
+      <td>0.055</td>
+      <td>0.904</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance) + log_frequency</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-8B-Base</td>
+      <td>selected_mixed_random_slopes__candidate__0__log_frequency</td>
+      <td>log_frequency</td>
+      <td>True</td>
+      <td>21655.096</td>
+      <td>2.103</td>
+      <td>21861.363</td>
+      <td>0.041</td>
+      <td>0.900</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance) + lex_emb_norm</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-8B-Base</td>
+      <td>selected_mixed_random_slopes__candidate__1__log_frequency</td>
+      <td>log_frequency</td>
+      <td>True</td>
+      <td>21655.129</td>
+      <td>2.136</td>
+      <td>21853.757</td>
+      <td>0.030</td>
+      <td>0.898</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-8B-Base</td>
+      <td>selected_mixed_random_slopes__candidate__1__C_dominance</td>
+      <td>C(dominance)</td>
+      <td>True</td>
+      <td>21663.554</td>
+      <td>10.561</td>
+      <td>21862.182</td>
+      <td>0.050</td>
+      <td>0.904</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + log_frequency</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-8B-Base</td>
+      <td>selected_mixed_random_slopes__candidate__0__C_dominance</td>
+      <td>C(dominance)</td>
+      <td>True</td>
+      <td>21665.542</td>
+      <td>12.549</td>
+      <td>21871.810</td>
+      <td>0.050</td>
+      <td>0.905</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + log_frequency + lex_emb_norm</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected_mixed_random_slopes__candidate__0__C_dominance</td>
+      <td>C(dominance)</td>
+      <td>True</td>
+      <td>7038.162</td>
+      <td>0.000</td>
+      <td>7244.429</td>
+      <td>0.165</td>
+      <td>0.948</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + log_frequency + lex_emb_norm</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected_mixed_random_slopes__candidate__0__lex_emb_norm</td>
+      <td>lex_emb_norm</td>
+      <td>True</td>
+      <td>7044.709</td>
+      <td>6.547</td>
+      <td>7250.976</td>
+      <td>0.026</td>
+      <td>0.943</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance) + log_frequency</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected_mixed_random_slopes__candidate__0__C_valence</td>
+      <td>C(valence)</td>
+      <td>True</td>
+      <td>7045.468</td>
+      <td>7.306</td>
+      <td>7251.736</td>
+      <td>0.173</td>
+      <td>0.945</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(dominance) + log_frequency + lex_emb_norm</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected_mixed_random_slopes__candidate__0__C_syntactic_role</td>
+      <td>C(syntactic_role)</td>
+      <td>True</td>
+      <td>7055.549</td>
+      <td>17.387</td>
+      <td>7261.817</td>
+      <td>0.207</td>
+      <td>0.936</td>
+      <td>log_he_she_odds ~ C(tense) + C(semantic_role) + C(valence) + C(dominance) + log_frequency + lex_emb_norm</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected_mixed_random_slopes__candidate__0__C_semantic_role</td>
+      <td>C(semantic_role)</td>
+      <td>True</td>
+      <td>7084.183</td>
+      <td>46.021</td>
+      <td>7290.450</td>
+      <td>0.155</td>
+      <td>0.951</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + log_frequency + lex_emb_norm</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+  </tbody>
+</table>

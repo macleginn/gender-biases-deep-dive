@@ -8,8 +8,10 @@ the random-slope dissertation model-selection workflow.
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import hashlib
 import json
+import os
 import re
 import shutil
 import sys
@@ -36,6 +38,7 @@ try:
     from scipy.stats import chi2
     from sklearn.decomposition import PCA
     from sklearn.preprocessing import StandardScaler
+    from tqdm.auto import tqdm
 
     log = np.log
 except ImportError as exc:  # pragma: no cover - dependency guard
@@ -98,6 +101,7 @@ class ModelSpec:
     fixed_predictors: list[str]
     group_col: str
     random_predictors: list[str]
+    pairwise_interactions: bool = False
 
 
 def parse_args() -> argparse.Namespace:
@@ -132,6 +136,14 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Skip model fitting and rebuild comparisons/report from existing data-dir run artifacts.",
     )
+    parser.add_argument(
+        "--starting-fixed-effect-interactions",
+        action="store_true",
+        help=(
+            "Include pairwise interactions among fixed effects in the starting model. "
+            "By default, the starting model uses main effects only."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -165,8 +177,10 @@ def build_random_formula(random_predictors: list[str]) -> str:
     return "1 + " + " + ".join(term(name) for name in random_predictors)
 
 
-def hierarchical_fixed_terms(predictors: list[str]) -> list[str]:
+def hierarchical_fixed_terms(predictors: list[str], pairwise_interactions: bool) -> list[str]:
     main_effects = [term(name) for name in predictors]
+    if not pairwise_interactions:
+        return main_effects
     interactions = [f"{left}:{right}" for left, right in combinations(main_effects, 2)]
     return main_effects + interactions
 
@@ -342,9 +356,67 @@ def fit_mixed_model_terms(
     return {"status": "failed", "spec": spec, "fit_errors": fit_errors}
 
 
+def evaluate_candidate_fit(
+    df: pd.DataFrame,
+    *,
+    name: str,
+    fixed_terms: list[str],
+    group_col: str,
+    random_predictors: list[str],
+    run_dir: Path,
+    maxiter: int,
+    current_fit: dict[str, Any],
+    candidate_term: str,
+    step: int,
+) -> dict[str, Any]:
+    reduced_fit = fit_mixed_model_terms(
+        df,
+        name=name,
+        fixed_terms=fixed_terms,
+        group_col=group_col,
+        random_predictors=random_predictors,
+        run_dir=run_dir,
+        maxiter=maxiter,
+    )
+    if reduced_fit["status"] != "ok":
+        return reduced_fit
+
+    test = likelihood_ratio_test(current_fit, reduced_fit)
+    return {
+        "status": "ok",
+        "spec": reduced_fit["spec"],
+        "metrics": reduced_fit["metrics"],
+        "candidate_model": reduced_fit["spec"].name,
+        "candidate_term": candidate_term,
+        "step": step,
+        "lr_test": test,
+        "llf": float(reduced_fit["result"].llf),
+        "df_modelwc": int(reduced_fit["result"].df_modelwc),
+    }
+
+
+def _extract_fit_stat(fit: Any, key: str) -> float | int:
+    if isinstance(fit, dict):
+        if key in fit:
+            return fit[key]
+        if key == "llf" and "result" in fit:
+            return fit["result"].llf
+        if key == "df_modelwc" and "result" in fit:
+            return fit["result"].df_modelwc
+        if "metrics" in fit and key == "llf":
+            metrics = fit["metrics"]
+            if "log_likelihood" in metrics:
+                return metrics["log_likelihood"]
+    return getattr(fit, key)
+
+
 def likelihood_ratio_test(full_result: Any, reduced_result: Any) -> dict[str, float | int]:
-    lr_stat = 2.0 * (full_result.llf - reduced_result.llf)
-    df_diff = int(full_result.df_modelwc - reduced_result.df_modelwc)
+    full_llf = float(_extract_fit_stat(full_result, "llf"))
+    reduced_llf = float(_extract_fit_stat(reduced_result, "llf"))
+    full_df = int(_extract_fit_stat(full_result, "df_modelwc"))
+    reduced_df = int(_extract_fit_stat(reduced_result, "df_modelwc"))
+    lr_stat = 2.0 * (full_llf - reduced_llf)
+    df_diff = int(full_df - reduced_df)
     return {
         "lr_stat": float(lr_stat),
         "df_diff": df_diff,
@@ -395,14 +467,18 @@ def select_backward_model(
     *,
     maxiter: int,
     alpha: float,
+    starting_fixed_effect_interactions: bool,
 ) -> tuple[dict[str, Any], pd.DataFrame, list[str]]:
     spec = ModelSpec(
         name="selected_mixed_random_slopes",
         fixed_predictors=FIXED_PREDICTORS,
         group_col="profession",
         random_predictors=RANDOM_PREDICTORS,
+        pairwise_interactions=starting_fixed_effect_interactions,
     )
-    current_terms = hierarchical_fixed_terms(spec.fixed_predictors)
+    current_terms = hierarchical_fixed_terms(
+        spec.fixed_predictors, spec.pairwise_interactions
+    )
     current_fit = fit_mixed_model_terms(
         df,
         name=f"{spec.name}__full",
@@ -414,45 +490,130 @@ def select_backward_model(
     )
     if current_fit["status"] != "ok":
         return current_fit, pd.DataFrame(), current_terms
+    current_fit_summary = {
+        "llf": float(current_fit["result"].llf),
+        "df_modelwc": int(current_fit["result"].df_modelwc),
+    }
 
     trace_rows: list[dict[str, Any]] = []
+    candidate_rows: list[dict[str, Any]] = []
     step = 0
-    while True:
-        candidates: list[tuple[float, str, dict[str, Any]]] = []
-        for candidate_term in current_terms:
-            if not can_drop_term(current_terms, candidate_term):
-                continue
-            reduced_terms = [t for t in current_terms if t != candidate_term]
-            reduced_fit = fit_mixed_model_terms(
-                df,
-                name=f"{spec.name}__candidate__{step}__{slugify(candidate_term)}",
-                fixed_terms=reduced_terms,
-                group_col=spec.group_col,
-                random_predictors=spec.random_predictors,
-                run_dir=run_dir,
-                maxiter=maxiter,
-            )
-            if reduced_fit["status"] != "ok":
-                continue
-            test = likelihood_ratio_test(current_fit["result"], reduced_fit["result"])
-            candidates.append((float(test["p_value"]), candidate_term, reduced_fit))
-            trace_rows.append(
-                {
-                    "step": step,
-                    "candidate_term": candidate_term,
-                    **test,
-                    "candidate_model": reduced_fit["spec"].name,
-                }
-            )
+    progress_bar = tqdm(
+        total=0,
+        desc="Evaluated candidate models",
+        unit="model",
+        dynamic_ncols=True,
+        leave=True,
+    )
+    try:
+        while True:
+            candidate_tasks: list[tuple[str, list[str], str]] = []
+            for candidate_term in current_terms:
+                if not can_drop_term(current_terms, candidate_term):
+                    continue
+                reduced_terms = [t for t in current_terms if t != candidate_term]
+                candidate_tasks.append(
+                    (
+                        f"{spec.name}__candidate__{step}__{slugify(candidate_term)}",
+                        reduced_terms,
+                        candidate_term,
+                    )
+                )
 
-        if not candidates:
-            break
-        best_p, best_term, best_fit = max(candidates, key=lambda item: item[0])
-        if np.isnan(best_p) or best_p <= alpha:
-            break
-        current_terms = [t for t in current_terms if t != best_term]
-        current_fit = best_fit
-        step += 1
+            if not candidate_tasks:
+                break
+
+            progress_bar.total += len(candidate_tasks)
+            progress_bar.refresh()
+            worker_count = min(len(candidate_tasks), os.cpu_count() or 1)
+            step_results: list[dict[str, Any]] = []
+            if worker_count <= 1:
+                for candidate_name, reduced_terms, candidate_term in candidate_tasks:
+                    step_results.append(
+                        evaluate_candidate_fit(
+                            df,
+                            name=candidate_name,
+                            fixed_terms=reduced_terms,
+                            group_col=spec.group_col,
+                            random_predictors=spec.random_predictors,
+                            run_dir=run_dir,
+                            maxiter=maxiter,
+                            current_fit=current_fit_summary,
+                            candidate_term=candidate_term,
+                            step=step,
+                        )
+                    )
+                    progress_bar.update(1)
+            else:
+                with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
+                    future_map = {
+                        executor.submit(
+                            evaluate_candidate_fit,
+                            df,
+                            name=candidate_name,
+                            fixed_terms=reduced_terms,
+                            group_col=spec.group_col,
+                            random_predictors=spec.random_predictors,
+                            run_dir=run_dir,
+                            maxiter=maxiter,
+                            current_fit=current_fit_summary,
+                            candidate_term=candidate_term,
+                            step=step,
+                        ): candidate_term
+                        for candidate_name, reduced_terms, candidate_term in candidate_tasks
+                    }
+                    for future in concurrent.futures.as_completed(future_map):
+                        step_results.append(future.result())
+                        progress_bar.update(1)
+
+            candidates: list[tuple[float, str, dict[str, Any]]] = []
+            for reduced_fit in step_results:
+                if reduced_fit["status"] != "ok":
+                    continue
+                test = reduced_fit["lr_test"]
+                candidate_rows.append(
+                    {
+                        "step": reduced_fit["step"],
+                        "candidate_term": reduced_fit["candidate_term"],
+                        "candidate_model": reduced_fit["spec"].name,
+                        **test,
+                        "aic": float(reduced_fit["metrics"]["aic"]),
+                        "bic": float(reduced_fit["metrics"]["bic"]),
+                        "log_likelihood": float(reduced_fit["metrics"]["log_likelihood"]),
+                        "R2m": float(reduced_fit["metrics"]["R2m"]),
+                        "R2c": float(reduced_fit["metrics"]["R2c"]),
+                        "converged": bool(reduced_fit["metrics"]["converged"]),
+                        "nobs": int(reduced_fit["metrics"]["nobs"]),
+                        "optimizer": reduced_fit["metrics"]["optimizer"],
+                        "formula": reduced_fit["metrics"]["formula"],
+                        "re_formula": reduced_fit["metrics"]["re_formula"],
+                    }
+                )
+                trace_rows.append(
+                    {
+                        "step": reduced_fit["step"],
+                        "candidate_term": reduced_fit["candidate_term"],
+                        **test,
+                        "candidate_model": reduced_fit["spec"].name,
+                    }
+                )
+                candidates.append(
+                    (float(test["p_value"]), reduced_fit["candidate_term"], reduced_fit)
+                )
+
+            if not candidates:
+                break
+            best_p, best_term, best_fit = max(candidates, key=lambda item: item[0])
+            if np.isnan(best_p) or best_p <= alpha:
+                break
+            current_terms = [t for t in current_terms if t != best_term]
+            current_fit_summary = {
+                "llf": float(best_fit["llf"]),
+                "df_modelwc": int(best_fit["df_modelwc"]),
+            }
+            step += 1
+    finally:
+        progress_bar.close()
 
     selected_fit = fit_mixed_model_terms(
         df,
@@ -466,6 +627,18 @@ def select_backward_model(
     trace = pd.DataFrame(trace_rows)
     if not trace.empty:
         trace.to_csv(run_dir / "model_selection_trace.csv", index=False)
+    candidate_table = pd.DataFrame(candidate_rows)
+    if not candidate_table.empty:
+        candidate_table["aic"] = pd.to_numeric(candidate_table["aic"], errors="coerce")
+        candidate_table = candidate_table.sort_values(
+            ["aic", "bic", "candidate_model"], na_position="last"
+        )
+        top_candidates = candidate_table.head(5).copy()
+        top_candidates.to_csv(run_dir / "top_candidates_by_aic.csv", index=False)
+        (run_dir / "top_candidates_by_aic.json").write_text(
+            json.dumps(top_candidates.to_dict(orient="records"), indent=2),
+            encoding="utf-8",
+        )
     (run_dir / "selected_model.json").write_text(
         json.dumps(
             {
@@ -473,6 +646,12 @@ def select_backward_model(
                 "selected_terms": current_terms,
                 "alpha": alpha,
                 "full_model": asdict(spec),
+                "starting_fixed_effect_interactions": starting_fixed_effect_interactions,
+                "top_candidates_by_aic_path": (
+                    str((run_dir / "top_candidates_by_aic.csv").resolve())
+                    if not candidate_table.empty
+                    else None
+                ),
             },
             indent=2,
         ),
@@ -481,7 +660,14 @@ def select_backward_model(
     return selected_fit, trace, current_terms
 
 
-def run_one_input(input_csv: Path, data_dir: Path, *, maxiter: int, alpha: float) -> Path:
+def run_one_input(
+    input_csv: Path,
+    data_dir: Path,
+    *,
+    maxiter: int,
+    alpha: float,
+    starting_fixed_effect_interactions: bool,
+) -> Path:
     inputs_dir = data_dir / "inputs"
     runs_dir = data_dir / "runs"
     inputs_dir.mkdir(parents=True, exist_ok=True)
@@ -512,7 +698,11 @@ def run_one_input(input_csv: Path, data_dir: Path, *, maxiter: int, alpha: float
 
     started = datetime.now(timezone.utc).isoformat()
     selected_fit, trace, selected_terms = select_backward_model(
-        df, run_dir, maxiter=maxiter, alpha=alpha
+        df,
+        run_dir,
+        maxiter=maxiter,
+        alpha=alpha,
+        starting_fixed_effect_interactions=starting_fixed_effect_interactions,
     )
     selected_payload = report_payload(selected_fit, selected_terms, run_dir)
     baseline_fit = fit_mixed_model_terms(
@@ -529,6 +719,11 @@ def run_one_input(input_csv: Path, data_dir: Path, *, maxiter: int, alpha: float
         **selected_payload,
         "selected_model_metrics": selected_payload,
         "random_intercept_baseline_metrics": baseline_payload,
+        "top_candidates_by_aic_path": (
+            str((run_dir / "top_candidates_by_aic.csv").resolve())
+            if (run_dir / "top_candidates_by_aic.csv").exists()
+            else None
+        ),
     }
     (run_dir / "report_reuse_summary.json").write_text(
         json.dumps(report_reuse_summary, indent=2), encoding="utf-8"
@@ -549,6 +744,7 @@ def run_one_input(input_csv: Path, data_dir: Path, *, maxiter: int, alpha: float
                     ),
                     "selected_model_metrics": selected_payload,
                     "random_intercept_baseline_metrics": baseline_payload,
+                    "top_candidates_by_aic_path": report_reuse_summary["top_candidates_by_aic_path"],
                 },
             },
             indent=2,
@@ -612,6 +808,38 @@ def collect_model_rows(run_dirs: list[Path]) -> pd.DataFrame:
     return df
 
 
+def collect_top_candidate_rows(run_dirs: list[Path]) -> pd.DataFrame:
+    rows: list[dict[str, Any]] = []
+    for run_dir in run_dirs:
+        top_candidates_path = run_dir / "top_candidates_by_aic.csv"
+        if not top_candidates_path.exists():
+            continue
+        run_summary = load_json(run_dir / "run_summary.json")
+        input_csv = run_summary.get("input_csv")
+        target_model = target_model_from_input(input_csv, run_dir.name)
+        candidates = pd.read_csv(top_candidates_path)
+        if candidates.empty:
+            continue
+        candidates["aic"] = pd.to_numeric(candidates["aic"], errors="coerce")
+        for _, row in candidates.iterrows():
+            rows.append(
+                {
+                    "run_dir": str(run_dir.resolve()),
+                    "run_name": run_dir.name,
+                    "input_csv": input_csv,
+                    "target_model": target_model,
+                    **row.to_dict(),
+                }
+            )
+    df = pd.DataFrame(rows)
+    for column in ["aic", "bic", "log_likelihood", "nobs"]:
+        if column in df.columns:
+            df[column] = pd.to_numeric(df[column], errors="coerce")
+    if "converged" in df.columns:
+        df["converged"] = df["converged"].astype("boolean")
+    return df
+
+
 def load_fixed_effects(model_dir: Path) -> pd.DataFrame:
     df = pd.read_csv(model_dir / "fixed_effects.csv")
     for column in ["coef", "std_err", "p_value", "ci_low", "ci_high"]:
@@ -636,11 +864,22 @@ def best_expanded_models(metrics: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def aggregate_outputs(metrics: pd.DataFrame, comparisons_dir: Path) -> dict[str, pd.DataFrame]:
+def aggregate_outputs(
+    metrics: pd.DataFrame, top_candidates: pd.DataFrame, comparisons_dir: Path
+) -> dict[str, pd.DataFrame]:
     comparisons_dir.mkdir(parents=True, exist_ok=True)
     metrics.sort_values(["target_model", "aic", "model_name"], na_position="last").to_csv(
         comparisons_dir / "model_metrics_across_selection_runs.csv", index=False
     )
+
+    if not top_candidates.empty:
+        top_candidates.sort_values(
+            ["target_model", "aic", "bic", "candidate_model"], na_position="last"
+        ).groupby("target_model", as_index=False).head(5).to_csv(
+            comparisons_dir / "top_candidates_by_input.csv", index=False
+        )
+    else:
+        top_candidates.to_csv(comparisons_dir / "top_candidates_by_input.csv", index=False)
 
     summary = (
         metrics.groupby(["target_model", "model_name"], dropna=False)
@@ -693,6 +932,7 @@ def aggregate_outputs(metrics: pd.DataFrame, comparisons_dir: Path) -> dict[str,
     best_models.to_csv(comparisons_dir / "best_models_by_target_model.csv", index=False)
     return {
         "metrics": metrics,
+        "top_candidates": top_candidates,
         "summary": summary,
         "best_models": best_models,
         "coefficients": coefficients,
@@ -738,12 +978,15 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     tab_dir.mkdir(parents=True, exist_ok=True)
 
     metrics = artifacts["metrics"].copy()
+    top_candidates = artifacts["top_candidates"].copy()
     best_models = artifacts["best_models"].copy()
     coefficients = artifacts["coefficients"].copy()
     random_effects = artifacts["random_effects"].copy()
     for df in [metrics, best_models, coefficients, random_effects]:
         if "target_model" in df.columns:
             df["model"] = df["target_model"].map(clean_model_name)
+    if not top_candidates.empty and "target_model" in top_candidates.columns:
+        top_candidates["model"] = top_candidates["target_model"].map(clean_model_name)
 
     model_order = sorted(best_models["model"].unique())
     best_models["selected_model"] = best_models["model_name"].str.replace("_", " ", regex=False)
@@ -778,23 +1021,42 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     )
     fit_html = write_table(fit_table, tab_dir / "model_fit.html")
 
-    candidates = (
-        metrics.sort_values(["target_model", "aic", "bic", "model_name"])
-        .groupby("target_model", as_index=False)
-        .head(8)
-        .copy()
-    )
-    candidates["model"] = candidates["target_model"].map(clean_model_name)
-    candidates["delta_aic"] = candidates.groupby("target_model")["aic"].transform(
+    if not top_candidates.empty:
+        candidate_source = top_candidates.copy()
+        candidate_source["candidate_label"] = candidate_source["candidate_model"]
+        candidate_source["candidate_detail"] = candidate_source["candidate_term"]
+    else:
+        candidate_source = (
+            metrics.sort_values(["target_model", "aic", "bic", "model_name"])
+            .groupby("target_model", as_index=False)
+            .head(5)
+            .copy()
+        )
+        candidate_source["candidate_label"] = candidate_source["model_name"]
+        candidate_source["candidate_detail"] = candidate_source["selection_variant"]
+    candidate_source["model"] = candidate_source["target_model"].map(clean_model_name)
+    candidate_source["delta_aic"] = candidate_source.groupby("target_model")["aic"].transform(
         lambda s: s - s.min()
     )
-    candidate_table = candidates[
-        ["model", "model_name", "selection_variant", "converged", "aic", "delta_aic", "bic", "R2m", "R2c", "formula", "re_formula"]
+    candidate_table = candidate_source[
+        [
+            "model",
+            "candidate_label",
+            "candidate_detail",
+            "converged",
+            "aic",
+            "delta_aic",
+            "bic",
+            "R2m",
+            "R2c",
+            "formula",
+            "re_formula",
+        ]
     ].rename(
         columns={
             "model": "Model",
-            "model_name": "Candidate",
-            "selection_variant": "Variant",
+            "candidate_label": "Candidate",
+            "candidate_detail": "Candidate detail",
             "converged": "Converged",
             "aic": "AIC",
             "delta_aic": "Delta AIC",
@@ -1105,7 +1367,8 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
               </div>
             </section>
             <section>
-              <h2>Model Selection</h2>
+              <h2>Top Candidates by AIC</h2>
+              <p class="section-note">The five strongest fitted candidate models retained for each input file, ranked by AIC.</p>
               <div class="table-wrap">{candidates_html}</div>
             </section>
             <section>
@@ -1177,6 +1440,7 @@ def main() -> int:
         "maxiter": args.maxiter,
         "alpha": args.alpha,
         "reuse_existing": bool(args.reuse_existing),
+        "starting_fixed_effect_interactions": bool(args.starting_fixed_effect_interactions),
     }
 
     run_dirs: list[Path]
@@ -1199,7 +1463,13 @@ def main() -> int:
         for input_csv in inputs:
             print(f"Running random-slope selection for {input_csv.name}")
             run_dirs.append(
-                run_one_input(input_csv, args.data_dir, maxiter=args.maxiter, alpha=args.alpha)
+                run_one_input(
+                    input_csv,
+                    args.data_dir,
+                    maxiter=args.maxiter,
+                    alpha=args.alpha,
+                    starting_fixed_effect_interactions=args.starting_fixed_effect_interactions,
+                )
             )
         manifest["run_dirs"] = [str(path.resolve()) for path in run_dirs]
 
@@ -1211,7 +1481,8 @@ def main() -> int:
     if metrics.empty:
         print("No fitted model metrics were generated.", file=sys.stderr)
         return 1
-    artifacts = aggregate_outputs(metrics, args.data_dir / "comparisons")
+    top_candidates = collect_top_candidate_rows(run_dirs)
+    artifacts = aggregate_outputs(metrics, top_candidates, args.data_dir / "comparisons")
     report_path = build_report(artifacts, args.report_dir)
 
     manifest["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
