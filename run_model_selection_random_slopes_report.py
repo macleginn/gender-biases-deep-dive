@@ -36,6 +36,8 @@ try:
     from scipy.stats import chi2
     from sklearn.decomposition import PCA
     from sklearn.preprocessing import StandardScaler
+
+    log = np.log
 except ImportError as exc:  # pragma: no cover - dependency guard
     IMPORT_ERROR = exc
 
@@ -46,6 +48,8 @@ REQUIRED_COLUMNS = {
     "semantic_role",
     "valence",
     "dominance",
+    "frequency",
+    "lex_emb_norm",
     "profession",
     "log_he_she_odds",
 }
@@ -57,7 +61,15 @@ CATEGORICAL_COLUMNS = {
     "dominance",
     "profession",
 }
-FIXED_PREDICTORS = ["tense", "syntactic_role", "valence", "dominance"]
+FIXED_PREDICTORS = [
+    "tense",
+    "semantic_role",
+    "syntactic_role",
+    "valence",
+    "dominance",
+    "frequency",
+    "lex_emb_norm",
+]
 RANDOM_PREDICTORS = ["semantic_role", "syntactic_role", "valence", "dominance"]
 RANDOM_EFFECT_VARIANCE_COLUMNS = [
     "random_effect_variance_semantic_role",
@@ -99,7 +111,7 @@ def parse_args() -> argparse.Namespace:
         "results_csv",
         type=Path,
         nargs="*",
-        help="Input CSVs. Defaults to all top-level he_she_odds_results__*.csv files.",
+        help="Input CSVs. Defaults to all modelling_data/he_she_odds_results__*.csv files.",
     )
     parser.add_argument(
         "--data-dir",
@@ -142,6 +154,8 @@ def slugify(value: str) -> str:
 
 
 def term(name: str) -> str:
+    if name == "frequency":
+        return "log_frequency"
     return f"C({name})" if name in CATEGORICAL_COLUMNS else name
 
 
@@ -172,12 +186,12 @@ def discover_inputs(paths: list[Path]) -> list[Path]:
     if paths:
         csvs = paths
     else:
-        csvs = sorted(Path.cwd().glob("he_she_odds_results__*.csv"))
+        csvs = sorted(Path("modelling_data").glob("he_she_odds_results__*.csv"))
     missing = [path for path in csvs if not path.exists()]
     if missing:
         raise FileNotFoundError("Missing input CSVs: " + ", ".join(map(str, missing)))
     if not csvs:
-        raise FileNotFoundError("No he_she_odds_results__*.csv files found.")
+        raise FileNotFoundError("No he_she_odds_results__*.csv files found in modelling_data.")
     return [path.resolve() for path in csvs]
 
 
@@ -203,6 +217,9 @@ def load_results_csv(path: Path) -> pd.DataFrame:
             df[column] = df[column].astype("string").str.strip().astype("category")
         else:
             df[column] = pd.to_numeric(df[column], errors="coerce")
+    if (df["frequency"] <= 0).any():
+        raise ValueError(f"{path} contains non-positive frequency values, which cannot be logged.")
+    df["log_frequency"] = np.log(df["frequency"])
     return df.dropna(subset=sorted(REQUIRED_COLUMNS)).copy()
 
 
