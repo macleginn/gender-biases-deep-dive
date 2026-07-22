@@ -1,0 +1,50 @@
+                                Mixed Linear Model Regression Results
+======================================================================================================
+Model:                           MixedLM              Dependent Variable:              log_he_she_odds
+No. Observations:                6720                 Method:                          ML             
+No. Groups:                      2                    Scale:                           1.6372         
+Min. group size:                 3360                 Log-Likelihood:                  -11191.6822    
+Max. group size:                 3360                 Converged:                       No             
+Mean group size:                 3360.0                                                               
+------------------------------------------------------------------------------------------------------
+                                                            Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+------------------------------------------------------------------------------------------------------
+Intercept                                                    1.029    0.081 12.674 0.000  0.870  1.188
+C(tense)[T.past perfect]                                     0.041    0.108  0.380 0.704 -0.171  0.253
+C(tense)[T.present continuous]                               0.071    0.108  0.653 0.514 -0.141  0.283
+C(tense)[T.present perfect]                                  0.182    0.108  1.679 0.093 -0.030  0.394
+C(tense)[T.simple future]                                    0.622    0.108  5.754 0.000  0.410  0.834
+C(tense)[T.simple past]                                      0.015    0.108  0.142 0.887 -0.197  0.227
+C(valence)[T.-val]                                           0.030    0.088  0.334 0.738 -0.144  0.203
+C(dominance)[T.-dom]                                         0.044    0.088  0.496 0.620 -0.129  0.217
+C(syntactic_role)[T.subject]                                -0.223    0.088 -2.526 0.012 -0.396 -0.050
+C(tense)[T.past perfect]:C(valence)[T.-val]                  0.081    0.108  0.753 0.451 -0.130  0.293
+C(tense)[T.present continuous]:C(valence)[T.-val]            0.025    0.108  0.228 0.819 -0.187  0.237
+C(tense)[T.present perfect]:C(valence)[T.-val]               0.071    0.108  0.660 0.509 -0.141  0.283
+C(tense)[T.simple future]:C(valence)[T.-val]                 0.163    0.108  1.511 0.131 -0.049  0.375
+C(tense)[T.simple past]:C(valence)[T.-val]                   0.086    0.108  0.792 0.429 -0.126  0.298
+C(tense)[T.past perfect]:C(dominance)[T.-dom]                0.018    0.108  0.163 0.871 -0.194  0.230
+C(tense)[T.present continuous]:C(dominance)[T.-dom]         -0.102    0.108 -0.946 0.344 -0.314  0.110
+C(tense)[T.present perfect]:C(dominance)[T.-dom]            -0.022    0.108 -0.204 0.838 -0.234  0.190
+C(tense)[T.simple future]:C(dominance)[T.-dom]              -0.149    0.108 -1.382 0.167 -0.361  0.062
+C(tense)[T.simple past]:C(dominance)[T.-dom]                 0.012    0.108  0.113 0.910 -0.200  0.224
+C(tense)[T.past perfect]:C(syntactic_role)[T.subject]        0.005    0.108  0.043 0.966 -0.207  0.217
+C(tense)[T.present continuous]:C(syntactic_role)[T.subject]  0.045    0.108  0.414 0.679 -0.167  0.257
+C(tense)[T.present perfect]:C(syntactic_role)[T.subject]    -0.077    0.108 -0.714 0.475 -0.289  0.135
+C(tense)[T.simple future]:C(syntactic_role)[T.subject]      -0.148    0.108 -1.370 0.171 -0.360  0.064
+C(tense)[T.simple past]:C(syntactic_role)[T.subject]         0.112    0.108  1.036 0.300 -0.100  0.324
+C(valence)[T.-val]:C(dominance)[T.-dom]                     -0.083    0.062 -1.336 0.182 -0.206  0.039
+C(valence)[T.-val]:C(syntactic_role)[T.subject]             -0.035    0.062 -0.568 0.570 -0.158  0.087
+C(dominance)[T.-dom]:C(syntactic_role)[T.subject]            0.000    0.062  0.003 0.997 -0.122  0.123
+Group Var                                                    0.000                                    
+Group x C(syntactic_role)[T.subject] Cov                     0.000                                    
+C(syntactic_role)[T.subject] Var                             0.000                                    
+======================================================================================================
+
+
+Warnings:
+- ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+- ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.
+- ConvergenceWarning: Gradient optimization failed, |grad| = 22.576238
+- ConvergenceWarning: The MLE may be on the boundary of the parameter space.
+- ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite.

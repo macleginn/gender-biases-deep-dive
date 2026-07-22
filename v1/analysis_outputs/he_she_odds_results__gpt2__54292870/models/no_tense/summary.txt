@@ -1,0 +1,33 @@
+                                  Mixed Linear Model Regression Results
+==========================================================================================================
+Model:                           MixedLM                Dependent Variable:                log_he_she_odds
+No. Observations:                6720                   Method:                            ML             
+No. Groups:                      14                     Scale:                             0.0878         
+Min. group size:                 480                    Log-Likelihood:                    -1459.6063     
+Max. group size:                 480                    Converged:                         Yes            
+Mean group size:                 480.0                                                                    
+----------------------------------------------------------------------------------------------------------
+                                                               Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------------------------------------------
+Intercept                                                       0.771    0.242   3.185 0.001  0.297  1.246
+C(syntactic_role)[T.subject]                                   -0.038    0.049  -0.785 0.432 -0.134  0.057
+C(valence)[T.-val]                                              0.192    0.014  13.280 0.000  0.164  0.220
+C(dominance)[T.-dom]                                            0.103    0.014   7.150 0.000  0.075  0.132
+C(semantic_role)[T.patient]                                    -0.142    0.023  -6.224 0.000 -0.187 -0.097
+C(syntactic_role)[T.subject]:C(valence)[T.-val]                -0.031    0.014  -2.122 0.034 -0.059 -0.002
+C(syntactic_role)[T.subject]:C(dominance)[T.-dom]               0.012    0.014   0.864 0.388 -0.016  0.041
+C(syntactic_role)[T.subject]:C(semantic_role)[T.patient]        0.062    0.014   4.281 0.000  0.034  0.090
+C(valence)[T.-val]:C(dominance)[T.-dom]                        -0.187    0.014 -12.940 0.000 -0.215 -0.159
+C(valence)[T.-val]:C(semantic_role)[T.patient]                 -0.011    0.014  -0.747 0.455 -0.039  0.018
+C(dominance)[T.-dom]:C(semantic_role)[T.patient]                0.017    0.014   1.196 0.232 -0.011  0.046
+Group Var                                                       0.819    1.048                            
+Group x C(semantic_role)[T.patient] Cov                         0.008    0.059                            
+C(semantic_role)[T.patient] Var                                 0.004    0.007                            
+Group x C(syntactic_role)[T.subject] Cov                        0.039    0.149                            
+C(semantic_role)[T.patient] x C(syntactic_role)[T.subject] Cov  0.003    0.012                            
+C(syntactic_role)[T.subject] Var                                0.030    0.040                            
+==========================================================================================================
+
+
+Warnings:
+- ConvergenceWarning: The MLE may be on the boundary of the parameter space.

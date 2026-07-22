@@ -1,0 +1,13 @@
+{
+  "started_at_utc": "2026-07-18T11:00:15.014727+00:00",
+  "primary_analysis": {
+    "selected_model": "selected_mixed",
+    "status": "ok",
+    "selection_steps": 27
+  },
+  "metadata_analysis": {
+    "status": "skipped",
+    "reason": "Metadata selection is not implemented in this script."
+  },
+  "finished_at_utc": "2026-07-18T11:00:21.608267+00:00"
+}

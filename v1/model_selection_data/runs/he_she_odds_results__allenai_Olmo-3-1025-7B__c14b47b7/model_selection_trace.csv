@@ -1,0 +1,16 @@
+step,candidate_term,lr_stat,df_diff,p_value,candidate_model
+0,C(tense):C(syntactic_role),73.5366560192997,5,1.878826459472441e-14,selected_mixed_random_slopes__candidate__0__C_tense_C_syntactic_role
+0,C(tense):C(valence),28.313356994563947,5,3.160798432130522e-05,selected_mixed_random_slopes__candidate__0__C_tense_C_valence
+0,C(tense):C(dominance),41.99059074005345,5,5.9162883217521824e-08,selected_mixed_random_slopes__candidate__0__C_tense_C_dominance
+0,C(syntactic_role):C(valence),3.337225532530283,1,0.06772872233886129,selected_mixed_random_slopes__candidate__0__C_syntactic_role_C_valence
+0,C(syntactic_role):C(dominance),0.00011515249207150191,1,0.9914381345790846,selected_mixed_random_slopes__candidate__0__C_syntactic_role_C_dominance
+0,C(valence):C(dominance),18.427950269040593,1,1.7645073361512077e-05,selected_mixed_random_slopes__candidate__0__C_valence_C_dominance
+1,C(tense):C(syntactic_role),73.53665481878852,5,1.878827542473784e-14,selected_mixed_random_slopes__candidate__1__C_tense_C_syntactic_role
+1,C(tense):C(valence),28.3133565711978,5,3.1607990351407406e-05,selected_mixed_random_slopes__candidate__1__C_tense_C_valence
+1,C(tense):C(dominance),41.99059008119366,5,5.916290137974192e-08,selected_mixed_random_slopes__candidate__1__C_tense_C_dominance
+1,C(syntactic_role):C(valence),3.337225657189265,1,0.06772871720704017,selected_mixed_random_slopes__candidate__1__C_syntactic_role_C_valence
+1,C(valence):C(dominance),18.42795001691411,1,1.7645075696106756e-05,selected_mixed_random_slopes__candidate__1__C_valence_C_dominance
+2,C(tense):C(syntactic_role),73.49993184578489,5,1.912249418141116e-14,selected_mixed_random_slopes__candidate__2__C_tense_C_syntactic_role
+2,C(tense):C(valence),28.29915902337234,5,3.181085238630842e-05,selected_mixed_random_slopes__candidate__2__C_tense_C_valence
+2,C(tense):C(dominance),41.96954307020496,5,5.974593018545967e-08,selected_mixed_random_slopes__candidate__2__C_tense_C_dominance
+2,C(valence):C(dominance),18.41868521807919,1,1.7731074019460368e-05,selected_mixed_random_slopes__candidate__2__C_valence_C_dominance

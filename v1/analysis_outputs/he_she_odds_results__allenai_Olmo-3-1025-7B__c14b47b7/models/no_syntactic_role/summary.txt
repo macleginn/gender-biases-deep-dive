@@ -1,0 +1,49 @@
+                                Mixed Linear Model Regression Results
+=====================================================================================================
+Model:                          MixedLM              Dependent Variable:              log_he_she_odds
+No. Observations:               6720                 Method:                          ML             
+No. Groups:                     14                   Scale:                           0.1893         
+Min. group size:                480                  Log-Likelihood:                  -4033.8979     
+Max. group size:                480                  Converged:                       No             
+Mean group size:                480.0                                                                
+-----------------------------------------------------------------------------------------------------
+                                                           Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+-----------------------------------------------------------------------------------------------------
+Intercept                                                   0.924    0.339  2.727 0.006  0.260  1.588
+C(tense)[T.past perfect]                                    0.059    0.037  1.602 0.109 -0.013  0.131
+C(tense)[T.present continuous]                              0.105    0.037  2.854 0.004  0.033  0.177
+C(tense)[T.present perfect]                                 0.148    0.037  4.012 0.000  0.075  0.220
+C(tense)[T.simple future]                                   0.478    0.037 13.002 0.000  0.406  0.550
+C(tense)[T.simple past]                                     0.105    0.037  2.842 0.004  0.032  0.177
+C(valence)[T.-val]                                         -0.005    0.030 -0.173 0.863 -0.064  0.054
+C(dominance)[T.-dom]                                        0.024    0.030  0.811 0.417 -0.034  0.083
+C(semantic_role)[T.patient]                                -0.014    0.110 -0.123 0.902 -0.230  0.202
+C(tense)[T.past perfect]:C(valence)[T.-val]                 0.081    0.037  2.215 0.027  0.009  0.154
+C(tense)[T.present continuous]:C(valence)[T.-val]           0.025    0.037  0.671 0.502 -0.047  0.097
+C(tense)[T.present perfect]:C(valence)[T.-val]              0.071    0.037  1.941 0.052 -0.001  0.143
+C(tense)[T.simple future]:C(valence)[T.-val]                0.163    0.037  4.442 0.000  0.091  0.235
+C(tense)[T.simple past]:C(valence)[T.-val]                  0.086    0.037  2.327 0.020  0.014  0.158
+C(tense)[T.past perfect]:C(dominance)[T.-dom]               0.018    0.037  0.479 0.632 -0.054  0.090
+C(tense)[T.present continuous]:C(dominance)[T.-dom]        -0.102    0.037 -2.780 0.005 -0.174 -0.030
+C(tense)[T.present perfect]:C(dominance)[T.-dom]           -0.022    0.037 -0.601 0.548 -0.094  0.050
+C(tense)[T.simple future]:C(dominance)[T.-dom]             -0.149    0.037 -4.064 0.000 -0.222 -0.077
+C(tense)[T.simple past]:C(dominance)[T.-dom]                0.012    0.037  0.331 0.740 -0.060  0.084
+C(tense)[T.past perfect]:C(semantic_role)[T.patient]       -0.031    0.037 -0.844 0.399 -0.103  0.041
+C(tense)[T.present continuous]:C(semantic_role)[T.patient] -0.024    0.037 -0.651 0.515 -0.096  0.048
+C(tense)[T.present perfect]:C(semantic_role)[T.patient]    -0.009    0.037 -0.249 0.804 -0.081  0.063
+C(tense)[T.simple future]:C(semantic_role)[T.patient]       0.140    0.037  3.804 0.000  0.068  0.212
+C(tense)[T.simple past]:C(semantic_role)[T.patient]        -0.066    0.037 -1.806 0.071 -0.138  0.006
+C(valence)[T.-val]:C(dominance)[T.-dom]                    -0.083    0.021 -3.928 0.000 -0.125 -0.042
+C(valence)[T.-val]:C(semantic_role)[T.patient]              0.034    0.021  1.599 0.110 -0.008  0.076
+C(dominance)[T.-dom]:C(semantic_role)[T.patient]            0.039    0.021  1.838 0.066 -0.003  0.081
+Group Var                                                   1.597    1.539                           
+Group x C(semantic_role)[T.patient] Cov                     0.047                                    
+C(semantic_role)[T.patient] Var                             0.158                                    
+=====================================================================================================
+
+
+Warnings:
+- ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+- ConvergenceWarning: MixedLM optimization failed, trying a different optimizer may help.
+- ConvergenceWarning: Gradient optimization failed, |grad| = 14.978776
+- ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite.

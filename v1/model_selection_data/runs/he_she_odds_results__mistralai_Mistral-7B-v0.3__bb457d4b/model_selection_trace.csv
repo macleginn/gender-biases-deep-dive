@@ -1,0 +1,16 @@
+step,candidate_term,lr_stat,df_diff,p_value,candidate_model
+0,C(tense):C(syntactic_role),66.17435275139724,5,6.394565700313169e-13,selected_mixed_random_slopes__candidate__0__C_tense_C_syntactic_role
+0,C(tense):C(valence),25.781685355788795,5,9.836938388567265e-05,selected_mixed_random_slopes__candidate__0__C_tense_C_valence
+0,C(tense):C(dominance),57.70080121813953,5,3.6257684335781194e-11,selected_mixed_random_slopes__candidate__0__C_tense_C_dominance
+0,C(syntactic_role):C(valence),23.451125098647026,1,1.28127768811541e-06,selected_mixed_random_slopes__candidate__0__C_syntactic_role_C_valence
+0,C(syntactic_role):C(dominance),3.8119173925661016,1,0.05088916441802495,selected_mixed_random_slopes__candidate__0__C_syntactic_role_C_dominance
+0,C(valence):C(dominance),1.877657868892129,1,0.17060058514632043,selected_mixed_random_slopes__candidate__0__C_valence_C_dominance
+1,C(tense):C(syntactic_role),66.15576293607592,5,6.451641051934303e-13,selected_mixed_random_slopes__candidate__1__C_tense_C_syntactic_role
+1,C(tense):C(valence),25.774466435854265,5,9.86867049536561e-05,selected_mixed_random_slopes__candidate__1__C_tense_C_valence
+1,C(tense):C(dominance),57.68458896624361,5,3.6537908059051246e-11,selected_mixed_random_slopes__candidate__1__C_tense_C_dominance
+1,C(syntactic_role):C(valence),23.44448267488042,1,1.2857092809902377e-06,selected_mixed_random_slopes__candidate__1__C_syntactic_role_C_valence
+1,C(syntactic_role):C(dominance),3.810878210599185,1,0.05092074535563484,selected_mixed_random_slopes__candidate__1__C_syntactic_role_C_dominance
+2,C(tense):C(syntactic_role),66.11800403535017,5,6.569141044093163e-13,selected_mixed_random_slopes__candidate__2__C_tense_C_syntactic_role
+2,C(tense):C(valence),25.759662921751442,5,9.934059513606675e-05,selected_mixed_random_slopes__candidate__2__C_tense_C_valence
+2,C(tense):C(dominance),57.65165435180097,5,3.711384640592199e-11,selected_mixed_random_slopes__candidate__2__C_tense_C_dominance
+2,C(syntactic_role):C(valence),23.431048984122754,1,1.2947188084572918e-06,selected_mixed_random_slopes__candidate__2__C_syntactic_role_C_valence

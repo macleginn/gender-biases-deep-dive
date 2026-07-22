@@ -1,0 +1,17 @@
+{
+  "started_at_utc": "2026-07-20T19:21:19.960497+00:00",
+  "data_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data",
+  "report_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_report",
+  "maxiter": 1000,
+  "alpha": 0.05,
+  "reuse_existing": true,
+  "run_dirs": [
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__Qwen_Qwen3-4B-Base__2bc637df",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__allenai_Olmo-3-1025-7B__c14b47b7",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__google_gemma-3-4b-pt__ccb39b90",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__gpt2__54292870",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_data/runs/he_she_odds_results__mistralai_Mistral-7B-v0.3__bb457d4b"
+  ],
+  "finished_at_utc": "2026-07-20T19:21:28.691519+00:00",
+  "report_html": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/model_selection_report/report.html"
+}

@@ -1,0 +1,40 @@
+                                 Mixed Linear Model Regression Results
+=======================================================================================================
+Model:                          MixedLM               Dependent Variable:               log_he_she_odds
+No. Observations:               6720                  Method:                           ML             
+No. Groups:                     14                    Scale:                            0.1975         
+Min. group size:                480                   Log-Likelihood:                   -4140.1421     
+Max. group size:                480                   Converged:                        Yes            
+Mean group size:                480.0                                                                  
+-------------------------------------------------------------------------------------------------------
+                                                            Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+-------------------------------------------------------------------------------------------------------
+Intercept                                                    1.305    0.265   4.928 0.000  0.786  1.823
+C(tense)[T.past perfect]                                    -0.059    0.038  -1.576 0.115 -0.133  0.014
+C(tense)[T.present continuous]                               0.088    0.038   2.334 0.020  0.014  0.161
+C(tense)[T.present perfect]                                 -0.004    0.038  -0.103 0.918 -0.077  0.070
+C(tense)[T.simple future]                                    0.339    0.038   9.015 0.000  0.265  0.412
+C(tense)[T.simple past]                                      0.039    0.038   1.041 0.298 -0.035  0.113
+C(syntactic_role)[T.subject]                                -0.334    0.031 -10.895 0.000 -0.394 -0.274
+C(valence)[T.-val]                                           0.113    0.031   3.699 0.000  0.053  0.174
+C(dominance)[T.-dom]                                         0.124    0.031   4.029 0.000  0.063  0.184
+C(tense)[T.past perfect]:C(syntactic_role)[T.subject]       -0.101    0.038  -2.685 0.007 -0.174 -0.027
+C(tense)[T.present continuous]:C(syntactic_role)[T.subject] -0.126    0.038  -3.352 0.001 -0.200 -0.052
+C(tense)[T.present perfect]:C(syntactic_role)[T.subject]    -0.053    0.038  -1.408 0.159 -0.126  0.021
+C(tense)[T.simple future]:C(syntactic_role)[T.subject]      -0.109    0.038  -2.903 0.004 -0.183 -0.035
+C(tense)[T.simple past]:C(syntactic_role)[T.subject]         0.023    0.038   0.620 0.535 -0.050  0.097
+C(tense)[T.past perfect]:C(valence)[T.-val]                  0.093    0.038   2.481 0.013  0.020  0.167
+C(tense)[T.present continuous]:C(valence)[T.-val]           -0.040    0.038  -1.053 0.292 -0.113  0.034
+C(tense)[T.present perfect]:C(valence)[T.-val]               0.089    0.038   2.363 0.018  0.015  0.162
+C(tense)[T.simple future]:C(valence)[T.-val]                 0.028    0.038   0.754 0.451 -0.045  0.102
+C(tense)[T.simple past]:C(valence)[T.-val]                   0.115    0.038   3.052 0.002  0.041  0.188
+C(tense)[T.past perfect]:C(dominance)[T.-dom]               -0.095    0.038  -2.523 0.012 -0.168 -0.021
+C(tense)[T.present continuous]:C(dominance)[T.-dom]         -0.050    0.038  -1.336 0.182 -0.124  0.023
+C(tense)[T.present perfect]:C(dominance)[T.-dom]            -0.093    0.038  -2.474 0.013 -0.167 -0.019
+C(tense)[T.simple future]:C(dominance)[T.-dom]              -0.105    0.038  -2.803 0.005 -0.179 -0.032
+C(tense)[T.simple past]:C(dominance)[T.-dom]                -0.096    0.038  -2.545 0.011 -0.169 -0.022
+C(syntactic_role)[T.subject]:C(valence)[T.-val]              0.066    0.022   3.063 0.002  0.024  0.109
+C(syntactic_role)[T.subject]:C(dominance)[T.-dom]            0.061    0.022   2.814 0.005  0.019  0.104
+C(valence)[T.-val]:C(dominance)[T.-dom]                     -0.278    0.022 -12.798 0.000 -0.320 -0.235
+Group Var                                                    0.970    0.820                            
+=======================================================================================================

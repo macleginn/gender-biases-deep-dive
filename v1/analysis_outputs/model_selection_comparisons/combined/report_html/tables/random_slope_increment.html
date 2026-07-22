@@ -1,0 +1,96 @@
+<table class="dataframe data-table wrap-table compact-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>Baseline selected model</th>
+      <th>Expanded selected model</th>
+      <th>Baseline conditional R2</th>
+      <th>Expanded conditional R2</th>
+      <th>Delta conditional R2</th>
+      <th>Delta conditional R2 (pp)</th>
+      <th>Delta AIC</th>
+      <th>Delta BIC</th>
+      <th>Delta log likelihood</th>
+      <th>Residual variance reduction (%)</th>
+      <th>Baseline random effects</th>
+      <th>Expanded random effects</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>random intercept baseline</td>
+      <td>full/selected</td>
+      <td>0.838</td>
+      <td>0.902</td>
+      <td>0.064</td>
+      <td>6.422</td>
+      <td>-983.106</td>
+      <td>-887.726</td>
+      <td>505.553</td>
+      <td>15.232</td>
+      <td>1</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>random intercept baseline</td>
+      <td>full/selected</td>
+      <td>0.896</td>
+      <td>0.909</td>
+      <td>0.012</td>
+      <td>1.240</td>
+      <td>-519.903</td>
+      <td>-424.523</td>
+      <td>273.951</td>
+      <td>8.994</td>
+      <td>1</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>random intercept baseline</td>
+      <td>full/selected</td>
+      <td>0.918</td>
+      <td>0.947</td>
+      <td>0.030</td>
+      <td>2.968</td>
+      <td>-449.871</td>
+      <td>-354.491</td>
+      <td>238.936</td>
+      <td>8.169</td>
+      <td>1</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>random intercept baseline</td>
+      <td>full/selected</td>
+      <td>0.908</td>
+      <td>0.905</td>
+      <td>-0.003</td>
+      <td>-0.268</td>
+      <td>-957.169</td>
+      <td>-861.790</td>
+      <td>492.585</td>
+      <td>15.239</td>
+      <td>1</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>random intercept baseline</td>
+      <td>full/selected</td>
+      <td>0.915</td>
+      <td>0.920</td>
+      <td>0.005</td>
+      <td>0.497</td>
+      <td>-256.261</td>
+      <td>-160.881</td>
+      <td>142.130</td>
+      <td>5.220</td>
+      <td>1</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,45 @@
+{
+  "started_at_utc": "2026-07-18T10:57:38.632349+00:00",
+  "primary_analysis": {
+    "models": {
+      "full_mixed": {
+        "status": "ok",
+        "group_col": "profession"
+      },
+      "no_tense": {
+        "status": "ok",
+        "group_col": "profession"
+      },
+      "no_syntactic_role": {
+        "status": "ok",
+        "group_col": "profession"
+      },
+      "no_valence": {
+        "status": "ok",
+        "group_col": "profession"
+      },
+      "no_dominance": {
+        "status": "ok",
+        "group_col": "profession"
+      },
+      "no_semantic_role": {
+        "status": "ok",
+        "group_col": "profession"
+      },
+      "full_mixed_2": {
+        "status": "ok",
+        "group_col": "semantic_role"
+      },
+      "no_profession": {
+        "status": "ok",
+        "group_col": "semantic_role"
+      }
+    },
+    "comparisons_written": true
+  },
+  "metadata_analysis": {
+    "status": "skipped",
+    "reason": "No --profession-metadata-csv argument supplied."
+  },
+  "finished_at_utc": "2026-07-18T10:57:43.982586+00:00"
+}

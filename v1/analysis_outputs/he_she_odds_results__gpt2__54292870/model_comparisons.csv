@@ -1,0 +1,7 @@
+full_model,reduced_model,lr_stat,df_diff,p_value
+full_mixed,no_tense,808.095128338311,25,2.3693561228383705e-154
+full_mixed,no_syntactic_role,684.2721581519509,12,1.024180665997657e-138
+full_mixed,no_valence,345.48622189392336,9,5.658688078339085e-69
+full_mixed,no_dominance,230.59334635874984,9,1.2338830499552782e-44
+full_mixed,no_semantic_role,342.10331743685674,12,6.493367554334028e-66
+full_mixed_2,no_profession,17692.296950230077,234,0.0

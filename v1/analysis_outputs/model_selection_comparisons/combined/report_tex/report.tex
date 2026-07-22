@@ -1,0 +1,101 @@
+
+\documentclass[11pt]{article}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{geometry}
+
+\geometry{margin=2.5cm}
+
+\title{Gendered Continuation Analysis}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Model Fit}
+
+\input{tables/model_fit.tex}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{figures/r2_comparison.png}
+\caption{Marginal and conditional $R^2$.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{figures/aic_comparison.png}
+\caption{Best-model AIC values.}
+\end{figure}
+
+\section{Random Effects}
+
+\input{tables/variance_decomposition.tex}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{figures/variance_decomposition.png}
+\caption{Random-slope variance decomposition.}
+\end{figure}
+
+\section{Profession-Level Structure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{figures/profession_intercepts_heatmap.png}
+\caption{Profession intercepts.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{figures/profession_syntactic_role_heatmap.png}
+\caption{Syntactic-role random effects.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{figures/profession_semantic_role_heatmap.png}
+\caption{Semantic-role random effects.}
+\end{figure}
+
+\section{Cross-Model Similarity}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.65\textwidth]{figures/intercept_correlation_matrix.png}
+\caption{Correlation of profession intercepts.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.65\textwidth]{figures/syntactic_role_correlation_matrix.png}
+\caption{Correlation of profession-specific syntactic-role effects.}
+\end{figure}
+
+\section{Profession PCA}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{figures/profession_pca.png}
+\caption{PCA of profession random effects.}
+\end{figure}
+
+\section{Extreme Professions}
+
+\input{tables/extreme_professions.tex}
+
+\section{Fixed Effects}
+
+\input{tables/coefficients.tex}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.95\textwidth]{figures/coefficient_heatmap.png}
+\caption{Cross-model fixed-effect comparison.}
+\end{figure}
+
+\end{document}

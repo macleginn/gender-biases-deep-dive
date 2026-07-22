@@ -1,0 +1,262 @@
+                                   Mixed Linear Model Regression Results
+============================================================================================================
+Model:                             MixedLM                Dependent Variable:                log_he_she_odds
+No. Observations:                  6720                   Method:                            ML             
+No. Groups:                        2                      Scale:                             0.1480         
+Min. group size:                   3360                   Log-Likelihood:                    -3162.5513     
+Max. group size:                   3360                   Converged:                         No             
+Mean group size:                   3360.0                                                                   
+------------------------------------------------------------------------------------------------------------
+                                                                 Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+------------------------------------------------------------------------------------------------------------
+Intercept                                                         1.681    0.098  17.209 0.000  1.490  1.873
+C(tense)[T.past perfect]                                         -0.060    0.067  -0.895 0.371 -0.191  0.071
+C(tense)[T.present continuous]                                   -0.168    0.067  -2.501 0.012 -0.299 -0.036
+C(tense)[T.present perfect]                                      -0.098    0.067  -1.459 0.144 -0.229  0.034
+C(tense)[T.simple future]                                         0.249    0.067   3.711 0.000  0.117  0.380
+C(tense)[T.simple past]                                          -0.142    0.067  -2.114 0.034 -0.273 -0.010
+C(syntactic_role)[T.subject]                                     -0.223    0.087  -2.569 0.010 -0.393 -0.053
+C(valence)[T.-val]                                                0.127    0.043   2.949 0.003  0.043  0.211
+C(dominance)[T.-dom]                                              0.113    0.042   2.686 0.007  0.030  0.195
+C(profession)[T.carpenter]                                        2.255    0.102  22.058 0.000  2.055  2.456
+C(profession)[T.cashier]                                         -1.792    0.103 -17.353 0.000 -1.994 -1.589
+C(profession)[T.ceo]                                              0.032    0.107   0.299 0.765 -0.177  0.241
+C(profession)[T.cleaner]                                         -1.452    0.104 -14.008 0.000 -1.655 -1.249
+C(profession)[T.cook]                                            -0.632    0.106  -5.951 0.000 -0.840 -0.424
+C(profession)[T.designer]                                        -0.546    0.107  -5.095 0.000 -0.756 -0.336
+C(profession)[T.driver]                                           0.268    0.106   2.524 0.012  0.060  0.476
+C(profession)[T.lawyer]                                           0.539    0.106   5.061 0.000  0.330  0.747
+C(profession)[T.manager]                                         -0.511    0.107  -4.778 0.000 -0.721 -0.302
+C(profession)[T.receptionist]                                    -2.448    0.106 -23.114 0.000 -2.655 -2.240
+C(profession)[T.salesperson]                                     -0.409    0.107  -3.826 0.000 -0.619 -0.200
+C(profession)[T.secretary]                                       -2.723    0.107 -25.415 0.000 -2.933 -2.513
+C(profession)[T.teacher]                                         -1.714    0.104 -16.514 0.000 -1.918 -1.511
+C(tense)[T.past perfect]:C(syntactic_role)[T.subject]             0.005    0.033   0.144 0.886 -0.059  0.068
+C(tense)[T.present continuous]:C(syntactic_role)[T.subject]       0.045    0.033   1.378 0.168 -0.019  0.109
+C(tense)[T.present perfect]:C(syntactic_role)[T.subject]         -0.077    0.033  -2.375 0.018 -0.141 -0.013
+C(tense)[T.simple future]:C(syntactic_role)[T.subject]           -0.148    0.033  -4.558 0.000 -0.212 -0.084
+C(tense)[T.simple past]:C(syntactic_role)[T.subject]              0.112    0.033   3.445 0.001  0.048  0.176
+C(tense)[T.past perfect]:C(valence)[T.-val]                       0.081    0.033   2.506 0.012  0.018  0.145
+C(tense)[T.present continuous]:C(valence)[T.-val]                 0.025    0.033   0.759 0.448 -0.039  0.088
+C(tense)[T.present perfect]:C(valence)[T.-val]                    0.071    0.033   2.196 0.028  0.008  0.135
+C(tense)[T.simple future]:C(valence)[T.-val]                      0.163    0.033   5.025 0.000  0.100  0.227
+C(tense)[T.simple past]:C(valence)[T.-val]                        0.086    0.033   2.633 0.008  0.022  0.149
+C(tense)[T.past perfect]:C(dominance)[T.-dom]                     0.018    0.033   0.542 0.588 -0.046  0.081
+C(tense)[T.present continuous]:C(dominance)[T.-dom]              -0.102    0.033  -3.145 0.002 -0.166 -0.039
+C(tense)[T.present perfect]:C(dominance)[T.-dom]                 -0.022    0.033  -0.680 0.496 -0.086  0.042
+C(tense)[T.simple future]:C(dominance)[T.-dom]                   -0.149    0.033  -4.597 0.000 -0.213 -0.086
+C(tense)[T.simple past]:C(dominance)[T.-dom]                      0.012    0.033   0.375 0.708 -0.052  0.076
+C(tense)[T.past perfect]:C(profession)[T.carpenter]              -0.021    0.086  -0.249 0.804 -0.190  0.147
+C(tense)[T.present continuous]:C(profession)[T.carpenter]        -0.243    0.086  -2.820 0.005 -0.411 -0.074
+C(tense)[T.present perfect]:C(profession)[T.carpenter]           -0.334    0.086  -3.882 0.000 -0.503 -0.165
+C(tense)[T.simple future]:C(profession)[T.carpenter]             -0.277    0.086  -3.219 0.001 -0.445 -0.108
+C(tense)[T.simple past]:C(profession)[T.carpenter]                0.039    0.086   0.458 0.647 -0.129  0.208
+C(tense)[T.past perfect]:C(profession)[T.cashier]                 0.222    0.086   2.578 0.010  0.053  0.390
+C(tense)[T.present continuous]:C(profession)[T.cashier]           0.485    0.086   5.640 0.000  0.317  0.654
+C(tense)[T.present perfect]:C(profession)[T.cashier]              0.508    0.086   5.901 0.000  0.339  0.676
+C(tense)[T.simple future]:C(profession)[T.cashier]                0.706    0.086   8.209 0.000  0.537  0.875
+C(tense)[T.simple past]:C(profession)[T.cashier]                  0.248    0.086   2.881 0.004  0.079  0.416
+C(tense)[T.past perfect]:C(profession)[T.ceo]                    -0.080    0.086  -0.924 0.355 -0.248  0.089
+C(tense)[T.present continuous]:C(profession)[T.ceo]               0.280    0.086   3.258 0.001  0.112  0.449
+C(tense)[T.present perfect]:C(profession)[T.ceo]                  0.189    0.086   2.192 0.028  0.020  0.357
+C(tense)[T.simple future]:C(profession)[T.ceo]                    0.005    0.086   0.053 0.957 -0.164  0.173
+C(tense)[T.simple past]:C(profession)[T.ceo]                     -0.071    0.086  -0.827 0.408 -0.240  0.097
+C(tense)[T.past perfect]:C(profession)[T.cleaner]                -0.048    0.086  -0.556 0.578 -0.216  0.121
+C(tense)[T.present continuous]:C(profession)[T.cleaner]           0.483    0.086   5.621 0.000  0.315  0.652
+C(tense)[T.present perfect]:C(profession)[T.cleaner]              0.406    0.086   4.724 0.000  0.238  0.575
+C(tense)[T.simple future]:C(profession)[T.cleaner]                0.355    0.086   4.131 0.000  0.187  0.524
+C(tense)[T.simple past]:C(profession)[T.cleaner]                  0.112    0.086   1.300 0.194 -0.057  0.280
+C(tense)[T.past perfect]:C(profession)[T.cook]                    0.014    0.086   0.157 0.875 -0.155  0.182
+C(tense)[T.present continuous]:C(profession)[T.cook]              0.176    0.086   2.048 0.041  0.008  0.345
+C(tense)[T.present perfect]:C(profession)[T.cook]                 0.278    0.086   3.229 0.001  0.109  0.446
+C(tense)[T.simple future]:C(profession)[T.cook]                   0.170    0.086   1.980 0.048  0.002  0.339
+C(tense)[T.simple past]:C(profession)[T.cook]                     0.124    0.086   1.443 0.149 -0.044  0.293
+C(tense)[T.past perfect]:C(profession)[T.designer]                0.148    0.086   1.717 0.086 -0.021  0.316
+C(tense)[T.present continuous]:C(profession)[T.designer]          0.141    0.086   1.644 0.100 -0.027  0.310
+C(tense)[T.present perfect]:C(profession)[T.designer]             0.280    0.086   3.253 0.001  0.111  0.448
+C(tense)[T.simple future]:C(profession)[T.designer]               0.372    0.086   4.320 0.000  0.203  0.540
+C(tense)[T.simple past]:C(profession)[T.designer]                 0.140    0.086   1.626 0.104 -0.029  0.308
+C(tense)[T.past perfect]:C(profession)[T.driver]                  0.188    0.086   2.183 0.029  0.019  0.356
+C(tense)[T.present continuous]:C(profession)[T.driver]            0.211    0.086   2.458 0.014  0.043  0.380
+C(tense)[T.present perfect]:C(profession)[T.driver]               0.278    0.086   3.233 0.001  0.109  0.447
+C(tense)[T.simple future]:C(profession)[T.driver]                 0.371    0.086   4.317 0.000  0.203  0.540
+C(tense)[T.simple past]:C(profession)[T.driver]                   0.264    0.086   3.064 0.002  0.095  0.432
+C(tense)[T.past perfect]:C(profession)[T.lawyer]                  0.026    0.086   0.307 0.759 -0.142  0.195
+C(tense)[T.present continuous]:C(profession)[T.lawyer]           -0.087    0.086  -1.007 0.314 -0.255  0.082
+C(tense)[T.present perfect]:C(profession)[T.lawyer]              -0.085    0.086  -0.986 0.324 -0.253  0.084
+C(tense)[T.simple future]:C(profession)[T.lawyer]                -0.029    0.086  -0.341 0.733 -0.198  0.139
+C(tense)[T.simple past]:C(profession)[T.lawyer]                   0.011    0.086   0.132 0.895 -0.157  0.180
+C(tense)[T.past perfect]:C(profession)[T.manager]                 0.265    0.086   3.075 0.002  0.096  0.433
+C(tense)[T.present continuous]:C(profession)[T.manager]           0.401    0.086   4.664 0.000  0.233  0.570
+C(tense)[T.present perfect]:C(profession)[T.manager]              0.462    0.086   5.367 0.000  0.293  0.630
+C(tense)[T.simple future]:C(profession)[T.manager]                0.737    0.086   8.574 0.000  0.569  0.906
+C(tense)[T.simple past]:C(profession)[T.manager]                  0.270    0.086   3.138 0.002  0.101  0.438
+C(tense)[T.past perfect]:C(profession)[T.receptionist]            0.173    0.086   2.010 0.044  0.004  0.341
+C(tense)[T.present continuous]:C(profession)[T.receptionist]      0.466    0.086   5.422 0.000  0.298  0.635
+C(tense)[T.present perfect]:C(profession)[T.receptionist]         0.572    0.086   6.649 0.000  0.403  0.740
+C(tense)[T.simple future]:C(profession)[T.receptionist]           0.735    0.086   8.540 0.000  0.566  0.903
+C(tense)[T.simple past]:C(profession)[T.receptionist]             0.218    0.086   2.530 0.011  0.049  0.386
+C(tense)[T.past perfect]:C(profession)[T.salesperson]             0.018    0.086   0.207 0.836 -0.151  0.186
+C(tense)[T.present continuous]:C(profession)[T.salesperson]       0.272    0.086   3.166 0.002  0.104  0.441
+C(tense)[T.present perfect]:C(profession)[T.salesperson]          0.255    0.086   2.968 0.003  0.087  0.424
+C(tense)[T.simple future]:C(profession)[T.salesperson]            0.459    0.086   5.340 0.000  0.291  0.628
+C(tense)[T.simple past]:C(profession)[T.salesperson]              0.127    0.086   1.481 0.139 -0.041  0.296
+C(tense)[T.past perfect]:C(profession)[T.secretary]               0.317    0.086   3.686 0.000  0.148  0.486
+C(tense)[T.present continuous]:C(profession)[T.secretary]         0.423    0.086   4.916 0.000  0.254  0.591
+C(tense)[T.present perfect]:C(profession)[T.secretary]            0.643    0.086   7.476 0.000  0.474  0.812
+C(tense)[T.simple future]:C(profession)[T.secretary]              0.926    0.086  10.770 0.000  0.758  1.095
+C(tense)[T.simple past]:C(profession)[T.secretary]                0.448    0.086   5.206 0.000  0.279  0.616
+C(tense)[T.past perfect]:C(profession)[T.teacher]                 0.194    0.086   2.256 0.024  0.025  0.363
+C(tense)[T.present continuous]:C(profession)[T.teacher]           0.323    0.086   3.759 0.000  0.155  0.492
+C(tense)[T.present perfect]:C(profession)[T.teacher]              0.460    0.086   5.350 0.000  0.292  0.629
+C(tense)[T.simple future]:C(profession)[T.teacher]                0.698    0.086   8.114 0.000  0.529  0.866
+C(tense)[T.simple past]:C(profession)[T.teacher]                  0.269    0.086   3.130 0.002  0.101  0.438
+C(syntactic_role)[T.subject]:C(valence)[T.-val]                  -0.035    0.019  -1.890 0.059 -0.072  0.001
+C(valence)[T.-val]:C(dominance)[T.-dom]                          -0.083    0.019  -4.443 0.000 -0.120 -0.047
+C(valence)[T.-val]:C(profession)[T.carpenter]                     0.158    0.050   3.182 0.001  0.061  0.255
+C(valence)[T.-val]:C(profession)[T.cashier]                      -0.256    0.050  -5.149 0.000 -0.353 -0.158
+C(valence)[T.-val]:C(profession)[T.ceo]                           0.015    0.050   0.302 0.763 -0.082  0.112
+C(valence)[T.-val]:C(profession)[T.cleaner]                      -0.298    0.050  -6.003 0.000 -0.395 -0.201
+C(valence)[T.-val]:C(profession)[T.cook]                         -0.161    0.050  -3.233 0.001 -0.258 -0.063
+C(valence)[T.-val]:C(profession)[T.designer]                     -0.047    0.050  -0.945 0.345 -0.144  0.050
+C(valence)[T.-val]:C(profession)[T.driver]                       -0.045    0.050  -0.906 0.365 -0.142  0.052
+C(valence)[T.-val]:C(profession)[T.lawyer]                        0.028    0.050   0.554 0.580 -0.070  0.125
+C(valence)[T.-val]:C(profession)[T.manager]                      -0.088    0.050  -1.764 0.078 -0.185  0.010
+C(valence)[T.-val]:C(profession)[T.receptionist]                 -0.312    0.050  -6.284 0.000 -0.409 -0.215
+C(valence)[T.-val]:C(profession)[T.salesperson]                  -0.050    0.050  -1.014 0.311 -0.148  0.047
+C(valence)[T.-val]:C(profession)[T.secretary]                    -0.136    0.050  -2.731 0.006 -0.233 -0.038
+C(valence)[T.-val]:C(profession)[T.teacher]                      -0.171    0.050  -3.444 0.001 -0.268 -0.074
+C(dominance)[T.-dom]:C(profession)[T.carpenter]                  -0.043    0.050  -0.866 0.387 -0.140  0.054
+C(dominance)[T.-dom]:C(profession)[T.cashier]                    -0.121    0.050  -2.444 0.015 -0.219 -0.024
+C(dominance)[T.-dom]:C(profession)[T.ceo]                         0.100    0.050   2.021 0.043  0.003  0.198
+C(dominance)[T.-dom]:C(profession)[T.cleaner]                     0.097    0.050   1.952 0.051 -0.000  0.194
+C(dominance)[T.-dom]:C(profession)[T.cook]                       -0.094    0.050  -1.902 0.057 -0.192  0.003
+C(dominance)[T.-dom]:C(profession)[T.designer]                   -0.026    0.050  -0.514 0.608 -0.123  0.072
+C(dominance)[T.-dom]:C(profession)[T.driver]                     -0.022    0.050  -0.437 0.662 -0.119  0.076
+C(dominance)[T.-dom]:C(profession)[T.lawyer]                      0.014    0.050   0.288 0.773 -0.083  0.112
+C(dominance)[T.-dom]:C(profession)[T.manager]                    -0.091    0.050  -1.828 0.067 -0.188  0.007
+C(dominance)[T.-dom]:C(profession)[T.receptionist]               -0.196    0.050  -3.944 0.000 -0.293 -0.099
+C(dominance)[T.-dom]:C(profession)[T.salesperson]                -0.034    0.050  -0.689 0.491 -0.132  0.063
+C(dominance)[T.-dom]:C(profession)[T.secretary]                  -0.413    0.050  -8.307 0.000 -0.510 -0.315
+C(dominance)[T.-dom]:C(profession)[T.teacher]                    -0.136    0.050  -2.742 0.006 -0.234 -0.039
+Group Var                                                         0.013                                     
+Group x C(profession)[T.carpenter] Cov                           -0.000                                     
+C(profession)[T.carpenter] Var                                    0.011    0.010                            
+Group x C(profession)[T.cashier] Cov                             -0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.cashier] Cov        -0.001                                     
+C(profession)[T.cashier] Var                                      0.011                                     
+Group x C(profession)[T.ceo] Cov                                  0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.ceo] Cov             0.000                                     
+C(profession)[T.cashier] x C(profession)[T.ceo] Cov               0.000                                     
+C(profession)[T.ceo] Var                                          0.013                                     
+Group x C(profession)[T.cleaner] Cov                              0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.cleaner] Cov         0.001                                     
+C(profession)[T.cashier] x C(profession)[T.cleaner] Cov           0.001                                     
+C(profession)[T.ceo] x C(profession)[T.cleaner] Cov              -0.000                                     
+C(profession)[T.cleaner] Var                                      0.012                                     
+Group x C(profession)[T.cook] Cov                                 0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.cook] Cov           -0.001                                     
+C(profession)[T.cashier] x C(profession)[T.cook] Cov             -0.001                                     
+C(profession)[T.ceo] x C(profession)[T.cook] Cov                 -0.000                                     
+C(profession)[T.cleaner] x C(profession)[T.cook] Cov              0.000                                     
+C(profession)[T.cook] Var                                         0.013                                     
+Group x C(profession)[T.designer] Cov                             0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.designer] Cov       -0.000                                     
+C(profession)[T.cashier] x C(profession)[T.designer] Cov         -0.000                                     
+C(profession)[T.ceo] x C(profession)[T.designer] Cov             -0.000                                     
+C(profession)[T.cleaner] x C(profession)[T.designer] Cov         -0.000                                     
+C(profession)[T.cook] x C(profession)[T.designer] Cov            -0.000                                     
+C(profession)[T.designer] Var                                     0.013                                     
+Group x C(profession)[T.driver] Cov                               0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.driver] Cov          0.000                                     
+C(profession)[T.cashier] x C(profession)[T.driver] Cov            0.000                                     
+C(profession)[T.ceo] x C(profession)[T.driver] Cov               -0.000                                     
+C(profession)[T.cleaner] x C(profession)[T.driver] Cov           -0.001                                     
+C(profession)[T.cook] x C(profession)[T.driver] Cov              -0.000                                     
+C(profession)[T.designer] x C(profession)[T.driver] Cov          -0.000                                     
+C(profession)[T.driver] Var                                       0.013                                     
+Group x C(profession)[T.lawyer] Cov                               0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.lawyer] Cov         -0.001                                     
+C(profession)[T.cashier] x C(profession)[T.lawyer] Cov           -0.001                                     
+C(profession)[T.ceo] x C(profession)[T.lawyer] Cov               -0.000                                     
+C(profession)[T.cleaner] x C(profession)[T.lawyer] Cov            0.000                                     
+C(profession)[T.cook] x C(profession)[T.lawyer] Cov              -0.000                                     
+C(profession)[T.designer] x C(profession)[T.lawyer] Cov          -0.000                                     
+C(profession)[T.driver] x C(profession)[T.lawyer] Cov            -0.000                                     
+C(profession)[T.lawyer] Var                                       0.013                                     
+Group x C(profession)[T.manager] Cov                              0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.manager] Cov        -0.000                                     
+C(profession)[T.cashier] x C(profession)[T.manager] Cov          -0.000                                     
+C(profession)[T.ceo] x C(profession)[T.manager] Cov              -0.000                                     
+C(profession)[T.cleaner] x C(profession)[T.manager] Cov          -0.000                                     
+C(profession)[T.cook] x C(profession)[T.manager] Cov             -0.000                                     
+C(profession)[T.designer] x C(profession)[T.manager] Cov         -0.000                                     
+C(profession)[T.driver] x C(profession)[T.manager] Cov           -0.000                                     
+C(profession)[T.lawyer] x C(profession)[T.manager] Cov           -0.000                                     
+C(profession)[T.manager] Var                                      0.013                                     
+Group x C(profession)[T.receptionist] Cov                         0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.receptionist] Cov    0.000                                     
+C(profession)[T.cashier] x C(profession)[T.receptionist] Cov      0.000                                     
+C(profession)[T.ceo] x C(profession)[T.receptionist] Cov         -0.000                                     
+C(profession)[T.cleaner] x C(profession)[T.receptionist] Cov     -0.001                                     
+C(profession)[T.cook] x C(profession)[T.receptionist] Cov        -0.000                                     
+C(profession)[T.designer] x C(profession)[T.receptionist] Cov    -0.000                                     
+C(profession)[T.driver] x C(profession)[T.receptionist] Cov      -0.000                                     
+C(profession)[T.lawyer] x C(profession)[T.receptionist] Cov      -0.000                                     
+C(profession)[T.manager] x C(profession)[T.receptionist] Cov     -0.000                                     
+C(profession)[T.receptionist] Var                                 0.013                                     
+Group x C(profession)[T.salesperson] Cov                          0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.salesperson] Cov     0.000                                     
+C(profession)[T.cashier] x C(profession)[T.salesperson] Cov      -0.000                                     
+C(profession)[T.ceo] x C(profession)[T.salesperson] Cov          -0.000                                     
+C(profession)[T.cleaner] x C(profession)[T.salesperson] Cov      -0.000                                     
+C(profession)[T.cook] x C(profession)[T.salesperson] Cov         -0.000                                     
+C(profession)[T.designer] x C(profession)[T.salesperson] Cov     -0.000                                     
+C(profession)[T.driver] x C(profession)[T.salesperson] Cov       -0.000                                     
+C(profession)[T.lawyer] x C(profession)[T.salesperson] Cov       -0.000                                     
+C(profession)[T.manager] x C(profession)[T.salesperson] Cov      -0.000                                     
+C(profession)[T.receptionist] x C(profession)[T.salesperson] Cov -0.000                                     
+C(profession)[T.salesperson] Var                                  0.013                                     
+Group x C(profession)[T.secretary] Cov                            0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.secretary] Cov      -0.000                                     
+C(profession)[T.cashier] x C(profession)[T.secretary] Cov        -0.000                                     
+C(profession)[T.ceo] x C(profession)[T.secretary] Cov            -0.000                                     
+C(profession)[T.cleaner] x C(profession)[T.secretary] Cov        -0.000                                     
+C(profession)[T.cook] x C(profession)[T.secretary] Cov           -0.000                                     
+C(profession)[T.designer] x C(profession)[T.secretary] Cov       -0.000                                     
+C(profession)[T.driver] x C(profession)[T.secretary] Cov         -0.000                                     
+C(profession)[T.lawyer] x C(profession)[T.secretary] Cov         -0.000                                     
+C(profession)[T.manager] x C(profession)[T.secretary] Cov        -0.000                                     
+C(profession)[T.receptionist] x C(profession)[T.secretary] Cov   -0.000                                     
+C(profession)[T.salesperson] x C(profession)[T.secretary] Cov    -0.000                                     
+C(profession)[T.secretary] Var                                    0.013                                     
+Group x C(profession)[T.teacher] Cov                              0.000                                     
+C(profession)[T.carpenter] x C(profession)[T.teacher] Cov         0.001                                     
+C(profession)[T.cashier] x C(profession)[T.teacher] Cov           0.001                                     
+C(profession)[T.ceo] x C(profession)[T.teacher] Cov              -0.000                                     
+C(profession)[T.cleaner] x C(profession)[T.teacher] Cov          -0.001                                     
+C(profession)[T.cook] x C(profession)[T.teacher] Cov              0.000                                     
+C(profession)[T.designer] x C(profession)[T.teacher] Cov         -0.000                                     
+C(profession)[T.driver] x C(profession)[T.teacher] Cov           -0.001                                     
+C(profession)[T.lawyer] x C(profession)[T.teacher] Cov            0.000                                     
+C(profession)[T.manager] x C(profession)[T.teacher] Cov          -0.000                                     
+C(profession)[T.receptionist] x C(profession)[T.teacher] Cov     -0.001                                     
+C(profession)[T.salesperson] x C(profession)[T.teacher] Cov      -0.000                                     
+C(profession)[T.secretary] x C(profession)[T.teacher] Cov        -0.000                                     
+C(profession)[T.teacher] Var                                      0.012                                     
+Group x C(syntactic_role)[T.subject] Cov                          0.000                                     
+C(profession)[T.carpenter] x C(syntactic_role)[T.subject] Cov    -0.000                                     
+C(profession)[T.cashier] x C(syntactic_role)[T.subject] Cov      -0.000                                     
+C(profession)[T.ceo] x C(syntactic_role)[T.subject] Cov           0.000                                     
+C(profession)[T.cleaner] x C(syntactic_role)[T.subject] Cov       0.000                                     
+C(profession)[T.cook] x C(syntactic_role)[T.subject] Cov         -0.000                                     
+C(profession)[T.designer] x C(syntactic_role)[T.subject] Cov      0.000                                     
+C(profession)[T.driver] x C(syntactic_role)[T.subject] Cov        0.000                                     
+C(profession)[T.lawyer] x C(syntactic_role)[T.subject] Cov       -0.000                                     
+C(profession)[T.manager] x C(syntactic_role)[T.subject] Cov       0.000                                     
+C(profession)[T.receptionist] x C(syntactic_role)[T.subject] Cov  0.000                                     
+C(profession)[T.salesperson] x C(syntactic_role)[T.subject] Cov   0.000                                     
+C(profession)[T.secretary] x C(syntactic_role)[T.subject] Cov     0.000                                     
+C(profession)[T.teacher] x C(syntactic_role)[T.subject] Cov       0.000                                     
+C(syntactic_role)[T.subject] Var                                  0.014                                     
+============================================================================================================

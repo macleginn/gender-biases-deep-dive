@@ -1,0 +1,46 @@
+                                  Mixed Linear Model Regression Results
+==========================================================================================================
+Model:                           MixedLM                Dependent Variable:                log_he_she_odds
+No. Observations:                6720                   Method:                            ML             
+No. Groups:                      14                     Scale:                             0.1118         
+Min. group size:                 480                    Log-Likelihood:                    -2261.4906     
+Max. group size:                 480                    Converged:                         Yes            
+Mean group size:                 480.0                                                                    
+----------------------------------------------------------------------------------------------------------
+                                                               Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------------------------------------------
+Intercept                                                       1.085    0.300   3.614 0.000  0.496  1.673
+C(tense)[T.past perfect]                                       -0.001    0.028  -0.038 0.969 -0.056  0.054
+C(tense)[T.present continuous]                                 -0.101    0.028  -3.560 0.000 -0.156 -0.045
+C(tense)[T.present perfect]                                    -0.120    0.028  -4.254 0.000 -0.176 -0.065
+C(tense)[T.simple future]                                       0.256    0.028   9.058 0.000  0.201  0.311
+C(tense)[T.simple past]                                        -0.144    0.028  -5.086 0.000 -0.199 -0.088
+C(syntactic_role)[T.subject]                                   -0.458    0.043 -10.693 0.000 -0.542 -0.374
+C(valence)[T.-val]                                              0.169    0.023   7.341 0.000  0.124  0.215
+C(dominance)[T.-dom]                                            0.181    0.023   7.846 0.000  0.136  0.226
+C(semantic_role)[T.patient]                                    -0.097    0.023  -4.256 0.000 -0.141 -0.052
+C(tense)[T.past perfect]:C(syntactic_role)[T.subject]           0.034    0.028   1.197 0.231 -0.022  0.089
+C(tense)[T.present continuous]:C(syntactic_role)[T.subject]     0.135    0.028   4.785 0.000  0.080  0.191
+C(tense)[T.present perfect]:C(syntactic_role)[T.subject]        0.145    0.028   5.130 0.000  0.090  0.200
+C(tense)[T.simple future]:C(syntactic_role)[T.subject]          0.208    0.028   7.352 0.000  0.152  0.263
+C(tense)[T.simple past]:C(syntactic_role)[T.subject]            0.105    0.028   3.726 0.000  0.050  0.161
+C(tense)[T.past perfect]:C(valence)[T.-val]                     0.017    0.028   0.607 0.544 -0.038  0.073
+C(tense)[T.present continuous]:C(valence)[T.-val]              -0.070    0.028  -2.471 0.013 -0.125 -0.014
+C(tense)[T.present perfect]:C(valence)[T.-val]                  0.040    0.028   1.424 0.155 -0.015  0.096
+C(tense)[T.simple future]:C(valence)[T.-val]                    0.027    0.028   0.952 0.341 -0.028  0.082
+C(tense)[T.simple past]:C(valence)[T.-val]                      0.108    0.028   3.821 0.000  0.053  0.163
+C(tense)[T.past perfect]:C(dominance)[T.-dom]                  -0.032    0.028  -1.117 0.264 -0.087  0.024
+C(tense)[T.present continuous]:C(dominance)[T.-dom]            -0.083    0.028  -2.937 0.003 -0.138 -0.028
+C(tense)[T.present perfect]:C(dominance)[T.-dom]               -0.007    0.028  -0.256 0.798 -0.063  0.048
+C(tense)[T.simple future]:C(dominance)[T.-dom]                 -0.112    0.028  -3.963 0.000 -0.167 -0.057
+C(tense)[T.simple past]:C(dominance)[T.-dom]                   -0.000    0.028  -0.013 0.990 -0.056  0.055
+C(syntactic_role)[T.subject]:C(valence)[T.-val]                -0.093    0.016  -5.681 0.000 -0.125 -0.061
+C(valence)[T.-val]:C(dominance)[T.-dom]                        -0.202    0.016 -12.356 0.000 -0.234 -0.170
+C(dominance)[T.-dom]:C(semantic_role)[T.patient]                0.036    0.016   2.220 0.026  0.004  0.068
+Group Var                                                       1.255    1.422                            
+Group x C(semantic_role)[T.patient] Cov                         0.060    0.086                            
+C(semantic_role)[T.patient] Var                                 0.005    0.007                            
+Group x C(syntactic_role)[T.subject] Cov                       -0.049    0.133                            
+C(semantic_role)[T.patient] x C(syntactic_role)[T.subject] Cov  0.001    0.009                            
+C(syntactic_role)[T.subject] Var                                0.019    0.023                            
+==========================================================================================================

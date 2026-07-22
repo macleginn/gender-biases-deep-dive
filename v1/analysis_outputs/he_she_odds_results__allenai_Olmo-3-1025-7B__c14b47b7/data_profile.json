@@ -1,0 +1,62 @@
+{
+  "input_csv": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/he_she_odds_results__allenai_Olmo-3-1025-7B.csv",
+  "rows": 6720,
+  "columns": [
+    "model_tag",
+    "template",
+    "tense",
+    "syntactic_role",
+    "semantic_role",
+    "valence",
+    "dominance",
+    "verb",
+    "profession",
+    "prefix",
+    "he_prob",
+    "she_prob",
+    "he_she_odds_ratio",
+    "log_he_she_odds"
+  ],
+  "category_levels": {
+    "dominance": [
+      "+dom",
+      "-dom"
+    ],
+    "profession": [
+      "accountant",
+      "carpenter",
+      "cashier",
+      "ceo",
+      "cleaner",
+      "cook",
+      "designer",
+      "driver",
+      "lawyer",
+      "manager",
+      "receptionist",
+      "salesperson",
+      "secretary",
+      "teacher"
+    ],
+    "semantic_role": [
+      "agent",
+      "patient"
+    ],
+    "syntactic_role": [
+      "non-subject",
+      "subject"
+    ],
+    "tense": [
+      "past continuous",
+      "past perfect",
+      "present continuous",
+      "present perfect",
+      "simple future",
+      "simple past"
+    ],
+    "valence": [
+      "+val",
+      "-val"
+    ]
+  }
+}

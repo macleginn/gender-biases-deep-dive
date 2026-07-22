@@ -1,0 +1,72 @@
+<table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>Baseline conditional R2</th>
+      <th>Expanded conditional R2</th>
+      <th>Delta conditional R2</th>
+      <th>Baseline AIC</th>
+      <th>Expanded AIC</th>
+      <th>Delta AIC</th>
+      <th>Baseline random effects</th>
+      <th>Expanded random effects</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>0.838</td>
+      <td>0.902</td>
+      <td>0.064</td>
+      <td>8338.284</td>
+      <td>7355.178</td>
+      <td>-983.106</td>
+      <td>1</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>0.896</td>
+      <td>0.909</td>
+      <td>0.013</td>
+      <td>7490.708</td>
+      <td>6969.468</td>
+      <td>-521.240</td>
+      <td>1</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>0.918</td>
+      <td>0.947</td>
+      <td>0.030</td>
+      <td>4973.423</td>
+      <td>4523.552</td>
+      <td>-449.871</td>
+      <td>1</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>0.908</td>
+      <td>0.905</td>
+      <td>-0.003</td>
+      <td>3053.900</td>
+      <td>2096.731</td>
+      <td>-957.169</td>
+      <td>1</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>0.915</td>
+      <td>0.920</td>
+      <td>0.005</td>
+      <td>5782.312</td>
+      <td>5524.240</td>
+      <td>-258.072</td>
+      <td>1</td>
+      <td>1 + C(semantic_role) + C(syntactic_role) + C(valence) + C(dominance)</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,897 @@
+<table class="dataframe data-table wrap-table compact-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>Candidate</th>
+      <th>Converged</th>
+      <th>AIC</th>
+      <th>Delta AIC</th>
+      <th>BIC</th>
+      <th>Marginal R2</th>
+      <th>Conditional R2</th>
+      <th>Formula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>full/selected</td>
+      <td>True</td>
+      <td>7355.178</td>
+      <td>0.000</td>
+      <td>7648.130</td>
+      <td>0.021</td>
+      <td>0.902</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>full</td>
+      <td>True</td>
+      <td>7355.178</td>
+      <td>0.000</td>
+      <td>7648.130</td>
+      <td>0.021</td>
+      <td>0.902</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>candidate 0 C tense C dominance</td>
+      <td>True</td>
+      <td>7358.974</td>
+      <td>3.796</td>
+      <td>7617.862</td>
+      <td>0.020</td>
+      <td>0.900</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>candidate 0 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>7362.457</td>
+      <td>7.279</td>
+      <td>7648.597</td>
+      <td>0.020</td>
+      <td>0.902</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>candidate 0 C syntactic role C valence</td>
+      <td>True</td>
+      <td>7364.228</td>
+      <td>9.050</td>
+      <td>7650.368</td>
+      <td>0.020</td>
+      <td>0.901</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>candidate 0 C tense C valence</td>
+      <td>True</td>
+      <td>7376.395</td>
+      <td>21.217</td>
+      <td>7635.283</td>
+      <td>0.022</td>
+      <td>0.891</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>candidate 0 C tense C syntactic role</td>
+      <td>True</td>
+      <td>7377.150</td>
+      <td>21.972</td>
+      <td>7636.038</td>
+      <td>0.022</td>
+      <td>0.892</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>candidate 0 C valence C dominance</td>
+      <td>False</td>
+      <td>7551.940</td>
+      <td>196.762</td>
+      <td>7838.080</td>
+      <td>0.019</td>
+      <td>0.883</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>candidate 0 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>6969.468</td>
+      <td>0.000</td>
+      <td>7255.608</td>
+      <td>0.030</td>
+      <td>0.909</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>full/selected</td>
+      <td>True</td>
+      <td>6970.806</td>
+      <td>1.337</td>
+      <td>7250.132</td>
+      <td>0.030</td>
+      <td>0.909</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>candidate 1 C syntactic role C valence</td>
+      <td>True</td>
+      <td>6970.806</td>
+      <td>1.337</td>
+      <td>7250.132</td>
+      <td>0.030</td>
+      <td>0.909</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>full</td>
+      <td>True</td>
+      <td>6971.468</td>
+      <td>2.000</td>
+      <td>7264.421</td>
+      <td>0.030</td>
+      <td>0.909</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>candidate 0 C syntactic role C valence</td>
+      <td>True</td>
+      <td>6972.806</td>
+      <td>3.337</td>
+      <td>7258.945</td>
+      <td>0.030</td>
+      <td>0.909</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>candidate 1 C valence C dominance</td>
+      <td>True</td>
+      <td>6985.896</td>
+      <td>16.428</td>
+      <td>7265.223</td>
+      <td>0.030</td>
+      <td>0.908</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>candidate 2 C valence C dominance</td>
+      <td>True</td>
+      <td>6987.224</td>
+      <td>17.756</td>
+      <td>7259.738</td>
+      <td>0.030</td>
+      <td>0.908</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>candidate 1 C tense C valence</td>
+      <td>True</td>
+      <td>6987.782</td>
+      <td>18.313</td>
+      <td>7239.857</td>
+      <td>0.030</td>
+      <td>0.908</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>full/selected</td>
+      <td>True</td>
+      <td>4523.552</td>
+      <td>0.000</td>
+      <td>4809.692</td>
+      <td>0.031</td>
+      <td>0.947</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>candidate 0 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>4523.552</td>
+      <td>0.000</td>
+      <td>4809.692</td>
+      <td>0.031</td>
+      <td>0.947</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>full</td>
+      <td>True</td>
+      <td>4524.628</td>
+      <td>1.076</td>
+      <td>4817.581</td>
+      <td>0.031</td>
+      <td>0.947</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>candidate 1 C tense C dominance</td>
+      <td>True</td>
+      <td>4542.412</td>
+      <td>18.859</td>
+      <td>4794.487</td>
+      <td>0.031</td>
+      <td>0.947</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>candidate 0 C tense C dominance</td>
+      <td>True</td>
+      <td>4543.492</td>
+      <td>19.940</td>
+      <td>4802.380</td>
+      <td>0.031</td>
+      <td>0.947</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>candidate 1 C syntactic role C valence</td>
+      <td>True</td>
+      <td>4554.325</td>
+      <td>30.773</td>
+      <td>4833.652</td>
+      <td>0.030</td>
+      <td>0.947</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>candidate 0 C syntactic role C valence</td>
+      <td>True</td>
+      <td>4555.406</td>
+      <td>31.854</td>
+      <td>4841.545</td>
+      <td>0.030</td>
+      <td>0.947</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>candidate 1 C tense C valence</td>
+      <td>True</td>
+      <td>4555.932</td>
+      <td>32.380</td>
+      <td>4808.008</td>
+      <td>0.030</td>
+      <td>0.947</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>full/selected</td>
+      <td>True</td>
+      <td>2096.731</td>
+      <td>0.000</td>
+      <td>2382.870</td>
+      <td>0.019</td>
+      <td>0.905</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>candidate 0 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>2096.731</td>
+      <td>0.000</td>
+      <td>2382.870</td>
+      <td>0.019</td>
+      <td>0.905</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>full</td>
+      <td>True</td>
+      <td>2097.866</td>
+      <td>1.135</td>
+      <td>2390.818</td>
+      <td>0.020</td>
+      <td>0.904</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>candidate 1 C syntactic role C valence</td>
+      <td>True</td>
+      <td>2099.479</td>
+      <td>2.748</td>
+      <td>2378.805</td>
+      <td>0.019</td>
+      <td>0.906</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>candidate 0 C syntactic role C valence</td>
+      <td>True</td>
+      <td>2100.699</td>
+      <td>3.968</td>
+      <td>2386.838</td>
+      <td>0.019</td>
+      <td>0.906</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>candidate 1 C tense C valence</td>
+      <td>True</td>
+      <td>2117.440</td>
+      <td>20.709</td>
+      <td>2369.515</td>
+      <td>0.019</td>
+      <td>0.904</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>candidate 1 C tense C dominance</td>
+      <td>True</td>
+      <td>2117.654</td>
+      <td>20.923</td>
+      <td>2369.729</td>
+      <td>0.019</td>
+      <td>0.904</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>candidate 0 C tense C valence</td>
+      <td>True</td>
+      <td>2118.554</td>
+      <td>21.823</td>
+      <td>2377.442</td>
+      <td>0.019</td>
+      <td>0.904</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected mixed candidate 0 C tense C semantic role</td>
+      <td>True</td>
+      <td>7409.715</td>
+      <td>0.000</td>
+      <td>7668.603</td>
+      <td>0.044</td>
+      <td>0.861</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected mixed</td>
+      <td>True</td>
+      <td>7411.120</td>
+      <td>1.405</td>
+      <td>7663.195</td>
+      <td>0.044</td>
+      <td>0.861</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected mixed candidate 1 C valence C semantic role</td>
+      <td>True</td>
+      <td>7411.120</td>
+      <td>1.405</td>
+      <td>7663.195</td>
+      <td>0.044</td>
+      <td>0.861</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected mixed candidate 1 C tense C dominance</td>
+      <td>True</td>
+      <td>7413.338</td>
+      <td>3.623</td>
+      <td>7638.161</td>
+      <td>0.044</td>
+      <td>0.861</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected mixed full</td>
+      <td>True</td>
+      <td>7413.469</td>
+      <td>3.754</td>
+      <td>7706.421</td>
+      <td>0.044</td>
+      <td>0.861</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected mixed candidate 2 C tense C dominance</td>
+      <td>True</td>
+      <td>7414.735</td>
+      <td>5.020</td>
+      <td>7632.746</td>
+      <td>0.044</td>
+      <td>0.861</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected mixed candidate 0 C valence C semantic role</td>
+      <td>True</td>
+      <td>7414.877</td>
+      <td>5.162</td>
+      <td>7701.016</td>
+      <td>0.044</td>
+      <td>0.861</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>Qwen_Qwen3-4B-Base</td>
+      <td>selected mixed candidate 1 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>7416.919</td>
+      <td>7.204</td>
+      <td>7668.994</td>
+      <td>0.044</td>
+      <td>0.861</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>selected mixed candidate 1 C syntactic role C semantic role</td>
+      <td>True</td>
+      <td>7190.460</td>
+      <td>0.000</td>
+      <td>7469.787</td>
+      <td>0.033</td>
+      <td>0.903</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>selected mixed candidate 2 C valence C semantic role</td>
+      <td>True</td>
+      <td>7191.403</td>
+      <td>0.942</td>
+      <td>7463.916</td>
+      <td>0.033</td>
+      <td>0.903</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>selected mixed candidate 2 C syntactic role C valence</td>
+      <td>True</td>
+      <td>7191.672</td>
+      <td>1.212</td>
+      <td>7464.186</td>
+      <td>0.033</td>
+      <td>0.903</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>selected mixed candidate 2 C dominance C semantic role</td>
+      <td>True</td>
+      <td>7192.349</td>
+      <td>1.889</td>
+      <td>7464.863</td>
+      <td>0.033</td>
+      <td>0.903</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(valence):C(dominance) + C(valence):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>selected mixed candidate 0 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>7192.372</td>
+      <td>1.912</td>
+      <td>7478.511</td>
+      <td>0.033</td>
+      <td>0.903</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>selected mixed candidate 0 C syntactic role C semantic role</td>
+      <td>True</td>
+      <td>7192.460</td>
+      <td>2.000</td>
+      <td>7478.600</td>
+      <td>0.033</td>
+      <td>0.903</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>selected mixed</td>
+      <td>True</td>
+      <td>7192.613</td>
+      <td>2.153</td>
+      <td>7458.314</td>
+      <td>0.032</td>
+      <td>0.903</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>allenai_Olmo-3-1025-7B</td>
+      <td>selected mixed candidate 3 C syntactic role C valence</td>
+      <td>True</td>
+      <td>7192.613</td>
+      <td>2.153</td>
+      <td>7458.314</td>
+      <td>0.032</td>
+      <td>0.903</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>selected mixed candidate 1 C tense C semantic role</td>
+      <td>True</td>
+      <td>4588.319</td>
+      <td>0.000</td>
+      <td>4840.395</td>
+      <td>0.046</td>
+      <td>0.923</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>selected mixed</td>
+      <td>True</td>
+      <td>4589.394</td>
+      <td>1.074</td>
+      <td>4834.656</td>
+      <td>0.046</td>
+      <td>0.923</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>selected mixed candidate 2 C syntactic role C semantic role</td>
+      <td>True</td>
+      <td>4589.394</td>
+      <td>1.074</td>
+      <td>4834.656</td>
+      <td>0.046</td>
+      <td>0.923</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>selected mixed candidate 0 C tense C semantic role</td>
+      <td>True</td>
+      <td>4589.411</td>
+      <td>1.092</td>
+      <td>4848.299</td>
+      <td>0.046</td>
+      <td>0.923</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>selected mixed candidate 2 C dominance C semantic role</td>
+      <td>True</td>
+      <td>4591.254</td>
+      <td>2.935</td>
+      <td>4836.516</td>
+      <td>0.046</td>
+      <td>0.923</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>selected mixed candidate 2 C valence C semantic role</td>
+      <td>True</td>
+      <td>4591.910</td>
+      <td>3.590</td>
+      <td>4837.172</td>
+      <td>0.046</td>
+      <td>0.923</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>selected mixed candidate 0 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>4592.058</td>
+      <td>3.739</td>
+      <td>4878.197</td>
+      <td>0.046</td>
+      <td>0.923</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>google_gemma-3-4b-pt</td>
+      <td>selected mixed candidate 3 C dominance C semantic role</td>
+      <td>True</td>
+      <td>4592.326</td>
+      <td>4.006</td>
+      <td>4830.775</td>
+      <td>0.046</td>
+      <td>0.923</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance) + C(valence):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected mixed candidate 2 C dominance C semantic role</td>
+      <td>True</td>
+      <td>2194.202</td>
+      <td>0.000</td>
+      <td>2466.716</td>
+      <td>0.017</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected mixed</td>
+      <td>True</td>
+      <td>2194.488</td>
+      <td>0.287</td>
+      <td>2432.938</td>
+      <td>0.017</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected mixed candidate 3 C tense C semantic role</td>
+      <td>True</td>
+      <td>2194.488</td>
+      <td>0.287</td>
+      <td>2432.938</td>
+      <td>0.017</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected mixed candidate 1 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>2194.589</td>
+      <td>0.387</td>
+      <td>2473.916</td>
+      <td>0.017</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected mixed candidate 2 C tense C semantic role</td>
+      <td>True</td>
+      <td>2194.878</td>
+      <td>0.676</td>
+      <td>2440.141</td>
+      <td>0.017</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected mixed candidate 1 C dominance C semantic role</td>
+      <td>True</td>
+      <td>2195.360</td>
+      <td>1.158</td>
+      <td>2474.687</td>
+      <td>0.017</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected mixed candidate 0 C valence C semantic role</td>
+      <td>True</td>
+      <td>2195.747</td>
+      <td>1.545</td>
+      <td>2481.887</td>
+      <td>0.018</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>gpt2</td>
+      <td>selected mixed candidate 0 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>2195.959</td>
+      <td>1.758</td>
+      <td>2482.099</td>
+      <td>0.018</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>selected mixed candidate 2 C valence C dominance</td>
+      <td>True</td>
+      <td>5551.971</td>
+      <td>0.000</td>
+      <td>5824.485</td>
+      <td>0.032</td>
+      <td>0.919</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>selected mixed candidate 1 C dominance C semantic role</td>
+      <td>True</td>
+      <td>5552.110</td>
+      <td>0.139</td>
+      <td>5831.437</td>
+      <td>0.032</td>
+      <td>0.919</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>selected mixed candidate 1 C valence C dominance</td>
+      <td>True</td>
+      <td>5553.712</td>
+      <td>1.741</td>
+      <td>5833.038</td>
+      <td>0.032</td>
+      <td>0.919</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>selected mixed</td>
+      <td>True</td>
+      <td>5553.748</td>
+      <td>1.777</td>
+      <td>5819.448</td>
+      <td>0.031</td>
+      <td>0.919</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>selected mixed candidate 3 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>5553.748</td>
+      <td>1.777</td>
+      <td>5819.448</td>
+      <td>0.031</td>
+      <td>0.919</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>selected mixed candidate 0 C valence C semantic role</td>
+      <td>True</td>
+      <td>5553.851</td>
+      <td>1.880</td>
+      <td>5839.990</td>
+      <td>0.032</td>
+      <td>0.919</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(dominance):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>selected mixed candidate 2 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>5553.888</td>
+      <td>1.917</td>
+      <td>5826.402</td>
+      <td>0.032</td>
+      <td>0.919</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>selected mixed candidate 0 C dominance C semantic role</td>
+      <td>True</td>
+      <td>5553.943</td>
+      <td>1.972</td>
+      <td>5840.082</td>
+      <td>0.032</td>
+      <td>0.919</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(semantic_role) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(tense):C(semantic_role) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(syntactic_role):C(semantic_role) + C(valence):C(dominance) + C(valence):C(semantic_role)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>candidate 0 C valence C dominance</td>
+      <td>True</td>
+      <td>5524.240</td>
+      <td>0.000</td>
+      <td>5810.379</td>
+      <td>0.030</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>full</td>
+      <td>True</td>
+      <td>5524.362</td>
+      <td>0.122</td>
+      <td>5817.315</td>
+      <td>0.030</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>full/selected</td>
+      <td>True</td>
+      <td>5526.051</td>
+      <td>1.811</td>
+      <td>5805.377</td>
+      <td>0.029</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>candidate 1 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>5526.051</td>
+      <td>1.811</td>
+      <td>5805.377</td>
+      <td>0.029</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>candidate 0 C syntactic role C dominance</td>
+      <td>True</td>
+      <td>5526.174</td>
+      <td>1.934</td>
+      <td>5812.314</td>
+      <td>0.030</td>
+      <td>0.920</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(valence) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>candidate 1 C tense C valence</td>
+      <td>True</td>
+      <td>5540.014</td>
+      <td>15.774</td>
+      <td>5792.090</td>
+      <td>0.029</td>
+      <td>0.919</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>candidate 0 C tense C valence</td>
+      <td>True</td>
+      <td>5540.144</td>
+      <td>15.904</td>
+      <td>5799.032</td>
+      <td>0.029</td>
+      <td>0.919</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(dominance) + C(syntactic_role):C(valence) + C(syntactic_role):C(dominance) + C(valence):C(dominance)</td>
+    </tr>
+    <tr>
+      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>candidate 2 C tense C valence</td>
+      <td>True</td>
+      <td>5541.811</td>
+      <td>17.571</td>
+      <td>5787.073</td>
+      <td>0.029</td>
+      <td>0.919</td>
+      <td>log_he_she_odds ~ C(tense) + C(syntactic_role) + C(valence) + C(dominance) + C(tense):C(syntactic_role) + C(tense):C(dominance) + C(syntactic_role):C(valence)</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,38 @@
+                                Mixed Linear Model Regression Results
+======================================================================================================
+Model:                           MixedLM              Dependent Variable:              log_he_she_odds
+No. Observations:                6720                 Method:                          ML             
+No. Groups:                      14                   Scale:                           0.1349         
+Min. group size:                 480                  Log-Likelihood:                  -2864.1558     
+Max. group size:                 480                  Converged:                       Yes            
+Mean group size:                 480.0                                                                
+------------------------------------------------------------------------------------------------------
+                                                            Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+------------------------------------------------------------------------------------------------------
+Intercept                                                    1.362    0.317  4.297 0.000  0.741  1.984
+C(tense)[T.past perfect]                                     0.058    0.031  1.872 0.061 -0.003  0.119
+C(tense)[T.present continuous]                               0.199    0.031  6.398 0.000  0.138  0.259
+C(tense)[T.present perfect]                                  0.125    0.031  4.025 0.000  0.064  0.186
+C(tense)[T.simple future]                                    0.525    0.031 16.908 0.000  0.464  0.586
+C(tense)[T.simple past]                                     -0.028    0.031 -0.897 0.370 -0.089  0.033
+C(syntactic_role)[T.subject]                                -0.143    0.024 -6.014 0.000 -0.189 -0.096
+C(valence)[T.-val]                                           0.065    0.024  2.741 0.006  0.019  0.111
+C(dominance)[T.-dom]                                         0.013    0.022  0.580 0.562 -0.030  0.056
+C(tense)[T.past perfect]:C(syntactic_role)[T.subject]        0.064    0.031  2.053 0.040  0.003  0.125
+C(tense)[T.present continuous]:C(syntactic_role)[T.subject]  0.099    0.031  3.176 0.001  0.038  0.159
+C(tense)[T.present perfect]:C(syntactic_role)[T.subject]     0.148    0.031  4.754 0.000  0.087  0.208
+C(tense)[T.simple future]:C(syntactic_role)[T.subject]       0.228    0.031  7.345 0.000  0.167  0.289
+C(tense)[T.simple past]:C(syntactic_role)[T.subject]         0.079    0.031  2.554 0.011  0.018  0.140
+C(tense)[T.past perfect]:C(valence)[T.-val]                 -0.071    0.031 -2.292 0.022 -0.132 -0.010
+C(tense)[T.present continuous]:C(valence)[T.-val]           -0.065    0.031 -2.088 0.037 -0.126 -0.004
+C(tense)[T.present perfect]:C(valence)[T.-val]              -0.060    0.031 -1.945 0.052 -0.121  0.000
+C(tense)[T.simple future]:C(valence)[T.-val]                 0.050    0.031  1.600 0.110 -0.011  0.110
+C(tense)[T.simple past]:C(valence)[T.-val]                  -0.059    0.031 -1.888 0.059 -0.119  0.002
+C(tense)[T.past perfect]:C(dominance)[T.-dom]               -0.080    0.031 -2.573 0.010 -0.141 -0.019
+C(tense)[T.present continuous]:C(dominance)[T.-dom]         -0.111    0.031 -3.587 0.000 -0.172 -0.050
+C(tense)[T.present perfect]:C(dominance)[T.-dom]            -0.098    0.031 -3.151 0.002 -0.159 -0.037
+C(tense)[T.simple future]:C(dominance)[T.-dom]              -0.219    0.031 -7.050 0.000 -0.280 -0.158
+C(tense)[T.simple past]:C(dominance)[T.-dom]                -0.055    0.031 -1.777 0.075 -0.116  0.006
+C(syntactic_role)[T.subject]:C(valence)[T.-val]             -0.085    0.018 -4.717 0.000 -0.120 -0.049
+Group Var                                                    1.400    1.436                           
+======================================================================================================

@@ -1,0 +1,31 @@
+{
+  "selected_model": "selected_mixed_random_slopes",
+  "selected_terms": [
+    "C(tense)",
+    "C(syntactic_role)",
+    "C(valence)",
+    "C(dominance)",
+    "C(tense):C(syntactic_role)",
+    "C(tense):C(valence)",
+    "C(tense):C(dominance)",
+    "C(valence):C(dominance)"
+  ],
+  "alpha": 0.05,
+  "full_model": {
+    "name": "selected_mixed_random_slopes",
+    "fixed_predictors": [
+      "tense",
+      "syntactic_role",
+      "valence",
+      "dominance"
+    ],
+    "group_col": "profession",
+    "random_predictors": [
+      "semantic_role",
+      "syntactic_role",
+      "valence",
+      "dominance"
+    ],
+    "pairwise_interactions": true
+  }
+}
