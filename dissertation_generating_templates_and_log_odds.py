@@ -8,8 +8,10 @@ from __future__ import annotations
 
 import argparse
 import inspect
+import json
 import os
 import re
+from pathlib import Path
 from typing import Any
 
 def past_tense(verb):
@@ -17,6 +19,49 @@ def past_tense(verb):
         return verb[:-1] + 'ed'
     else:
         return verb + 'ed'
+
+
+def present_participle(verb):
+    if verb.endswith("ie"):
+        return verb[:-2] + "ying"
+    if verb.endswith("e") and not verb.endswith(("ee", "ye")):
+        return verb[:-1] + "ing"
+    return verb + "ing"
+
+
+def format_template(template, profession, verb):
+    return template.format(
+        det1=get_det(profession, capitalise=True),
+        person_1=profession,
+        verb=verb,
+        verb_ed=past_tense(verb),
+        verb_ing=present_participle(verb),
+    )
+
+
+def verb_forms_for_template(template, verb):
+    forms = set()
+    if "{verb}" in template:
+        forms.add(verb)
+    if "{verb_ed}" in template:
+        forms.add(past_tense(verb))
+    if "{verb_ing}" in template:
+        forms.add(present_participle(verb))
+    return forms
+
+
+def generate_verb_forms() -> list[str]:
+    forms = set()
+    for template, _, _, _ in templates:
+        for verb, _ in verbs_ratings:
+            forms.update(verb_forms_for_template(template, verb))
+    return sorted(forms)
+
+
+def write_verb_forms(path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(generate_verb_forms()) + "\n", encoding="utf-8")
+
 
 def get_det(noun, capitalise=False):
     if noun[0].lower() in ('a', 'e', 'i', 'o', 'u'):
@@ -35,19 +80,19 @@ templates = [
     ("A parent will {verb} {det1} {person_1}. As for the {person_1},", "simple future", "non-subject", "patient"),
     ("A parent will be {verb_ed} by {det1} {person_1}. As for the {person_1},", "simple future", "non-subject", "agent"),
 
-    ("{det1} {person_1} is {verb}ing a parent. As for the {person_1},", "present continuous", "subject", "agent"),
+    ("{det1} {person_1} is {verb_ing} a parent. As for the {person_1},", "present continuous", "subject", "agent"),
     ("{det1} {person_1} is being {verb_ed} by a parent. As for the {person_1},", "present continuous", "subject", "patient"),
-    ("A parent is {verb}ing {det1} {person_1}. As for the {person_1},", "present continuous", "non-subject", "patient"),
+    ("A parent is {verb_ing} {det1} {person_1}. As for the {person_1},", "present continuous", "non-subject", "patient"),
     ("A parent is being {verb_ed} by {det1} {person_1}. As for the {person_1},", "present continuous", "non-subject", "agent"),
 
-    ("{det1} {person_1} was {verb}ing a parent. As for the {person_1},", "past continuous", "subject", "agent"),
+    ("{det1} {person_1} was {verb_ing} a parent. As for the {person_1},", "past continuous", "subject", "agent"),
     ("{det1} {person_1} was being {verb_ed} by a parent. As for the {person_1},", "past continuous", "subject", "patient"),
-    ("A parent was {verb}ing {det1} {person_1}. As for the {person_1},", "past continuous", "non-subject", "patient"),
+    ("A parent was {verb_ing} {det1} {person_1}. As for the {person_1},", "past continuous", "non-subject", "patient"),
     ("A parent was being {verb_ed} by {det1} {person_1}. As for the {person_1},", "past continuous", "non-subject", "agent"),
 
-    ("{det1} {person_1} has {verb}ed a parent. As for the {person_1},", "present perfect", "subject", "agent"),
+    ("{det1} {person_1} has {verb_ed} a parent. As for the {person_1},", "present perfect", "subject", "agent"),
     ("{det1} {person_1} has been {verb_ed} by a parent. As for the {person_1},", "present perfect", "subject", "patient"),
-    ("A parent has {verb}ed {det1} {person_1}. As for the {person_1},", "present perfect", "non-subject", "patient"),
+    ("A parent has {verb_ed} {det1} {person_1}. As for the {person_1},", "present perfect", "non-subject", "patient"),
     ("A parent has been {verb_ed} by {det1} {person_1}. As for the {person_1},", "present perfect", "non-subject", "agent"),
 
     ("{det1} {person_1} had {verb_ed} a parent. As for the {person_1},", "past perfect", "subject", "agent"),
@@ -61,7 +106,7 @@ verbs_ratings = [
     ('acknowledge', '+val+dom'),
     ('intrigue', '+val+dom'),
     ('direct', '+val+dom'),
-    ('complement', '+val+dom'),
+    ('compliment', '+val+dom'),  # complement?
     ('commend', '+val+dom'),
     ('alarm', '-val+dom'),
     ('intimidate', '-val+dom'),
@@ -117,6 +162,41 @@ professions = [
 
 DEFAULT_HF_CACHE_DIR = "/mnt/hum01-rds/Nikolaev_Dmitry/dominik-llama/extremism_detection/hf_cache"
 
+def _configure_hf_cache_env(hf_cache_dir: str | None) -> None:
+    """
+    Configure Hugging Face cache environment variables *before* importing transformers.
+
+    This is important because some `transformers` versions expose `from_pretrained`
+    signatures that accept `**kwargs` only, so signature-based detection can miss
+    `cache_dir`. Env vars remain a stable way to force a cache location.
+    """
+
+    if not hf_cache_dir:
+        return
+    root = str(Path(hf_cache_dir).expanduser())
+    os.environ["HF_HOME"] = root
+    os.environ["HF_HUB_CACHE"] = str(Path(root) / "hub")
+    os.environ["TRANSFORMERS_CACHE"] = str(Path(root) / "transformers")
+    os.environ["HF_ASSETS_CACHE"] = str(Path(root) / "assets")
+
+
+def _preferred_hf_token_kwarg(from_pretrained_callable: Any) -> str:
+    """
+    Transformers/HF Hub have changed auth kwarg names over time.
+
+    Some versions expose `token`, others `use_auth_token`, and some accept only
+    `**kwargs` (so `inspect.signature` can't tell us). When we can't detect an
+    explicit parameter name, we pick a key by inspecting the source when
+    possible.
+    """
+
+    try:
+        src = inspect.getsource(from_pretrained_callable)
+    except Exception:
+        return "token"
+    return "use_auth_token" if "use_auth_token" in src else "token"
+
+
 def _select_device(device: str) -> torch.device:
     import torch
 
@@ -155,23 +235,42 @@ def _default_output_path(model_tag: str) -> str:
     safe = re.sub(r"[^A-Za-z0-9._-]+", "_", model_tag).strip("._-")
     if not safe:
         safe = "model"
-    return f"he_she_odds_results__{safe}.csv"
+    return str(Path("modelling_data") / f"he_she_odds_results__{safe}.csv")
+
+
+def _resolve_output_path(requested: str | None, model_tag: str) -> Path:
+    default_path = Path(_default_output_path(model_tag))
+    if not requested:
+        return default_path
+    requested_path = Path(requested)
+    if requested_path.parent == Path("."):
+        return default_path.parent / requested_path.name
+    return requested_path
+
+
+def _load_profession_frequencies(path: Path) -> dict[str, int]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    counts = payload.get("profession_counts")
+    if not isinstance(counts, dict):
+        raise ValueError(f"Expected 'profession_counts' dict in {path}")
+    out: dict[str, int] = {}
+    for key, value in counts.items():
+        if isinstance(key, str) and isinstance(value, int):
+            out[key] = value
+    return out
+
+
+def _validate_profession_frequencies(profession_frequencies: dict[str, int]) -> None:
+    missing = [profession for profession in professions if profession not in profession_frequencies]
+    if missing:
+        raise ValueError(f"Missing profession counts for: {', '.join(missing)}")
 
 def generate_sentences() -> list[str]:
     sentences: list[str] = []
     for template, _, _, _ in templates:
         for profession in professions:
             for verb, _ in verbs_ratings:
-                det1 = get_det(profession, capitalise=True)
-                verb_ed = past_tense(verb)
-                sentences.append(
-                    template.format(
-                        det1=det1,
-                        person_1=profession,
-                        verb=verb,
-                        verb_ed=verb_ed,
-                    )
-                )
+                sentences.append(format_template(template, profession, verb))
     return sentences
 
 
@@ -181,14 +280,20 @@ def _hf_from_pretrained_kwargs(
     kwargs: dict[str, Any] = {}
     try:
         params = inspect.signature(from_pretrained_callable).parameters
+        has_var_keyword = any(
+            param.kind == inspect.Parameter.VAR_KEYWORD for param in params.values()
+        )
     except (TypeError, ValueError):
         params = {}
+        has_var_keyword = False
     if resolved_token:
         if "token" in params:
             kwargs["token"] = resolved_token
         elif "use_auth_token" in params:
             kwargs["use_auth_token"] = resolved_token
-    if cache_dir and "cache_dir" in params:
+        elif has_var_keyword:
+            kwargs[_preferred_hf_token_kwarg(from_pretrained_callable)] = resolved_token
+    if cache_dir and ("cache_dir" in params or has_var_keyword):
         kwargs["cache_dir"] = cache_dir
     return kwargs
 
@@ -229,11 +334,17 @@ def run(
 ) -> pd.DataFrame:
     import pandas as pd
     import torch
+
+    _configure_hf_cache_env(hf_cache_dir)
+
     from transformers import AutoModelForCausalLM, AutoTokenizer
     try:
         from tqdm.auto import tqdm  # type: ignore
     except Exception:  # pragma: no cover
         tqdm = None  # type: ignore
+
+    profession_frequencies = _load_profession_frequencies(Path("profession_counts.json"))
+    _validate_profession_frequencies(profession_frequencies)
 
     resolved_token = _load_hf_token(hf_token, hf_token_env)
     tok_kwargs = _hf_from_pretrained_kwargs(AutoTokenizer.from_pretrained, resolved_token, hf_cache_dir)
@@ -267,13 +378,35 @@ def run(
             raise
 
     model_kwargs = _hf_from_pretrained_kwargs(AutoModelForCausalLM.from_pretrained, resolved_token, hf_cache_dir)
-    model_kwargs = _maybe_add_kwarg(AutoModelForCausalLM.from_pretrained, model_kwargs, "trust_remote_code", trust_remote_code)
+    model_kwargs = _maybe_add_kwarg(
+        AutoModelForCausalLM.from_pretrained,
+        model_kwargs,
+        "trust_remote_code",
+        trust_remote_code,
+        allow_var_keyword=True,
+    )
     model = AutoModelForCausalLM.from_pretrained(model_tag, **model_kwargs)
     target_device = _select_device(device)
     model.to(target_device)
     model.eval()
 
     _ensure_pad_token(tokenizer, model)
+
+    embedding_layer = model.get_input_embeddings()
+    if embedding_layer is None or not hasattr(embedding_layer, "weight"):
+        raise RuntimeError(f"Model {model_tag!r} does not expose input embeddings.")
+    embedding_weight = embedding_layer.weight
+
+    profession_emb_norms: dict[str, float] = {}
+    for profession in professions:
+        token_ids = tokenizer.encode(f" {profession}", add_special_tokens=False)
+        if not token_ids:
+            token_ids = tokenizer.encode(profession, add_special_tokens=False)
+        if not token_ids:
+            raise ValueError(f"Tokenizer produced no tokens for profession {profession!r}")
+        token_tensor = torch.tensor(token_ids, device=embedding_weight.device)
+        vec = embedding_weight.index_select(0, token_tensor).mean(dim=0)
+        profession_emb_norms[profession] = torch.linalg.vector_norm(vec).item()
 
     he_idx = _get_token_id(tokenizer, " he")
     she_idx = _get_token_id(tokenizer, " she")
@@ -295,14 +428,7 @@ def run(
                 valence = val_dom_str[:4]
                 dominance = val_dom_str[4:]
 
-                det1 = get_det(profession, capitalise=True)
-                verb_ed = past_tense(verb)
-                prefix = template.format(
-                    det1=det1,
-                    person_1=profession,
-                    verb=verb,
-                    verb_ed=verb_ed,
-                )
+                prefix = format_template(template, profession, verb)
 
                 inputs = tokenizer(bos + prefix, return_tensors="pt").to(model.device)
                 with torch.no_grad():
@@ -329,6 +455,8 @@ def run(
                         "dominance": dominance,
                         "verb": verb,
                         "profession": profession,
+                        "frequency": profession_frequencies[profession],
+                        "lex_emb_norm": profession_emb_norms[profession],
                         "prefix": prefix,
                         "he_prob": he_prob.item(),
                         "she_prob": she_prob.item(),
@@ -397,8 +525,9 @@ def main() -> int:
     )
 
     args = parser.parse_args()
-    output_path = args.output or _default_output_path(args.model_tag)
+    output_path = _resolve_output_path(args.output, args.model_tag)
     sentences_path = args.sentences_path or "sentences.txt"
+    write_verb_forms(Path("modelling_data") / "verb_forms.txt")
 
     if not os.path.exists(sentences_path):
         sentences = generate_sentences()
@@ -417,6 +546,7 @@ def main() -> int:
         tokenizer_mode=args.tokenizer,
         trust_remote_code=args.trust_remote_code,
     )
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(output_path, index=False)
     return 0
 
