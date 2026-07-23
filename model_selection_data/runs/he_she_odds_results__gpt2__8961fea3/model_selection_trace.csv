@@ -1,8 +1,0 @@
-step,candidate_term,lr_stat,df_diff,p_value,candidate_model
-0,C(tense),2265.3088417745603,5,0.0,selected_mixed_random_slopes__candidate__0__C_tense
-0,C(valence),11.522831291455077,1,0.0006874660489899442,selected_mixed_random_slopes__candidate__0__C_valence
-0,C(semantic_role),50.23755533556687,1,1.362158111784681e-12,selected_mixed_random_slopes__candidate__0__C_semantic_role
-0,C(syntactic_role),21.60379583950271,1,3.351878154848174e-06,selected_mixed_random_slopes__candidate__0__C_syntactic_role
-0,C(dominance),4.216436518152477,1,0.04003415424754953,selected_mixed_random_slopes__candidate__0__C_dominance
-0,lex_emb_norm,10.763373326772125,1,0.0010352851537464367,selected_mixed_random_slopes__candidate__0__lex_emb_norm
-0,log_frequency,66.0659853645775,1,4.3607677933458564e-16,selected_mixed_random_slopes__candidate__0__log_frequency
