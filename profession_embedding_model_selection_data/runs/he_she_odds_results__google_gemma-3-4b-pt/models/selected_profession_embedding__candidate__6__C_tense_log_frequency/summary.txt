@@ -1,0 +1,68 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        log_he_she_odds   R-squared:                       0.367
+Model:                            OLS   Adj. R-squared:                  0.366
+Method:                 Least Squares   F-statistic:                     211.7
+Date:                Thu, 23 Jul 2026   Prob (F-statistic):               0.00
+Time:                        18:00:56   Log-Likelihood:                -22918.
+No. Observations:               15360   AIC:                         4.592e+04
+Df Residuals:                   15317   BIC:                         4.625e+04
+Df Model:                          42                                         
+Covariance Type:            nonrobust                                         
+===============================================================================================================================
+                                                                  coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                      49.7267      0.634     78.471      0.000      48.485      50.969
+C(tense)[T.past perfect]                                       -0.0898      0.211     -0.425      0.671      -0.504       0.324
+C(tense)[T.present continuous]                                 -0.2502      0.211     -1.184      0.236      -0.664       0.164
+C(tense)[T.present perfect]                                    -0.2762      0.211     -1.308      0.191      -0.690       0.138
+C(tense)[T.simple future]                                       0.0073      0.211      0.035      0.972      -0.407       0.421
+C(tense)[T.simple past]                                        -0.2065      0.211     -0.977      0.328      -0.621       0.208
+C(semantic_role)[T.patient]                                    -0.2063      0.134     -1.543      0.123      -0.468       0.056
+C(syntactic_role)[T.subject]                                   -0.5118      0.139     -3.677      0.000      -0.785      -0.239
+C(valence)[T.-val]                                              0.1751      0.052      3.356      0.001       0.073       0.277
+C(dominance)[T.-dom]                                           -0.0226      0.133     -0.171      0.865      -0.282       0.237
+C(tense)[T.past perfect]:C(syntactic_role)[T.subject]           0.0200      0.060      0.332      0.740      -0.098       0.138
+C(tense)[T.present continuous]:C(syntactic_role)[T.subject]     0.1214      0.060      2.015      0.044       0.003       0.239
+C(tense)[T.present perfect]:C(syntactic_role)[T.subject]        0.1678      0.060      2.786      0.005       0.050       0.286
+C(tense)[T.simple future]:C(syntactic_role)[T.subject]          0.1657      0.060      2.752      0.006       0.048       0.284
+C(tense)[T.simple past]:C(syntactic_role)[T.subject]            0.1138      0.060      1.889      0.059      -0.004       0.232
+C(tense)[T.past perfect]:C(valence)[T.-val]                     0.0034      0.060      0.057      0.955      -0.115       0.121
+C(tense)[T.present continuous]:C(valence)[T.-val]              -0.0205      0.060     -0.341      0.733      -0.139       0.098
+C(tense)[T.present perfect]:C(valence)[T.-val]                 -0.0195      0.060     -0.324      0.746      -0.138       0.099
+C(tense)[T.simple future]:C(valence)[T.-val]                    0.0854      0.060      1.418      0.156      -0.033       0.203
+C(tense)[T.simple past]:C(valence)[T.-val]                      0.0757      0.060      1.258      0.209      -0.042       0.194
+C(semantic_role)[T.patient]:C(syntactic_role)[T.subject]       -0.0678      0.035     -1.949      0.051      -0.136       0.000
+C(semantic_role)[T.patient]:C(valence)[T.-val]                  0.0766      0.035      2.202      0.028       0.008       0.145
+C(syntactic_role)[T.subject]:C(valence)[T.-val]                -0.0633      0.035     -1.822      0.069      -0.131       0.005
+C(valence)[T.-val]:C(dominance)[T.-dom]                        -0.1655      0.035     -4.758      0.000      -0.234      -0.097
+log_frequency                                                  -2.3100      0.084    -27.633      0.000      -2.474      -2.146
+C(semantic_role)[T.patient]:log_frequency                      -0.0133      0.012     -1.113      0.266      -0.037       0.010
+C(syntactic_role)[T.subject]:log_frequency                     -0.0303      0.012     -2.530      0.011      -0.054      -0.007
+C(dominance)[T.-dom]:log_frequency                             -0.0172      0.012     -1.437      0.151      -0.041       0.006
+lex_emb_norm                                                   -9.5361      0.497    -19.205      0.000     -10.509      -8.563
+C(tense)[T.past perfect]:lex_emb_norm                           0.0833      0.230      0.363      0.717      -0.367       0.533
+C(tense)[T.present continuous]:lex_emb_norm                    -0.0384      0.230     -0.167      0.867      -0.489       0.412
+C(tense)[T.present perfect]:lex_emb_norm                        0.0922      0.230      0.402      0.688      -0.358       0.542
+C(tense)[T.simple future]:lex_emb_norm                         -0.0097      0.230     -0.042      0.966      -0.460       0.440
+C(tense)[T.simple past]:lex_emb_norm                            0.0554      0.230      0.241      0.809      -0.395       0.506
+C(semantic_role)[T.patient]:lex_emb_norm                        0.3095      0.205      1.506      0.132      -0.093       0.712
+C(syntactic_role)[T.subject]:lex_emb_norm                       0.3095      0.205      1.506      0.132      -0.093       0.712
+C(dominance)[T.-dom]:lex_emb_norm                               0.3066      0.205      1.492      0.136      -0.096       0.709
+log_frequency:lex_emb_norm                                      2.6340      0.086     30.719      0.000       2.466       2.802
+profession_embedding_1                                        -41.8413      0.554    -75.541      0.000     -42.927     -40.756
+profession_embedding_2                                          3.8854      0.091     42.831      0.000       3.708       4.063
+profession_embedding_3                                         -8.7423      0.166    -52.740      0.000      -9.067      -8.417
+profession_embedding_4                                         -4.9512      0.157    -31.564      0.000      -5.259      -4.644
+profession_embedding_5                                         -1.5014      0.148    -10.166      0.000      -1.791      -1.212
+==============================================================================
+Omnibus:                      557.235   Durbin-Watson:                   0.240
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              681.657
+Skew:                          -0.421   Prob(JB):                    9.55e-149
+Kurtosis:                       3.598   Cond. No.                     1.20e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.2e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.

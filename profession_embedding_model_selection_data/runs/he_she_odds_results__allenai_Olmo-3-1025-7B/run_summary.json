@@ -1,0 +1,38 @@
+{
+  "input_csv": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__allenai_Olmo-3-1025-7B.csv",
+  "embedding": {
+    "source": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/profession_collocates.csv",
+    "profession_column": "profession",
+    "rows": 32,
+    "collocate_columns": 114379,
+    "k": 5,
+    "columns": [
+      "profession_embedding_1",
+      "profession_embedding_2",
+      "profession_embedding_3",
+      "profession_embedding_4",
+      "profession_embedding_5"
+    ]
+  },
+  "selected_terms": [
+    "C(tense)",
+    "C(semantic_role)",
+    "C(syntactic_role)",
+    "C(valence)",
+    "log_frequency",
+    "lex_emb_norm",
+    "C(tense):C(syntactic_role)",
+    "C(semantic_role):C(syntactic_role)",
+    "C(syntactic_role):C(valence)",
+    "C(syntactic_role):log_frequency",
+    "log_frequency:lex_emb_norm",
+    "profession_embedding_1",
+    "profession_embedding_2",
+    "profession_embedding_3",
+    "profession_embedding_4",
+    "profession_embedding_5"
+  ],
+  "selection_steps": 228,
+  "selected_model": "selected_profession_embedding",
+  "baseline_model": "no_profession_embedding_baseline"
+}

@@ -1,0 +1,73 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        log_he_she_odds   R-squared:                       0.329
+Model:                            OLS   Adj. R-squared:                  0.327
+Method:                 Least Squares   F-statistic:                     159.5
+Date:                Thu, 23 Jul 2026   Prob (F-statistic):               0.00
+Time:                        18:00:54   Log-Likelihood:                -23372.
+No. Observations:               15360   AIC:                         4.684e+04
+Df Residuals:                   15312   BIC:                         4.721e+04
+Df Model:                          47                                         
+Covariance Type:            nonrobust                                         
+===============================================================================================================================
+                                                                  coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                      37.7242      0.520     72.613      0.000      36.706      38.743
+C(tense)[T.past perfect]                                       -0.0522      0.238     -0.219      0.827      -0.520       0.415
+C(tense)[T.present continuous]                                 -0.3541      0.238     -1.485      0.138      -0.822       0.113
+C(tense)[T.present perfect]                                    -0.3307      0.238     -1.387      0.165      -0.798       0.137
+C(tense)[T.simple future]                                       0.1811      0.238      0.759      0.448      -0.286       0.649
+C(tense)[T.simple past]                                        -0.2051      0.238     -0.860      0.390      -0.673       0.262
+C(semantic_role)[T.patient]                                    -0.2063      0.138     -1.498      0.134      -0.476       0.064
+C(syntactic_role)[T.subject]                                   -0.5118      0.143     -3.569      0.000      -0.793      -0.231
+C(valence)[T.-val]                                              0.2303      0.078      2.949      0.003       0.077       0.383
+C(dominance)[T.-dom]                                           -0.0226      0.137     -0.166      0.869      -0.290       0.245
+C(tense)[T.past perfect]:C(syntactic_role)[T.subject]           0.0200      0.062      0.322      0.747      -0.102       0.142
+C(tense)[T.present continuous]:C(syntactic_role)[T.subject]     0.1214      0.062      1.956      0.050      -0.000       0.243
+C(tense)[T.present perfect]:C(syntactic_role)[T.subject]        0.1678      0.062      2.705      0.007       0.046       0.289
+C(tense)[T.simple future]:C(syntactic_role)[T.subject]          0.1657      0.062      2.671      0.008       0.044       0.287
+C(tense)[T.simple past]:C(syntactic_role)[T.subject]            0.1138      0.062      1.834      0.067      -0.008       0.235
+C(tense)[T.past perfect]:C(valence)[T.-val]                     0.0034      0.062      0.055      0.956      -0.118       0.125
+C(tense)[T.present continuous]:C(valence)[T.-val]              -0.0205      0.062     -0.331      0.741      -0.142       0.101
+C(tense)[T.present perfect]:C(valence)[T.-val]                 -0.0195      0.062     -0.314      0.753      -0.141       0.102
+C(tense)[T.simple future]:C(valence)[T.-val]                    0.0854      0.062      1.377      0.169      -0.036       0.207
+C(tense)[T.simple past]:C(valence)[T.-val]                      0.0757      0.062      1.221      0.222      -0.046       0.197
+C(semantic_role)[T.patient]:C(syntactic_role)[T.subject]       -0.0678      0.036     -1.892      0.059      -0.138       0.002
+C(semantic_role)[T.patient]:C(valence)[T.-val]                  0.0766      0.036      2.137      0.033       0.006       0.147
+C(syntactic_role)[T.subject]:C(valence)[T.-val]                -0.0633      0.036     -1.768      0.077      -0.134       0.007
+C(valence)[T.-val]:C(dominance)[T.-dom]                        -0.1655      0.036     -4.619      0.000      -0.236      -0.095
+log_frequency                                                   0.2287      0.020     11.647      0.000       0.190       0.267
+C(tense)[T.past perfect]:log_frequency                          0.0082      0.021      0.385      0.700      -0.034       0.050
+C(tense)[T.present continuous]:log_frequency                   -0.0228      0.021     -1.066      0.287      -0.065       0.019
+C(tense)[T.present perfect]:log_frequency                      -0.0120      0.021     -0.559      0.576      -0.054       0.030
+C(tense)[T.simple future]:log_frequency                         0.0381      0.021      1.782      0.075      -0.004       0.080
+C(tense)[T.simple past]:log_frequency                           0.0003      0.021      0.014      0.989      -0.042       0.042
+C(semantic_role)[T.patient]:log_frequency                      -0.0133      0.012     -1.080      0.280      -0.038       0.011
+C(syntactic_role)[T.subject]:log_frequency                     -0.0303      0.012     -2.456      0.014      -0.055      -0.006
+C(valence)[T.-val]:log_frequency                               -0.0078      0.008     -0.975      0.330      -0.023       0.008
+C(dominance)[T.-dom]:log_frequency                             -0.0172      0.012     -1.394      0.163      -0.041       0.007
+lex_emb_norm                                                    3.4419      0.325     10.587      0.000       2.805       4.079
+C(tense)[T.past perfect]:lex_emb_norm                          -0.0247      0.367     -0.067      0.946      -0.743       0.694
+C(tense)[T.present continuous]:lex_emb_norm                     0.2602      0.367      0.710      0.478      -0.459       0.979
+C(tense)[T.present perfect]:lex_emb_norm                        0.2488      0.367      0.679      0.497      -0.470       0.968
+C(tense)[T.simple future]:lex_emb_norm                         -0.5089      0.367     -1.388      0.165      -1.228       0.210
+C(tense)[T.simple past]:lex_emb_norm                            0.0516      0.367      0.141      0.888      -0.667       0.770
+C(semantic_role)[T.patient]:lex_emb_norm                        0.3095      0.212      1.462      0.144      -0.105       0.724
+C(syntactic_role)[T.subject]:lex_emb_norm                       0.3095      0.212      1.462      0.144      -0.105       0.724
+C(dominance)[T.-dom]:lex_emb_norm                               0.3066      0.212      1.449      0.147      -0.108       0.722
+profession_embedding_1                                        -42.1975      0.570    -73.969      0.000     -43.316     -41.079
+profession_embedding_2                                          4.5880      0.090     50.735      0.000       4.411       4.765
+profession_embedding_3                                         -5.7074      0.137    -41.624      0.000      -5.976      -5.439
+profession_embedding_4                                         -2.4881      0.139    -17.915      0.000      -2.760      -2.216
+profession_embedding_5                                         -3.7237      0.133    -28.075      0.000      -3.984      -3.464
+==============================================================================
+Omnibus:                      726.190   Durbin-Watson:                   0.232
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              912.884
+Skew:                          -0.492   Prob(JB):                    5.89e-199
+Kurtosis:                       3.675   Cond. No.                     1.05e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.05e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.

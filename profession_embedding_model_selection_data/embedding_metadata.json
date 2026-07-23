@@ -1,0 +1,14 @@
+{
+  "source": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/profession_collocates.csv",
+  "profession_column": "profession",
+  "rows": 32,
+  "collocate_columns": 114379,
+  "k": 5,
+  "columns": [
+    "profession_embedding_1",
+    "profession_embedding_2",
+    "profession_embedding_3",
+    "profession_embedding_4",
+    "profession_embedding_5"
+  ]
+}

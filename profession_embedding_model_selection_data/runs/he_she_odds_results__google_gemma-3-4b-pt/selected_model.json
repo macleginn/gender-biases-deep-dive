@@ -1,0 +1,23 @@
+{
+  "selected_model": "selected_profession_embedding",
+  "selected_terms": [
+    "C(tense)",
+    "C(semantic_role)",
+    "C(syntactic_role)",
+    "C(valence)",
+    "C(dominance)",
+    "log_frequency",
+    "lex_emb_norm",
+    "C(tense):C(syntactic_role)",
+    "C(semantic_role):C(valence)",
+    "C(syntactic_role):log_frequency",
+    "C(valence):C(dominance)",
+    "log_frequency:lex_emb_norm",
+    "profession_embedding_1",
+    "profession_embedding_2",
+    "profession_embedding_3",
+    "profession_embedding_4",
+    "profession_embedding_5"
+  ],
+  "alpha": 0.05
+}

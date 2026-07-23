@@ -1,0 +1,57 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        log_he_she_odds   R-squared:                       0.266
+Model:                            OLS   Adj. R-squared:                  0.265
+Method:                 Least Squares   F-statistic:                     168.6
+Date:                Thu, 23 Jul 2026   Prob (F-statistic):               0.00
+Time:                        17:59:04   Log-Likelihood:                -24826.
+No. Observations:               15360   AIC:                         4.972e+04
+Df Residuals:                   15326   BIC:                         4.998e+04
+Df Model:                          33                                         
+Covariance Type:            nonrobust                                         
+===============================================================================================================================
+                                                                  coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                      37.8534      0.545     69.396      0.000      36.784      38.923
+C(tense)[T.past perfect]                                       -0.0052      0.118     -0.044      0.965      -0.237       0.226
+C(tense)[T.present continuous]                                 -0.0494      0.118     -0.418      0.676      -0.281       0.182
+C(tense)[T.present perfect]                                    -0.1196      0.118     -1.012      0.312      -0.351       0.112
+C(tense)[T.simple future]                                       0.0502      0.118      0.424      0.671      -0.182       0.282
+C(tense)[T.simple past]                                        -0.0552      0.118     -0.467      0.640      -0.287       0.176
+C(semantic_role)[T.patient]                                    -0.1446      0.139     -1.043      0.297      -0.416       0.127
+C(syntactic_role)[T.subject]                                   -0.4475      0.160     -2.798      0.005      -0.761      -0.134
+C(valence)[T.-val]                                              0.0951      0.028      3.417      0.001       0.041       0.150
+C(dominance)[T.-dom]                                           -0.2787      0.140     -1.990      0.047      -0.553      -0.004
+C(tense)[T.past perfect]:C(syntactic_role)[T.subject]           0.0075      0.068      0.110      0.913      -0.126       0.141
+C(tense)[T.present continuous]:C(syntactic_role)[T.subject]    -0.0695      0.068     -1.020      0.308      -0.203       0.064
+C(tense)[T.present perfect]:C(syntactic_role)[T.subject]        0.0437      0.068      0.641      0.521      -0.090       0.177
+C(tense)[T.simple future]:C(syntactic_role)[T.subject]         -0.0928      0.068     -1.361      0.173      -0.226       0.041
+C(tense)[T.simple past]:C(syntactic_role)[T.subject]            0.0322      0.068      0.472      0.637      -0.101       0.166
+C(semantic_role)[T.patient]:C(syntactic_role)[T.subject]       -0.1100      0.039     -2.795      0.005      -0.187      -0.033
+C(syntactic_role)[T.subject]:C(dominance)[T.-dom]               0.0804      0.039      2.042      0.041       0.003       0.158
+C(valence)[T.-val]:C(dominance)[T.-dom]                        -0.0499      0.039     -1.268      0.205      -0.127       0.027
+log_frequency                                                   0.2751      0.015     18.575      0.000       0.246       0.304
+C(tense)[T.past perfect]:log_frequency                          0.0168      0.015      1.107      0.268      -0.013       0.047
+C(tense)[T.present continuous]:log_frequency                    0.0108      0.015      0.713      0.476      -0.019       0.041
+C(tense)[T.present perfect]:log_frequency                       0.0243      0.015      1.604      0.109      -0.005       0.054
+C(tense)[T.simple future]:log_frequency                         0.0386      0.015      2.546      0.011       0.009       0.068
+C(tense)[T.simple past]:log_frequency                           0.0178      0.015      1.172      0.241      -0.012       0.048
+C(syntactic_role)[T.subject]:log_frequency                     -0.0149      0.014     -1.104      0.269      -0.041       0.012
+lex_emb_norm                                                    1.7578      0.214      8.230      0.000       1.339       2.176
+C(semantic_role)[T.patient]:lex_emb_norm                        0.2083      0.153      1.358      0.174      -0.092       0.509
+C(syntactic_role)[T.subject]:lex_emb_norm                       0.4623      0.237      1.953      0.051      -0.002       0.926
+C(dominance)[T.-dom]:lex_emb_norm                               0.2984      0.153      1.946      0.052      -0.002       0.599
+profession_embedding_1                                        -41.1614      0.623    -66.058      0.000     -42.383     -39.940
+profession_embedding_2                                          4.2334      0.099     42.636      0.000       4.039       4.428
+profession_embedding_3                                         -5.5385      0.151    -36.751      0.000      -5.834      -5.243
+profession_embedding_4                                         -2.1411      0.151    -14.140      0.000      -2.438      -1.844
+profession_embedding_5                                         -3.0013      0.146    -20.574      0.000      -3.287      -2.715
+==============================================================================
+Omnibus:                     1404.140   Durbin-Watson:                   0.213
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2157.693
+Skew:                          -0.697   Prob(JB):                         0.00
+Kurtosis:                       4.194   Cond. No.                         782.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
