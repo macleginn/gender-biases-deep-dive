@@ -3,337 +3,40 @@
     <tr style="text-align: right;">
       <th>Model</th>
       <th>Intercept</th>
-      <th>C(tense)</th>
-      <th>C(semantic role)</th>
-      <th>C(syntactic role)</th>
-      <th>C(valence)</th>
-      <th>C(dominance)</th>
-      <th>log frequency</th>
-      <th>lex emb norm</th>
+      <th>Tense</th>
+      <th>Semantic role</th>
+      <th>Syntactic role</th>
+      <th>Valence</th>
+      <th>Dominance</th>
+      <th>Log frequency</th>
+      <th>Lex emb norm</th>
       <th>Profession embedding</th>
-      <th>C(tense):C(semantic role)</th>
-      <th>C(tense):C(syntactic role)</th>
-      <th>C(tense):C(valence)</th>
-      <th>C(tense):C(dominance)</th>
-      <th>C(semantic role):C(syntactic role)</th>
-      <th>C(semantic role):C(valence)</th>
-      <th>C(semantic role):C(dominance)</th>
-      <th>C(syntactic role):C(valence)</th>
-      <th>C(syntactic role):C(dominance)</th>
-      <th>C(valence):C(dominance)</th>
-      <th>C(tense):log frequency</th>
-      <th>C(semantic role):log frequency</th>
-      <th>C(syntactic role):log frequency</th>
-      <th>C(valence):log frequency</th>
-      <th>C(dominance):log frequency</th>
-      <th>C(tense):lex emb norm</th>
-      <th>C(semantic role):lex emb norm</th>
-      <th>C(syntactic role):lex emb norm</th>
-      <th>C(valence):lex emb norm</th>
-      <th>log frequency:lex emb norm</th>
-      <th>C(dominance):lex emb norm</th>
+      <th>Tense:semantic role</th>
+      <th>Tense:syntactic role</th>
+      <th>Tense:valence</th>
+      <th>Tense:dominance</th>
+      <th>Semantic role:syntactic role</th>
+      <th>Semantic role:valence</th>
+      <th>Semantic role:dominance</th>
+      <th>Syntactic role:valence</th>
+      <th>Syntactic role:dominance</th>
+      <th>Valence:dominance</th>
+      <th>Tense:log frequency</th>
+      <th>Semantic role:log frequency</th>
+      <th>Syntactic role:log frequency</th>
+      <th>Valence:log frequency</th>
+      <th>Dominance:log frequency</th>
+      <th>Tense:lex emb norm</th>
+      <th>Semantic role:lex emb norm</th>
+      <th>Syntactic role:lex emb norm</th>
+      <th>Valence:lex emb norm</th>
+      <th>Log frequency:lex emb norm</th>
+      <th>Dominance:lex emb norm</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>EleutherAI_pythia-12b-deduped</td>
-      <td>0.000</td>
-      <td>0.021</td>
-      <td>NaN</td>
-      <td>0.002</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.088</td>
-      <td>0.065</td>
-      <td>0.809</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>EleutherAI_pythia-2.8b-deduped</td>
-      <td>0.000</td>
-      <td>0.010</td>
-      <td>0.001</td>
-      <td>0.000</td>
-      <td>0.003</td>
-      <td>0.003</td>
-      <td>0.091</td>
-      <td>0.047</td>
-      <td>0.600</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>EleutherAI_pythia-6.9b-deduped</td>
-      <td>0.000</td>
-      <td>0.008</td>
-      <td>0.000</td>
-      <td>0.003</td>
-      <td>0.003</td>
-      <td>0.000</td>
-      <td>0.049</td>
-      <td>0.100</td>
-      <td>0.780</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>Qwen_Qwen3-4B-Base</td>
-      <td>0.000</td>
-      <td>0.009</td>
-      <td>0.005</td>
-      <td>0.032</td>
-      <td>0.004</td>
-      <td>0.000</td>
-      <td>0.137</td>
-      <td>0.000</td>
-      <td>0.444</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>Qwen_Qwen3-8B-Base</td>
-      <td>0.000</td>
-      <td>0.020</td>
-      <td>0.002</td>
-      <td>0.028</td>
-      <td>0.009</td>
-      <td>0.001</td>
-      <td>0.501</td>
-      <td>0.076</td>
-      <td>0.524</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>allenai_Olmo-3-1025-7B</td>
-      <td>0.000</td>
-      <td>0.011</td>
-      <td>0.001</td>
-      <td>0.012</td>
-      <td>0.006</td>
-      <td>0.000</td>
-      <td>0.261</td>
-      <td>0.004</td>
-      <td>0.482</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>allenai_Olmo-3-1125-32B</td>
-      <td>0.000</td>
-      <td>0.041</td>
-      <td>NaN</td>
-      <td>0.079</td>
-      <td>0.003</td>
-      <td>0.003</td>
-      <td>0.265</td>
-      <td>NaN</td>
-      <td>0.747</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>google_gemma-3-12b-pt</td>
-      <td>0.000</td>
-      <td>0.010</td>
-      <td>NaN</td>
-      <td>0.006</td>
-      <td>0.001</td>
-      <td>NaN</td>
-      <td>0.251</td>
-      <td>NaN</td>
-      <td>0.654</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>google_gemma-3-4b-pt</td>
-      <td>0.000</td>
-      <td>0.012</td>
-      <td>0.000</td>
-      <td>0.039</td>
-      <td>0.003</td>
-      <td>0.000</td>
-      <td>0.152</td>
-      <td>0.026</td>
-      <td>0.727</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>gpt2</td>
+      <td>GPT2</td>
       <td>0.000</td>
       <td>0.012</td>
       <td>0.003</td>
@@ -366,7 +69,139 @@
       <td>NaN</td>
     </tr>
     <tr>
-      <td>mistralai_Mistral-7B-v0.3</td>
+      <td>Qwen3 4B</td>
+      <td>0.000</td>
+      <td>0.009</td>
+      <td>0.005</td>
+      <td>0.032</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.137</td>
+      <td>0.000</td>
+      <td>0.444</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Qwen3 8B</td>
+      <td>0.000</td>
+      <td>0.020</td>
+      <td>0.002</td>
+      <td>0.028</td>
+      <td>0.009</td>
+      <td>0.001</td>
+      <td>0.501</td>
+      <td>0.076</td>
+      <td>0.524</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Gemma3 4B</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>0.000</td>
+      <td>0.039</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.152</td>
+      <td>0.026</td>
+      <td>0.727</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Gemma3 12b</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>NaN</td>
+      <td>0.006</td>
+      <td>0.001</td>
+      <td>NaN</td>
+      <td>0.251</td>
+      <td>NaN</td>
+      <td>0.654</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B</td>
       <td>0.000</td>
       <td>0.024</td>
       <td>NaN</td>
@@ -399,16 +234,16 @@
       <td>NaN</td>
     </tr>
     <tr>
-      <td>tiiuae_Falcon3-10B-Base</td>
+      <td>OLMo3 7B</td>
       <td>0.000</td>
-      <td>0.027</td>
-      <td>NaN</td>
-      <td>0.020</td>
-      <td>0.008</td>
-      <td>NaN</td>
-      <td>0.503</td>
-      <td>0.174</td>
-      <td>0.499</td>
+      <td>0.011</td>
+      <td>0.001</td>
+      <td>0.012</td>
+      <td>0.006</td>
+      <td>0.000</td>
+      <td>0.261</td>
+      <td>0.004</td>
+      <td>0.482</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -432,7 +267,40 @@
       <td>NaN</td>
     </tr>
     <tr>
-      <td>tiiuae_Falcon3-3B-Base</td>
+      <td>OLMo3 32B</td>
+      <td>0.000</td>
+      <td>0.041</td>
+      <td>NaN</td>
+      <td>0.079</td>
+      <td>0.003</td>
+      <td>0.003</td>
+      <td>0.265</td>
+      <td>NaN</td>
+      <td>0.747</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Falcon3 3B</td>
       <td>0.000</td>
       <td>0.015</td>
       <td>NaN</td>
@@ -465,7 +333,7 @@
       <td>NaN</td>
     </tr>
     <tr>
-      <td>tiiuae_Falcon3-7B-Base</td>
+      <td>Falcon3 7B</td>
       <td>0.000</td>
       <td>0.035</td>
       <td>0.001</td>
@@ -475,6 +343,204 @@
       <td>0.213</td>
       <td>0.015</td>
       <td>0.462</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Falcon3 10B</td>
+      <td>0.000</td>
+      <td>0.027</td>
+      <td>NaN</td>
+      <td>0.020</td>
+      <td>0.008</td>
+      <td>NaN</td>
+      <td>0.503</td>
+      <td>0.174</td>
+      <td>0.499</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Pythia 2.8b</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>0.003</td>
+      <td>0.091</td>
+      <td>0.047</td>
+      <td>0.600</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Pythia 6.9b</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.049</td>
+      <td>0.100</td>
+      <td>0.780</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Pythia 12b</td>
+      <td>0.000</td>
+      <td>0.021</td>
+      <td>NaN</td>
+      <td>0.002</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.088</td>
+      <td>0.065</td>
+      <td>0.809</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Llama3.1 8B</td>
+      <td>0.000</td>
+      <td>0.023</td>
+      <td>NaN</td>
+      <td>0.023</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.248</td>
+      <td>NaN</td>
+      <td>0.734</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Llama3.1 70B</td>
+      <td>0.000</td>
+      <td>0.040</td>
+      <td>NaN</td>
+      <td>0.002</td>
+      <td>NaN</td>
+      <td>0.001</td>
+      <td>0.291</td>
+      <td>NaN</td>
+      <td>0.562</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
