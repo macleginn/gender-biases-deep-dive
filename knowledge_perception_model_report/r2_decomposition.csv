@@ -1,230 +1,270 @@
 target_model,model,predictor,unique_r2,relative_r2
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,male_perc:C(semantic_role),0.0004419910878397,0.5238641012815296
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,C(semantic_role):C(valence),0.0001486750853392,0.1762151819505285
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,C(valence):C(dominance),0.0001343677647944,0.159257619173517
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,male_perc:C(dominance),0.0001078542365274,0.1278328098515087
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,C(semantic_role):C(dominance),1.0825083877508137e-05,0.012830287742916
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,C(semantic_role),0.0,0.0
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,C(dominance),0.0,0.0
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,C(valence),0.0,0.0
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,male_perc:C(semantic_role),0.0004419910878397,0.5224044610517736
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001486750853393,0.1757241943681177
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001343677647946,0.1588138803734453
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001078542365277,0.1274766298587433
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",1.0825083877619155e-05,0.0127945387690231
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",2.357402942965159e-06,0.0027862955787655
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,C(semantic_role),1.1102230246251563e-16,1.312210758957449e-13
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 EleutherAI_pythia-12b-deduped,World-Knowledge Model,male_perc,0.0,0.0
-EleutherAI_pythia-12b-deduped,Human-Perception Model,C(syntactic_role):C(dominance),0.0003605702771672,0.478719638965091
-EleutherAI_pythia-12b-deduped,Human-Perception Model,male_perc:C(syntactic_role),0.0001478018819655,0.1962326571362353
-EleutherAI_pythia-12b-deduped,Human-Perception Model,C(valence):C(dominance),0.0001343677647946,0.1783965343910435
-EleutherAI_pythia-12b-deduped,Human-Perception Model,male_perc:C(dominance),0.0001078542365278,0.1431952227928532
-EleutherAI_pythia-12b-deduped,Human-Perception Model,C(syntactic_role):C(valence),2.6030092842299624e-06,0.0034559467146294
-EleutherAI_pythia-12b-deduped,Human-Perception Model,C(syntactic_role),1.1102230246251563e-16,1.474013803064231e-13
-EleutherAI_pythia-12b-deduped,Human-Perception Model,C(dominance),0.0,0.0
-EleutherAI_pythia-12b-deduped,Human-Perception Model,C(valence),0.0,0.0
+EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.0003605702771671,0.4772259876445519
+EleutherAI_pythia-12b-deduped,Human-Perception Model,male_perc:C(syntactic_role),0.0001478018819655,0.1956203923708515
+EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001343677647944,0.1778399200439419
+EleutherAI_pythia-12b-deduped,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001078542365275,0.1427484399238623
+EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",2.603009283674851e-06,0.0034451638277264
+EleutherAI_pythia-12b-deduped,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",2.3574029428541365e-06,0.0031200961890658
+EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+EleutherAI_pythia-12b-deduped,Human-Perception Model,C(syntactic_role),0.0,0.0
+EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 EleutherAI_pythia-12b-deduped,Human-Perception Model,male_perc,0.0,0.0
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,C(valence):C(dominance),0.0017075603064196,0.7392864734608241
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc:C(semantic_role),0.0003899643124021,0.1688346468394055
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc:C(dominance),0.0001398121213727,0.0605315137439751
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,C(semantic_role):C(dominance),3.372104498988726e-05,0.0145994916479754
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc:C(valence),2.7676240857976708e-05,0.0119823999337672
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,C(semantic_role):C(valence),1.1007011725960858e-05,0.0047654743739562
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc,2.220446049250313e-16,9.613398268212592e-14
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0031446476006087,0.8417553547271205
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc:C(semantic_role),0.000389964312402,0.1043851616484251
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001398121213727,0.0374247345866202
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",3.372104498977624e-05,0.0090264073410463
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",2.76762408584208e-05,0.0074083416967877
 EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,C(semantic_role),0.0,0.0
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,C(valence),0.0,0.0
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,C(dominance),0.0,0.0
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc:C(syntactic_role),0.0043295074124863,0.6973380723029027
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(valence):C(dominance),0.0017075603064196,0.2750305517402431
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc:C(dominance),0.0001398121213727,0.0225190318236761
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc:C(valence),2.7676240858198756e-05,0.0044577118387617
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(syntactic_role):C(valence),2.508047999838503e-06,0.0004039622042005
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(syntactic_role):C(dominance),1.55631544651591e-06,0.0002506700901443
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(valence),2.220446049250313e-16,3.5763920005568934e-14
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(syntactic_role),1.1102230246251563e-16,1.7881960002784467e-14
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc,1.1102230246251563e-16,1.7881960002784467e-14
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(dominance),0.0,0.0
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,C(valence):C(dominance),0.0001693807414822,0.5623837489440744
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,male_perc:C(dominance),7.04817134111746e-05,0.2340158029379175
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,male_perc:C(valence),4.665404689863095e-05,0.1549023671089615
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,C(semantic_role):C(dominance),1.4139699858972676e-05,0.046947116573276
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,C(semantic_role):C(valence),5.273617080803206e-07,0.0017509644357703
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,C(valence),0.0,0.0
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,C(semantic_role),0.0,0.0
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc,0.0,0.0
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0047039173259879,0.5110596675548322
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc:C(syntactic_role),0.0043295074124865,0.4703816979684722
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001398121213729,0.0151899643036302
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(syntactic_role),3.1006058584859275e-05,0.0033686701730532
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc,1.1102230246251563e-16,1.2062078700702595e-14
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001693807414823,0.4324542411166516
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,C(semantic_role),8.292639094487075e-05,0.2117234176138661
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",7.048171341128562e-05,0.1799503037897667
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",4.665404689863095e-05,0.1191147250271924
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,male_perc:C(semantic_role),2.2230318849292274e-05,0.056757312452523
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,male_perc,0.0,0.0
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,male_perc:C(syntactic_role),0.0014499455200047,0.6852069668618476
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(syntactic_role):C(dominance),0.0003284981050808,0.1552397570093314
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(valence):C(dominance),0.0001693807414823,0.0800449827353011
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,male_perc:C(dominance),7.048171341139664e-05,0.033307845294553
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(syntactic_role):C(valence),5.110930925966706e-05,0.024152945261078
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,male_perc:C(valence),4.665404689840891e-05,0.0220475028378886
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(valence),0.0,0.0
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,male_perc:C(syntactic_role),0.0014499455200047,0.685206966861632
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.000328498105081,0.1552397570093875
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001693807414825,0.0800449827353808
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",7.04817134111746e-05,0.0333078452944376
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",5.11093092598891e-05,0.0241529452611754
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",4.665404689863095e-05,0.0220475028379866
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(syntactic_role),0.0,0.0
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(dominance),0.0,0.0
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 EleutherAI_pythia-6.9b-deduped,Human-Perception Model,male_perc,0.0,0.0
-Qwen_Qwen3-4B-Base,World-Knowledge Model,C(valence):C(dominance),0.0010853112573325,0.4754786203093982
-Qwen_Qwen3-4B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0004644769610532,0.2034889651378741
-Qwen_Qwen3-4B-Base,World-Knowledge Model,C(semantic_role):C(dominance),0.0004342662604701,0.1902535525916878
-Qwen_Qwen3-4B-Base,World-Knowledge Model,male_perc:C(valence),0.0001408843897867,0.0617219390533012
-Qwen_Qwen3-4B-Base,World-Knowledge Model,male_perc:C(dominance),9.973012812580784e-05,0.0436921145009441
-Qwen_Qwen3-4B-Base,World-Knowledge Model,C(semantic_role):C(valence),5.789684525892014e-05,0.0253648084067945
-Qwen_Qwen3-4B-Base,World-Knowledge Model,C(valence),0.0,0.0
-Qwen_Qwen3-4B-Base,World-Knowledge Model,C(dominance),0.0,0.0
-Qwen_Qwen3-4B-Base,World-Knowledge Model,male_perc,0.0,0.0
-Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc:C(syntactic_role),0.0011088070249511,0.4341884380380596
-Qwen_Qwen3-4B-Base,Human-Perception Model,C(valence):C(dominance),0.0010853112573325,0.4249879275675539
-Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc:C(valence),0.0001408843897868,0.0551677359260974
-Qwen_Qwen3-4B-Base,Human-Perception Model,C(syntactic_role):C(dominance),0.0001190132874734,0.0466034145086154
-Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc:C(dominance),9.973012812580784e-05,0.0390524839596736
-Qwen_Qwen3-4B-Base,Human-Perception Model,C(valence),0.0,0.0
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0010853112573326,0.4754786203090999
+Qwen_Qwen3-4B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0004644769610535,0.2034889651378715
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",0.0004342662604703,0.1902535525916462
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0001408843897869,0.0617219390533534
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",9.973012812580784e-05,0.0436921145009122
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",5.789684525903116e-05,0.0253648084068246
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",2.220446049250313e-16,9.727851036605405e-14
+Qwen_Qwen3-4B-Base,World-Knowledge Model,C(semantic_role),2.220446049250313e-16,9.727851036605405e-14
+Qwen_Qwen3-4B-Base,World-Knowledge Model,male_perc,2.220446049250313e-16,9.727851036605405e-14
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc:C(syntactic_role),0.0011088070249513,0.4340786564479433
+Qwen_Qwen3-4B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.001085311257333,0.424880472263994
+Qwen_Qwen3-4B-Base,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0001408843897869,0.0551537871397502
+Qwen_Qwen3-4B-Base,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.0001190132874738,0.0465916311527544
+Qwen_Qwen3-4B-Base,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",9.973012812602988e-05,0.0390426098051005
+Qwen_Qwen3-4B-Base,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",6.458606094383867e-07,0.0002528431902836
+Qwen_Qwen3-4B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val'))",2.220446049250313e-16,8.692659913622443e-14
+Qwen_Qwen3-4B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",1.1102230246251563e-16,4.3463299568112214e-14
+Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc,1.1102230246251563e-16,4.3463299568112214e-14
 Qwen_Qwen3-4B-Base,Human-Perception Model,C(syntactic_role),0.0,0.0
-Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc,0.0,0.0
-Qwen_Qwen3-8B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0007873487740224,0.3155124519347791
-Qwen_Qwen3-8B-Base,World-Knowledge Model,male_perc:C(valence),0.0007194924774037,0.2883205552407804
-Qwen_Qwen3-8B-Base,World-Knowledge Model,C(semantic_role):C(valence),0.0005153821358929,0.2065278904903004
-Qwen_Qwen3-8B-Base,World-Knowledge Model,C(dominance),0.0004732368368154,0.18963910233414
+Qwen_Qwen3-8B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0007873487740226,0.4382048921333564
+Qwen_Qwen3-8B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0007194924774038,0.40043895901521
+Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0002265086328946,0.1260650861723637
+Qwen_Qwen3-8B-Base,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",5.8398355907263166e-05,0.0325020449582507
+Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",5.01119390183824e-06,0.0027890177208191
+Qwen_Qwen3-8B-Base,World-Knowledge Model,C(semantic_role),0.0,0.0
+Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 Qwen_Qwen3-8B-Base,World-Knowledge Model,male_perc,0.0,0.0
-Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc:C(syntactic_role),0.0008542429614508,0.4102516113031733
-Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc:C(valence),0.0007194924774034,0.3455374659147828
-Qwen_Qwen3-8B-Base,Human-Perception Model,C(syntactic_role):C(valence),0.0002659451259773,0.1277205916512545
-Qwen_Qwen3-8B-Base,Human-Perception Model,C(syntactic_role):C(dominance),0.0001791514608092,0.086037788756831
-Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc:C(dominance),5.839835590737419e-05,0.0280459081193546
-Qwen_Qwen3-8B-Base,Human-Perception Model,C(valence):C(dominance),5.01119390183824e-06,0.0024066342546037
-Qwen_Qwen3-8B-Base,Human-Perception Model,C(valence),0.0,0.0
+Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc:C(syntactic_role),0.0008542429614509,0.4102516113030078
+Qwen_Qwen3-8B-Base,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0007194924774037,0.3455374659147585
+Qwen_Qwen3-8B-Base,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",0.0002659451259773,0.1277205916511864
+Qwen_Qwen3-8B-Base,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.0001791514608093,0.0860377887568384
+Qwen_Qwen3-8B-Base,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",5.839835590759623e-05,0.0280459081194463
+Qwen_Qwen3-8B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",5.011193901949262e-06,0.0024066342546557
+Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc,2.220446049250313e-16,1.0663729297447809e-13
 Qwen_Qwen3-8B-Base,Human-Perception Model,C(syntactic_role),0.0,0.0
-Qwen_Qwen3-8B-Base,Human-Perception Model,C(dominance),0.0,0.0
-Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc,0.0,0.0
-allenai_Olmo-3-1025-7B,World-Knowledge Model,male_perc:C(valence),0.0006044770554473,0.4786269061073309
-allenai_Olmo-3-1025-7B,World-Knowledge Model,male_perc:C(semantic_role),0.0003621480973662,0.2867500459000739
-allenai_Olmo-3-1025-7B,World-Knowledge Model,male_perc:C(dominance),0.0002646733090704,0.2095691902744386
-allenai_Olmo-3-1025-7B,World-Knowledge Model,C(valence):C(dominance),3.164151857693032e-05,0.0250538577180684
-allenai_Olmo-3-1025-7B,World-Knowledge Model,male_perc,1.1102230246251563e-16,8.79078215751705e-14
-allenai_Olmo-3-1025-7B,World-Knowledge Model,C(dominance),0.0,0.0
-allenai_Olmo-3-1025-7B,Human-Perception Model,male_perc:C(valence),0.0006044770554473,0.4969570691820543
-allenai_Olmo-3-1025-7B,Human-Perception Model,C(syntactic_role):C(valence),0.0002983202236732,0.245257189993251
-allenai_Olmo-3-1025-7B,Human-Perception Model,male_perc:C(dominance),0.0002646733090705,0.2175951440689176
-allenai_Olmo-3-1025-7B,Human-Perception Model,C(syntactic_role):C(dominance),4.8886101215117606e-05,0.0401905967557769
+Qwen_Qwen3-8B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+Qwen_Qwen3-8B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+allenai_Olmo-3-1025-7B,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0023133814603695,0.6184155006749203
+allenai_Olmo-3-1025-7B,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006044770554471,0.1615894253908161
+allenai_Olmo-3-1025-7B,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.00026467330907,0.0707527399816399
+allenai_Olmo-3-1025-7B,World-Knowledge Model,C(semantic_role),0.0002499754775859,0.0668237006200852
+allenai_Olmo-3-1025-7B,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0001717274099722,0.0459063470667983
+allenai_Olmo-3-1025-7B,World-Knowledge Model,male_perc:C(semantic_role),0.0001365859135656,0.0365122862657399
+allenai_Olmo-3-1025-7B,World-Knowledge Model,male_perc,0.0,0.0
+allenai_Olmo-3-1025-7B,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006044770554473,0.503384673727546
+allenai_Olmo-3-1025-7B,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",0.0002747337732602,0.2287874611091996
+allenai_Olmo-3-1025-7B,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0002646733090704,0.2204095029417079
+allenai_Olmo-3-1025-7B,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",4.888610121522863e-05,0.040710418845972
+allenai_Olmo-3-1025-7B,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",8.055068164258827e-06,0.0067079433754819
+allenai_Olmo-3-1025-7B,Human-Perception Model,"C(valence, Treatment(reference='-val'))",1.1102230246251563e-16,9.245499890846765e-14
 allenai_Olmo-3-1025-7B,Human-Perception Model,C(syntactic_role),0.0,0.0
-allenai_Olmo-3-1025-7B,Human-Perception Model,C(dominance),0.0,0.0
+allenai_Olmo-3-1025-7B,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 allenai_Olmo-3-1025-7B,Human-Perception Model,male_perc,0.0,0.0
-allenai_Olmo-3-1125-32B,World-Knowledge Model,male_perc:C(valence),0.0014187784998495,0.5687738470025702
-allenai_Olmo-3-1125-32B,World-Knowledge Model,C(dominance),0.0010756725149544,0.4312261529974298
+allenai_Olmo-3-1125-32B,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0010756725149545,0.3727287915726773
+allenai_Olmo-3-1125-32B,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.00107411552945,0.3721892841319557
+allenai_Olmo-3-1125-32B,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003784861588244,0.1311483622053567
+allenai_Olmo-3-1125-32B,World-Knowledge Model,male_perc:C(semantic_role),0.0003175523145848,0.1100343169791982
+allenai_Olmo-3-1125-32B,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",4.011237200440832e-05,0.0138992451108119
 allenai_Olmo-3-1125-32B,World-Knowledge Model,male_perc,0.0,0.0
-allenai_Olmo-3-1125-32B,Human-Perception Model,male_perc:C(valence),0.0003784861588239,0.2799172677474862
-allenai_Olmo-3-1125-32B,Human-Perception Model,male_perc:C(syntactic_role),0.0003726004307403,0.2755643557969446
-allenai_Olmo-3-1125-32B,Human-Perception Model,C(syntactic_role):C(dominance),0.0002757420903364,0.2039307666356498
-allenai_Olmo-3-1125-32B,Human-Perception Model,C(syntactic_role):C(valence),0.0002714484877669,0.2007553440421852
-allenai_Olmo-3-1125-32B,Human-Perception Model,male_perc:C(dominance),4.01123720038532e-05,0.0296659344401854
-allenai_Olmo-3-1125-32B,Human-Perception Model,C(valence):C(dominance),1.3746260558389343e-05,0.0101663313374664
-allenai_Olmo-3-1125-32B,Human-Perception Model,male_perc,1.1102230246251563e-16,8.210884028336797e-14
+allenai_Olmo-3-1125-32B,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003784861588246,0.2799172677475882
+allenai_Olmo-3-1125-32B,Human-Perception Model,male_perc:C(syntactic_role),0.0003726004307403,0.27556435579656
+allenai_Olmo-3-1125-32B,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.0002757420903366,0.2039307666355294
+allenai_Olmo-3-1125-32B,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",0.0002714484877671,0.2007553440420692
+allenai_Olmo-3-1125-32B,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",4.011237200429729e-05,0.0296659344404724
+allenai_Olmo-3-1125-32B,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",1.3746260558833434e-05,0.0101663313377806
+allenai_Olmo-3-1125-32B,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 allenai_Olmo-3-1125-32B,Human-Perception Model,C(syntactic_role),0.0,0.0
-allenai_Olmo-3-1125-32B,Human-Perception Model,C(dominance),0.0,0.0
-google_gemma-3-12b-pt,World-Knowledge Model,male_perc:C(valence),0.000579142319633,1.0
-google_gemma-3-12b-pt,World-Knowledge Model,male_perc,0.0,0.0
-google_gemma-3-12b-pt,Human-Perception Model,male_perc:C(valence),0.0002769418770973,0.3473940965284867
-google_gemma-3-12b-pt,Human-Perception Model,male_perc:C(syntactic_role),0.0002154393544635,0.2702457305661752
-google_gemma-3-12b-pt,Human-Perception Model,C(syntactic_role):C(dominance),0.0001849808877266,0.2320388272094032
-google_gemma-3-12b-pt,Human-Perception Model,C(valence):C(dominance),6.088722459018925e-05,0.0763765400824487
-google_gemma-3-12b-pt,Human-Perception Model,male_perc:C(dominance),5.198895500124756e-05,0.0652146083554153
-google_gemma-3-12b-pt,Human-Perception Model,C(syntactic_role):C(valence),6.959695746378003e-06,0.0087301972575136
-google_gemma-3-12b-pt,Human-Perception Model,C(dominance),2.220446049250313e-16,2.785313139544999e-13
-google_gemma-3-12b-pt,Human-Perception Model,male_perc,2.220446049250313e-16,2.785313139544999e-13
-google_gemma-3-12b-pt,Human-Perception Model,C(valence),0.0,0.0
+allenai_Olmo-3-1125-32B,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+allenai_Olmo-3-1125-32B,Human-Perception Model,male_perc,0.0,0.0
+google_gemma-3-12b-pt,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0002769418770972,0.5746281069949268
+google_gemma-3-12b-pt,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",6.088722459018925e-05,0.1263352114644193
+google_gemma-3-12b-pt,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",5.198895500113654e-05,0.1078721467120554
+google_gemma-3-12b-pt,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",3.757640348567293e-05,0.0779674703911492
+google_gemma-3-12b-pt,World-Knowledge Model,male_perc:C(semantic_role),3.0886785399864e-05,0.0640871478575606
+google_gemma-3-12b-pt,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",2.366851241020207e-05,0.0491099165796582
+google_gemma-3-12b-pt,World-Knowledge Model,male_perc,1.1102230246251563e-16,2.3036073910862164e-13
+google_gemma-3-12b-pt,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+google_gemma-3-12b-pt,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+google_gemma-3-12b-pt,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0002769418770973,0.350453625811776
+google_gemma-3-12b-pt,Human-Perception Model,male_perc:C(syntactic_role),0.0002154393544633,0.2726258076443869
+google_gemma-3-12b-pt,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.0001849808877267,0.2340824128484525
+google_gemma-3-12b-pt,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",6.088722459018925e-05,0.0770491947512347
+google_gemma-3-12b-pt,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",5.198895500102552e-05,0.0657889589441498
 google_gemma-3-12b-pt,Human-Perception Model,C(syntactic_role),0.0,0.0
-google_gemma-3-4b-pt,World-Knowledge Model,C(valence):C(dominance),0.0007762462986306,0.461913185373826
-google_gemma-3-4b-pt,World-Knowledge Model,male_perc:C(semantic_role),0.0004449549475018,0.2647749271217224
-google_gemma-3-4b-pt,World-Knowledge Model,male_perc:C(valence),0.0001611101075198,0.0958701936378908
-google_gemma-3-4b-pt,World-Knowledge Model,C(semantic_role):C(valence),0.0001493531854626,0.0888741186456739
-google_gemma-3-4b-pt,World-Knowledge Model,male_perc:C(dominance),0.0001334559632955,0.0794143163345298
-google_gemma-3-4b-pt,World-Knowledge Model,C(semantic_role):C(dominance),1.5382075151615382e-05,0.0091532588863569
-google_gemma-3-4b-pt,World-Knowledge Model,C(valence),0.0,0.0
-google_gemma-3-4b-pt,World-Knowledge Model,C(semantic_role),0.0,0.0
-google_gemma-3-4b-pt,World-Knowledge Model,C(dominance),0.0,0.0
-google_gemma-3-4b-pt,World-Knowledge Model,male_perc,0.0,0.0
-google_gemma-3-4b-pt,Human-Perception Model,male_perc:C(syntactic_role),0.0010123242081345,0.4560155384755644
-google_gemma-3-4b-pt,Human-Perception Model,C(valence):C(dominance),0.0007762462986309,0.3496709562168174
-google_gemma-3-4b-pt,Human-Perception Model,male_perc:C(valence),0.0001611101075201,0.0725742917578278
-google_gemma-3-4b-pt,Human-Perception Model,C(syntactic_role):C(valence),0.0001367970052046,0.0616221162044403
-google_gemma-3-4b-pt,Human-Perception Model,male_perc:C(dominance),0.0001334559632959,0.0601170973450498
-google_gemma-3-4b-pt,Human-Perception Model,C(valence),2.220446049250313e-16,1.000230847655691e-13
-google_gemma-3-4b-pt,Human-Perception Model,C(dominance),2.220446049250313e-16,1.000230847655691e-13
-google_gemma-3-4b-pt,Human-Perception Model,male_perc,2.220446049250313e-16,1.000230847655691e-13
+google_gemma-3-12b-pt,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+google_gemma-3-12b-pt,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+google_gemma-3-12b-pt,Human-Perception Model,male_perc,0.0,0.0
+google_gemma-3-4b-pt,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0007762462986308,0.4619131853735004
+google_gemma-3-4b-pt,World-Knowledge Model,male_perc:C(semantic_role),0.0004449549475022,0.2647749271217243
+google_gemma-3-4b-pt,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.00016111010752,0.095870193637928
+google_gemma-3-4b-pt,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001493531854628,0.088874118645718
+google_gemma-3-4b-pt,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001334559632956,0.0794143163345171
+google_gemma-3-4b-pt,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",1.5382075151837427e-05,0.00915325888648
+google_gemma-3-4b-pt,World-Knowledge Model,male_perc,2.220446049250313e-16,1.3212988060211156e-13
+google_gemma-3-4b-pt,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+google_gemma-3-4b-pt,Human-Perception Model,male_perc:C(syntactic_role),0.0010123242081345,0.4560155384758836
+google_gemma-3-4b-pt,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0007762462986307,0.3496709562169622
+google_gemma-3-4b-pt,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0001611101075198,0.0725742917577286
+google_gemma-3-4b-pt,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",0.0001367970052044,0.0616221162043835
+google_gemma-3-4b-pt,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001334559632956,0.0601170973449418
+google_gemma-3-4b-pt,Human-Perception Model,"C(valence, Treatment(reference='-val'))",2.220446049250313e-16,1.0002308476563912e-13
 google_gemma-3-4b-pt,Human-Perception Model,C(syntactic_role),0.0,0.0
-gpt2,World-Knowledge Model,male_perc:C(dominance),7.285073032459177e-05,0.3707869493009949
-gpt2,World-Knowledge Model,C(semantic_role):C(dominance),6.205733132003122e-05,0.3158519957094801
-gpt2,World-Knowledge Model,C(valence):C(dominance),4.790632270579298e-05,0.2438278816034573
-gpt2,World-Knowledge Model,male_perc:C(semantic_role),8.809786731345248e-06,0.0448390006737546
-gpt2,World-Knowledge Model,C(semantic_role):C(valence),4.534513644238736e-06,0.0230792261549018
-gpt2,World-Knowledge Model,male_perc:C(valence),3.172982122601198e-07,0.0016149465574111
-gpt2,World-Knowledge Model,C(valence),0.0,0.0
+google_gemma-3-4b-pt,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+google_gemma-3-4b-pt,Human-Perception Model,male_perc,0.0,0.0
+gpt2,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",7.28507303247028e-05,0.3713867190023627
+gpt2,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",6.205733132014224e-05,0.316362904892048
+gpt2,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",4.790632270612605e-05,0.244222287546012
+gpt2,World-Knowledge Model,male_perc:C(semantic_role),8.80978673190036e-06,0.0449115303976792
+gpt2,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",4.53451364446078e-06,0.0231165581618979
 gpt2,World-Knowledge Model,C(semantic_role),0.0,0.0
-gpt2,World-Knowledge Model,C(dominance),0.0,0.0
+gpt2,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+gpt2,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 gpt2,World-Knowledge Model,male_perc,0.0,0.0
-gpt2,Human-Perception Model,C(valence),0.0001743472726921,0.6744858702310643
-gpt2,Human-Perception Model,C(syntactic_role):C(dominance),8.382456932376492e-05,0.3242866189648419
-gpt2,Human-Perception Model,male_perc:C(valence),3.172982123711421e-07,0.0012275108040937
-gpt2,Human-Perception Model,C(dominance),0.0,0.0
-gpt2,Human-Perception Model,male_perc,0.0,0.0
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,male_perc:C(valence),0.0006836288297025,0.6190543847658192
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,male_perc:C(semantic_role),0.0003101469116033,0.2808509489472292
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,C(semantic_role):C(dominance),6.04814440425816e-05,0.054768467192674
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,C(valence):C(dominance),5.0054239504659925e-05,0.0453261990939759
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,C(valence),2.220446049250313e-16,2.010706399732279e-13
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,C(dominance),1.1102230246251563e-16,1.0053531998661397e-13
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,C(semantic_role),0.0,0.0
+gpt2,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0013524411311409,0.6586231932414679
+gpt2,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0004262619877946,0.2075846593943
+gpt2,Human-Perception Model,male_perc:C(syntactic_role),0.0001919333605241,0.0934693273424269
+gpt2,Human-Perception Model,C(syntactic_role),8.280036427599224e-05,0.0403228200217511
+gpt2,Human-Perception Model,male_perc,1.1102230246251563e-16,5.406657760193514e-14
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0006142329792422,0.4952751987635665
+meta-llama_Llama-3.1-70B,World-Knowledge Model,male_perc:C(semantic_role),0.0003191444787282,0.2573361419496562
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0001532232999725,0.1235487232267326
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",8.226664521537863e-05,0.0663341605508127
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",7.131781260771852e-05,0.0575057755092317
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+meta-llama_Llama-3.1-70B,World-Knowledge Model,male_perc,0.0,0.0
+meta-llama_Llama-3.1-70B,Human-Perception Model,male_perc:C(syntactic_role),0.0013434971203836,0.5847109686139109
+meta-llama_Llama-3.1-70B,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0006142329792426,0.2673238035263111
+meta-llama_Llama-3.1-70B,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.0001867581065977,0.0812800502126002
+meta-llama_Llama-3.1-70B,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0001532232999725,0.0666851776471294
+meta-llama_Llama-3.1-70B,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",1.1102230246251563e-16,4.8318643207860526e-14
+meta-llama_Llama-3.1-70B,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+meta-llama_Llama-3.1-70B,Human-Perception Model,C(syntactic_role),0.0,0.0
+meta-llama_Llama-3.1-70B,Human-Perception Model,male_perc,0.0,0.0
+meta-llama_Llama-3.1-8B,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.000450254897231,0.461365534054109
+meta-llama_Llama-3.1-8B,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003222736064127,0.3302261351260395
+meta-llama_Llama-3.1-8B,World-Knowledge Model,male_perc:C(semantic_role),0.0002007650252083,0.205719168507168
+meta-llama_Llama-3.1-8B,World-Knowledge Model,C(semantic_role),2.6244017190535374e-06,0.0026891623125696
+meta-llama_Llama-3.1-8B,World-Knowledge Model,male_perc,1.1102230246251563e-16,1.1376192503965286e-13
+meta-llama_Llama-3.1-8B,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+meta-llama_Llama-3.1-8B,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+meta-llama_Llama-3.1-8B,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.000450254897231,0.3709150360090532
+meta-llama_Llama-3.1-8B,Human-Perception Model,male_perc:C(syntactic_role),0.0003960625470823,0.3262719735339235
+meta-llama_Llama-3.1-8B,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003222736064126,0.2654854551553868
+meta-llama_Llama-3.1-8B,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",4.500025370257621e-05,0.0370707144445391
+meta-llama_Llama-3.1-8B,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",3.117556238718677e-07,0.0002568208567315
+meta-llama_Llama-3.1-8B,Human-Perception Model,male_perc,2.220446049250313e-16,1.8291790525294544e-13
+meta-llama_Llama-3.1-8B,Human-Perception Model,C(syntactic_role),1.1102230246251563e-16,9.145895262647272e-14
+meta-llama_Llama-3.1-8B,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",1.1102230246251563e-16,9.145895262647272e-14
+meta-llama_Llama-3.1-8B,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+mistralai_Mistral-7B-v0.3,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006836288297026,0.6271003085835093
+mistralai_Mistral-7B-v0.3,World-Knowledge Model,male_perc:C(semantic_role),0.0003101469116034,0.2845012022932977
+mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",6.048144404247058e-05,0.0554802995056654
+mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",3.588552443067883e-05,0.0329181896175276
+mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 mistralai_Mistral-7B-v0.3,World-Knowledge Model,male_perc,0.0,0.0
-mistralai_Mistral-7B-v0.3,Human-Perception Model,male_perc:C(valence),0.0006836288297028,0.6635561370086018
-mistralai_Mistral-7B-v0.3,Human-Perception Model,male_perc:C(syntactic_role),0.00028360815426,0.2752808586887233
-mistralai_Mistral-7B-v0.3,Human-Perception Model,C(valence):C(dominance),5.00542395045489e-05,0.0485845481691849
-mistralai_Mistral-7B-v0.3,Human-Perception Model,C(syntactic_role):C(valence),1.2958956697506352e-05,0.0125784561332744
-mistralai_Mistral-7B-v0.3,Human-Perception Model,C(valence),2.220446049250313e-16,2.155249367580027e-13
-mistralai_Mistral-7B-v0.3,Human-Perception Model,C(syntactic_role),0.0,0.0
-mistralai_Mistral-7B-v0.3,Human-Perception Model,C(dominance),0.0,0.0
+mistralai_Mistral-7B-v0.3,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006836288297027,0.4224400955380483
+mistralai_Mistral-7B-v0.3,Human-Perception Model,C(syntactic_role),0.0006009946280025,0.3713772986748526
+mistralai_Mistral-7B-v0.3,Human-Perception Model,male_perc:C(syntactic_role),0.0002836081542598,0.1752521991107447
+mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",5.00542395045489e-05,0.0309304066763543
+mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 mistralai_Mistral-7B-v0.3,Human-Perception Model,male_perc,0.0,0.0
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,male_perc:C(valence),0.0002403648107238,0.3531584818968475
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0001237915983819,0.1818820850876256
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,C(valence):C(dominance),0.0001072802136112,0.1576225623976817
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,C(semantic_role):C(valence),8.318024801012847e-05,0.1222134389081064
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,male_perc:C(dominance),8.110083346957175e-05,0.11915823760736
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,C(semantic_role):C(dominance),4.4896872672062216e-05,0.0659651941023785
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,C(valence),0.0,0.0
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0002403648107242,0.3531584818962424
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0001237915983821,0.1818820850873882
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001072802136116,0.1576225623976825
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",8.318024801046153e-05,0.122213438908217
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",8.110083346990482e-05,0.1191582376074801
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",4.489687267250631e-05,0.0659651941028265
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,C(semantic_role),1.1102230246251563e-16,1.6312066510965153e-13
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 tiiuae_Falcon3-10B-Base,World-Knowledge Model,male_perc,0.0,0.0
-tiiuae_Falcon3-10B-Base,Human-Perception Model,male_perc:C(valence),0.000240364810724,0.4017857295794398
-tiiuae_Falcon3-10B-Base,Human-Perception Model,C(valence):C(dominance),0.0001072802136117,0.1793259952052769
-tiiuae_Falcon3-10B-Base,Human-Perception Model,male_perc:C(dominance),8.110083347001584e-05,0.1355654242694225
-tiiuae_Falcon3-10B-Base,Human-Perception Model,C(syntactic_role):C(valence),6.675156997926202e-05,0.1115796782561344
-tiiuae_Falcon3-10B-Base,Human-Perception Model,C(syntactic_role):C(dominance),5.5205084869780485e-05,0.0922789622743911
-tiiuae_Falcon3-10B-Base,Human-Perception Model,male_perc:C(syntactic_role),4.753877126428829e-05,0.0794642104149637
-tiiuae_Falcon3-10B-Base,Human-Perception Model,C(valence),1.1102230246251563e-16,1.8558114501084121e-13
-tiiuae_Falcon3-10B-Base,Human-Perception Model,male_perc,1.1102230246251563e-16,1.8558114501084121e-13
-tiiuae_Falcon3-10B-Base,Human-Perception Model,C(syntactic_role),0.0,0.0
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,male_perc:C(valence),0.0003671569601321,0.4980695853639358
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(semantic_role):C(valence),0.0001754600273119,0.2380216434403387
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,male_perc:C(dominance),0.0001577523959581,0.2140002205508443
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(semantic_role):C(dominance),2.512301926194116e-05,0.0340808241314081
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(valence):C(dominance),1.1667566386708296e-05,0.0158277265133223
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(semantic_role),1.1102230246251563e-16,1.5060815443552068e-13
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(dominance),0.0,0.0
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(valence),0.0,0.0
+tiiuae_Falcon3-10B-Base,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0002403648107244,0.4017857295792509
+tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001072802136118,0.1793259952051297
+tiiuae_Falcon3-10B-Base,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",8.110083347001584e-05,0.135565424269171
+tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",6.675156997959508e-05,0.1115796782564841
+tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",5.520508486989151e-05,0.0922789622744055
+tiiuae_Falcon3-10B-Base,Human-Perception Model,male_perc:C(syntactic_role),4.753877126439932e-05,0.0794642104150019
+tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val'))",1.1102230246251563e-16,1.8558114501049682e-13
+tiiuae_Falcon3-10B-Base,Human-Perception Model,C(syntactic_role),1.1102230246251563e-16,1.8558114501049682e-13
+tiiuae_Falcon3-10B-Base,Human-Perception Model,male_perc,1.1102230246251563e-16,1.8558114501049682e-13
+tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+tiiuae_Falcon3-3B-Base,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0006083302529066,0.4496078378300717
+tiiuae_Falcon3-3B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003671569601322,0.2713602458542384
+tiiuae_Falcon3-3B-Base,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0002197845194135,0.1624394678546389
+tiiuae_Falcon3-3B-Base,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001577523959582,0.1165924484610508
+tiiuae_Falcon3-3B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 tiiuae_Falcon3-3B-Base,World-Knowledge Model,male_perc,0.0,0.0
-tiiuae_Falcon3-3B-Base,Human-Perception Model,male_perc:C(valence),0.0003671569601323,0.3753165459998512
-tiiuae_Falcon3-3B-Base,Human-Perception Model,C(syntactic_role):C(valence),0.0003256008253367,0.3328368801616401
-tiiuae_Falcon3-3B-Base,Human-Perception Model,male_perc:C(dominance),0.0001577523959584,0.1612582377656781
-tiiuae_Falcon3-3B-Base,Human-Perception Model,C(syntactic_role):C(dominance),7.616176466529456e-05,0.0778543608192214
-tiiuae_Falcon3-3B-Base,Human-Perception Model,male_perc:C(syntactic_role),3.991994355945217e-05,0.0408071123800624
-tiiuae_Falcon3-3B-Base,Human-Perception Model,C(valence):C(dominance),1.1667566386708296e-05,0.0119268628733196
-tiiuae_Falcon3-3B-Base,Human-Perception Model,male_perc,2.220446049250313e-16,2.2697925744979858e-13
+tiiuae_Falcon3-3B-Base,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003671569601322,0.3753165459999933
+tiiuae_Falcon3-3B-Base,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",0.0003256008253367,0.3328368801618667
+tiiuae_Falcon3-3B-Base,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001577523959583,0.1612582377656744
+tiiuae_Falcon3-3B-Base,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",7.616176466518354e-05,0.0778543608191609
+tiiuae_Falcon3-3B-Base,Human-Perception Model,male_perc:C(syntactic_role),3.991994355945217e-05,0.0408071123800902
+tiiuae_Falcon3-3B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",1.1667566386597272e-05,0.0119268628732142
 tiiuae_Falcon3-3B-Base,Human-Perception Model,C(syntactic_role),0.0,0.0
-tiiuae_Falcon3-3B-Base,Human-Perception Model,C(valence),0.0,0.0
-tiiuae_Falcon3-3B-Base,Human-Perception Model,C(dominance),0.0,0.0
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0004856166831935,0.3018656556460244
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,male_perc:C(dominance),0.0003681582781831,0.2288519811436691
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,male_perc:C(valence),0.000337159499144,0.2095827363200957
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,C(semantic_role):C(dominance),0.0002930708443713,0.1821766542390967
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,C(valence):C(dominance),0.0001247125936522,0.0775229726511139
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,C(semantic_role),0.0,0.0
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,C(dominance),0.0,0.0
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,C(valence),0.0,0.0
+tiiuae_Falcon3-3B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+tiiuae_Falcon3-3B-Base,Human-Perception Model,male_perc,0.0,0.0
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0004856166831934,0.3017291059596627
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0003681582781832,0.2287484593761964
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003371594991441,0.2094879310438386
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",0.0002930708443714,0.1820942461727927
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001247125936517,0.0774879049397619
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",7.280369048734414e-07,0.0004523525076785
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",1.1102230246251563e-16,6.898169116288855e-14
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 tiiuae_Falcon3-7B-Base,World-Knowledge Model,male_perc,0.0,0.0
-tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc:C(syntactic_role),0.0014211842776969,0.6053640644505851
-tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc:C(dominance),0.0003681582781831,0.1568197700605284
-tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc:C(valence),0.0003371594991443,0.1436156084564245
-tiiuae_Falcon3-7B-Base,Human-Perception Model,C(valence):C(dominance),0.0001247125936518,0.0531222613182965
-tiiuae_Falcon3-7B-Base,Human-Perception Model,C(syntactic_role):C(dominance),9.643755130483989e-05,0.0410782957141653
+tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc:C(syntactic_role),0.0014211842776972,0.6053640644507656
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0003681582781829,0.1568197700604561
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003371594991439,0.1436156084562557
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001247125936519,0.0531222613183513
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",9.643755130483989e-05,0.0410782957141711
 tiiuae_Falcon3-7B-Base,Human-Perception Model,C(syntactic_role),0.0,0.0
-tiiuae_Falcon3-7B-Base,Human-Perception Model,C(dominance),0.0,0.0
-tiiuae_Falcon3-7B-Base,Human-Perception Model,C(valence),0.0,0.0
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc,0.0,0.0
