@@ -203,11 +203,10 @@
     </tr>
   </tbody>
 </table></div><figure><img src="figures/r2_comparison.png" alt="Explained variance (R2) by selected model." loading="lazy"><figcaption>Explained variance (R2) by selected model.</figcaption></figure></section>
-          <section><h2>Fixed-Effect Variance</h2><p class="section-note">The embedding dimensions are grouped as one predictor; they are not included in interactions. Segment numbers in the horizontal bars map to the indexed legend below the plot.</p><div class="table-wrap"><table class="dataframe data-table">
+          <section><h2>Fixed-Effect Variance</h2><p class="section-note">The embedding dimensions are grouped as one predictor; they are not included in interactions. Each term's allocation includes its fitted-contribution variance plus half of every pairwise covariance, so allocations sum to the variance of the complete fixed-effects predictor. Negative allocations can occur when a term covaries negatively with the others. Segment numbers in the horizontal bars map to the indexed legend below the plot.</p><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
-      <th>Intercept</th>
       <th>Tense</th>
       <th>Semantic role</th>
       <th>Syntactic role</th>
@@ -216,6 +215,7 @@
       <th>Log frequency</th>
       <th>Lex emb norm</th>
       <th>Profession embedding</th>
+      <th>Intercept</th>
       <th>Tense:semantic role</th>
       <th>Tense:syntactic role</th>
       <th>Tense:valence</th>
@@ -242,15 +242,15 @@
   <tbody>
     <tr>
       <td>GPT2</td>
-      <td>0.000</td>
       <td>0.012</td>
       <td>0.003</td>
       <td>NaN</td>
       <td>0.002</td>
       <td>0.001</td>
-      <td>0.038</td>
-      <td>0.251</td>
-      <td>0.398</td>
+      <td>0.021</td>
+      <td>0.160</td>
+      <td>0.170</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -275,15 +275,15 @@
     </tr>
     <tr>
       <td>Qwen3 4B</td>
-      <td>0.000</td>
       <td>0.009</td>
       <td>0.005</td>
       <td>0.032</td>
       <td>0.004</td>
       <td>0.000</td>
-      <td>0.137</td>
-      <td>0.000</td>
-      <td>0.444</td>
+      <td>-0.028</td>
+      <td>-0.001</td>
+      <td>0.270</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -308,15 +308,15 @@
     </tr>
     <tr>
       <td>Qwen3 8B</td>
-      <td>0.000</td>
       <td>0.020</td>
       <td>0.002</td>
       <td>0.028</td>
       <td>0.009</td>
       <td>0.001</td>
-      <td>0.501</td>
-      <td>0.076</td>
-      <td>0.524</td>
+      <td>-0.022</td>
+      <td>0.023</td>
+      <td>0.282</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -341,15 +341,15 @@
     </tr>
     <tr>
       <td>Gemma3 4B</td>
-      <td>0.000</td>
       <td>0.012</td>
       <td>0.000</td>
       <td>0.039</td>
       <td>0.003</td>
       <td>0.000</td>
-      <td>0.152</td>
-      <td>0.026</td>
-      <td>0.727</td>
+      <td>-0.042</td>
+      <td>-0.018</td>
+      <td>0.399</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -374,15 +374,15 @@
     </tr>
     <tr>
       <td>Gemma3 12b</td>
-      <td>0.000</td>
       <td>0.010</td>
       <td>NaN</td>
       <td>0.006</td>
       <td>0.001</td>
       <td>NaN</td>
-      <td>0.251</td>
+      <td>-0.037</td>
       <td>NaN</td>
-      <td>0.654</td>
+      <td>0.366</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -407,15 +407,15 @@
     </tr>
     <tr>
       <td>Mistral 7B</td>
-      <td>0.000</td>
       <td>0.024</td>
       <td>NaN</td>
       <td>0.001</td>
       <td>0.000</td>
       <td>0.002</td>
-      <td>0.491</td>
-      <td>0.040</td>
-      <td>0.852</td>
+      <td>-0.060</td>
+      <td>0.007</td>
+      <td>0.478</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -440,15 +440,15 @@
     </tr>
     <tr>
       <td>OLMo3 7B</td>
-      <td>0.000</td>
       <td>0.011</td>
       <td>0.001</td>
       <td>0.012</td>
       <td>0.006</td>
       <td>0.000</td>
-      <td>0.261</td>
-      <td>0.004</td>
-      <td>0.482</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>0.253</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -473,15 +473,15 @@
     </tr>
     <tr>
       <td>OLMo3 32B</td>
-      <td>0.000</td>
       <td>0.041</td>
       <td>NaN</td>
       <td>0.079</td>
       <td>0.003</td>
       <td>0.003</td>
-      <td>0.265</td>
+      <td>-0.042</td>
       <td>NaN</td>
-      <td>0.747</td>
+      <td>0.440</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -506,15 +506,15 @@
     </tr>
     <tr>
       <td>Falcon3 3B</td>
-      <td>0.000</td>
       <td>0.015</td>
       <td>NaN</td>
       <td>0.014</td>
       <td>0.001</td>
       <td>0.001</td>
-      <td>0.509</td>
-      <td>0.270</td>
-      <td>0.376</td>
+      <td>-0.084</td>
+      <td>0.150</td>
+      <td>0.268</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -539,15 +539,15 @@
     </tr>
     <tr>
       <td>Falcon3 7B</td>
-      <td>0.000</td>
       <td>0.035</td>
       <td>0.001</td>
       <td>0.048</td>
       <td>0.007</td>
       <td>NaN</td>
-      <td>0.213</td>
-      <td>0.015</td>
-      <td>0.462</td>
+      <td>-0.051</td>
+      <td>0.030</td>
+      <td>0.294</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -572,15 +572,15 @@
     </tr>
     <tr>
       <td>Falcon3 10B</td>
-      <td>0.000</td>
       <td>0.027</td>
       <td>NaN</td>
       <td>0.020</td>
       <td>0.008</td>
       <td>NaN</td>
-      <td>0.503</td>
-      <td>0.174</td>
-      <td>0.499</td>
+      <td>-0.045</td>
+      <td>0.117</td>
+      <td>0.315</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -605,15 +605,15 @@
     </tr>
     <tr>
       <td>Pythia 2.8b</td>
-      <td>0.000</td>
       <td>0.010</td>
       <td>0.001</td>
       <td>0.000</td>
       <td>0.003</td>
       <td>0.003</td>
-      <td>0.091</td>
-      <td>0.047</td>
-      <td>0.600</td>
+      <td>-0.021</td>
+      <td>0.002</td>
+      <td>0.335</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -638,15 +638,15 @@
     </tr>
     <tr>
       <td>Pythia 6.9b</td>
-      <td>0.000</td>
       <td>0.008</td>
       <td>0.000</td>
       <td>0.003</td>
       <td>0.003</td>
       <td>0.000</td>
-      <td>0.049</td>
-      <td>0.100</td>
-      <td>0.780</td>
+      <td>-0.031</td>
+      <td>-0.014</td>
+      <td>0.470</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -671,15 +671,15 @@
     </tr>
     <tr>
       <td>Pythia 12b</td>
-      <td>0.000</td>
       <td>0.021</td>
       <td>NaN</td>
       <td>0.002</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>0.088</td>
-      <td>0.065</td>
-      <td>0.809</td>
+      <td>-0.043</td>
+      <td>-0.010</td>
+      <td>0.478</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -704,15 +704,15 @@
     </tr>
     <tr>
       <td>Llama3.1 8B</td>
-      <td>0.000</td>
       <td>0.023</td>
       <td>NaN</td>
       <td>0.023</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>0.248</td>
+      <td>-0.054</td>
       <td>NaN</td>
-      <td>0.734</td>
+      <td>0.433</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -737,15 +737,15 @@
     </tr>
     <tr>
       <td>Llama3.1 70B</td>
-      <td>0.000</td>
       <td>0.040</td>
       <td>NaN</td>
       <td>0.002</td>
       <td>NaN</td>
       <td>0.001</td>
-      <td>0.291</td>
+      <td>0.003</td>
       <td>NaN</td>
-      <td>0.562</td>
+      <td>0.273</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -769,7 +769,7 @@
       <td>NaN</td>
     </tr>
   </tbody>
-</table></div><figure><img src="figures/variance_decomposition.png" alt="Proportion of fixed-effect variance by selected model; segment numbers map to the indexed legend." loading="lazy"><figcaption>Proportion of fixed-effect variance by selected model; segment numbers map to the indexed legend.</figcaption></figure></section>
+</table></div><figure><img src="figures/variance_decomposition.png" alt="Proportion of covariance-adjusted fixed-effect variance by selected model; segment numbers map to the indexed legend." loading="lazy"><figcaption>Proportion of covariance-adjusted fixed-effect variance by selected model; segment numbers map to the indexed legend.</figcaption></figure></section>
           <section><h2>Selected Coefficients</h2><figure><img src="figures/coefficient_heatmap.png" alt="Fixed-effect coefficients by selected model." loading="lazy"><figcaption>Fixed-effect coefficients by selected model.</figcaption></figure><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
