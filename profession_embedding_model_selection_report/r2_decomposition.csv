@@ -1,169 +1,163 @@
 target_model,predictor,unique_r2,relative_r2
-EleutherAI_pythia-12b-deduped,profession_embedding_1,0.0765087132882246,0.4481729715335188
-EleutherAI_pythia-12b-deduped,log_frequency,0.0345344630656681,0.2022960819396911
-EleutherAI_pythia-12b-deduped,profession_embedding_2,0.0291820451496027,0.1709426721222313
-EleutherAI_pythia-12b-deduped,profession_embedding_4,0.01332133215605,0.0780337396953823
-EleutherAI_pythia-12b-deduped,C(tense),0.0064097074246586,0.0375468034908364
-EleutherAI_pythia-12b-deduped,profession_embedding_3,0.0045908072769368,0.0268920447177243
-EleutherAI_pythia-12b-deduped,lex_emb_norm,0.0041805466044271,0.0244888185125031
-EleutherAI_pythia-12b-deduped,profession_embedding_5,0.0014869928410266,0.0087105111505584
-EleutherAI_pythia-12b-deduped,C(syntactic_role),0.0004978584682764,0.002916356837554
-EleutherAI_pythia-2.8b-deduped,profession_embedding_1,0.0804975298668098,0.4138058638524106
-EleutherAI_pythia-2.8b-deduped,log_frequency,0.0450350923891673,0.2315075424128797
-EleutherAI_pythia-2.8b-deduped,profession_embedding_4,0.0189605894514981,0.097468867803894
-EleutherAI_pythia-2.8b-deduped,profession_embedding_2,0.0182865725060552,0.0940040141019028
-EleutherAI_pythia-2.8b-deduped,profession_embedding_3,0.0143761679512365,0.0739021757287685
-EleutherAI_pythia-2.8b-deduped,C(tense),0.0046743460040294,0.024028958271675
-EleutherAI_pythia-2.8b-deduped,lex_emb_norm,0.0045758438763776,0.0235225979138887
-EleutherAI_pythia-2.8b-deduped,profession_embedding_5,0.0044725870650794,0.0229917956138854
-EleutherAI_pythia-2.8b-deduped,"C(dominance, Treatment(reference='-dom'))",0.0015592697253794,0.0080155870218272
-EleutherAI_pythia-2.8b-deduped,"C(valence, Treatment(reference='-val'))",0.0014370872941893,0.0073874956186517
-EleutherAI_pythia-2.8b-deduped,C(semantic_role),0.0006236061522624,0.0032057118146059
-EleutherAI_pythia-2.8b-deduped,C(syntactic_role),3.100605858508132e-05,0.00015938984561
-EleutherAI_pythia-6.9b-deduped,profession_embedding_1,0.0859897813717133,0.5135396177857547
-EleutherAI_pythia-6.9b-deduped,log_frequency,0.0346097731737331,0.2066930442637135
-EleutherAI_pythia-6.9b-deduped,profession_embedding_2,0.0182484559074184,0.1089816129589391
-EleutherAI_pythia-6.9b-deduped,profession_embedding_4,0.0097767710044539,0.0583878591701796
-EleutherAI_pythia-6.9b-deduped,lex_emb_norm,0.0072859933390896,0.0435126845871534
-EleutherAI_pythia-6.9b-deduped,profession_embedding_3,0.0035151222357092,0.0209926633211578
-EleutherAI_pythia-6.9b-deduped,profession_embedding_5,0.0032214423226097,0.0192387773603072
-EleutherAI_pythia-6.9b-deduped,C(tense),0.00263115132218,0.015713500171467
-EleutherAI_pythia-6.9b-deduped,C(syntactic_role),0.0011487498212815,0.0068604494015662
-EleutherAI_pythia-6.9b-deduped,"C(valence, Treatment(reference='-val'))",0.0008780446355217,0.0052437708217387
-EleutherAI_pythia-6.9b-deduped,C(semantic_role),8.292639094531484e-05,0.0004952447422365
-EleutherAI_pythia-6.9b-deduped,"C(dominance, Treatment(reference='-dom'))",5.706123244519912e-05,0.0003407754157859
-Qwen_Qwen3-4B-Base,profession_embedding_1,0.0326044749876935,0.3062544765462785
-Qwen_Qwen3-4B-Base,log_frequency,0.0255838084689743,0.2403092174826716
-Qwen_Qwen3-4B-Base,profession_embedding_3,0.0213200912236541,0.2002600373133934
-Qwen_Qwen3-4B-Base,C(syntactic_role),0.0129585927854184,0.1217203175874675
-Qwen_Qwen3-4B-Base,profession_embedding_2,0.003646059097462,0.0342475050057241
-Qwen_Qwen3-4B-Base,C(tense),0.0034350113818998,0.0322651296514147
-Qwen_Qwen3-4B-Base,profession_embedding_4,0.0020990869041047,0.0197167646859639
-Qwen_Qwen3-4B-Base,C(semantic_role),0.0020073104622918,0.0188547067581089
-Qwen_Qwen3-4B-Base,"C(valence, Treatment(reference='-val'))",0.0015795509985052,0.0148367536789955
-Qwen_Qwen3-4B-Base,profession_embedding_5,0.0011499602194344,0.0108015990193026
-Qwen_Qwen3-4B-Base,"C(dominance, Treatment(reference='-dom'))",7.808908024042882e-05,0.0007334922706787
-Qwen_Qwen3-8B-Base,profession_embedding_1,0.0374745113263642,0.3014097964866268
-Qwen_Qwen3-8B-Base,log_frequency,0.0371796618410994,0.2990383039653799
-Qwen_Qwen3-8B-Base,profession_embedding_3,0.0114874168426224,0.0923939992849481
-Qwen_Qwen3-8B-Base,C(syntactic_role),0.0107648875379942,0.0865826517061363
-Qwen_Qwen3-8B-Base,profession_embedding_2,0.0082086925916192,0.0660230187370208
-Qwen_Qwen3-8B-Base,C(tense),0.0074658044247571,0.06004792357871
-Qwen_Qwen3-8B-Base,lex_emb_norm,0.0048954719891788,0.0393745819155296
-Qwen_Qwen3-8B-Base,"C(valence, Treatment(reference='-val'))",0.0032597874995635,0.0262186710929001
-Qwen_Qwen3-8B-Base,profession_embedding_4,0.001765305175817,0.0141984579637595
-Qwen_Qwen3-8B-Base,profession_embedding_5,0.0007196608084893,0.0057882760881684
-Qwen_Qwen3-8B-Base,C(semantic_role),0.0006363306162672,0.0051180462335309
-Qwen_Qwen3-8B-Base,"C(dominance, Treatment(reference='-dom'))",0.0004732368368151,0.003806272947289
-allenai_Olmo-3-1025-7B,profession_embedding_1,0.0580708180554533,0.4177700031536926
-allenai_Olmo-3-1025-7B,log_frequency,0.0371511300231787,0.2672706916600618
-allenai_Olmo-3-1025-7B,profession_embedding_3,0.0151750605341118,0.1091716166481324
-allenai_Olmo-3-1025-7B,profession_embedding_2,0.0146035282987626,0.1050599297155275
-allenai_Olmo-3-1025-7B,C(syntactic_role),0.0044236761910722,0.0318245769248569
-allenai_Olmo-3-1025-7B,C(tense),0.0038524321709854,0.0277149634552259
-allenai_Olmo-3-1025-7B,"C(valence, Treatment(reference='-val'))",0.0023133814603689,0.0166428063588003
-allenai_Olmo-3-1025-7B,profession_embedding_4,0.0020261994808968,0.0145767769745549
-allenai_Olmo-3-1025-7B,lex_emb_norm,0.0009639561863691,0.0069348425337299
-allenai_Olmo-3-1025-7B,C(semantic_role),0.0002499754775856,0.0017983603392598
-allenai_Olmo-3-1025-7B,"C(dominance, Treatment(reference='-dom'))",0.0001717274099723,0.0012354322361575
-allenai_Olmo-3-1125-32B,profession_embedding_1,0.056180490916915,0.3414670660070225
-allenai_Olmo-3-1125-32B,log_frequency,0.0385075624137212,0.2340503641369342
-allenai_Olmo-3-1125-32B,C(syntactic_role),0.0260873531721992,0.1585598808806033
-allenai_Olmo-3-1125-32B,profession_embedding_3,0.0169650467658618,0.1031141709384137
-allenai_Olmo-3-1125-32B,C(tense),0.013663080717716,0.0830447012681927
-allenai_Olmo-3-1125-32B,profession_embedding_2,0.0082724890877862,0.0502804893883719
-allenai_Olmo-3-1125-32B,profession_embedding_4,0.0024129027067378,0.0146657103628497
-allenai_Olmo-3-1125-32B,"C(dominance, Treatment(reference='-dom'))",0.0010756725149552,0.0065379766476117
-allenai_Olmo-3-1125-32B,"C(valence, Treatment(reference='-val'))",0.0010741155294504,0.0065285132331159
-allenai_Olmo-3-1125-32B,profession_embedding_5,0.0002881073813603,0.0017511271368839
-google_gemma-3-12b-pt,profession_embedding_1,0.0744012932562103,0.4627322210496236
-google_gemma-3-12b-pt,log_frequency,0.0464058966145876,0.2886173434690252
-google_gemma-3-12b-pt,profession_embedding_2,0.0152678977404523,0.0949573310220427
-google_gemma-3-12b-pt,profession_embedding_3,0.0107663928780843,0.0669606222033374
-google_gemma-3-12b-pt,profession_embedding_4,0.0070214484507482,0.0436692736699032
-google_gemma-3-12b-pt,C(tense),0.0041977937659243,0.0261078046872833
-google_gemma-3-12b-pt,C(syntactic_role),0.0023556966218269,0.0146510454621178
-google_gemma-3-12b-pt,"C(valence, Treatment(reference='-val'))",0.0003703571240576,0.0023034031680953
-google_gemma-3-12b-pt,profession_embedding_5,1.5359470095788197e-07,9.552685713532394e-07
-google_gemma-3-4b-pt,profession_embedding_1,0.1159579521524547,0.4476485253133083
-google_gemma-3-4b-pt,log_frequency,0.0451641848224486,0.1743535510713902
-google_gemma-3-4b-pt,profession_embedding_2,0.0353937001395113,0.1366351973170673
-google_gemma-3-4b-pt,profession_embedding_4,0.0202866712360276,0.0783154436048002
-google_gemma-3-4b-pt,C(syntactic_role),0.0181829049981526,0.0701939837436385
-google_gemma-3-4b-pt,profession_embedding_3,0.0077449671142496,0.0298989680564183
-google_gemma-3-4b-pt,C(tense),0.0056548657216864,0.0218302604881259
-google_gemma-3-4b-pt,profession_embedding_5,0.0055208872819088,0.0213130449813239
-google_gemma-3-4b-pt,lex_emb_norm,0.0033862198527776,0.0130722929764198
-google_gemma-3-4b-pt,"C(valence, Treatment(reference='-val'))",0.0014521845421637,0.0056060688957987
-google_gemma-3-4b-pt,"C(dominance, Treatment(reference='-dom'))",0.0001523975476153,0.0005883213370452
-google_gemma-3-4b-pt,C(semantic_role),0.0001410052863198,0.0005443422146632
-gpt2,lex_emb_norm,0.0744404310712163,0.3195614996769134
-gpt2,log_frequency,0.0631945370553145,0.2712845793902602
-gpt2,profession_embedding_1,0.0560534173274913,0.2406288336247316
-gpt2,profession_embedding_3,0.0181920952227915,0.0780959103541295
-gpt2,profession_embedding_2,0.0093742069381687,0.0402420510512227
-gpt2,C(tense),0.0068755831368989,0.02951583738518
-gpt2,profession_embedding_5,0.0015045862501973,0.0064589609649941
-gpt2,C(semantic_role),0.0015039566052517,0.0064562579945761
-gpt2,"C(valence, Treatment(reference='-val'))",0.0013524411311415,0.0058058250049473
-gpt2,"C(dominance, Treatment(reference='-dom'))",0.0004262619877947,0.001829878173927
-gpt2,profession_embedding_4,2.803881305180056e-05,0.0001203663791175
-meta-llama_Llama-3.1-70B,profession_embedding_1,0.0683813486593233,0.3877356566317593
-meta-llama_Llama-3.1-70B,log_frequency,0.0589383882749353,0.3341922194669066
-meta-llama_Llama-3.1-70B,C(tense),0.0185137887747418,0.1049768129476266
-meta-llama_Llama-3.1-70B,profession_embedding_2,0.0120079407317175,0.0680873787325184
-meta-llama_Llama-3.1-70B,profession_embedding_3,0.0095788913014285,0.0543141921208254
-meta-llama_Llama-3.1-70B,profession_embedding_4,0.0073836638302293,0.041866821870174
-meta-llama_Llama-3.1-70B,C(syntactic_role),0.0008773891569096,0.0049749685776275
-meta-llama_Llama-3.1-70B,"C(dominance, Treatment(reference='-dom'))",0.000630985267269,0.0035778102030188
-meta-llama_Llama-3.1-70B,profession_embedding_5,4.8347437125895176e-05,0.0002741394495429
-meta-llama_Llama-3.1-8B,profession_embedding_1,0.0695264923229146,0.4430143441960315
-meta-llama_Llama-3.1-8B,log_frequency,0.0448406095905403,0.2857189049440421
-meta-llama_Llama-3.1-8B,C(syntactic_role),0.0095286952878953,0.0607156862510018
-meta-llama_Llama-3.1-8B,C(tense),0.0094861325712387,0.0604444818024983
-meta-llama_Llama-3.1-8B,profession_embedding_2,0.007038420419121,0.0448479579793959
-meta-llama_Llama-3.1-8B,profession_embedding_3,0.0069677516633234,0.0443976652714101
-meta-llama_Llama-3.1-8B,profession_embedding_4,0.0068863994732846,0.0438792990211531
-meta-llama_Llama-3.1-8B,profession_embedding_5,0.0026650949483872,0.0169816605344668
-mistralai_Mistral-7B-v0.3,profession_embedding_1,0.0742490503221483,0.4520790692556978
-mistralai_Mistral-7B-v0.3,log_frequency,0.0532409482597072,0.3241673560955897
-mistralai_Mistral-7B-v0.3,C(tense),0.0101754223284296,0.0619549399697561
-mistralai_Mistral-7B-v0.3,profession_embedding_3,0.0083025160451822,0.0505514038213479
-mistralai_Mistral-7B-v0.3,lex_emb_norm,0.0046651823783765,0.0284048253597047
-mistralai_Mistral-7B-v0.3,profession_embedding_2,0.0041701075428586,0.0253904706995199
-mistralai_Mistral-7B-v0.3,profession_embedding_4,0.0040921587060541,0.0249158647962898
-mistralai_Mistral-7B-v0.3,profession_embedding_5,0.0039603230136894,0.0241131588109561
-mistralai_Mistral-7B-v0.3,"C(dominance, Treatment(reference='-dom'))",0.0007823765550953,0.0047636442930973
-mistralai_Mistral-7B-v0.3,C(syntactic_role),0.0006009946280018,0.0036592668980403
-tiiuae_Falcon3-10B-Base,profession_embedding_1,0.0554861960459999,0.2673828082293062
-tiiuae_Falcon3-10B-Base,profession_embedding_2,0.0448736904512089,0.2162421327010726
-tiiuae_Falcon3-10B-Base,log_frequency,0.0263009055079553,0.1267416127762774
-tiiuae_Falcon3-10B-Base,profession_embedding_3,0.0214173371038658,0.1032081517153888
-tiiuae_Falcon3-10B-Base,lex_emb_norm,0.0187048671054371,0.090137011556198
-tiiuae_Falcon3-10B-Base,profession_embedding_4,0.0123079634403454,0.0593109288936459
-tiiuae_Falcon3-10B-Base,C(tense),0.0110990819598063,0.0534854416893154
-tiiuae_Falcon3-10B-Base,C(syntactic_role),0.0082507102804728,0.0397594039939287
-tiiuae_Falcon3-10B-Base,profession_embedding_5,0.0057817041260127,0.0278614934114897
-tiiuae_Falcon3-10B-Base,"C(valence, Treatment(reference='-val'))",0.0032934886779846,0.0158710150333767
-tiiuae_Falcon3-3B-Base,profession_embedding_1,0.0504840042076274,0.2855159836691366
-tiiuae_Falcon3-3B-Base,profession_embedding_3,0.0278265423071953,0.1573750482682467
-tiiuae_Falcon3-3B-Base,profession_embedding_2,0.0272538125013624,0.1541359328998127
-tiiuae_Falcon3-3B-Base,lex_emb_norm,0.0263542030520124,0.149048125764054
-tiiuae_Falcon3-3B-Base,log_frequency,0.0175889344854281,0.0994755073437754
-tiiuae_Falcon3-3B-Base,C(tense),0.0078506959525678,0.0444001860107216
-tiiuae_Falcon3-3B-Base,C(syntactic_role),0.0076744596712148,0.0434034688125028
-tiiuae_Falcon3-3B-Base,profession_embedding_4,0.006193166754406,0.035025908219144
-tiiuae_Falcon3-3B-Base,profession_embedding_5,0.0046233994449146,0.0261479742173601
-tiiuae_Falcon3-3B-Base,"C(dominance, Treatment(reference='-dom'))",0.0006083302529061,0.003440456304533
-tiiuae_Falcon3-3B-Base,"C(valence, Treatment(reference='-val'))",0.0003591870180948,0.0020314084907126
-tiiuae_Falcon3-7B-Base,profession_embedding_1,0.0651313088944005,0.3406659442396803
-tiiuae_Falcon3-7B-Base,profession_embedding_2,0.0363744007528932,0.1902544227804122
-tiiuae_Falcon3-7B-Base,log_frequency,0.023252649625981,0.1216217818338716
-tiiuae_Falcon3-7B-Base,C(syntactic_role),0.0232448167117419,0.1215808121808627
-tiiuae_Falcon3-7B-Base,C(tense),0.0169441293038323,0.0886253924048737
-tiiuae_Falcon3-7B-Base,profession_embedding_3,0.0083609411580628,0.0437314705123139
-tiiuae_Falcon3-7B-Base,profession_embedding_4,0.0068702434415527,0.0359344531670274
-tiiuae_Falcon3-7B-Base,lex_emb_norm,0.004721458616736,0.0246953452212477
-tiiuae_Falcon3-7B-Base,"C(valence, Treatment(reference='-val'))",0.003432255149577,0.0179522331310415
-tiiuae_Falcon3-7B-Base,profession_embedding_5,0.002558298066276,0.0133810457856376
-tiiuae_Falcon3-7B-Base,C(semantic_role),0.0002976989068801,0.0015570987430311
+EleutherAI_pythia-12b-deduped,profession_embedding_1,0.051304799093462,0.5632206838598083
+EleutherAI_pythia-12b-deduped,log_frequency,0.0129803086351359,0.1424969678348142
+EleutherAI_pythia-12b-deduped,profession_embedding_2,0.0104141547088931,0.1143259001225113
+EleutherAI_pythia-12b-deduped,C(tense),0.0064097074246595,0.0703653432592442
+EleutherAI_pythia-12b-deduped,profession_embedding_5,0.006266472238977,0.0687929168847463
+EleutherAI_pythia-12b-deduped,lex_emb_norm,0.0028163198445338,0.0309173725817877
+EleutherAI_pythia-12b-deduped,C(syntactic_role),0.0004978584682761,0.0054654572656458
+EleutherAI_pythia-12b-deduped,profession_embedding_3,0.0004004075690815,0.0043956477535352
+EleutherAI_pythia-12b-deduped,profession_embedding_4,1.7954597297809016e-06,1.971043790674957e-05
+EleutherAI_pythia-2.8b-deduped,profession_embedding_1,0.0509127268014901,0.4638217969739861
+EleutherAI_pythia-2.8b-deduped,profession_embedding_5,0.0253378495072201,0.2308312209581222
+EleutherAI_pythia-2.8b-deduped,log_frequency,0.0152423346828362,0.138859721464871
+EleutherAI_pythia-2.8b-deduped,profession_embedding_2,0.0055809937041948,0.0508436041713717
+EleutherAI_pythia-2.8b-deduped,C(tense),0.004674346004029,0.0425839215353805
+EleutherAI_pythia-2.8b-deduped,lex_emb_norm,0.0026621630181802,0.0242526635775066
+EleutherAI_pythia-2.8b-deduped,"C(dominance, Treatment(reference='-dom'))",0.0015592697253787,0.0142051571665408
+EleutherAI_pythia-2.8b-deduped,"C(valence, Treatment(reference='-val'))",0.0014370872941885,0.0130920587655406
+EleutherAI_pythia-2.8b-deduped,profession_embedding_3,0.0010546538619766,0.0096080387003207
+EleutherAI_pythia-2.8b-deduped,profession_embedding_4,0.0006518247555644,0.0059382112966927
+EleutherAI_pythia-2.8b-deduped,C(semantic_role),0.000623606152262,0.0056811360207438
+EleutherAI_pythia-2.8b-deduped,C(syntactic_role),3.100605858452621e-05,0.0002824693689227
+EleutherAI_pythia-6.9b-deduped,profession_embedding_1,0.0570559045911538,0.6329437287387717
+EleutherAI_pythia-6.9b-deduped,log_frequency,0.0165475628782892,0.1835686634849635
+EleutherAI_pythia-6.9b-deduped,profession_embedding_2,0.0041580405893261,0.046126789746197
+EleutherAI_pythia-6.9b-deduped,lex_emb_norm,0.0036832147861189,0.0408593592052763
+EleutherAI_pythia-6.9b-deduped,profession_embedding_5,0.0029572866164983,0.0328063507433358
+EleutherAI_pythia-6.9b-deduped,C(tense),0.0026311513221795,0.0291884028597883
+EleutherAI_pythia-6.9b-deduped,C(syntactic_role),0.0011487498212804,0.0127435363698005
+EleutherAI_pythia-6.9b-deduped,"C(valence, Treatment(reference='-val'))",0.0008780446355208,0.0097404966162227
+EleutherAI_pythia-6.9b-deduped,profession_embedding_3,0.0008458286257481,0.0093831116707595
+EleutherAI_pythia-6.9b-deduped,profession_embedding_4,9.795219481867344e-05,0.001086622460391
+EleutherAI_pythia-6.9b-deduped,C(semantic_role),8.292639094520382e-05,0.0009199352717622
+EleutherAI_pythia-6.9b-deduped,"C(dominance, Treatment(reference='-dom'))",5.7061232445088095e-05,0.0006330028327308
+Qwen_Qwen3-4B-Base,profession_embedding_1,0.0294274132876782,0.4124471893300124
+Qwen_Qwen3-4B-Base,C(syntactic_role),0.0129585927854181,0.1816243622831708
+Qwen_Qwen3-4B-Base,log_frequency,0.0103129299353467,0.1445434202459148
+Qwen_Qwen3-4B-Base,profession_embedding_5,0.005305991311796,0.0743674335819418
+Qwen_Qwen3-4B-Base,profession_embedding_3,0.0035823898965891,0.0502098716420678
+Qwen_Qwen3-4B-Base,C(tense),0.003435011381899,0.0481442516177284
+Qwen_Qwen3-4B-Base,profession_embedding_4,0.0020867191643445,0.0292469285642362
+Qwen_Qwen3-4B-Base,C(semantic_role),0.0020073104622914,0.0281339562601473
+Qwen_Qwen3-4B-Base,"C(valence, Treatment(reference='-val'))",0.001579550998505,0.0221385876960379
+Qwen_Qwen3-4B-Base,profession_embedding_2,0.0005743198538615,0.0080495219605597
+Qwen_Qwen3-4B-Base,"C(dominance, Treatment(reference='-dom'))",7.808908024020678e-05,0.0010944768181824
+Qwen_Qwen3-8B-Base,profession_embedding_1,0.0476165871545026,0.4407229845356238
+Qwen_Qwen3-8B-Base,log_frequency,0.0182653994506056,0.1690583437550094
+Qwen_Qwen3-8B-Base,C(syntactic_role),0.0107648875379946,0.099636148818085
+Qwen_Qwen3-8B-Base,C(tense),0.0074658044247588,0.0691009541982231
+Qwen_Qwen3-8B-Base,profession_embedding_5,0.0073994855997719,0.0684871296419972
+Qwen_Qwen3-8B-Base,profession_embedding_2,0.0055402202563782,0.0512784000762819
+Qwen_Qwen3-8B-Base,lex_emb_norm,0.0045429877747094,0.0420483543745417
+Qwen_Qwen3-8B-Base,"C(valence, Treatment(reference='-val'))",0.0032597874995636,0.0301714877443452
+Qwen_Qwen3-8B-Base,profession_embedding_4,0.0018119441515397,0.0167707406599161
+Qwen_Qwen3-8B-Base,C(semantic_role),0.0006363306162675,0.0058896604127225
+Qwen_Qwen3-8B-Base,"C(dominance, Treatment(reference='-dom'))",0.0004732368368155,0.0043801196930978
+Qwen_Qwen3-8B-Base,profession_embedding_3,0.0002653161252602,0.0024556760901557
+allenai_Olmo-3-1025-7B,profession_embedding_1,0.0374141567785391,0.4222693294954304
+allenai_Olmo-3-1025-7B,log_frequency,0.015489835950885,0.174823735296002
+allenai_Olmo-3-1025-7B,profession_embedding_5,0.0125630354488883,0.1417908356676469
+allenai_Olmo-3-1025-7B,profession_embedding_2,0.0062080491750682,0.0700662259515202
+allenai_Olmo-3-1025-7B,C(syntactic_role),0.0044236761910724,0.0499271650077794
+allenai_Olmo-3-1025-7B,C(tense),0.0038524321709858,0.0434799041282133
+allenai_Olmo-3-1025-7B,profession_embedding_4,0.0030816590353671,0.0347806874895134
+allenai_Olmo-3-1025-7B,lex_emb_norm,0.0023983356552799,0.0270684595420562
+allenai_Olmo-3-1025-7B,"C(valence, Treatment(reference='-val'))",0.0023133814603695,0.0261096366255068
+allenai_Olmo-3-1025-7B,profession_embedding_3,0.0004363264482531,0.0049245337222376
+allenai_Olmo-3-1025-7B,C(semantic_role),0.0002499754775862,0.0028213111399366
+allenai_Olmo-3-1025-7B,"C(dominance, Treatment(reference='-dom'))",0.0001717274099721,0.0019381759341569
+allenai_Olmo-3-1125-32B,profession_embedding_1,0.05188288983382,0.4064903387448104
+allenai_Olmo-3-1125-32B,C(syntactic_role),0.0260873531721989,0.204388326515502
+allenai_Olmo-3-1125-32B,log_frequency,0.0175285802317365,0.1373323370948698
+allenai_Olmo-3-1125-32B,C(tense),0.0136630807177161,0.1070470501360121
+allenai_Olmo-3-1125-32B,profession_embedding_5,0.0096454684071809,0.075569994900931
+allenai_Olmo-3-1125-32B,profession_embedding_2,0.0026816086972877,0.0210097785846725
+allenai_Olmo-3-1125-32B,profession_embedding_4,0.0024662452838924,0.0193224564801277
+allenai_Olmo-3-1125-32B,profession_embedding_3,0.0013189382300304,0.0103335733538707
+allenai_Olmo-3-1125-32B,"C(dominance, Treatment(reference='-dom'))",0.0010756725149543,0.0084276432246309
+allenai_Olmo-3-1125-32B,"C(valence, Treatment(reference='-val'))",0.0010741155294499,0.0084154446064133
+allenai_Olmo-3-1125-32B,lex_emb_norm,0.0002122662252791,0.001663056358159
+google_gemma-3-12b-pt,profession_embedding_1,0.0500402004264309,0.4772059296491011
+google_gemma-3-12b-pt,log_frequency,0.0227385481653826,0.2168450550489977
+google_gemma-3-12b-pt,profession_embedding_5,0.0123279914530148,0.1175652889458607
+google_gemma-3-12b-pt,profession_embedding_2,0.0088353287659584,0.0842576816556405
+google_gemma-3-12b-pt,C(tense),0.0041977937659244,0.0400320554168901
+google_gemma-3-12b-pt,lex_emb_norm,0.0038929456602265,0.0371248863320021
+google_gemma-3-12b-pt,C(syntactic_role),0.0023556966218273,0.0224649858875582
+google_gemma-3-12b-pt,"C(valence, Treatment(reference='-val'))",0.0003703571240573,0.0035318926419524
+google_gemma-3-12b-pt,profession_embedding_4,0.0001019482406096,0.0009722244219969
+google_gemma-3-4b-pt,profession_embedding_1,0.0948207108107654,0.449926529103465
+google_gemma-3-4b-pt,log_frequency,0.0347969199365313,0.1651122131090077
+google_gemma-3-4b-pt,profession_embedding_5,0.0206959303919783,0.0982026821799836
+google_gemma-3-4b-pt,lex_emb_norm,0.0190730736443895,0.0905021882959844
+google_gemma-3-4b-pt,C(syntactic_role),0.0181829049981527,0.0862783168875812
+google_gemma-3-4b-pt,profession_embedding_2,0.0157771062072357,0.0748627443774906
+google_gemma-3-4b-pt,C(tense),0.0056548657216863,0.0268324724097686
+google_gemma-3-4b-pt,"C(valence, Treatment(reference='-val'))",0.0014521845421635,0.0068906502080257
+google_gemma-3-4b-pt,"C(dominance, Treatment(reference='-dom'))",0.000152397547616,0.0007231299898144
+google_gemma-3-4b-pt,C(semantic_role),0.0001410052863196,0.0006690734388783
+gpt2,lex_emb_norm,0.0818240261326899,0.3404719211680129
+gpt2,profession_embedding_1,0.0631758540227029,0.2628763873786726
+gpt2,log_frequency,0.0391941516131129,0.1630878939717144
+gpt2,profession_embedding_5,0.0275595297481386,0.1146759269046409
+gpt2,profession_embedding_4,0.0113592147368162,0.0472659907755223
+gpt2,profession_embedding_2,0.0070543088948422,0.0293531645343957
+gpt2,C(tense),0.0068755831368987,0.028609481962842
+gpt2,C(semantic_role),0.001503956605252,0.0062580029234092
+gpt2,"C(valence, Treatment(reference='-val'))",0.0013524411311409,0.0056275430573348
+gpt2,"C(dominance, Treatment(reference='-dom'))",0.0004262619877953,0.0017736873234548
+meta-llama_Llama-3.1-70B,profession_embedding_1,0.0644140756760608,0.4968128110591808
+meta-llama_Llama-3.1-70B,log_frequency,0.032189445496254,0.2482707193355511
+meta-llama_Llama-3.1-70B,C(tense),0.0185137887747405,0.1427931294208277
+meta-llama_Llama-3.1-70B,profession_embedding_5,0.0084861690138376,0.0654521149087122
+meta-llama_Llama-3.1-70B,profession_embedding_2,0.0044053205107579,0.0339773511238895
+meta-llama_Llama-3.1-70B,C(syntactic_role),0.0008773891569089,0.0067671261112075
+meta-llama_Llama-3.1-70B,"C(dominance, Treatment(reference='-dom'))",0.000630985267268,0.0048666624659003
+meta-llama_Llama-3.1-70B,profession_embedding_4,0.0001374449911792,0.0010600855747304
+meta-llama_Llama-3.1-8B,profession_embedding_1,0.0822395531823901,0.5932226396846378
+meta-llama_Llama-3.1-8B,log_frequency,0.0279823574574122,0.2018465241253245
+meta-llama_Llama-3.1-8B,C(syntactic_role),0.0095286952878955,0.0687338093739348
+meta-llama_Llama-3.1-8B,C(tense),0.009486132571239,0.0684267896230965
+meta-llama_Llama-3.1-8B,profession_embedding_5,0.0061301337693528,0.0442187973493774
+meta-llama_Llama-3.1-8B,profession_embedding_2,0.003198458656878,0.0230716001477701
+meta-llama_Llama-3.1-8B,profession_embedding_4,6.652106569560168e-05,0.0004798396958585
+mistralai_Mistral-7B-v0.3,profession_embedding_1,0.1041507712135461,0.6908333211335198
+mistralai_Mistral-7B-v0.3,log_frequency,0.0329049547248647,0.2182589614023892
+mistralai_Mistral-7B-v0.3,C(tense),0.0101754223284294,0.067493698982527
+mistralai_Mistral-7B-v0.3,profession_embedding_5,0.0015864531706294,0.0105229630075575
+mistralai_Mistral-7B-v0.3,"C(dominance, Treatment(reference='-dom'))",0.0007823765550961,0.0051895131225277
+mistralai_Mistral-7B-v0.3,C(syntactic_role),0.0006009946280027,0.0039864046133204
+mistralai_Mistral-7B-v0.3,profession_embedding_4,0.0005600981434404,0.003715137738158
+tiiuae_Falcon3-10B-Base,profession_embedding_2,0.0155938322344267,0.1658484072648909
+tiiuae_Falcon3-10B-Base,profession_embedding_1,0.0153336264445645,0.1630809851738366
+tiiuae_Falcon3-10B-Base,lex_emb_norm,0.0128962778876305,0.1371585326272164
+tiiuae_Falcon3-10B-Base,C(tense),0.011099081959806,0.1180444317640164
+tiiuae_Falcon3-10B-Base,log_frequency,0.0096720278630482,0.102866979200072
+tiiuae_Falcon3-10B-Base,profession_embedding_3,0.0088932855290828,0.0945846548928524
+tiiuae_Falcon3-10B-Base,profession_embedding_5,0.0087128234272315,0.0926653478415916
+tiiuae_Falcon3-10B-Base,C(syntactic_role),0.0082507102804715,0.0877505374079436
+tiiuae_Falcon3-10B-Base,"C(valence, Treatment(reference='-val'))",0.0032934886779838,0.0350279420335607
+tiiuae_Falcon3-10B-Base,profession_embedding_4,0.0002794582415984,0.0029721817940192
+tiiuae_Falcon3-3B-Base,lex_emb_norm,0.0238624727483925,0.2946327269795186
+tiiuae_Falcon3-3B-Base,profession_embedding_3,0.0122247215561968,0.1509400591734647
+tiiuae_Falcon3-3B-Base,profession_embedding_1,0.0095305396953045,0.1176746823190524
+tiiuae_Falcon3-3B-Base,C(tense),0.0078506959525679,0.0969334562088906
+tiiuae_Falcon3-3B-Base,C(syntactic_role),0.0076744596712144,0.0947574463412045
+tiiuae_Falcon3-3B-Base,profession_embedding_5,0.0069577128673733,0.0859076901740111
+tiiuae_Falcon3-3B-Base,profession_embedding_2,0.0044970858615701,0.0555260422851486
+tiiuae_Falcon3-3B-Base,profession_embedding_4,0.0043528752046376,0.053745456527774
+tiiuae_Falcon3-3B-Base,log_frequency,0.003072490019125,0.0379363916932345
+tiiuae_Falcon3-3B-Base,"C(dominance, Treatment(reference='-dom'))",0.0006083302529061,0.0075111244005491
+tiiuae_Falcon3-3B-Base,"C(valence, Treatment(reference='-val'))",0.000359187018095,0.0044349238971515
+tiiuae_Falcon3-7B-Base,profession_embedding_1,0.0340082502772703,0.2881766707225085
+tiiuae_Falcon3-7B-Base,C(syntactic_role),0.0232448167117416,0.196970259773161
+tiiuae_Falcon3-7B-Base,profession_embedding_2,0.0190887161262403,0.1617525928790157
+tiiuae_Falcon3-7B-Base,C(tense),0.0169441293038326,0.1435799469616845
+tiiuae_Falcon3-7B-Base,log_frequency,0.0117471165999495,0.0995418736560263
+tiiuae_Falcon3-7B-Base,profession_embedding_5,0.0081600719010602,0.0691462316976509
+tiiuae_Falcon3-7B-Base,"C(valence, Treatment(reference='-val'))",0.0034322551495773,0.0290839973833188
+tiiuae_Falcon3-7B-Base,lex_emb_norm,0.0007220714281019,0.0061186370506498
+tiiuae_Falcon3-7B-Base,C(semantic_role),0.0002976989068796,0.0025226196338498
+tiiuae_Falcon3-7B-Base,profession_embedding_4,0.000197978419351,0.001677615322704
+tiiuae_Falcon3-7B-Base,profession_embedding_3,0.0001687043623732,0.0014295549194303
