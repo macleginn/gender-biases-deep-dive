@@ -1,0 +1,33 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        log_he_she_odds   R-squared:                       0.531
+Model:                            OLS   Adj. R-squared:                  0.530
+Method:                 Least Squares   F-statistic:                     2050.
+Date:                Sat, 25 Jul 2026   Prob (F-statistic):               0.00
+Time:                        11:07:11   Log-Likelihood:                -25192.
+No. Observations:               16320   AIC:                         5.040e+04
+Df Residuals:                   16310   BIC:                         5.048e+04
+Df Model:                           9                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================================================================================================
+                                                                                                        coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                                             1.8910      0.023     80.578      0.000       1.845       1.937
+C(syntactic_role)[T.subject]                                                                         -0.2979      0.031     -9.696      0.000      -0.358      -0.238
+C(valence, Treatment(reference='-val'))[T.+val]                                                      -0.2045      0.031     -6.656      0.000      -0.265      -0.144
+C(dominance, Treatment(reference='-dom'))[T.+dom]                                                     0.0296      0.031      0.963      0.335      -0.031       0.090
+C(syntactic_role)[T.subject]:C(valence, Treatment(reference='-val'))[T.+val]                          0.1096      0.035      3.090      0.002       0.040       0.179
+C(syntactic_role)[T.subject]:C(dominance, Treatment(reference='-dom'))[T.+dom]                        0.0462      0.035      1.304      0.192      -0.023       0.116
+C(valence, Treatment(reference='-val'))[T.+val]:C(dominance, Treatment(reference='-dom'))[T.+dom]    -0.0188      0.035     -0.529      0.597      -0.088       0.051
+male_perc                                                                                             1.2630      0.015     82.211      0.000       1.233       1.293
+male_perc:C(valence, Treatment(reference='-val'))[T.+val]                                            -0.0813      0.018     -4.584      0.000      -0.116      -0.047
+male_perc:C(dominance, Treatment(reference='-dom'))[T.+dom]                                          -0.0538      0.018     -3.033      0.002      -0.089      -0.019
+==============================================================================
+Omnibus:                       28.586   Durbin-Watson:                   0.300
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               29.630
+Skew:                           0.084   Prob(JB):                     3.68e-07
+Kurtosis:                       3.124   Cond. No.                         9.25
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

@@ -1,0 +1,104 @@
+{
+  "input_csv": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__EleutherAI_pythia-2.8b-deduped.csv",
+  "copied_input_csv": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_data/inputs/he_she_odds_results__EleutherAI_pythia-2.8b-deduped.csv",
+  "rows": 16320,
+  "columns": [
+    "model_tag",
+    "template",
+    "tense",
+    "syntactic_role",
+    "semantic_role",
+    "valence",
+    "dominance",
+    "verb",
+    "profession",
+    "frequency",
+    "lex_emb_norm",
+    "prefix",
+    "he_prob",
+    "she_prob",
+    "he_she_odds_ratio",
+    "log_he_she_odds",
+    "log_frequency"
+  ],
+  "preprocessing": {
+    "version": "log-frequency_zscore_and_frequency-residualized-lex-embedding_v1",
+    "lex_emb_norm": {
+      "operation": "OLS residual from lex_emb_norm ~ 1 + log_frequency",
+      "intercept": 0.2979167747112502,
+      "log_frequency_coefficient": 0.07065283396679319
+    },
+    "standardized_predictors": {
+      "log_frequency": {
+        "mean": 7.368637557804696,
+        "std": 2.024790530108731
+      },
+      "lex_emb_norm": {
+        "mean": 5.198456044715439e-16,
+        "std": 0.09702024862135901
+      }
+    }
+  },
+  "category_levels": {
+    "dominance": [
+      "+dom",
+      "-dom"
+    ],
+    "profession": [
+      "CEO",
+      "accountant",
+      "administrator",
+      "agronomist",
+      "bodyguard",
+      "bookbinder",
+      "builder",
+      "cashier",
+      "chauffeur",
+      "colonel",
+      "doctor",
+      "electrician",
+      "farmer",
+      "farmhand",
+      "fisherman",
+      "hairdresser",
+      "hawker",
+      "housekeeper",
+      "manager",
+      "midwife",
+      "molder",
+      "nurse",
+      "paralegal",
+      "programmer",
+      "salesperson",
+      "scientist",
+      "scrivener",
+      "secretary",
+      "sergeant",
+      "soldier",
+      "solicitor",
+      "teacher",
+      "tradesperson",
+      "welder"
+    ],
+    "semantic_role": [
+      "agent",
+      "patient"
+    ],
+    "syntactic_role": [
+      "non-subject",
+      "subject"
+    ],
+    "tense": [
+      "past continuous",
+      "past perfect",
+      "present continuous",
+      "present perfect",
+      "simple future",
+      "simple past"
+    ],
+    "valence": [
+      "+val",
+      "-val"
+    ]
+  }
+}

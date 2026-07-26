@@ -1,0 +1,23 @@
+{
+  "formula": "log_he_she_odds ~ C(valence, Treatment(reference='-val')) + C(dominance, Treatment(reference='-dom')) + C(semantic_role):C(valence, Treatment(reference='-val')) + C(semantic_role):C(dominance, Treatment(reference='-dom')) + C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom')) + male_perc + male_perc:C(semantic_role) + male_perc:C(valence, Treatment(reference='-val')) + male_perc:C(dominance, Treatment(reference='-dom'))",
+  "model_type": "OLS",
+  "optimizer": "closed_form",
+  "converged": true,
+  "nobs": 16320,
+  "aic": 47824.787845038656,
+  "bic": 47909.48945795235,
+  "log_likelihood": -23901.393922519328,
+  "residual_variance": 1.0962437603964592,
+  "R2m": 0.5394586460202766,
+  "R2c": 0.5394586460202766,
+  "warnings": [],
+  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.0002431724883680512,
+  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 5.8690457066786006e-05,
+  "fixed_effect_variance_C(semantic_role):C(valence, Treatment(reference='-val'))": 0.0004269048725671168,
+  "fixed_effect_variance_C(semantic_role):C(dominance, Treatment(reference='-dom'))": 6.419432057773363e-05,
+  "fixed_effect_variance_C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))": 0.0004331915343879484,
+  "fixed_effect_variance_male_perc": 1.3325681509405005,
+  "fixed_effect_variance_male_perc:C(semantic_role)": -0.00962905703812426,
+  "fixed_effect_variance_male_perc:C(valence, Treatment(reference='-val'))": -0.02839432954527811,
+  "fixed_effect_variance_male_perc:C(dominance, Treatment(reference='-dom'))": -0.012464254466037583
+}

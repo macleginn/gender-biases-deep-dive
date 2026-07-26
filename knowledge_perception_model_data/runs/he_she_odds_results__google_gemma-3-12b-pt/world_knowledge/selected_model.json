@@ -1,0 +1,19 @@
+{
+  "selected_model": "selected_model",
+  "candidate_formula": "log_he_she_odds ~ male_perc + C(semantic_role) + C(valence, Treatment(reference='-val')) + C(dominance, Treatment(reference='-dom')) + male_perc:C(semantic_role) + male_perc:C(valence, Treatment(reference='-val')) + male_perc:C(dominance, Treatment(reference='-dom')) + C(semantic_role):C(valence, Treatment(reference='-val')) + C(semantic_role):C(dominance, Treatment(reference='-dom')) + C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",
+  "selected_terms": [
+    "C(valence, Treatment(reference='-val'))",
+    "C(dominance, Treatment(reference='-dom'))",
+    "C(semantic_role):C(valence, Treatment(reference='-val'))",
+    "C(semantic_role):C(dominance, Treatment(reference='-dom'))",
+    "C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",
+    "male_perc",
+    "male_perc:C(semantic_role)",
+    "male_perc:C(valence, Treatment(reference='-val'))",
+    "male_perc:C(dominance, Treatment(reference='-dom'))"
+  ],
+  "alpha": 0.0032236269210700903,
+  "alpha_selection": "LassoCV",
+  "cv": 5,
+  "lasso_n_iter": 11
+}

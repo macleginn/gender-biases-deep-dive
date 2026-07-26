@@ -1,0 +1,6 @@
+{
+  "source": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/professions.csv",
+  "profession_column": "Profession",
+  "rows": 34,
+  "predictor": "MalePerc"
+}

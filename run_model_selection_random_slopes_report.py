@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-"""Run random-slope model selection, aggregate results, and build one HTML report.
-
-This replaces the old shell wrapper, comparison script, and report generator for
-the random-slope dissertation model-selection workflow.
-"""
+"""Fit full random-slope models, aggregate results, and build one HTML report."""
 
 from __future__ import annotations
 
 import argparse
-import concurrent.futures
 import hashlib
 import json
 import os
@@ -20,7 +15,6 @@ import warnings
 from dataclasses import asdict, dataclass
 from datetime import date, datetime, timezone
 from html import escape
-from itertools import combinations
 from pathlib import Path
 from typing import Any
 
@@ -35,10 +29,8 @@ try:
     import pandas as pd
     import seaborn as sns
     import statsmodels.formula.api as smf
-    from scipy.stats import chi2
     from sklearn.decomposition import PCA
     from sklearn.preprocessing import StandardScaler
-    from tqdm.auto import tqdm
 
     log = np.log
 except ImportError as exc:  # pragma: no cover - dependency guard
@@ -64,6 +56,7 @@ CATEGORICAL_COLUMNS = {
     "dominance",
     "profession",
 }
+TREATMENT_REFERENCES = {"valence": "-val", "dominance": "-dom"}
 FIXED_PREDICTORS = [
     "tense",
     "semantic_role",
@@ -73,6 +66,8 @@ FIXED_PREDICTORS = [
     "frequency",
     "lex_emb_norm",
 ]
+NUMERICAL_PREDICTORS = ["log_frequency", "lex_emb_norm"]
+PREPROCESSING_VERSION = "log-frequency_zscore_and_frequency-residualized-lex-embedding_v1"
 RANDOM_PREDICTORS = ["semantic_role", "syntactic_role", "valence", "dominance"]
 RANDOM_EFFECT_VARIANCE_COLUMNS = [
     "random_effect_variance_semantic_role",
@@ -84,8 +79,8 @@ RANDOM_EFFECT_LABELS = {
     "Group": "Profession intercept",
     "C(semantic_role)[T.patient]": "Semantic role: patient",
     "C(syntactic_role)[T.subject]": "Syntactic role: subject",
-    "C(valence)[T.-val]": "Valence: negative",
-    "C(dominance)[T.-dom]": "Dominance: negative",
+    "C(valence, Treatment(reference='-val'))[T.+val]": "Valence: positive",
+    "C(dominance, Treatment(reference='-dom'))[T.+dom]": "Dominance: positive",
 }
 VARIANCE_LABELS = {
     "random_effect_variance_semantic_role": "Semantic role",
@@ -93,6 +88,17 @@ VARIANCE_LABELS = {
     "random_effect_variance_valence": "Valence",
     "random_effect_variance_dominance": "Dominance",
 }
+NUMERICAL_ISSUE_WARNING_PATTERNS = (
+    r"optimization failed to converge",
+    r"mixedlm optimization failed",
+    r"gradient optimization failed",
+    r"the mle may be on the boundary of the parameter space",
+    r"hessian matrix .* not positive definite",
+    r"random effects covariance is singular",
+    r"singular matrix",
+    r"invalid value encountered",
+    r"overflow encountered",
+)
 
 
 @dataclass(frozen=True)
@@ -106,10 +112,7 @@ class ModelSpec:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description=(
-            "Run random-slope backward selection for he_she odds CSVs, aggregate "
-            "all generated artifacts, and write a top-level HTML report."
-        )
+        description="Fit full random-slope models for he/she odds CSVs and write an HTML report."
     )
     parser.add_argument(
         "results_csv",
@@ -120,29 +123,20 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--data-dir",
         type=Path,
-        default=Path("model_selection_data"),
+        default=Path("full_model_data"),
         help="Top-level directory for copied inputs, run artifacts, and aggregate data.",
     )
     parser.add_argument(
         "--report-dir",
         type=Path,
-        default=Path("model_selection_report"),
+        default=Path("full_model_report"),
         help="Top-level directory for report.html, report figures, and report tables.",
     )
     parser.add_argument("--maxiter", type=int, default=1000)
-    parser.add_argument("--alpha", type=float, default=0.05)
     parser.add_argument(
         "--reuse-existing",
         action="store_true",
-        help="Skip model fitting and rebuild comparisons/report from existing data-dir run artifacts.",
-    )
-    parser.add_argument(
-        "--starting-fixed-effect-interactions",
-        action="store_true",
-        help=(
-            "Include pairwise interactions among fixed effects in the starting model. "
-            "By default, the starting model uses main effects only."
-        ),
+        help="Skip model fitting and rebuild the report from existing full-model artifacts.",
     )
     return parser.parse_args()
 
@@ -161,6 +155,49 @@ def clean_model_name(value: str) -> str:
     return re.sub(r"__[0-9a-f]{8}$", "", value)
 
 
+def load_model_display_config() -> tuple[list[str], dict[str, str]]:
+    model_ids = [
+        line.strip()
+        for line in Path("full_model_list.txt").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    model_labels = [
+        line.strip()
+        for line in Path("model_names.txt").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    if len(model_ids) != len(model_labels):
+        raise ValueError(
+            "full_model_list.txt and model_names.txt must contain the same number of non-empty lines."
+        )
+    normalized_ids = [model_id.replace("/", "_") for model_id in model_ids]
+    return normalized_ids, dict(zip(normalized_ids, model_labels))
+
+
+def display_model_table(
+    table: pd.DataFrame, model_order: list[str], model_labels: dict[str, str]
+) -> pd.DataFrame:
+    table = table.copy()
+    table["_model_order"] = pd.Categorical(
+        table["Model"], categories=model_order, ordered=True
+    )
+    table = table.sort_values("_model_order", kind="stable").drop(columns="_model_order")
+    table["Model"] = table["Model"].map(model_labels)
+    return table
+
+
+def fixed_effect_label(term_name: str) -> str:
+    if term_name == "Intercept":
+        return "Intercept"
+    label = re.sub(
+        r"C\(([^,]+), Treatment\(reference='[^']+'\)\)", r"\1", term_name
+    )
+    label = re.sub(r"C\(([^)]+)\)", r"\1", label)
+    label = re.sub(r"\[T\.([^]]+)\]", r" (\1)", label)
+    label = label.replace("_", " ")
+    return label[:1].upper() + label[1:]
+
+
 def slugify(value: str) -> str:
     return re.sub(r"[^A-Za-z0-9_.-]+", "_", str(value)).strip("_")
 
@@ -168,6 +205,8 @@ def slugify(value: str) -> str:
 def term(name: str) -> str:
     if name == "frequency":
         return "log_frequency"
+    if name in TREATMENT_REFERENCES:
+        return f"C({name}, Treatment(reference='{TREATMENT_REFERENCES[name]}'))"
     return f"C({name})" if name in CATEGORICAL_COLUMNS else name
 
 
@@ -177,11 +216,15 @@ def build_random_formula(random_predictors: list[str]) -> str:
     return "1 + " + " + ".join(term(name) for name in random_predictors)
 
 
-def hierarchical_fixed_terms(predictors: list[str], pairwise_interactions: bool) -> list[str]:
+def hierarchical_fixed_terms(predictors: list[str], pairwise_interactions: bool = True) -> list[str]:
     main_effects = [term(name) for name in predictors]
     if not pairwise_interactions:
         return main_effects
-    interactions = [f"{left}:{right}" for left, right in combinations(main_effects, 2)]
+    interactions = [
+        f"{left}:{right}"
+        for index, left in enumerate(main_effects)
+        for right in main_effects[index + 1 :]
+    ]
     return main_effects + interactions
 
 
@@ -194,6 +237,20 @@ def can_drop_term(current_terms: list[str], term_to_drop: str) -> bool:
 def safe_run_dir(input_path: Path, runs_dir: Path) -> Path:
     digest = hashlib.sha1(str(input_path.resolve()).encode("utf-8")).hexdigest()[:8]
     return runs_dir / f"{slugify(input_path.stem) or 'input'}__{digest}"
+
+
+def run_dir_has_completed_full_model(run_dir: Path) -> bool:
+    if not (
+        (run_dir / "run_summary.json").exists()
+        and (run_dir / "prepared_results.csv").exists()
+        and (run_dir / "models" / "full_mixed_random_slopes" / "metrics.json").exists()
+    ):
+        return False
+    summary = json.loads((run_dir / "run_summary.json").read_text(encoding="utf-8"))
+    return (
+        summary.get("primary_analysis", {}).get("preprocessing_version")
+        == PREPROCESSING_VERSION
+    )
 
 
 def discover_inputs(paths: list[Path]) -> list[Path]:
@@ -234,7 +291,34 @@ def load_results_csv(path: Path) -> pd.DataFrame:
     if (df["frequency"] <= 0).any():
         raise ValueError(f"{path} contains non-positive frequency values, which cannot be logged.")
     df["log_frequency"] = np.log(df["frequency"])
-    return df.dropna(subset=sorted(REQUIRED_COLUMNS)).copy()
+    df = df.dropna(subset=sorted(REQUIRED_COLUMNS)).copy()
+
+    # Orthogonalize lexical-embedding norm against log frequency before scaling,
+    # so its coefficient represents variation not linearly associated with word
+    # frequency.  The residual replaces the original column used in the formula.
+    frequency_design = np.column_stack([np.ones(len(df)), df["log_frequency"].to_numpy()])
+    lex_embedding = df["lex_emb_norm"].to_numpy()
+    frequency_coefficients, *_ = np.linalg.lstsq(frequency_design, lex_embedding, rcond=None)
+    df["lex_emb_norm"] = lex_embedding - frequency_design @ frequency_coefficients
+
+    scaling: dict[str, dict[str, float]] = {}
+    for column in NUMERICAL_PREDICTORS:
+        mean = float(df[column].mean())
+        std = float(df[column].std(ddof=0))
+        if not np.isfinite(std) or std == 0:
+            raise ValueError(f"{path} has no usable variation in {column} for standardization.")
+        df[column] = (df[column] - mean) / std
+        scaling[column] = {"mean": mean, "std": std}
+    df.attrs["preprocessing"] = {
+        "version": PREPROCESSING_VERSION,
+        "lex_emb_norm": {
+            "operation": "OLS residual from lex_emb_norm ~ 1 + log_frequency",
+            "intercept": float(frequency_coefficients[0]),
+            "log_frequency_coefficient": float(frequency_coefficients[1]),
+        },
+        "standardized_predictors": scaling,
+    }
+    return df
 
 
 def mixedlm_r_squared(result: Any) -> dict[str, float]:
@@ -256,18 +340,79 @@ def mixedlm_r_squared(result: Any) -> dict[str, float]:
     return {"R2m": var_fixed / total, "R2c": (var_fixed + var_random) / total}
 
 
-def extract_random_effect_variances(result: Any) -> dict[str, float]:
-    cov_re = pd.DataFrame(
-        np.asarray(result.cov_re), index=result.cov_re.index, columns=result.cov_re.columns
+def fixed_effect_variances_from_design(
+    design: np.ndarray, design_info: Any, beta: pd.Series | np.ndarray
+) -> dict[str, float]:
+    """Allocate fitted fixed-effect variance, including covariance between terms.
+
+    Each term receives its own fitted-contribution variance plus its covariance
+    with every other term.  This splits every pairwise covariance equally between
+    its two terms, so the allocations sum exactly to the variance of the full
+    fixed-effects linear predictor (apart from floating-point rounding).
+    """
+    if design_info is None:
+        return {}
+    beta = np.asarray(beta)
+    term_names: list[str] = []
+    contributions: list[np.ndarray] = []
+    for term_name, column_slice in design_info.term_name_slices.items():
+        if term_name == "Intercept":
+            continue
+        term_names.append(term_name)
+        contributions.append(design[:, column_slice] @ beta[column_slice])
+    if not contributions:
+        return {}
+    contribution_matrix = np.column_stack(contributions)
+    covariance = np.atleast_2d(np.cov(contribution_matrix, rowvar=False, ddof=1))
+    allocations = covariance.sum(axis=1)
+    return {
+        f"fixed_effect_variance_{term_name}": float(allocation)
+        for term_name, allocation in zip(term_names, allocations)
+    }
+
+
+def extract_fixed_effect_variances(result: Any) -> dict[str, float]:
+    design_info = getattr(result.model.data, "design_info", None)
+    return fixed_effect_variances_from_design(
+        np.asarray(result.model.exog), design_info, result.fe_params
     )
+
+
+def random_effect_variances_from_covariance(cov_re: pd.DataFrame) -> dict[str, float]:
+    """Return the random-slope variance for each configured predictor.
+
+    Valence and dominance use treatment-coded formulas, whose covariance labels
+    begin with ``C(valence,`` and ``C(dominance,`` rather than ``C(valence)``
+    and ``C(dominance)``.  Matching the common ``C(<predictor>`` prefix covers
+    both forms.
+    """
     variances: dict[str, float] = {}
     for name in RANDOM_PREDICTORS:
-        matches = [label for label in cov_re.index if str(label).startswith(f"C({name})")]
+        matches = [label for label in cov_re.index if str(label).startswith(f"C({name}")]
         if matches:
             variances[f"random_effect_variance_{name}"] = float(
                 cov_re.loc[matches[0], matches[0]]
             )
     return variances
+
+
+def extract_random_effect_variances(result: Any) -> dict[str, float]:
+    cov_re = pd.DataFrame(
+        np.asarray(result.cov_re), index=result.cov_re.index, columns=result.cov_re.columns
+    )
+    return random_effect_variances_from_covariance(cov_re)
+
+
+def warning_messages(caught_warnings: list[warnings.WarningMessage]) -> list[str]:
+    return [f"{warning.category.__name__}: {warning.message}" for warning in caught_warnings]
+
+
+def has_numerical_issue_warnings(caught_warnings: list[warnings.WarningMessage]) -> bool:
+    for warning in caught_warnings:
+        warning_text = f"{warning.category.__name__}: {warning.message}".lower()
+        if any(re.search(pattern, warning_text) for pattern in NUMERICAL_ISSUE_WARNING_PATTERNS):
+            return True
+    return False
 
 
 def fit_mixed_model_terms(
@@ -288,8 +433,8 @@ def fit_mixed_model_terms(
 
     for method in ["lbfgs", "bfgs", "cg", "powell", "nm"]:
         try:
-            with warnings.catch_warnings():
-                warnings.simplefilter("ignore")
+            with warnings.catch_warnings(record=True) as caught_warnings:
+                warnings.simplefilter("always")
                 model = smf.mixedlm(
                     formula=formula,
                     data=df,
@@ -298,6 +443,8 @@ def fit_mixed_model_terms(
                 )
                 result = model.fit(reml=False, method=method, maxiter=maxiter, disp=False)
 
+            warning_texts = warning_messages(caught_warnings)
+            numerical_issue_warnings = has_numerical_issue_warnings(caught_warnings)
             fixed_names = list(result.fe_params.index)
             intervals = result.conf_int().loc[fixed_names]
             fixed_effects = pd.DataFrame(
@@ -322,12 +469,18 @@ def fit_mixed_model_terms(
             )
 
             r2 = mixedlm_r_squared(result)
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                summary_text = result.summary().as_text()
             metrics = {
                 "formula": formula,
                 "re_formula": re_formula,
                 "group_col": group_col,
                 "optimizer": method,
                 "converged": bool(getattr(result, "converged", False)),
+                "warning_count": len(warning_texts),
+                "warnings": warning_texts,
+                "numerical_issue_warnings": numerical_issue_warnings,
                 "aic": float(result.aic),
                 "bic": float(result.bic),
                 "log_likelihood": float(result.llf),
@@ -335,13 +488,14 @@ def fit_mixed_model_terms(
                 "residual_variance": float(result.scale),
                 "R2m": float(r2["R2m"]),
                 "R2c": float(r2["R2c"]),
+                **extract_fixed_effect_variances(result),
                 **extract_random_effect_variances(result),
             }
             (model_dir / "metrics.json").write_text(
                 json.dumps(metrics, indent=2), encoding="utf-8"
             )
             (model_dir / "summary.txt").write_text(
-                result.summary().as_text(), encoding="utf-8"
+                summary_text, encoding="utf-8"
             )
             spec = ModelSpec(name, [], group_col, random_predictors)
             return {"status": "ok", "spec": spec, "result": result, "metrics": metrics}
@@ -424,11 +578,11 @@ def likelihood_ratio_test(full_result: Any, reduced_result: Any) -> dict[str, fl
     }
 
 
-def report_payload(fit: dict[str, Any], selected_terms: list[str], run_dir: Path) -> dict[str, Any]:
+def report_payload(fit: dict[str, Any], fixed_terms: list[str], run_dir: Path) -> dict[str, Any]:
     payload: dict[str, Any] = {
         "status": fit["status"],
-        "selected_model": fit["spec"].name,
-        "selected_terms": selected_terms,
+        "full_model": fit["spec"].name,
+        "fixed_terms": fixed_terms,
     }
     if fit["status"] != "ok":
         return payload
@@ -570,6 +724,8 @@ def select_backward_model(
             for reduced_fit in step_results:
                 if reduced_fit["status"] != "ok":
                     continue
+                if reduced_fit["metrics"].get("numerical_issue_warnings"):
+                    continue
                 test = reduced_fit["lr_test"]
                 candidate_rows.append(
                     {
@@ -665,17 +821,19 @@ def run_one_input(
     data_dir: Path,
     *,
     maxiter: int,
-    alpha: float,
-    starting_fixed_effect_interactions: bool,
 ) -> Path:
     inputs_dir = data_dir / "inputs"
     runs_dir = data_dir / "runs"
     inputs_dir.mkdir(parents=True, exist_ok=True)
     runs_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(input_csv, inputs_dir / input_csv.name)
 
     run_dir = safe_run_dir(input_csv, runs_dir)
+    if run_dir_has_completed_full_model(run_dir):
+        print(f"Reusing existing full-model run for {input_csv.name}: {run_dir}")
+        return run_dir
+
     run_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(input_csv, inputs_dir / input_csv.name)
     df = load_results_csv(input_csv)
     df.to_csv(run_dir / "prepared_results.csv", index=False)
     (run_dir / "data_profile.json").write_text(
@@ -685,6 +843,7 @@ def run_one_input(
                 "copied_input_csv": str((inputs_dir / input_csv.name).resolve()),
                 "rows": int(len(df)),
                 "columns": list(df.columns),
+                "preprocessing": df.attrs["preprocessing"],
                 "category_levels": {
                     column: df[column].astype("string").dropna().sort_values().unique().tolist()
                     for column in sorted(CATEGORICAL_COLUMNS)
@@ -697,33 +856,31 @@ def run_one_input(
     )
 
     started = datetime.now(timezone.utc).isoformat()
-    selected_fit, trace, selected_terms = select_backward_model(
+    fixed_terms = hierarchical_fixed_terms(FIXED_PREDICTORS)
+    full_fit = fit_mixed_model_terms(
         df,
-        run_dir,
+        name="full_mixed_random_slopes",
+        fixed_terms=fixed_terms,
+        group_col="profession",
+        random_predictors=RANDOM_PREDICTORS,
+        run_dir=run_dir,
         maxiter=maxiter,
-        alpha=alpha,
-        starting_fixed_effect_interactions=starting_fixed_effect_interactions,
     )
-    selected_payload = report_payload(selected_fit, selected_terms, run_dir)
+    full_payload = report_payload(full_fit, fixed_terms, run_dir)
     baseline_fit = fit_mixed_model_terms(
         df,
-        name="selected_mixed_random_slopes__random_intercept_baseline",
-        fixed_terms=selected_terms,
+        name="full_mixed_random_slopes__random_intercept_baseline",
+        fixed_terms=fixed_terms,
         group_col="profession",
         random_predictors=[],
         run_dir=run_dir,
         maxiter=maxiter,
     )
-    baseline_payload = report_payload(baseline_fit, selected_terms, run_dir)
+    baseline_payload = report_payload(baseline_fit, fixed_terms, run_dir)
     report_reuse_summary = {
-        **selected_payload,
-        "selected_model_metrics": selected_payload,
+        **full_payload,
+        "full_model_metrics": full_payload,
         "random_intercept_baseline_metrics": baseline_payload,
-        "top_candidates_by_aic_path": (
-            str((run_dir / "top_candidates_by_aic.csv").resolve())
-            if (run_dir / "top_candidates_by_aic.csv").exists()
-            else None
-        ),
     }
     (run_dir / "report_reuse_summary.json").write_text(
         json.dumps(report_reuse_summary, indent=2), encoding="utf-8"
@@ -735,16 +892,15 @@ def run_one_input(
                 "finished_at_utc": datetime.now(timezone.utc).isoformat(),
                 "input_csv": str(input_csv.resolve()),
                 "primary_analysis": {
-                    "selected_model": "selected_mixed_random_slopes",
-                    "status": selected_fit["status"],
-                    "selection_steps": int(len(trace)) if not trace.empty else 0,
-                    "selected_terms": selected_terms,
+                    "full_model": "full_mixed_random_slopes",
+                    "status": full_fit["status"],
+                    "preprocessing_version": PREPROCESSING_VERSION,
+                    "fixed_terms": fixed_terms,
                     "report_reuse_summary_path": str(
                         (run_dir / "report_reuse_summary.json").resolve()
                     ),
-                    "selected_model_metrics": selected_payload,
+                    "full_model_metrics": full_payload,
                     "random_intercept_baseline_metrics": baseline_payload,
-                    "top_candidates_by_aic_path": report_reuse_summary["top_candidates_by_aic_path"],
                 },
             },
             indent=2,
@@ -770,10 +926,20 @@ def collect_model_rows(run_dirs: list[Path]) -> pd.DataFrame:
         input_csv = run_summary.get("input_csv")
         target_model = target_model_from_input(input_csv, run_dir.name)
         for model_dir in sorted((run_dir / "models").iterdir()):
+            if model_dir.name not in {
+                "full_mixed_random_slopes",
+                "full_mixed_random_slopes__random_intercept_baseline",
+            }:
+                continue
             metrics_path = model_dir / "metrics.json"
             if not metrics_path.exists():
                 continue
             metrics = load_json(metrics_path)
+            covariance_path = model_dir / "random_effects_covariance.csv"
+            if covariance_path.exists():
+                covariance = pd.read_csv(covariance_path, index_col=0)
+                recovered_variances = random_effect_variances_from_covariance(covariance)
+                metrics = {**recovered_variances, **metrics}
             rows.append(
                 {
                     "run_dir": str(run_dir.resolve()),
@@ -782,7 +948,7 @@ def collect_model_rows(run_dirs: list[Path]) -> pd.DataFrame:
                     "target_model": target_model,
                     "model_name": model_dir.name,
                     "model_dir": str(model_dir.resolve()),
-                    "selection_variant": (
+                    "fit_variant": (
                         "random_intercept_baseline"
                         if model_dir.name.endswith("__random_intercept_baseline")
                         else "random_slopes"
@@ -791,6 +957,9 @@ def collect_model_rows(run_dirs: list[Path]) -> pd.DataFrame:
                 }
             )
     df = pd.DataFrame(rows)
+    for column in RANDOM_EFFECT_VARIANCE_COLUMNS:
+        if column not in df.columns:
+            df[column] = np.nan
     for column in [
         "aic",
         "bic",
@@ -803,6 +972,8 @@ def collect_model_rows(run_dirs: list[Path]) -> pd.DataFrame:
     ]:
         if column in df.columns:
             df[column] = pd.to_numeric(df[column], errors="coerce")
+    for column in [column for column in df.columns if column.startswith("fixed_effect_variance_")]:
+        df[column] = pd.to_numeric(df[column], errors="coerce")
     if "converged" in df.columns:
         df["converged"] = df["converged"].astype("boolean")
     return df
@@ -855,7 +1026,7 @@ def load_group_random_effects(model_dir: Path) -> pd.DataFrame:
 
 
 def best_expanded_models(metrics: pd.DataFrame) -> pd.DataFrame:
-    expanded = metrics.loc[~metrics["model_name"].str.endswith("__random_intercept_baseline")]
+    expanded = metrics.loc[metrics["model_name"].eq("full_mixed_random_slopes")]
     return (
         expanded.dropna(subset=["aic"])
         .sort_values(["target_model", "aic", "bic", "model_name"], na_position="last")
@@ -869,17 +1040,8 @@ def aggregate_outputs(
 ) -> dict[str, pd.DataFrame]:
     comparisons_dir.mkdir(parents=True, exist_ok=True)
     metrics.sort_values(["target_model", "aic", "model_name"], na_position="last").to_csv(
-        comparisons_dir / "model_metrics_across_selection_runs.csv", index=False
+        comparisons_dir / "model_metrics_across_full_model_runs.csv", index=False
     )
-
-    if not top_candidates.empty:
-        top_candidates.sort_values(
-            ["target_model", "aic", "bic", "candidate_model"], na_position="last"
-        ).groupby("target_model", as_index=False).head(5).to_csv(
-            comparisons_dir / "top_candidates_by_input.csv", index=False
-        )
-    else:
-        top_candidates.to_csv(comparisons_dir / "top_candidates_by_input.csv", index=False)
 
     summary = (
         metrics.groupby(["target_model", "model_name"], dropna=False)
@@ -900,7 +1062,7 @@ def aggregate_outputs(
     best_models = best_expanded_models(metrics)
     coefficient_rows: list[dict[str, Any]] = []
     random_effect_rows: list[dict[str, Any]] = []
-    for _, best in best_models.iterrows():
+    for best_index, best in best_models.iterrows():
         fixed = load_fixed_effects(Path(best["model_dir"]))
         for _, row in fixed.iterrows():
             coefficient_rows.append(
@@ -978,22 +1140,27 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     tab_dir.mkdir(parents=True, exist_ok=True)
 
     metrics = artifacts["metrics"].copy()
-    top_candidates = artifacts["top_candidates"].copy()
     best_models = artifacts["best_models"].copy()
     coefficients = artifacts["coefficients"].copy()
     random_effects = artifacts["random_effects"].copy()
     for df in [metrics, best_models, coefficients, random_effects]:
         if "target_model" in df.columns:
             df["model"] = df["target_model"].map(clean_model_name)
-    if not top_candidates.empty and "target_model" in top_candidates.columns:
-        top_candidates["model"] = top_candidates["target_model"].map(clean_model_name)
 
-    model_order = sorted(best_models["model"].unique())
-    best_models["selected_model"] = best_models["model_name"].str.replace("_", " ", regex=False)
+    available_models = set(best_models["model"].unique())
+    configured_model_order, configured_model_labels = load_model_display_config()
+    model_order = [model for model in configured_model_order if model in available_models]
+    model_order.extend(sorted(available_models - set(model_order)))
+    plot_model_labels = {
+        model: configured_model_labels.get(model, model) for model in model_order
+    }
+    plot_model_order = [plot_model_labels[model] for model in model_order]
+    plot_model_order_reversed = plot_model_order[::-1]
+    best_models["fitted_model"] = best_models["model_name"].str.replace("_", " ", regex=False)
     fit_table = best_models[
         [
             "model",
-            "selected_model",
+            "fitted_model",
             "converged",
             "optimizer",
             "nobs",
@@ -1007,7 +1174,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     ].rename(
         columns={
             "model": "Model",
-            "selected_model": "Selected model",
+            "fitted_model": "Fitted model",
             "converged": "Converged",
             "optimizer": "Optimizer",
             "nobs": "N",
@@ -1019,57 +1186,8 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             "residual_variance": "Residual variance",
         }
     )
+    fit_table = display_model_table(fit_table, model_order, plot_model_labels)
     fit_html = write_table(fit_table, tab_dir / "model_fit.html")
-
-    if not top_candidates.empty:
-        candidate_source = top_candidates.copy()
-        candidate_source["candidate_label"] = candidate_source["candidate_model"]
-        candidate_source["candidate_detail"] = candidate_source["candidate_term"]
-    else:
-        candidate_source = (
-            metrics.sort_values(["target_model", "aic", "bic", "model_name"])
-            .groupby("target_model", as_index=False)
-            .head(5)
-            .copy()
-        )
-        candidate_source["candidate_label"] = candidate_source["model_name"]
-        candidate_source["candidate_detail"] = candidate_source["selection_variant"]
-    candidate_source["model"] = candidate_source["target_model"].map(clean_model_name)
-    candidate_source["delta_aic"] = candidate_source.groupby("target_model")["aic"].transform(
-        lambda s: s - s.min()
-    )
-    candidate_table = candidate_source[
-        [
-            "model",
-            "candidate_label",
-            "candidate_detail",
-            "converged",
-            "aic",
-            "delta_aic",
-            "bic",
-            "R2m",
-            "R2c",
-            "formula",
-            "re_formula",
-        ]
-    ].rename(
-        columns={
-            "model": "Model",
-            "candidate_label": "Candidate",
-            "candidate_detail": "Candidate detail",
-            "converged": "Converged",
-            "aic": "AIC",
-            "delta_aic": "Delta AIC",
-            "bic": "BIC",
-            "R2m": "Marginal R2",
-            "R2c": "Conditional R2",
-            "formula": "Formula",
-            "re_formula": "Random formula",
-        }
-    )
-    candidates_html = write_table(
-        candidate_table, tab_dir / "top_model_candidates.html", classes="data-table compact"
-    )
 
     baseline = metrics.loc[
         metrics["model_name"].str.endswith("__random_intercept_baseline")
@@ -1105,6 +1223,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             "re_formula_expanded": "Expanded random effects",
         }
     )
+    increment_table = display_model_table(increment_table, model_order, plot_model_labels)
     increment_html = write_table(increment_table, tab_dir / "random_slope_increment.html")
 
     baseline_explained = pd.DataFrame(
@@ -1122,6 +1241,9 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     baseline_explained["Random-intercept-only share within baseline explained variance"] = safe_divide(
         baseline_explained["Random intercept only R2"],
         baseline_explained["Random intercept + fixed effects R2"],
+    )
+    baseline_explained = display_model_table(
+        baseline_explained, model_order, plot_model_labels
     )
     baseline_explained_html = write_table(
         baseline_explained,
@@ -1145,6 +1267,9 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         expanded_explained["Additional random-slope R2"],
         expanded_explained["Full model with random slopes R2"],
     )
+    expanded_explained = display_model_table(
+        expanded_explained, model_order, plot_model_labels
+    )
     expanded_explained_html = write_table(
         expanded_explained,
         tab_dir / "full_explained_variance_decomposition.html",
@@ -1160,23 +1285,30 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         }
     )
 
-    plt.figure(figsize=(9, 5))
+    plt.figure(figsize=(8, max(3.5, len(model_order) * 0.4 + 1.5)))
     r2_plot = fit_table.melt(
         id_vars="Model",
         value_vars=["Marginal R2", "Conditional R2"],
         var_name="Statistic",
         value_name="R2",
     )
-    sns.barplot(data=r2_plot, x="Model", y="R2", hue="Statistic", order=model_order)
-    plt.xticks(rotation=25, ha="right")
-    plt.xlabel("")
+    sns.barplot(
+        data=r2_plot, x="R2", y="Model", hue="Statistic", order=plot_model_order
+    )
+    plt.ylabel("")
     savefig(fig_dir / "r2_comparison.png")
 
-    plt.figure(figsize=(9, 5))
-    sns.barplot(data=increment_table, x="Model", y="Delta AIC", order=model_order, color="#315c70")
-    plt.axhline(0, color="#222", linewidth=1)
-    plt.xticks(rotation=25, ha="right")
-    plt.xlabel("")
+    plt.figure(figsize=(8, max(3.5, len(model_order) * 0.4 + 1.5)))
+    increment_plot = increment_table.copy()
+    sns.barplot(
+        data=increment_plot,
+        x="Delta AIC",
+        y="Model",
+        order=plot_model_order,
+        color="#315c70",
+    )
+    plt.axvline(0, color="#222", linewidth=1)
+    plt.ylabel("")
     savefig(fig_dir / "random_slope_increment_aic.png")
 
     combined_explained_plot = combined_explained.set_index("Model")[
@@ -1192,17 +1324,19 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             "Additional random-slope R2": "Additional random slopes",
         }
     )
-    combined_explained_plot.loc[model_order].plot(
-        kind="bar",
+    combined_explained_plot.index = combined_explained_plot.index.map(plot_model_labels)
+    combined_explained_plot.loc[plot_model_order_reversed].plot(
+        kind="barh",
         stacked=True,
-        figsize=(9, 5),
+        width=0.82,
+        figsize=(8, max(3.5, len(model_order) * 0.4 + 1.5)),
         color=["#6c8da6", "#d7a84f", "#b75d42"],
     )
-    plt.ylabel("Explained variance (R2)")
-    plt.xlabel("")
-    plt.ylim(0, max(1.0, float(combined_explained["Full model with random slopes R2"].max()) * 1.08))
-    plt.xticks(rotation=25, ha="right")
-    plt.legend(title="", bbox_to_anchor=(1.02, 1), loc="upper left")
+    plt.xlabel("Explained variance (R2)")
+    plt.ylabel("")
+    plt.xlim(0, max(1.0, float(combined_explained["Full model with random slopes R2"].max()) * 1.08))
+    plt.legend(title="", bbox_to_anchor=(0.5, -0.16), loc="upper center", ncol=3)
+    plt.subplots_adjust(bottom=0.2)
     savefig(fig_dir / "explained_variance_decomposition.png")
 
     variance_table = best_models[["model", *RANDOM_EFFECT_VARIANCE_COLUMNS]].rename(
@@ -1211,15 +1345,95 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     variance_table["Total random-slope variance"] = variance_table[
         list(VARIANCE_LABELS.values())
     ].sum(axis=1)
-    variance_html = write_table(variance_table, tab_dir / "variance_decomposition.html")
     variance_prop = variance_table.set_index("Model")[list(VARIANCE_LABELS.values())]
     variance_prop = variance_prop.div(variance_prop.sum(axis=1), axis=0)
-    variance_prop.loc[model_order].plot(kind="bar", stacked=True, figsize=(9, 5))
-    plt.ylabel("Proportion of random-slope variance")
-    plt.xlabel("")
-    plt.xticks(rotation=25, ha="right")
+    variance_table = display_model_table(variance_table, model_order, plot_model_labels)
+    variance_html = write_table(variance_table, tab_dir / "variance_decomposition.html")
+    variance_prop.index = variance_prop.index.map(plot_model_labels)
+    variance_prop.loc[plot_model_order_reversed].plot(
+        kind="barh", stacked=True, figsize=(8, max(3.5, len(model_order) * 0.4 + 1.5))
+    )
+    plt.xlabel("Proportion of random-slope variance")
+    plt.ylabel("")
     plt.legend(title="", bbox_to_anchor=(1.02, 1), loc="upper left")
     savefig(fig_dir / "variance_decomposition.png")
+
+    fixed_variance_columns = sorted(
+        column
+        for column in best_models.columns
+        if column.startswith("fixed_effect_variance_")
+    )
+    fixed_variance_terms = [
+        column.removeprefix("fixed_effect_variance_")
+        for column in fixed_variance_columns
+    ]
+    fixed_variance_labels = {
+        column: fixed_effect_label(term_name)
+        for column, term_name in zip(fixed_variance_columns, fixed_variance_terms)
+    }
+    fixed_variance_table = best_models[["model", *fixed_variance_columns]].rename(
+        columns={"model": "Model", **fixed_variance_labels}
+    )
+    fixed_variance_table["Total fixed-effect fitted variance"] = fixed_variance_table[
+        list(fixed_variance_labels.values())
+    ].sum(axis=1)
+    fixed_variance_allocation = fixed_variance_table.set_index("Model")[
+        list(fixed_variance_labels.values())
+    ]
+    fixed_variance_table = display_model_table(
+        fixed_variance_table, model_order, plot_model_labels
+    )
+    fixed_variance_html = write_table(
+        fixed_variance_table,
+        tab_dir / "fixed_effect_variance.html",
+        classes="data-table compact",
+    )
+    fixed_variance_allocation.index = fixed_variance_allocation.index.map(plot_model_labels)
+    fixed_effect_names = list(fixed_variance_labels.values())
+    fixed_effect_numbers = list(range(1, len(fixed_effect_names) + 1))
+    # HUSL creates a distinct colour for every full-model term.
+    fixed_effect_colors = sns.color_palette("husl", n_colors=len(fixed_effect_names))
+    fig, ax = plt.subplots(
+        figsize=(11, max(4.5, len(model_order) * 0.55 + 1.5))
+    )
+    fixed_variance_allocation.loc[plot_model_order_reversed].plot(
+        kind="barh",
+        stacked=True,
+        ax=ax,
+        color=fixed_effect_colors,
+    )
+    ax.set_xlabel("Covariance-adjusted fixed-effect variance allocation")
+    ax.set_ylabel("")
+
+    # Number segments with sufficient room for a legible label; every effect is
+    # numbered in the legend below, so very small segments remain identifiable
+    # without overlapping labels obscuring the bars.
+    for effect_number, container in zip(fixed_effect_numbers, ax.containers):
+        ax.bar_label(
+            container,
+            labels=[
+                str(effect_number)
+                if np.isfinite(bar.get_width()) and abs(bar.get_width()) >= 0.025
+                else ""
+                for bar in container
+            ],
+            label_type="center",
+            color="#111111",
+            fontsize=8,
+            fontweight="bold",
+        )
+    handles, _ = ax.get_legend_handles_labels()
+    ax.legend(
+        handles,
+        [f"{number}. {name}" for number, name in zip(fixed_effect_numbers, fixed_effect_names)],
+        title="Fixed effect",
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.16),
+        ncols=min(3, len(fixed_effect_names)),
+        fontsize=8,
+    )
+    fig.subplots_adjust(bottom=0.3)
+    savefig(fig_dir / "fixed_effect_variance.png")
 
     re_model = random_effects.groupby(["model", "Unnamed: 0"], as_index=False)[
         [c for c in RANDOM_EFFECT_LABELS if c in random_effects.columns]
@@ -1239,8 +1453,14 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
                 re_model.pivot(index="Unnamed: 0", columns="model", values=column)
                 .reindex(index=profession_order, columns=model_order)
             )
-            plt.figure(figsize=(9, 6))
-            sns.heatmap(heat, center=0, cmap="RdBu_r", cbar_kws={"label": "Random effect"})
+            heat.columns = heat.columns.map(plot_model_labels)
+            plt.figure(figsize=(9, max(6, len(profession_order) * 0.22 + 1.5)))
+            heat_ax = sns.heatmap(
+                heat, center=0, cmap="RdBu_r", cbar_kws={"label": "Random effect"}
+            )
+            heat_ax.tick_params(
+                axis="y", labelsize=max(4, min(8, 200 / max(1, len(profession_order))))
+            )
             plt.xlabel("")
             plt.ylabel("Profession")
             plt.title(label)
@@ -1248,8 +1468,18 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             savefig(fig_dir / heat_name)
             heatmap_blocks.append(figure(f"figures/{heat_name}", f"{label} by profession."))
 
-            plt.figure(figsize=(6, 5))
-            sns.heatmap(heat.corr(), annot=True, fmt=".2f", center=0, vmin=-1, vmax=1, cmap="RdBu_r")
+            correlation_size = 2 * max(8, len(model_order) * 0.55)
+            plt.figure(figsize=(correlation_size, correlation_size))
+            sns.heatmap(
+                heat.corr(),
+                annot=True,
+                annot_kws={"fontsize": 9},
+                fmt=".2f",
+                center=0,
+                vmin=-1,
+                vmax=1,
+                cmap="RdBu_r",
+            )
             plt.title(label)
             corr_name = f"{name}_correlation.png"
             savefig(fig_dir / corr_name)
@@ -1261,6 +1491,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             pca = PCA(n_components=2)
             pcs = pca.fit_transform(X)
             pca_df = re_model[["model", "Unnamed: 0"]].copy()
+            pca_df["model"] = pca_df["model"].map(plot_model_labels)
             pca_df["PC1"] = pcs[:, 0]
             pca_df["PC2"] = pcs[:, 1]
             plt.figure(figsize=(9, 6))
@@ -1285,8 +1516,10 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             "ci_high": "CI high",
         }
     )
+    coef_table = display_model_table(coef_table, model_order, plot_model_labels)
     coef_html = write_table(coef_table, tab_dir / "coefficients.html", classes="data-table compact")
     coef_heat = coef_model.pivot(index="term", columns="model", values="coef").reindex(columns=model_order)
+    coef_heat.columns = coef_heat.columns.map(plot_model_labels)
     plt.figure(figsize=(10, max(5, 0.35 * len(coef_heat))))
     sns.heatmap(coef_heat, center=0, cmap="RdBu_r", cbar_kws={"label": "Coefficient"})
     plt.xlabel("")
@@ -1311,7 +1544,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>Random-Slope Model Selection Report</title>
+            <title>Full Random-Slope Model Report</title>
           <style>
             :root {{
               --bg: #f4efe6; --panel: #fffaf1; --ink: #1d2625;
@@ -1349,17 +1582,19 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         <body>
           <div class="page">
             <header>
-              <h1>Random-Slope Model Selection Report</h1>
+              <h1>Full Random-Slope Model Report</h1>
               <p class="subtitle">
-                Backward-selected mixed-effects models for log he/she odds. Positive
+                Full mixed-effects models for log he/she odds. Positive
                 estimates shift predictions toward "he"; negative estimates shift them
-                toward "she". Generated on {date.today().isoformat()}.
+                toward "she". `log_frequency` and the frequency-residualized
+                `lex_emb_norm` are standardized before fitting. Generated on
+                {date.today().isoformat()}.
               </p>
               <div class="metric-grid">{cards_html}</div>
             </header>
             <section>
               <h2>Model Fit</h2>
-              <p class="section-note">Best expanded random-slope model per target model.</p>
+              <p class="section-note">Full random-slope model per target model.</p>
               <div class="table-wrap">{fit_html}</div>
               <div class="figure-grid">
                 {figure("figures/r2_comparison.png", "Marginal and conditional R2.")}
@@ -1367,15 +1602,10 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
               </div>
             </section>
             <section>
-              <h2>Top Candidates by AIC</h2>
-              <p class="section-note">The five strongest fitted candidate models retained for each input file, ranked by AIC.</p>
-              <div class="table-wrap">{candidates_html}</div>
-            </section>
-            <section>
               <h2>Random-Slope Increment</h2>
               <p class="section-note">
-                The baseline fit uses the selected fixed effects with a random intercept only.
-                The expanded fit adds the selected random-slope structure on top of that same
+                The baseline fit uses the full fixed-effects formula with a random intercept only.
+                The full fit adds the random-slope structure on top of that same
                 baseline.
               </p>
               <div class="table-wrap">{increment_html}</div>
@@ -1392,8 +1622,20 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
               <div class="table-wrap">{expanded_explained_html}</div>
             </section>
             <section>
+              <h2>Fixed-Effect Variance</h2>
+              <p class="section-note">
+                Each fixed effect is summarized by the variance of its fitted contribution
+                across observations, with each covariance divided equally between its two
+                terms. The allocations sum to the variance of the complete fixed-effects
+                predictor; negative allocations can occur when a term covaries negatively
+                with the others.
+              </p>
+              <div class="table-wrap">{fixed_variance_html}</div>
+              {figure("figures/fixed_effect_variance.png", "Covariance-adjusted fixed-effect variance allocation by model term; segment numbers map to the legend below the plot.")}
+            </section>
+            <section>
               <h2>Random-Effect Variance</h2>
-              <p class="section-note">Baseline rows are the random-intercept models generated in the same run with the selected fixed terms.</p>
+              <p class="section-note">The random-intercept baseline uses the same full fixed-effects formula.</p>
               <div class="table-wrap">{variance_html}</div>
               {figure("figures/variance_decomposition.png", "Random-slope variance decomposition.")}
             </section>
@@ -1438,9 +1680,7 @@ def main() -> int:
         "data_dir": str(args.data_dir.resolve()),
         "report_dir": str(args.report_dir.resolve()),
         "maxiter": args.maxiter,
-        "alpha": args.alpha,
         "reuse_existing": bool(args.reuse_existing),
-        "starting_fixed_effect_interactions": bool(args.starting_fixed_effect_interactions),
     }
 
     run_dirs: list[Path]
@@ -1461,14 +1701,12 @@ def main() -> int:
         manifest["inputs"] = [str(path) for path in inputs]
         run_dirs = []
         for input_csv in inputs:
-            print(f"Running random-slope selection for {input_csv.name}")
+            print(f"Fitting full random-slope model for {input_csv.name}")
             run_dirs.append(
                 run_one_input(
                     input_csv,
                     args.data_dir,
                     maxiter=args.maxiter,
-                    alpha=args.alpha,
-                    starting_fixed_effect_interactions=args.starting_fixed_effect_interactions,
                 )
             )
         manifest["run_dirs"] = [str(path.resolve()) for path in run_dirs]
@@ -1481,8 +1719,7 @@ def main() -> int:
     if metrics.empty:
         print("No fitted model metrics were generated.", file=sys.stderr)
         return 1
-    top_candidates = collect_top_candidate_rows(run_dirs)
-    artifacts = aggregate_outputs(metrics, top_candidates, args.data_dir / "comparisons")
+    artifacts = aggregate_outputs(metrics, pd.DataFrame(), args.data_dir / "comparisons")
     report_path = build_report(artifacts, args.report_dir)
 
     manifest["finished_at_utc"] = datetime.now(timezone.utc).isoformat()

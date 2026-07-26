@@ -1,0 +1,29 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        log_he_she_odds   R-squared:                       0.446
+Model:                            OLS   Adj. R-squared:                  0.446
+Method:                 Least Squares   F-statistic:                     2631.
+Date:                Sat, 25 Jul 2026   Prob (F-statistic):               0.00
+Time:                        11:08:03   Log-Likelihood:                -23004.
+No. Observations:               16320   AIC:                         4.602e+04
+Df Residuals:                   16314   BIC:                         4.607e+04
+Df Model:                           5                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================================================
+                                                        coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------------
+Intercept                                             1.2646      0.016     81.524      0.000       1.234       1.295
+C(syntactic_role)[T.subject]                         -0.0242      0.016     -1.562      0.118      -0.055       0.006
+C(valence, Treatment(reference='-val'))[T.+val]      -0.0979      0.016     -6.313      0.000      -0.128      -0.068
+C(dominance, Treatment(reference='-dom'))[T.+dom]     0.0550      0.016      3.544      0.000       0.025       0.085
+male_perc                                             0.8691      0.011     79.232      0.000       0.848       0.891
+male_perc:C(syntactic_role)[T.subject]                0.0369      0.016      2.378      0.017       0.006       0.067
+==============================================================================
+Omnibus:                      208.304   Durbin-Watson:                   0.220
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              205.711
+Skew:                          -0.253   Prob(JB):                     2.14e-45
+Kurtosis:                       2.786   Cond. No.                         3.73
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

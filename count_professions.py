@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import gzip
 import json
 import re
@@ -13,12 +14,17 @@ from tqdm import tqdm
 
 def load_professions(path: Path) -> list[tuple[str, re.Pattern[str]]]:
     professions: list[tuple[str, re.Pattern[str]]] = []
-    for raw in path.read_text(encoding="utf-8").splitlines():
-        profession = raw.strip()
-        if not profession:
-            continue
-        pattern = re.compile(rf"(?<!\w){re.escape(profession)}(?!\w)", re.IGNORECASE)
-        professions.append((profession, pattern))
+    with path.open(encoding="utf-8", newline="") as handle:
+        rows = csv.reader(handle)
+        next(rows, None)  # Header row.
+        for row in rows:
+            if not row:
+                continue
+            profession = row[0].strip()
+            if not profession:
+                continue
+            pattern = re.compile(rf"(?<!\w){re.escape(profession)}(?!\w)", re.IGNORECASE)
+            professions.append((profession, pattern))
     return professions
 
 
@@ -149,8 +155,8 @@ def main() -> None:
     parser.add_argument(
         "--professions",
         type=Path,
-        default=Path("professions.txt"),
-        help="Text file containing one profession name per line.",
+        default=Path("professions.csv"),
+        help="CSV file whose first column contains profession names.",
     )
     parser.add_argument(
         "--output",

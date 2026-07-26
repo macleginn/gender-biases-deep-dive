@@ -1,0 +1,20 @@
+{
+  "formula": "log_he_she_odds ~ C(valence, Treatment(reference='-val')) + C(dominance, Treatment(reference='-dom')) + C(semantic_role):C(valence, Treatment(reference='-val')) + male_perc + male_perc:C(valence, Treatment(reference='-val')) + male_perc:C(dominance, Treatment(reference='-dom'))",
+  "model_type": "OLS",
+  "optimizer": "closed_form",
+  "converged": true,
+  "nobs": 16320,
+  "aic": 42921.20000896539,
+  "bic": 42982.801181993535,
+  "log_likelihood": -21452.600004482694,
+  "residual_variance": 0.8118889968458958,
+  "R2m": 0.5632028703551015,
+  "R2c": 0.5632028703551015,
+  "warnings": [],
+  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.0011337691896521297,
+  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.0011302381572014732,
+  "fixed_effect_variance_C(semantic_role):C(valence, Treatment(reference='-val'))": -5.807762162770047e-05,
+  "fixed_effect_variance_male_perc": 1.087375632203548,
+  "fixed_effect_variance_male_perc:C(valence, Treatment(reference='-val'))": -0.025994275665829975,
+  "fixed_effect_variance_male_perc:C(dominance, Treatment(reference='-dom'))": -0.01719287914686089
+}

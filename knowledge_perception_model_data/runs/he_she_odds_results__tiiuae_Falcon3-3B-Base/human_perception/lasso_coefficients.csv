@@ -1,0 +1,12 @@
+feature,coefficient,nonzero
+Intercept,0.0,False
+C(syntactic_role)[T.subject],-0.08449640948613289,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.0,False
+"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.042729034965898485,True
+"C(syntactic_role)[T.subject]:C(valence, Treatment(reference='-val'))[T.+val]",-0.04172528779351759,True
+"C(syntactic_role)[T.subject]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.016235416848514605,True
+"C(valence, Treatment(reference='-val'))[T.+val]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.0020945715991030085,True
+male_perc,1.0481345224457481,True
+male_perc:C(syntactic_role)[T.subject],0.01133090287996125,True
+"male_perc:C(valence, Treatment(reference='-val'))[T.+val]",-0.03199280196093678,True
+"male_perc:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.01926837363865702,True

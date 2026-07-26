@@ -1,0 +1,12 @@
+feature,coefficient,nonzero
+Intercept,0.0,False
+C(semantic_role)[T.patient],-0.03887523606553799,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.037510502862921895,True
+"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.04188754939115649,True
+"C(semantic_role)[T.patient]:C(valence, Treatment(reference='-val'))[T.+val]",-0.005451466849125779,True
+"C(semantic_role)[T.patient]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.014625823442732059,True
+"C(valence, Treatment(reference='-val'))[T.+val]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.012380493682665528,True
+male_perc,0.8959821092923345,True
+male_perc:C(semantic_role)[T.patient],-0.0015830512312285513,True
+"male_perc:C(valence, Treatment(reference='-val'))[T.+val]",0.0,False
+"male_perc:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.012065356837390007,True

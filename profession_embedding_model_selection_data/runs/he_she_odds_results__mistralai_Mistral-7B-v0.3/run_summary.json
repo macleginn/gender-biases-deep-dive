@@ -3,8 +3,8 @@
   "embedding": {
     "source": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/profession_collocates.csv",
     "profession_column": "profession",
-    "rows": 32,
-    "collocate_columns": 114379,
+    "rows": 34,
+    "collocate_columns": 62389,
     "k": 5,
     "columns": [
       "profession_embedding_1",
@@ -16,22 +16,32 @@
   },
   "selected_terms": [
     "C(tense)",
-    "C(semantic_role)",
     "C(syntactic_role)",
-    "C(valence)",
-    "C(dominance)",
+    "C(dominance, Treatment(reference='-dom'))",
     "log_frequency",
-    "lex_emb_norm",
-    "C(tense):log_frequency",
-    "C(semantic_role):C(syntactic_role)",
-    "log_frequency:lex_emb_norm",
     "profession_embedding_1",
-    "profession_embedding_2",
-    "profession_embedding_3",
     "profession_embedding_4",
     "profession_embedding_5"
   ],
-  "selection_steps": 233,
+  "selected_predictor_count": 7,
   "selected_model": "selected_profession_embedding",
-  "baseline_model": "no_profession_embedding_baseline"
+  "baseline_model": "no_profession_embedding_baseline",
+  "preprocessing": {
+    "version": "log-frequency_zscore_and_frequency-residualized-lex-embedding_v1",
+    "lex_emb_norm": {
+      "operation": "OLS residual from lex_emb_norm ~ 1 + log_frequency",
+      "intercept": 0.022335241173689326,
+      "log_frequency_coefficient": 0.012829044505655408
+    },
+    "standardized_predictors": {
+      "log_frequency": {
+        "mean": 7.368637557804696,
+        "std": 2.024790530108731
+      },
+      "lex_emb_norm": {
+        "mean": -3.7878197310740636e-17,
+        "std": 0.022881616371764443
+      }
+    }
+  }
 }

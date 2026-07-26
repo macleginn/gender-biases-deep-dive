@@ -1,0 +1,15 @@
+{
+  "selected_model": "selected_model",
+  "candidate_formula": "log_he_she_odds ~ male_perc + C(syntactic_role) + C(valence, Treatment(reference='-val')) + C(dominance, Treatment(reference='-dom')) + male_perc:C(syntactic_role) + male_perc:C(valence, Treatment(reference='-val')) + male_perc:C(dominance, Treatment(reference='-dom')) + C(syntactic_role):C(valence, Treatment(reference='-val')) + C(syntactic_role):C(dominance, Treatment(reference='-dom')) + C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",
+  "selected_terms": [
+    "C(syntactic_role)",
+    "C(valence, Treatment(reference='-val'))",
+    "C(dominance, Treatment(reference='-dom'))",
+    "male_perc",
+    "male_perc:C(syntactic_role)"
+  ],
+  "alpha": 0.011732287538564716,
+  "alpha_selection": "LassoCV",
+  "cv": 5,
+  "lasso_n_iter": 9
+}

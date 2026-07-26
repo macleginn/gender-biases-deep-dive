@@ -14,6 +14,15 @@ import re
 from pathlib import Path
 from typing import Any
 
+import pandas as pd
+import torch
+
+try:
+    from tqdm.auto import tqdm  # type: ignore
+except Exception:  # pragma: no cover
+    tqdm = None  # type: ignore
+
+
 def past_tense(verb):
     if verb.endswith('e'):
         return verb[:-1] + 'ed'
@@ -125,40 +134,20 @@ verbs_ratings = [
     ('distract', '-val-dom')
 ]
 
-professions = [
-    'colonel',
-    'sergeant',
-    'soldier',
-    'CEO',
-    'administrator',
-    'scientist',
-    'doctor',
-    'teacher',
-    'manager',
-    'solicitor',
-    'programmer',
-    'midwife',
-    'accountant',
-    'paralegal',
-    'cashier',
-    'scrivener',
-    'salesperson',
-    'bodyguard',
-    'agronomist',
-    'fisherman',
-    'farmer',
-    'welder',
-    'molder',
-    'bookbinder',
-    'electrician',
-    'tradesperson',
-    'chauffeur',
-    'housekeeper',
-    'farmhand',
-    'builder',
-    'hawker',
-    'binman'
-]
+professions: list[str] = []
+
+
+def _load_professions(path: Path) -> list[str]:
+    """Load profession names from the first column of a CSV file."""
+    metadata = pd.read_csv(path)
+    if metadata.shape[1] < 1:
+        raise ValueError(f"{path} must contain a first column with profession names")
+    names = metadata.iloc[:, 0].astype("string").str.strip()
+    if names.isna().any() or (names == "").any():
+        raise ValueError(f"{path} contains missing or empty profession names")
+    if names.duplicated().any():
+        raise ValueError(f"{path} contains duplicate profession names")
+    return names.tolist()
 
 DEFAULT_HF_CACHE_DIR = "/mnt/hum01-rds/Nikolaev_Dmitry/dominik-llama/extremism_detection/hf_cache"
 
@@ -176,33 +165,22 @@ def _configure_hf_cache_env(hf_cache_dir: str | None) -> None:
     root = str(Path(hf_cache_dir).expanduser())
     os.environ["HF_HOME"] = root
     os.environ["HF_HUB_CACHE"] = str(Path(root) / "hub")
-    os.environ["TRANSFORMERS_CACHE"] = str(Path(root) / "transformers")
+    # Removed in Transformers v5; HF_HOME now controls the Transformers cache.
+    os.environ.pop("TRANSFORMERS_CACHE", None)
     os.environ["HF_ASSETS_CACHE"] = str(Path(root) / "assets")
 
 
-def _preferred_hf_token_kwarg(from_pretrained_callable: Any) -> str:
-    """
-    Transformers/HF Hub have changed auth kwarg names over time.
-
-    Some versions expose `token`, others `use_auth_token`, and some accept only
-    `**kwargs` (so `inspect.signature` can't tell us). When we can't detect an
-    explicit parameter name, we pick a key by inspecting the source when
-    possible.
-    """
-
-    try:
-        src = inspect.getsource(from_pretrained_callable)
-    except Exception:
-        return "token"
-    return "use_auth_token" if "use_auth_token" in src else "token"
-
-
 def _select_device(device: str) -> torch.device:
-    import torch
-
     if device == "auto":
         return torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
     return torch.device(device)
+
+
+def _bf16_is_supported(device: torch.device) -> bool:
+    if device.type != "cuda" or not torch.cuda.is_available():
+        return False
+    is_bf16_supported = getattr(torch.cuda, "is_bf16_supported", None)
+    return bool(is_bf16_supported()) if is_bf16_supported is not None else False
 
 
 def _load_hf_token(hf_token: str | None, hf_token_env: str | None) -> str | None:
@@ -289,10 +267,10 @@ def _hf_from_pretrained_kwargs(
     if resolved_token:
         if "token" in params:
             kwargs["token"] = resolved_token
-        elif "use_auth_token" in params:
-            kwargs["use_auth_token"] = resolved_token
         elif has_var_keyword:
-            kwargs[_preferred_hf_token_kwarg(from_pretrained_callable)] = resolved_token
+            # `token` is the supported Hugging Face API; `use_auth_token` is
+            # deprecated and removed in Transformers v5.
+            kwargs["token"] = resolved_token
     if cache_dir and ("cache_dir" in params or has_var_keyword):
         kwargs["cache_dir"] = cache_dir
     return kwargs
@@ -322,31 +300,24 @@ def _tokenizer_trust_kwargs(callable_obj: Any, trust_remote_code: bool) -> dict[
     return _maybe_add_kwarg(callable_obj, {}, "trust_remote_code", True, allow_var_keyword=True)
 
 
-def run(
+def _is_llama4_checkpoint(model_tag: str) -> bool:
+    """Llama 4 has a native Transformers loader for its multimodal model."""
+    return "llama-4" in model_tag.lower()
+
+
+def _load_model_and_tokenizer(
     model_tag: str,
-    hf_token: str | None,
-    hf_token_env: str | None,
-    device: str,
+    resolved_token: str | None,
     hf_cache_dir: str | None,
-    progress: bool,
-    tokenizer_mode: str,
+    target_device: torch.device,
     trust_remote_code: bool,
-) -> pd.DataFrame:
-    import pandas as pd
-    import torch
-
-    _configure_hf_cache_env(hf_cache_dir)
-
-    from transformers import AutoModelForCausalLM, AutoTokenizer
+    tokenizer_mode: str,
+) -> tuple[Any, Any]:
     try:
-        from tqdm.auto import tqdm  # type: ignore
-    except Exception:  # pragma: no cover
-        tqdm = None  # type: ignore
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+    except ImportError as exc:  # pragma: no cover
+        raise ImportError("Transformers is required to load the model.") from exc
 
-    profession_frequencies = _load_profession_frequencies(Path("profession_counts.json"))
-    _validate_profession_frequencies(profession_frequencies)
-
-    resolved_token = _load_hf_token(hf_token, hf_token_env)
     tok_kwargs = _hf_from_pretrained_kwargs(AutoTokenizer.from_pretrained, resolved_token, hf_cache_dir)
     tok_kwargs.update(_tokenizer_trust_kwargs(AutoTokenizer.from_pretrained, trust_remote_code))
     if tokenizer_mode in {"fast", "slow"}:
@@ -385,9 +356,79 @@ def run(
         trust_remote_code,
         allow_var_keyword=True,
     )
-    model = AutoModelForCausalLM.from_pretrained(model_tag, **model_kwargs)
+
+    is_llama4 = _is_llama4_checkpoint(model_tag)
+    
+    if is_llama4:
+        try:
+            from transformers import BitsAndBytesConfig
+            from transformers.utils import is_bitsandbytes_available
+
+            from transformers import Llama4ForConditionalGeneration
+            model_loader = Llama4ForConditionalGeneration
+        except ImportError as exc:
+            raise ImportError(
+                "Transformers with BitsAndBytesConfig is required for Llama-4 4-bit loading."
+            ) from exc
+    
+        if not is_bitsandbytes_available():
+            raise RuntimeError(
+                "bitsandbytes is not available in this environment. "
+                "The model will not really load in 4-bit. "
+                "Try installing bitsandbytes, or use a Python version supported by your bitsandbytes build."
+            )
+    
+        compute_dtype = torch.bfloat16 if _bf16_is_supported(target_device) else torch.float16
+    
+        model_kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=compute_dtype,
+            bnb_4bit_use_double_quant=True,
+        )
+    
+        # Important: do not let accelerate fill each 40GB card to the brim.
+        if torch.cuda.is_available():
+            model_kwargs["max_memory"] = {
+                i: "36GiB" for i in range(torch.cuda.device_count())
+            }
+    else:
+        model_loader = AutoModelForCausalLM
+        compute_dtype = torch.bfloat16 if _bf16_is_supported(target_device) else torch.float16
+        model_kwargs["dtype"] = compute_dtype
+    
+    model_kwargs["device_map"] = "auto"
+    model_kwargs["low_cpu_mem_usage"] = True
+    
+    model = model_loader.from_pretrained(model_tag, **model_kwargs)
+    return model, tokenizer
+
+
+def run(
+    model_tag: str,
+    hf_token: str | None,
+    hf_token_env: str | None,
+    device: str,
+    hf_cache_dir: str | None,
+    progress: bool,
+    tokenizer_mode: str,
+    trust_remote_code: bool,
+) -> pd.DataFrame:
+    _configure_hf_cache_env(hf_cache_dir)
+
+    profession_frequencies = _load_profession_frequencies(Path("profession_counts.json"))
+    _validate_profession_frequencies(profession_frequencies)
+
+    resolved_token = _load_hf_token(hf_token, hf_token_env)
     target_device = _select_device(device)
-    model.to(target_device)
+    model, tokenizer = _load_model_and_tokenizer(
+        model_tag=model_tag,
+        resolved_token=resolved_token,
+        hf_cache_dir=hf_cache_dir,
+        target_device=target_device,
+        trust_remote_code=trust_remote_code,
+        tokenizer_mode=tokenizer_mode,
+    )
     model.eval()
 
     _ensure_pad_token(tokenizer, model)
@@ -430,9 +471,17 @@ def run(
 
                 prefix = format_template(template, profession, verb)
 
-                inputs = tokenizer(bos + prefix, return_tensors="pt").to(model.device)
-                with torch.no_grad():
-                    outputs = model(**inputs)
+                # inputs = tokenizer(bos + prefix, return_tensors="pt").to(model.device)
+
+                input_device = model.get_input_embeddings().weight.device
+                inputs = tokenizer(bos + prefix, return_tensors="pt")
+                inputs = {k: v.to(input_device) for k, v in inputs.items()}
+                
+                # with torch.no_grad():
+                #     outputs = model(**inputs)
+
+                with torch.inference_mode():
+                    outputs = model(**inputs, use_cache=False)                
 
                 logits = outputs.logits[0, -1]
                 probs = torch.softmax(logits, dim=-1)
@@ -469,6 +518,8 @@ def run(
 
 
 def main() -> int:
+    global professions
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--model-tag",
@@ -479,6 +530,11 @@ def main() -> int:
         "--output",
         default=None,
         help="Path to write CSV results (default: derived from --model-tag).",
+    )
+    parser.add_argument(
+        "--professions",
+        default="professions.csv",
+        help="CSV whose first column contains the profession names (default: professions.csv).",
     )
     parser.add_argument(
         "--sentences-path",
@@ -525,6 +581,7 @@ def main() -> int:
     )
 
     args = parser.parse_args()
+    professions = _load_professions(Path(args.professions))
     output_path = _resolve_output_path(args.output, args.model_tag)
     sentences_path = args.sentences_path or "sentences.txt"
     write_verb_forms(Path("modelling_data") / "verb_forms.txt")

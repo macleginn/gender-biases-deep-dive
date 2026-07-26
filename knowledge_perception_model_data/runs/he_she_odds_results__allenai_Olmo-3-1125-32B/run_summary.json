@@ -1,0 +1,57 @@
+{
+  "input_csv": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__allenai_Olmo-3-1125-32B.csv",
+  "profession_metadata": {
+    "source": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/professions.csv",
+    "profession_column": "Profession",
+    "rows": 34,
+    "predictor": "MalePerc"
+  },
+  "models": {
+    "world_knowledge": {
+      "label": "World-Knowledge Model",
+      "role": "semantic_role",
+      "model_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/knowledge_perception_model_data/runs/he_she_odds_results__allenai_Olmo-3-1125-32B/world_knowledge/models/selected_model",
+      "run_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/knowledge_perception_model_data/runs/he_she_odds_results__allenai_Olmo-3-1125-32B/world_knowledge",
+      "selected_terms": [
+        "C(valence, Treatment(reference='-val'))",
+        "C(dominance, Treatment(reference='-dom'))",
+        "male_perc",
+        "male_perc:C(semantic_role)",
+        "male_perc:C(valence, Treatment(reference='-val'))",
+        "male_perc:C(dominance, Treatment(reference='-dom'))"
+      ],
+      "selected_predictor_count": 6,
+      "name": "selected_model"
+    },
+    "human_perception": {
+      "label": "Human-Perception Model",
+      "role": "syntactic_role",
+      "model_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/knowledge_perception_model_data/runs/he_she_odds_results__allenai_Olmo-3-1125-32B/human_perception/models/selected_model",
+      "run_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/knowledge_perception_model_data/runs/he_she_odds_results__allenai_Olmo-3-1125-32B/human_perception",
+      "selected_terms": [
+        "C(syntactic_role)",
+        "C(valence, Treatment(reference='-val'))",
+        "C(dominance, Treatment(reference='-dom'))",
+        "C(syntactic_role):C(valence, Treatment(reference='-val'))",
+        "C(syntactic_role):C(dominance, Treatment(reference='-dom'))",
+        "C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",
+        "male_perc",
+        "male_perc:C(syntactic_role)",
+        "male_perc:C(valence, Treatment(reference='-val'))",
+        "male_perc:C(dominance, Treatment(reference='-dom'))"
+      ],
+      "selected_predictor_count": 10,
+      "name": "selected_model"
+    }
+  },
+  "preprocessing": {
+    "version": "zscore_numeric-model-predictors_v1",
+    "standardized_predictors": {
+      "male_perc": {
+        "mean": 60.44088235294117,
+        "std": 24.31727591744155
+      }
+    },
+    "note": "log_frequency and lex_emb_norm are not model predictors in these specifications."
+  }
+}

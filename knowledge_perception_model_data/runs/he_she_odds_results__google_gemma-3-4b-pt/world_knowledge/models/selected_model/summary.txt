@@ -1,0 +1,34 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        log_he_she_odds   R-squared:                       0.559
+Model:                            OLS   Adj. R-squared:                  0.559
+Method:                 Least Squares   F-statistic:                     2067.
+Date:                Sat, 25 Jul 2026   Prob (F-statistic):               0.00
+Time:                        11:07:44   Log-Likelihood:                -22626.
+No. Observations:               16320   AIC:                         4.527e+04
+Df Residuals:                   16309   BIC:                         4.536e+04
+Df Model:                          10                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================================================================================================
+                                                                                                        coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                                             1.6045      0.020     80.009      0.000       1.565       1.644
+C(dominance, Treatment(reference='-dom'))[T.+dom]                                                     0.0567      0.026      2.158      0.031       0.005       0.108
+C(valence, Treatment(reference='-val'))[T.+val]                                                       0.0058      0.026      0.219      0.826      -0.046       0.057
+C(semantic_role)[T.patient]:C(valence, Treatment(reference='-val'))[+val]                            -0.0588      0.026     -2.240      0.025      -0.110      -0.007
+C(semantic_role)[T.patient]:C(valence, Treatment(reference='-val'))[-val]                             0.0124      0.026      0.474      0.636      -0.039       0.064
+C(semantic_role)[T.patient]:C(dominance, Treatment(reference='-dom'))[T.+dom]                        -0.0229      0.030     -0.754      0.451      -0.082       0.037
+C(valence, Treatment(reference='-val'))[T.+val]:C(dominance, Treatment(reference='-dom'))[T.+dom]    -0.1624      0.030     -5.358      0.000      -0.222      -0.103
+male_perc                                                                                             1.0910      0.015     71.967      0.000       1.061       1.121
+male_perc:C(semantic_role)[T.patient]                                                                 0.0615      0.015      4.056      0.000       0.032       0.091
+male_perc:C(valence, Treatment(reference='-val'))[T.+val]                                            -0.0370      0.015     -2.441      0.015      -0.067      -0.007
+male_perc:C(dominance, Treatment(reference='-dom'))[T.+dom]                                          -0.0337      0.015     -2.221      0.026      -0.063      -0.004
+==============================================================================
+Omnibus:                      160.093   Durbin-Watson:                   0.274
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              135.025
+Skew:                           0.161   Prob(JB):                     4.78e-30
+Kurtosis:                       2.693   Cond. No.                         8.57
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

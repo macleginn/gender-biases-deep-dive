@@ -1,0 +1,9 @@
+predictor,unique_r2,relative_r2
+"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0007762462986308227,0.4619131853735004
+male_perc:C(semantic_role),0.00044495494750229625,0.2647749271217243
+"male_perc:C(valence, Treatment(reference='-val'))",0.00016111010752006827,0.09587019363792802
+"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001493531854628305,0.08887411864571802
+"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001334559632956145,0.07941431633451716
+"C(semantic_role):C(dominance, Treatment(reference='-dom'))",1.5382075151837427e-05,0.009153258886480012
+male_perc,2.220446049250313e-16,1.3212988060211156e-13
+"C(dominance, Treatment(reference='-dom'))",0.0,0.0

@@ -1,0 +1,25 @@
+[project]
+name = "flos-code"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "accelerate>=1.14.0",
+    "ipython>=9.15.0",
+    "jinja2>=3.1.6",
+    "matplotlib>=3.11.1",
+    "numpy>=2.3.1",
+    "pandas>=3.0.3",
+    "plotly>=6.9.0",
+    "scikit-learn>=1.7.0",
+    "scipy>=1.16.0",
+    "seaborn>=0.13.2",
+    "statsmodels>=0.14.5",
+    "torch>=2.13.0",
+    "tqdm>=4.69.0",
+    # Unsloth 2025.9.x is not compatible with the Transformers 5.x config
+    # API (its dynamic config patching fails on `auto_docstring`).
+    "transformers>=4.56.2,<5",
+    "unsloth>=2025.9.12",
+]

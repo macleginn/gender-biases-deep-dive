@@ -1,0 +1,31 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        log_he_she_odds   R-squared:                       0.563
+Model:                            OLS   Adj. R-squared:                  0.563
+Method:                 Least Squares   F-statistic:                     3005.
+Date:                Sat, 25 Jul 2026   Prob (F-statistic):               0.00
+Time:                        11:08:59   Log-Likelihood:                -21453.
+No. Observations:               16320   AIC:                         4.292e+04
+Df Residuals:                   16312   BIC:                         4.298e+04
+Df Model:                           7                                         
+Covariance Type:            nonrobust                                         
+=============================================================================================================================================
+                                                                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                     1.3711      0.016     86.933      0.000       1.340       1.402
+C(valence, Treatment(reference='-val'))[T.+val]                              -0.0878      0.020     -4.400      0.000      -0.127      -0.049
+C(dominance, Treatment(reference='-dom'))[T.+dom]                             0.0672      0.014      4.766      0.000       0.040       0.095
+C(semantic_role)[T.patient]:C(valence, Treatment(reference='-val'))[+val]     0.0543      0.020      2.720      0.007       0.015       0.093
+C(semantic_role)[T.patient]:C(valence, Treatment(reference='-val'))[-val]    -0.0180      0.020     -0.900      0.368      -0.057       0.021
+male_perc                                                                     1.0646      0.012     87.143      0.000       1.041       1.089
+male_perc:C(valence, Treatment(reference='-val'))[T.+val]                    -0.0522      0.014     -3.703      0.000      -0.080      -0.025
+male_perc:C(dominance, Treatment(reference='-dom'))[T.+dom]                  -0.0342      0.014     -2.427      0.015      -0.062      -0.007
+==============================================================================
+Omnibus:                       40.664   Durbin-Watson:                   0.242
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               32.403
+Skew:                          -0.005   Prob(JB):                     9.20e-08
+Kurtosis:                       2.782   Cond. No.                         5.26
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

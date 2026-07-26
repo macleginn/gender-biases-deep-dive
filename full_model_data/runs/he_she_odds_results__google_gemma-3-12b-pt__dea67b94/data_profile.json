@@ -1,0 +1,104 @@
+{
+  "input_csv": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__google_gemma-3-12b-pt.csv",
+  "copied_input_csv": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_data/inputs/he_she_odds_results__google_gemma-3-12b-pt.csv",
+  "rows": 16320,
+  "columns": [
+    "model_tag",
+    "template",
+    "tense",
+    "syntactic_role",
+    "semantic_role",
+    "valence",
+    "dominance",
+    "verb",
+    "profession",
+    "frequency",
+    "lex_emb_norm",
+    "prefix",
+    "he_prob",
+    "she_prob",
+    "he_she_odds_ratio",
+    "log_he_she_odds",
+    "log_frequency"
+  ],
+  "preprocessing": {
+    "version": "log-frequency_zscore_and_frequency-residualized-lex-embedding_v1",
+    "lex_emb_norm": {
+      "operation": "OLS residual from lex_emb_norm ~ 1 + log_frequency",
+      "intercept": 0.5752406695560851,
+      "log_frequency_coefficient": 0.043779974033694054
+    },
+    "standardized_predictors": {
+      "log_frequency": {
+        "mean": 7.368637557804696,
+        "std": 2.024790530108731
+      },
+      "lex_emb_norm": {
+        "mean": 1.838398714305774e-15,
+        "std": 0.08390848846184991
+      }
+    }
+  },
+  "category_levels": {
+    "dominance": [
+      "+dom",
+      "-dom"
+    ],
+    "profession": [
+      "CEO",
+      "accountant",
+      "administrator",
+      "agronomist",
+      "bodyguard",
+      "bookbinder",
+      "builder",
+      "cashier",
+      "chauffeur",
+      "colonel",
+      "doctor",
+      "electrician",
+      "farmer",
+      "farmhand",
+      "fisherman",
+      "hairdresser",
+      "hawker",
+      "housekeeper",
+      "manager",
+      "midwife",
+      "molder",
+      "nurse",
+      "paralegal",
+      "programmer",
+      "salesperson",
+      "scientist",
+      "scrivener",
+      "secretary",
+      "sergeant",
+      "soldier",
+      "solicitor",
+      "teacher",
+      "tradesperson",
+      "welder"
+    ],
+    "semantic_role": [
+      "agent",
+      "patient"
+    ],
+    "syntactic_role": [
+      "non-subject",
+      "subject"
+    ],
+    "tense": [
+      "past continuous",
+      "past perfect",
+      "present continuous",
+      "present perfect",
+      "simple future",
+      "simple past"
+    ],
+    "valence": [
+      "+val",
+      "-val"
+    ]
+  }
+}
