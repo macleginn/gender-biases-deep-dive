@@ -1,4 +1,356 @@
-<table class="dataframe data-table">
+<h3>TF-IDF</h3><div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>Converged</th>
+      <th>N</th>
+      <th>AIC</th>
+      <th>BIC</th>
+      <th>Log likelihood</th>
+      <th>R2</th>
+      <th>Residual variance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pythia 12b\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>43168.044</td>
+      <td>43329.747</td>
+      <td>-21563.022</td>
+      <td>0.750</td>
+      <td>0.824</td>
+    </tr>
+    <tr>
+      <td>Pythia 2.8b\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>38027.635</td>
+      <td>38197.039</td>
+      <td>-18991.818</td>
+      <td>0.732</td>
+      <td>0.601</td>
+    </tr>
+    <tr>
+      <td>Pythia 6.9b\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>43983.811</td>
+      <td>44145.515</td>
+      <td>-21970.906</td>
+      <td>0.709</td>
+      <td>0.866</td>
+    </tr>
+    <tr>
+      <td>Qwen3 4B\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>39216.273</td>
+      <td>39385.676</td>
+      <td>-19586.136</td>
+      <td>0.740</td>
+      <td>0.646</td>
+    </tr>
+    <tr>
+      <td>Qwen3 8B\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>41338.185</td>
+      <td>41507.588</td>
+      <td>-20647.093</td>
+      <td>0.721</td>
+      <td>0.736</td>
+    </tr>
+    <tr>
+      <td>OLMo3 7B\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>41927.909</td>
+      <td>42097.312</td>
+      <td>-20941.954</td>
+      <td>0.721</td>
+      <td>0.763</td>
+    </tr>
+    <tr>
+      <td>OLMo3 32B\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>42894.223</td>
+      <td>43048.226</td>
+      <td>-21427.112</td>
+      <td>0.733</td>
+      <td>0.810</td>
+    </tr>
+    <tr>
+      <td>Gemma3 12b\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>39322.456</td>
+      <td>39468.758</td>
+      <td>-19642.228</td>
+      <td>0.727</td>
+      <td>0.651</td>
+    </tr>
+    <tr>
+      <td>Gemma3 4B\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>40797.725</td>
+      <td>40959.428</td>
+      <td>-20377.863</td>
+      <td>0.665</td>
+      <td>0.712</td>
+    </tr>
+    <tr>
+      <td>GPT2\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>38120.040</td>
+      <td>38281.743</td>
+      <td>-19039.020</td>
+      <td>0.659</td>
+      <td>0.604</td>
+    </tr>
+    <tr>
+      <td>Llama3.1 70B\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>38549.219</td>
+      <td>38703.222</td>
+      <td>-19254.610</td>
+      <td>0.715</td>
+      <td>0.621</td>
+    </tr>
+    <tr>
+      <td>Llama3.1 8B\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>37680.893</td>
+      <td>37842.596</td>
+      <td>-18819.446</td>
+      <td>0.758</td>
+      <td>0.588</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>37793.083</td>
+      <td>37962.486</td>
+      <td>-18874.541</td>
+      <td>0.749</td>
+      <td>0.592</td>
+    </tr>
+    <tr>
+      <td>Falcon3 10B\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>42289.092</td>
+      <td>42419.994</td>
+      <td>-21127.546</td>
+      <td>0.683</td>
+      <td>0.781</td>
+    </tr>
+    <tr>
+      <td>Falcon3 3B\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>35906.244</td>
+      <td>36052.547</td>
+      <td>-17934.122</td>
+      <td>0.716</td>
+      <td>0.528</td>
+    </tr>
+    <tr>
+      <td>Falcon3 7B\nTF-IDF</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>40157.926</td>
+      <td>40304.229</td>
+      <td>-20059.963</td>
+      <td>0.667</td>
+      <td>0.685</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3>Raw counts</h3><div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>Converged</th>
+      <th>N</th>
+      <th>AIC</th>
+      <th>BIC</th>
+      <th>Log likelihood</th>
+      <th>R2</th>
+      <th>Residual variance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pythia 12b\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>54035.864</td>
+      <td>54189.867</td>
+      <td>-26997.932</td>
+      <td>0.513</td>
+      <td>1.603</td>
+    </tr>
+    <tr>
+      <td>Pythia 2.8b\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>49603.241</td>
+      <td>49764.944</td>
+      <td>-24780.620</td>
+      <td>0.455</td>
+      <td>1.222</td>
+    </tr>
+    <tr>
+      <td>Pythia 6.9b\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>52510.905</td>
+      <td>52680.308</td>
+      <td>-26233.452</td>
+      <td>0.509</td>
+      <td>1.460</td>
+    </tr>
+    <tr>
+      <td>Qwen3 4B\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>48569.703</td>
+      <td>48739.106</td>
+      <td>-24262.852</td>
+      <td>0.539</td>
+      <td>1.147</td>
+    </tr>
+    <tr>
+      <td>Qwen3 8B\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>50136.052</td>
+      <td>50305.455</td>
+      <td>-25046.026</td>
+      <td>0.522</td>
+      <td>1.262</td>
+    </tr>
+    <tr>
+      <td>OLMo3 7B\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>49291.512</td>
+      <td>49460.915</td>
+      <td>-24623.756</td>
+      <td>0.562</td>
+      <td>1.199</td>
+    </tr>
+    <tr>
+      <td>OLMo3 32B\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>51786.567</td>
+      <td>51940.570</td>
+      <td>-25873.284</td>
+      <td>0.540</td>
+      <td>1.397</td>
+    </tr>
+    <tr>
+      <td>Gemma3 12b\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>49155.272</td>
+      <td>49309.275</td>
+      <td>-24557.636</td>
+      <td>0.501</td>
+      <td>1.189</td>
+    </tr>
+    <tr>
+      <td>Gemma3 4B\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>48253.178</td>
+      <td>48422.582</td>
+      <td>-24104.589</td>
+      <td>0.471</td>
+      <td>1.125</td>
+    </tr>
+    <tr>
+      <td>GPT2\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>42304.954</td>
+      <td>42474.357</td>
+      <td>-21130.477</td>
+      <td>0.560</td>
+      <td>0.781</td>
+    </tr>
+    <tr>
+      <td>Llama3.1 70B\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>46572.531</td>
+      <td>46726.534</td>
+      <td>-23266.266</td>
+      <td>0.533</td>
+      <td>1.015</td>
+    </tr>
+    <tr>
+      <td>Llama3.1 8B\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>48170.776</td>
+      <td>48332.479</td>
+      <td>-24064.388</td>
+      <td>0.540</td>
+      <td>1.119</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>45451.785</td>
+      <td>45621.188</td>
+      <td>-22703.893</td>
+      <td>0.599</td>
+      <td>0.947</td>
+    </tr>
+    <tr>
+      <td>Falcon3 10B\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>49388.081</td>
+      <td>49557.484</td>
+      <td>-24672.040</td>
+      <td>0.511</td>
+      <td>1.206</td>
+    </tr>
+    <tr>
+      <td>Falcon3 3B\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>44029.545</td>
+      <td>44198.948</td>
+      <td>-21992.772</td>
+      <td>0.533</td>
+      <td>0.868</td>
+    </tr>
+    <tr>
+      <td>Falcon3 7B\nRaw counts</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>45364.912</td>
+      <td>45534.316</td>
+      <td>-22660.456</td>
+      <td>0.543</td>
+      <td>0.942</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3>log(1 + x) counts</h3><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -23,36 +375,6 @@
       <td>1.768</td>
     </tr>
     <tr>
-      <td>Pythia 12b\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>59990.357</td>
-      <td>60144.360</td>
-      <td>-29975.178</td>
-      <td>0.298</td>
-      <td>2.309</td>
-    </tr>
-    <tr>
-      <td>Pythia 12b\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>54035.864</td>
-      <td>54189.867</td>
-      <td>-26997.932</td>
-      <td>0.513</td>
-      <td>1.603</td>
-    </tr>
-    <tr>
-      <td>Pythia 12b\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>43168.044</td>
-      <td>43329.747</td>
-      <td>-21563.022</td>
-      <td>0.750</td>
-      <td>0.824</td>
-    </tr>
-    <tr>
       <td>Pythia 2.8b\nlog(1 + x) counts</td>
       <td>True</td>
       <td>16320</td>
@@ -61,36 +383,6 @@
       <td>-24855.250</td>
       <td>0.450</td>
       <td>1.233</td>
-    </tr>
-    <tr>
-      <td>Pythia 2.8b\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>52401.982</td>
-      <td>52571.385</td>
-      <td>-26178.991</td>
-      <td>0.353</td>
-      <td>1.450</td>
-    </tr>
-    <tr>
-      <td>Pythia 2.8b\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>49603.241</td>
-      <td>49764.944</td>
-      <td>-24780.620</td>
-      <td>0.455</td>
-      <td>1.222</td>
-    </tr>
-    <tr>
-      <td>Pythia 2.8b\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>38027.635</td>
-      <td>38197.039</td>
-      <td>-18991.818</td>
-      <td>0.732</td>
-      <td>0.601</td>
     </tr>
     <tr>
       <td>Pythia 6.9b\nlog(1 + x) counts</td>
@@ -103,36 +395,6 @@
       <td>1.560</td>
     </tr>
     <tr>
-      <td>Pythia 6.9b\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>57647.449</td>
-      <td>57816.853</td>
-      <td>-28801.725</td>
-      <td>0.328</td>
-      <td>2.000</td>
-    </tr>
-    <tr>
-      <td>Pythia 6.9b\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>52510.905</td>
-      <td>52680.308</td>
-      <td>-26233.452</td>
-      <td>0.509</td>
-      <td>1.460</td>
-    </tr>
-    <tr>
-      <td>Pythia 6.9b\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>43983.811</td>
-      <td>44145.515</td>
-      <td>-21970.906</td>
-      <td>0.709</td>
-      <td>0.866</td>
-    </tr>
-    <tr>
       <td>Qwen3 4B\nlog(1 + x) counts</td>
       <td>True</td>
       <td>16320</td>
@@ -141,36 +403,6 @@
       <td>-24716.195</td>
       <td>0.513</td>
       <td>1.212</td>
-    </tr>
-    <tr>
-      <td>Qwen3 4B\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>54768.472</td>
-      <td>54937.875</td>
-      <td>-27362.236</td>
-      <td>0.326</td>
-      <td>1.676</td>
-    </tr>
-    <tr>
-      <td>Qwen3 4B\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>48569.703</td>
-      <td>48739.106</td>
-      <td>-24262.852</td>
-      <td>0.539</td>
-      <td>1.147</td>
-    </tr>
-    <tr>
-      <td>Qwen3 4B\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>39216.273</td>
-      <td>39385.676</td>
-      <td>-19586.136</td>
-      <td>0.740</td>
-      <td>0.646</td>
     </tr>
     <tr>
       <td>Qwen3 8B\nlog(1 + x) counts</td>
@@ -183,36 +415,6 @@
       <td>1.336</td>
     </tr>
     <tr>
-      <td>Qwen3 8B\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>55672.777</td>
-      <td>55834.480</td>
-      <td>-27815.388</td>
-      <td>0.328</td>
-      <td>1.772</td>
-    </tr>
-    <tr>
-      <td>Qwen3 8B\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>50136.052</td>
-      <td>50305.455</td>
-      <td>-25046.026</td>
-      <td>0.522</td>
-      <td>1.262</td>
-    </tr>
-    <tr>
-      <td>Qwen3 8B\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>41338.185</td>
-      <td>41507.588</td>
-      <td>-20647.093</td>
-      <td>0.721</td>
-      <td>0.736</td>
-    </tr>
-    <tr>
       <td>OLMo3 7B\nlog(1 + x) counts</td>
       <td>True</td>
       <td>16320</td>
@@ -221,36 +423,6 @@
       <td>-24986.473</td>
       <td>0.542</td>
       <td>1.253</td>
-    </tr>
-    <tr>
-      <td>OLMo3 7B\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>56139.638</td>
-      <td>56309.041</td>
-      <td>-28047.819</td>
-      <td>0.334</td>
-      <td>1.823</td>
-    </tr>
-    <tr>
-      <td>OLMo3 7B\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>49291.512</td>
-      <td>49460.915</td>
-      <td>-24623.756</td>
-      <td>0.562</td>
-      <td>1.199</td>
-    </tr>
-    <tr>
-      <td>OLMo3 7B\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>41927.909</td>
-      <td>42097.312</td>
-      <td>-20941.954</td>
-      <td>0.721</td>
-      <td>0.763</td>
     </tr>
     <tr>
       <td>OLMo3 32B\nlog(1 + x) counts</td>
@@ -263,36 +435,6 @@
       <td>1.567</td>
     </tr>
     <tr>
-      <td>OLMo3 32B\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>58683.979</td>
-      <td>58845.682</td>
-      <td>-29320.989</td>
-      <td>0.298</td>
-      <td>2.131</td>
-    </tr>
-    <tr>
-      <td>OLMo3 32B\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>51786.567</td>
-      <td>51940.570</td>
-      <td>-25873.284</td>
-      <td>0.540</td>
-      <td>1.397</td>
-    </tr>
-    <tr>
-      <td>OLMo3 32B\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>42894.223</td>
-      <td>43048.226</td>
-      <td>-21427.112</td>
-      <td>0.733</td>
-      <td>0.810</td>
-    </tr>
-    <tr>
       <td>Gemma3 12b\nlog(1 + x) counts</td>
       <td>True</td>
       <td>16320</td>
@@ -301,36 +443,6 @@
       <td>-24856.346</td>
       <td>0.482</td>
       <td>1.233</td>
-    </tr>
-    <tr>
-      <td>Gemma3 12b\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>54512.862</td>
-      <td>54666.865</td>
-      <td>-27236.431</td>
-      <td>0.307</td>
-      <td>1.651</td>
-    </tr>
-    <tr>
-      <td>Gemma3 12b\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>49155.272</td>
-      <td>49309.275</td>
-      <td>-24557.636</td>
-      <td>0.501</td>
-      <td>1.189</td>
-    </tr>
-    <tr>
-      <td>Gemma3 12b\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>39322.456</td>
-      <td>39468.758</td>
-      <td>-19642.228</td>
-      <td>0.727</td>
-      <td>0.651</td>
     </tr>
     <tr>
       <td>Gemma3 4B\nlog(1 + x) counts</td>
@@ -343,36 +455,6 @@
       <td>1.097</td>
     </tr>
     <tr>
-      <td>Gemma3 4B\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>52472.160</td>
-      <td>52641.563</td>
-      <td>-26214.080</td>
-      <td>0.315</td>
-      <td>1.456</td>
-    </tr>
-    <tr>
-      <td>Gemma3 4B\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>48253.178</td>
-      <td>48422.582</td>
-      <td>-24104.589</td>
-      <td>0.471</td>
-      <td>1.125</td>
-    </tr>
-    <tr>
-      <td>Gemma3 4B\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>40797.725</td>
-      <td>40959.428</td>
-      <td>-20377.863</td>
-      <td>0.665</td>
-      <td>0.712</td>
-    </tr>
-    <tr>
       <td>GPT2\nlog(1 + x) counts</td>
       <td>True</td>
       <td>16320</td>
@@ -381,36 +463,6 @@
       <td>-20983.029</td>
       <td>0.568</td>
       <td>0.767</td>
-    </tr>
-    <tr>
-      <td>GPT2\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>48126.799</td>
-      <td>48296.202</td>
-      <td>-24041.399</td>
-      <td>0.371</td>
-      <td>1.116</td>
-    </tr>
-    <tr>
-      <td>GPT2\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>42304.954</td>
-      <td>42474.357</td>
-      <td>-21130.477</td>
-      <td>0.560</td>
-      <td>0.781</td>
-    </tr>
-    <tr>
-      <td>GPT2\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>38120.040</td>
-      <td>38281.743</td>
-      <td>-19039.020</td>
-      <td>0.659</td>
-      <td>0.604</td>
     </tr>
     <tr>
       <td>Llama3.1 70B\nlog(1 + x) counts</td>
@@ -423,36 +475,6 @@
       <td>1.084</td>
     </tr>
     <tr>
-      <td>Llama3.1 70B\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>52604.232</td>
-      <td>52765.935</td>
-      <td>-26281.116</td>
-      <td>0.325</td>
-      <td>1.468</td>
-    </tr>
-    <tr>
-      <td>Llama3.1 70B\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>46572.531</td>
-      <td>46726.534</td>
-      <td>-23266.266</td>
-      <td>0.533</td>
-      <td>1.015</td>
-    </tr>
-    <tr>
-      <td>Llama3.1 70B\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>38549.219</td>
-      <td>38703.222</td>
-      <td>-19254.610</td>
-      <td>0.715</td>
-      <td>0.621</td>
-    </tr>
-    <tr>
       <td>Llama3.1 8B\nlog(1 + x) counts</td>
       <td>True</td>
       <td>16320</td>
@@ -461,36 +483,6 @@
       <td>-24555.034</td>
       <td>0.512</td>
       <td>1.188</td>
-    </tr>
-    <tr>
-      <td>Llama3.1 8B\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>54505.574</td>
-      <td>54659.577</td>
-      <td>-27232.787</td>
-      <td>0.322</td>
-      <td>1.650</td>
-    </tr>
-    <tr>
-      <td>Llama3.1 8B\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>48170.776</td>
-      <td>48332.479</td>
-      <td>-24064.388</td>
-      <td>0.540</td>
-      <td>1.119</td>
-    </tr>
-    <tr>
-      <td>Llama3.1 8B\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>37680.893</td>
-      <td>37842.596</td>
-      <td>-18819.446</td>
-      <td>0.758</td>
-      <td>0.588</td>
     </tr>
     <tr>
       <td>Mistral 7B\nlog(1 + x) counts</td>
@@ -503,36 +495,6 @@
       <td>1.012</td>
     </tr>
     <tr>
-      <td>Mistral 7B\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>54615.091</td>
-      <td>54784.494</td>
-      <td>-27285.546</td>
-      <td>0.296</td>
-      <td>1.661</td>
-    </tr>
-    <tr>
-      <td>Mistral 7B\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>45451.785</td>
-      <td>45621.188</td>
-      <td>-22703.893</td>
-      <td>0.599</td>
-      <td>0.947</td>
-    </tr>
-    <tr>
-      <td>Mistral 7B\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>37793.083</td>
-      <td>37962.486</td>
-      <td>-18874.541</td>
-      <td>0.749</td>
-      <td>0.592</td>
-    </tr>
-    <tr>
       <td>Falcon3 10B\nlog(1 + x) counts</td>
       <td>True</td>
       <td>16320</td>
@@ -541,36 +503,6 @@
       <td>-25258.082</td>
       <td>0.475</td>
       <td>1.295</td>
-    </tr>
-    <tr>
-      <td>Falcon3 10B\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>54076.918</td>
-      <td>54230.921</td>
-      <td>-27018.459</td>
-      <td>0.348</td>
-      <td>1.607</td>
-    </tr>
-    <tr>
-      <td>Falcon3 10B\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>49388.081</td>
-      <td>49557.484</td>
-      <td>-24672.040</td>
-      <td>0.511</td>
-      <td>1.206</td>
-    </tr>
-    <tr>
-      <td>Falcon3 10B\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>42289.092</td>
-      <td>42419.994</td>
-      <td>-21127.546</td>
-      <td>0.683</td>
-      <td>0.781</td>
     </tr>
     <tr>
       <td>Falcon3 3B\nlog(1 + x) counts</td>
@@ -583,36 +515,6 @@
       <td>0.880</td>
     </tr>
     <tr>
-      <td>Falcon3 3B\nPPMI</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>48964.340</td>
-      <td>49126.043</td>
-      <td>-24461.170</td>
-      <td>0.368</td>
-      <td>1.175</td>
-    </tr>
-    <tr>
-      <td>Falcon3 3B\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>44029.545</td>
-      <td>44198.948</td>
-      <td>-21992.772</td>
-      <td>0.533</td>
-      <td>0.868</td>
-    </tr>
-    <tr>
-      <td>Falcon3 3B\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>35906.244</td>
-      <td>36052.547</td>
-      <td>-17934.122</td>
-      <td>0.716</td>
-      <td>0.528</td>
-    </tr>
-    <tr>
       <td>Falcon3 7B\nlog(1 + x) counts</td>
       <td>True</td>
       <td>16320</td>
@@ -621,6 +523,172 @@
       <td>-22892.654</td>
       <td>0.529</td>
       <td>0.969</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3>PPMI</h3><div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>Converged</th>
+      <th>N</th>
+      <th>AIC</th>
+      <th>BIC</th>
+      <th>Log likelihood</th>
+      <th>R2</th>
+      <th>Residual variance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pythia 12b\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>59990.357</td>
+      <td>60144.360</td>
+      <td>-29975.178</td>
+      <td>0.298</td>
+      <td>2.309</td>
+    </tr>
+    <tr>
+      <td>Pythia 2.8b\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>52401.982</td>
+      <td>52571.385</td>
+      <td>-26178.991</td>
+      <td>0.353</td>
+      <td>1.450</td>
+    </tr>
+    <tr>
+      <td>Pythia 6.9b\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>57647.449</td>
+      <td>57816.853</td>
+      <td>-28801.725</td>
+      <td>0.328</td>
+      <td>2.000</td>
+    </tr>
+    <tr>
+      <td>Qwen3 4B\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>54768.472</td>
+      <td>54937.875</td>
+      <td>-27362.236</td>
+      <td>0.326</td>
+      <td>1.676</td>
+    </tr>
+    <tr>
+      <td>Qwen3 8B\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>55672.777</td>
+      <td>55834.480</td>
+      <td>-27815.388</td>
+      <td>0.328</td>
+      <td>1.772</td>
+    </tr>
+    <tr>
+      <td>OLMo3 7B\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>56139.638</td>
+      <td>56309.041</td>
+      <td>-28047.819</td>
+      <td>0.334</td>
+      <td>1.823</td>
+    </tr>
+    <tr>
+      <td>OLMo3 32B\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>58683.979</td>
+      <td>58845.682</td>
+      <td>-29320.989</td>
+      <td>0.298</td>
+      <td>2.131</td>
+    </tr>
+    <tr>
+      <td>Gemma3 12b\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>54512.862</td>
+      <td>54666.865</td>
+      <td>-27236.431</td>
+      <td>0.307</td>
+      <td>1.651</td>
+    </tr>
+    <tr>
+      <td>Gemma3 4B\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>52472.160</td>
+      <td>52641.563</td>
+      <td>-26214.080</td>
+      <td>0.315</td>
+      <td>1.456</td>
+    </tr>
+    <tr>
+      <td>GPT2\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>48126.799</td>
+      <td>48296.202</td>
+      <td>-24041.399</td>
+      <td>0.371</td>
+      <td>1.116</td>
+    </tr>
+    <tr>
+      <td>Llama3.1 70B\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>52604.232</td>
+      <td>52765.935</td>
+      <td>-26281.116</td>
+      <td>0.325</td>
+      <td>1.468</td>
+    </tr>
+    <tr>
+      <td>Llama3.1 8B\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>54505.574</td>
+      <td>54659.577</td>
+      <td>-27232.787</td>
+      <td>0.322</td>
+      <td>1.650</td>
+    </tr>
+    <tr>
+      <td>Mistral 7B\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>54615.091</td>
+      <td>54784.494</td>
+      <td>-27285.546</td>
+      <td>0.296</td>
+      <td>1.661</td>
+    </tr>
+    <tr>
+      <td>Falcon3 10B\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>54076.918</td>
+      <td>54230.921</td>
+      <td>-27018.459</td>
+      <td>0.348</td>
+      <td>1.607</td>
+    </tr>
+    <tr>
+      <td>Falcon3 3B\nPPMI</td>
+      <td>True</td>
+      <td>16320</td>
+      <td>48964.340</td>
+      <td>49126.043</td>
+      <td>-24461.170</td>
+      <td>0.368</td>
+      <td>1.175</td>
     </tr>
     <tr>
       <td>Falcon3 7B\nPPMI</td>
@@ -632,25 +700,5 @@
       <td>0.385</td>
       <td>1.267</td>
     </tr>
-    <tr>
-      <td>Falcon3 7B\nRaw counts</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>45364.912</td>
-      <td>45534.316</td>
-      <td>-22660.456</td>
-      <td>0.543</td>
-      <td>0.942</td>
-    </tr>
-    <tr>
-      <td>Falcon3 7B\nTF-IDF</td>
-      <td>True</td>
-      <td>16320</td>
-      <td>40157.926</td>
-      <td>40304.229</td>
-      <td>-20059.963</td>
-      <td>0.667</td>
-      <td>0.685</td>
-    </tr>
   </tbody>
-</table>
+</table></div>
