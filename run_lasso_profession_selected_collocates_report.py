@@ -117,6 +117,18 @@ def parse_args() -> argparse.Namespace:
         "--report-dir", type=Path, default=Path("profession_selected_collocates_report")
     )
     parser.add_argument("--maxiter", type=int, default=1000)
+    parser.add_argument(
+        "--shapley-permutations",
+        type=int,
+        default=500,
+        help="Number of random predictor orderings for Monte Carlo Shapley R² values (default: 500).",
+    )
+    parser.add_argument(
+        "--shapley-random-state",
+        type=int,
+        default=0,
+        help="Random seed for Monte Carlo Shapley R² values (default: 0).",
+    )
     parser.add_argument("--starting-fixed-effect-interactions", action="store_true")
     parser.add_argument("--reuse-existing", action="store_true")
     return parser.parse_args()
@@ -485,12 +497,108 @@ def decompose_r_squared(
     return decomposition
 
 
+def decompose_shapley_r_squared(
+    df: pd.DataFrame,
+    selected: dict[str, Any],
+    terms: list[str],
+    embedding_columns: list[str],
+    run_dir: Path,
+    permutations: int,
+    random_state: int,
+) -> pd.DataFrame:
+    """Approximate grouped Shapley values using model R² as the payout.
+
+    A sampled ordering adds predictors one at a time.  Its marginal increase
+    in R² is that predictor's payout for the ordering; averaging over random
+    orderings estimates its Shapley value.  The SVD coordinates are evaluated
+    together as one ``profession_embedding`` predictor, matching the
+    covariance-adjusted variance decomposition.
+    """
+    if permutations < 1:
+        raise ValueError("shapley permutations must be at least 1")
+
+    embedding_terms = [term_name for term_name in terms if term_name in embedding_columns]
+    predictor_groups = [
+        ("profession_embedding", embedding_terms)
+    ] if embedding_terms else []
+    predictor_groups.extend(
+        (term_name, [term_name])
+        for term_name in terms
+        if term_name not in embedding_columns
+    )
+    predictor_names = [name for name, _ in predictor_groups]
+    if not predictor_names:
+        return pd.DataFrame(
+            columns=[
+                "predictor",
+                "shapley_r2",
+                "mc_standard_error",
+                "relative_r2",
+                "permutations",
+                "random_state",
+                "baseline_r2",
+                "full_r2",
+            ]
+        )
+
+    utility_cache: dict[tuple[int, ...], float] = {(): 0.0}
+
+    def utility(included_indices: tuple[int, ...]) -> float:
+        if included_indices not in utility_cache:
+            included_terms = [
+                formula_term
+                for index in included_indices
+                for formula_term in predictor_groups[index][1]
+            ]
+            formula = "log_he_she_odds ~ " + " + ".join(included_terms)
+            utility_cache[included_indices] = float(smf.ols(formula=formula, data=df).fit().rsquared)
+        return utility_cache[included_indices]
+
+    rng = np.random.default_rng(random_state)
+    marginal_r2 = np.empty((permutations, len(predictor_groups)))
+    for sample in range(permutations):
+        ordering = rng.permutation(len(predictor_groups))
+        included: tuple[int, ...] = ()
+        previous_utility = utility(included)
+        for index in ordering:
+            included = tuple(sorted((*included, int(index))))
+            current_utility = utility(included)
+            marginal_r2[sample, index] = current_utility - previous_utility
+            previous_utility = current_utility
+
+    shapley_r2 = marginal_r2.mean(axis=0)
+    standard_error = (
+        marginal_r2.std(axis=0, ddof=1) / np.sqrt(permutations)
+        if permutations > 1
+        else np.zeros(len(predictor_groups))
+    )
+    baseline_r2 = utility(())
+    full_r2 = float(selected["result"].rsquared)
+    total_payout = full_r2 - baseline_r2
+    decomposition = pd.DataFrame(
+        {
+            "predictor": predictor_names,
+            "shapley_r2": shapley_r2,
+            "mc_standard_error": standard_error,
+            "relative_r2": shapley_r2 / total_payout if total_payout > 0 else 0.0,
+            "permutations": permutations,
+            "random_state": random_state,
+            "baseline_r2": baseline_r2,
+            "full_r2": full_r2,
+        }
+    ).sort_values("shapley_r2", ascending=False, ignore_index=True)
+    decomposition.to_csv(run_dir / "shapley_r2_decomposition.csv", index=False)
+    return decomposition
+
+
 def select_model(
     df: pd.DataFrame,
     run_dir: Path,
     embedding_columns: list[str],
     maxiter: int,
     interactions: bool,
+    shapley_permutations: int,
+    shapley_random_state: int,
 ) -> tuple[dict[str, Any], list[str], pd.DataFrame]:
     all_terms = fixed_terms(FIXED_PREDICTORS, interactions) + embedding_columns
     formula = "log_he_she_odds ~ " + " + ".join(all_terms)
@@ -523,6 +631,15 @@ def select_model(
     )
 
     r2_decomposition = decompose_r_squared(df, selected, selected_terms, run_dir)
+    decompose_shapley_r_squared(
+        df,
+        selected,
+        selected_terms,
+        embedding_columns,
+        run_dir,
+        shapley_permutations,
+        shapley_random_state,
+    )
 
     (run_dir / "selected_model.json").write_text(
         json.dumps(
@@ -533,6 +650,8 @@ def select_model(
                 "alpha_selection": "LassoCV",
                 "cv": 5,
                 "lasso_n_iter": int(lasso.n_iter_),
+                "shapley_permutations": shapley_permutations,
+                "shapley_random_state": shapley_random_state,
             },
             indent=2,
         ),
@@ -549,6 +668,8 @@ def run_one(
     maxiter: int,
     interactions: bool,
     method: str,
+    shapley_permutations: int,
+    shapley_random_state: int,
 ) -> Path:
     run_dir = data_dir / "runs" / method / slugify(input_csv.stem)
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -559,7 +680,13 @@ def run_one(
     df.to_csv(run_dir / "prepared_results.csv", index=False)
     embedding_columns = list(embedding.columns[1:])
     selected, terms, r2_decomposition = select_model(
-        df, run_dir, embedding_columns, maxiter, interactions
+        df,
+        run_dir,
+        embedding_columns,
+        maxiter,
+        interactions,
+        shapley_permutations,
+        shapley_random_state,
     )
     baseline = fit_model(
         df,
@@ -721,6 +848,21 @@ def build_report(
         pd.concat(r2_rows, ignore_index=True) if r2_rows else pd.DataFrame()
     )
     r2_decomposition.to_csv(report_dir / "r2_decomposition.csv", index=False)
+    shapley_rows = []
+    for _, row in selected.iterrows():
+        decomposition_path = (
+            Path(row["model_dir"]).parent.parent / "shapley_r2_decomposition.csv"
+        )
+        if decomposition_path.exists():
+            decomposition = pd.read_csv(decomposition_path)
+            decomposition.insert(0, "target_model", row["model_label"])
+            shapley_rows.append(decomposition)
+    shapley_r2_decomposition = (
+        pd.concat(shapley_rows, ignore_index=True) if shapley_rows else pd.DataFrame()
+    )
+    shapley_r2_decomposition.to_csv(
+        report_dir / "shapley_r2_decomposition.csv", index=False
+    )
     variance_cols = [
         c for c in selected.columns if c.startswith("fixed_effect_variance_")
     ]
@@ -854,6 +996,30 @@ def build_report(
         )
         if not r2_decomposition.empty
         else "<p>No R² decomposition results.</p>"
+    )
+    shapley_table = shapley_r2_decomposition.copy()
+    if not shapley_table.empty:
+        shapley_table["target_model"] = shapley_table["target_model"].map(
+            plot_model_labels
+        )
+        shapley_table["predictor"] = shapley_table["predictor"].map(
+            lambda name: (
+                "Profession embedding"
+                if name == "profession_embedding"
+                else fixed_effect_label(name)
+            )
+        )
+    shapley_html = (
+        write_grouped_table(
+            shapley_table,
+            table_dir / "shapley_r2_decomposition.html",
+            shapley_table["target_model"].map(plot_model_methods),
+            method_order,
+            method_labels,
+            classes="data-table compact",
+        )
+        if not shapley_table.empty
+        else "<p>No Monte Carlo Shapley R² results.</p>"
     )
 
     sns.set_theme(style="whitegrid", context="notebook")
@@ -1025,6 +1191,7 @@ def build_report(
           <section><h2>Fixed-Effect Variance</h2><p class="section-note">The embedding dimensions are grouped as one predictor; they are not included in interactions. Each term's allocation includes its fitted-contribution variance plus half of every pairwise covariance, so allocations sum to the variance of the complete fixed-effects predictor. Negative allocations can occur when a term covaries negatively with the others. Segment numbers in the horizontal bars map to the indexed legend below the plot.</p><div class="table-wrap">{variance_html}</div>{figure("figures/variance_decomposition.png", "Proportion of covariance-adjusted fixed-effect variance by selected model; segment numbers map to the indexed legend.")}</section>
           <section><h2>Selected Coefficients</h2>{figure("figures/coefficient_heatmap.png", "Fixed-effect coefficients by selected model.")}<div class="table-wrap">{coefficient_html}</div></section>
           <section><h2>R² Decomposition</h2><p class="section-note">Each value is the unique R² attributable to a selected predictor, estimated by the drop in R² after refitting the OLS model without that predictor. Relative R² is normalized across the selected predictors. The Lasso penalty alpha is selected by five-fold cross-validation.</p><div class="table-wrap">{r2_html}</div></section>
+          <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="section-note">R² is the payout. For each random predictor ordering, a predictor receives the increase in R² when it enters the OLS model; the reported Shapley R² is the mean payout across orderings. <code>mc_standard_error</code> quantifies Monte Carlo uncertainty. The profession SVD dimensions are added together as one predictor, consistent with the fixed-effect variance allocation.</p><div class="table-wrap">{shapley_html}</div></section>
         </div></body></html>
         """).strip()
     path = report_dir / "report.html"
@@ -1037,6 +1204,8 @@ def main() -> int:
         print(f"Missing dependencies: {IMPORT_ERROR}", file=sys.stderr)
         return 1
     args = parse_args()
+    if args.shapley_permutations < 1:
+        raise ValueError("--shapley-permutations must be at least 1")
     collocate_list_paths = args.collocate_list or [
         Path("collocates_gendered.txt"),
         Path("collocates_names.txt"),
@@ -1090,6 +1259,8 @@ def main() -> int:
                     args.maxiter,
                     args.starting_fixed_effect_interactions,
                     method,
+                    args.shapley_permutations,
+                    args.shapley_random_state,
                 )
                 for p in tqdm(inputs, desc=f"{method} input files")
             )
