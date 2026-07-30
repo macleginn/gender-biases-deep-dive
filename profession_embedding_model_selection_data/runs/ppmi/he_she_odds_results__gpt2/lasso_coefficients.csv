@@ -1,0 +1,23 @@
+feature,coefficient,nonzero
+Intercept,0.0,False
+C(tense)[T.past perfect],0.012090066513050736,True
+C(tense)[T.present continuous],0.04147568342911907,True
+C(tense)[T.present perfect],-0.04516713422111947,True
+C(tense)[T.simple future],0.08093176134291989,True
+C(tense)[T.simple past],0.0,False
+C(semantic_role)[T.patient],-0.048506033133049284,True
+C(syntactic_role)[T.subject],-0.008987715130087854,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.04583610544122293,True
+"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.024361105807803977,True
+log_frequency,0.13812717366772312,True
+lex_emb_norm,0.15633149102889557,True
+profession_embedding_1,-0.08613250564260391,True
+profession_embedding_2,0.32873943281057333,True
+profession_embedding_3,0.03578882506052754,True
+profession_embedding_4,0.28148450916211865,True
+profession_embedding_5,0.008014269750081949,True
+profession_embedding_6,0.03645179693870128,True
+profession_embedding_7,-0.5936124569854375,True
+profession_embedding_8,-0.43841289757424645,True
+profession_embedding_9,-0.3743094347508831,True
+profession_embedding_10,0.4399202072626103,True

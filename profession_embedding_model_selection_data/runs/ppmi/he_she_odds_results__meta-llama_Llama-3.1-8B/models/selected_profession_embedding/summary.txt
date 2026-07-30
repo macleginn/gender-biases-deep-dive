@@ -1,0 +1,43 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        log_he_she_odds   R-squared:                       0.588
+Model:                            OLS   Adj. R-squared:                  0.587
+Method:                 Least Squares   F-statistic:                     1222.
+Date:                Sun, 26 Jul 2026   Prob (F-statistic):               0.00
+Time:                        12:44:48   Log-Likelihood:                -23176.
+No. Observations:               16320   AIC:                         4.639e+04
+Df Residuals:                   16300   BIC:                         4.655e+04
+Df Model:                          19                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================================================
+                                                        coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------------
+Intercept                                             1.9412      0.043     44.730      0.000       1.856       2.026
+C(tense)[T.past perfect]                              0.1208      0.027      4.449      0.000       0.068       0.174
+C(tense)[T.present continuous]                       -0.0500      0.027     -1.842      0.065      -0.103       0.003
+C(tense)[T.present perfect]                           0.0519      0.027      1.911      0.056      -0.001       0.105
+C(tense)[T.simple future]                             0.4197      0.027     15.449      0.000       0.366       0.473
+C(tense)[T.simple past]                               0.0700      0.027      2.576      0.010       0.017       0.123
+C(syntactic_role)[T.subject]                         -0.3043      0.016    -19.405      0.000      -0.335      -0.274
+C(valence, Treatment(reference='-val'))[T.+val]      -0.0256      0.016     -1.632      0.103      -0.056       0.005
+C(dominance, Treatment(reference='-dom'))[T.+dom]     0.0332      0.016      2.118      0.034       0.002       0.064
+log_frequency                                        -0.1851      0.015    -12.485      0.000      -0.214      -0.156
+lex_emb_norm                                         -0.1314      0.010    -13.251      0.000      -0.151      -0.112
+profession_embedding_1                               -0.0019      0.001     -2.727      0.006      -0.003      -0.001
+profession_embedding_2                                0.0077      0.000     16.185      0.000       0.007       0.009
+profession_embedding_3                               -0.0017      0.000     -5.830      0.000      -0.002      -0.001
+profession_embedding_4                                0.0118      0.000     34.282      0.000       0.011       0.012
+profession_embedding_5                                0.0102      0.000     29.147      0.000       0.010       0.011
+profession_embedding_7                               -0.0265      0.000    -81.871      0.000      -0.027      -0.026
+profession_embedding_8                               -0.0248      0.000    -78.509      0.000      -0.025      -0.024
+profession_embedding_9                               -0.0139      0.000    -42.783      0.000      -0.015      -0.013
+profession_embedding_10                               0.0134      0.000     37.036      0.000       0.013       0.014
+==============================================================================
+Omnibus:                      608.106   Durbin-Watson:                   0.364
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              754.251
+Skew:                          -0.423   Prob(JB):                    1.65e-164
+Kurtosis:                       3.628   Cond. No.                         360.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

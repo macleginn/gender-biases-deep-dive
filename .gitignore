@@ -44,3 +44,4 @@ checkpoints/
 *.swo
 .DS_Store
 Thumbs.db
+profession_outcome_pairs.csv

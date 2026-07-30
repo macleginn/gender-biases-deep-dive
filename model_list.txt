@@ -1,4 +1,7 @@
-Qwen/Qwen3-4B-Base
-google/gemma-3-4b-pt
-mistralai/Mistral-7B-v0.3
-allenai/Olmo-3-1025-7B
+allenai/Olmo-3-1125-32B
+tiiuae/Falcon3-3B-Base
+tiiuae/Falcon3-7B-Base
+tiiuae/Falcon3-10B-Base
+EleutherAI/pythia-2.8b-deduped
+EleutherAI/pythia-6.9b-deduped
+EleutherAI/pythia-12b-deduped

@@ -1,0 +1,21 @@
+{
+  "source": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/profession_collocates.csv",
+  "profession_column": "profession",
+  "rows": 34,
+  "collocate_columns": 62389,
+  "k": 10,
+  "columns": [
+    "profession_embedding_1",
+    "profession_embedding_2",
+    "profession_embedding_3",
+    "profession_embedding_4",
+    "profession_embedding_5",
+    "profession_embedding_6",
+    "profession_embedding_7",
+    "profession_embedding_8",
+    "profession_embedding_9",
+    "profession_embedding_10"
+  ],
+  "method": "ppmi",
+  "method_label": "PPMI"
+}

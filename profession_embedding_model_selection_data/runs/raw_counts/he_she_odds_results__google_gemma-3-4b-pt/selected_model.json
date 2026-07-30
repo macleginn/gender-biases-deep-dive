@@ -1,0 +1,26 @@
+{
+  "selected_model": "selected_profession_embedding",
+  "selected_terms": [
+    "C(tense)",
+    "C(semantic_role)",
+    "C(syntactic_role)",
+    "C(valence, Treatment(reference='-val'))",
+    "C(dominance, Treatment(reference='-dom'))",
+    "log_frequency",
+    "lex_emb_norm",
+    "profession_embedding_1",
+    "profession_embedding_2",
+    "profession_embedding_3",
+    "profession_embedding_4",
+    "profession_embedding_5",
+    "profession_embedding_6",
+    "profession_embedding_7",
+    "profession_embedding_8",
+    "profession_embedding_9",
+    "profession_embedding_10"
+  ],
+  "alpha": 0.006158642670854358,
+  "alpha_selection": "LassoCV",
+  "cv": 5,
+  "lasso_n_iter": 53
+}

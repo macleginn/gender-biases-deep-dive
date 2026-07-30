@@ -1,0 +1,16 @@
+GPT2
+Qwen3 4B
+Qwen3 8B
+Gemma3 4B
+Gemma3 12b
+Mistral 7B
+OLMo3 7B
+OLMo3 32B
+Falcon3 3B
+Falcon3 7B
+Falcon3 10B
+Pythia 2.8b
+Pythia 6.9b
+Pythia 12b
+Llama3.1 8B
+Llama3.1 70B

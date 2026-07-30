@@ -99,6 +99,41 @@ professions = [
 
 DEFAULT_HF_CACHE_DIR = "/mnt/hum01-rds/Nikolaev_Dmitry/dominik-llama/extremism_detection/hf_cache"
 
+def _configure_hf_cache_env(hf_cache_dir: str | None) -> None:
+    """
+    Configure Hugging Face cache environment variables *before* importing transformers.
+
+    This is important because some `transformers` versions expose `from_pretrained`
+    signatures that accept `**kwargs` only, so signature-based detection can miss
+    `cache_dir`. Env vars remain a stable way to force a cache location.
+    """
+
+    if not hf_cache_dir:
+        return
+    root = str(Path(hf_cache_dir).expanduser())
+    os.environ["HF_HOME"] = root
+    os.environ["HF_HUB_CACHE"] = str(Path(root) / "hub")
+    os.environ["TRANSFORMERS_CACHE"] = str(Path(root) / "transformers")
+    os.environ["HF_ASSETS_CACHE"] = str(Path(root) / "assets")
+
+
+def _preferred_hf_token_kwarg(from_pretrained_callable: Any) -> str:
+    """
+    Transformers/HF Hub have changed auth kwarg names over time.
+
+    Some versions expose `token`, others `use_auth_token`, and some accept only
+    `**kwargs` (so `inspect.signature` can't tell us). When we can't detect an
+    explicit parameter name, we pick a key by inspecting the source when
+    possible.
+    """
+
+    try:
+        src = inspect.getsource(from_pretrained_callable)
+    except Exception:
+        return "token"
+    return "use_auth_token" if "use_auth_token" in src else "token"
+
+
 def _select_device(device: str) -> torch.device:
     import torch
 
@@ -163,14 +198,20 @@ def _hf_from_pretrained_kwargs(
     kwargs: dict[str, Any] = {}
     try:
         params = inspect.signature(from_pretrained_callable).parameters
+        has_var_keyword = any(
+            param.kind == inspect.Parameter.VAR_KEYWORD for param in params.values()
+        )
     except (TypeError, ValueError):
         params = {}
+        has_var_keyword = False
     if resolved_token:
         if "token" in params:
             kwargs["token"] = resolved_token
         elif "use_auth_token" in params:
             kwargs["use_auth_token"] = resolved_token
-    if cache_dir and "cache_dir" in params:
+        elif has_var_keyword:
+            kwargs[_preferred_hf_token_kwarg(from_pretrained_callable)] = resolved_token
+    if cache_dir and ("cache_dir" in params or has_var_keyword):
         kwargs["cache_dir"] = cache_dir
     return kwargs
 
@@ -211,6 +252,9 @@ def run(
 ) -> pd.DataFrame:
     import pandas as pd
     import torch
+
+    _configure_hf_cache_env(hf_cache_dir)
+
     from transformers import AutoModelForCausalLM, AutoTokenizer
     try:
         from tqdm.auto import tqdm  # type: ignore
@@ -249,7 +293,13 @@ def run(
             raise
 
     model_kwargs = _hf_from_pretrained_kwargs(AutoModelForCausalLM.from_pretrained, resolved_token, hf_cache_dir)
-    model_kwargs = _maybe_add_kwarg(AutoModelForCausalLM.from_pretrained, model_kwargs, "trust_remote_code", trust_remote_code)
+    model_kwargs = _maybe_add_kwarg(
+        AutoModelForCausalLM.from_pretrained,
+        model_kwargs,
+        "trust_remote_code",
+        trust_remote_code,
+        allow_var_keyword=True,
+    )
     model = AutoModelForCausalLM.from_pretrained(model_tag, **model_kwargs)
     target_device = _select_device(device)
     model.to(target_device)

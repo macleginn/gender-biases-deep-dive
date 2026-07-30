@@ -1,10 +1,21 @@
-#!/usr/bin/env bash
+#!/bin/bash --login
+#SBATCH -p gpuA40GB
+#SBATCH -G 4
+#SBATCH -t 1-0
+#SBATCH -n 8
+
+echo "Job is using $SLURM_GPUS GPU(s) with ID(s) $CUDA_VISIBLE_DEVICES and $SLURM_NTASKS CPU core(s)."
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PYTHON_SCRIPT="${SCRIPT_DIR}/dissertation_generating_templates_and_log_odds.py"
-MODEL_LIST="${SCRIPT_DIR}/model_list.txt"
+# Slurm may stage the batch script in /var/spool/slurmd, so BASH_SOURCE[0]
+# does not necessarily refer to the submission directory.  Use Slurm's
+# submission directory for both the working directory and project files.
+SUBMIT_DIR="${SLURM_SUBMIT_DIR:-$PWD}"
+cd "$SUBMIT_DIR"
+
+PYTHON_SCRIPT="${SUBMIT_DIR}/dissertation_generating_templates_and_log_odds.py"
+MODEL_LIST="${SUBMIT_DIR}/model_list.txt"
 
 usage() {
   cat <<'EOF'

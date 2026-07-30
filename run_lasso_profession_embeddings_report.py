@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Fit and report models that represent profession with SVD embeddings.
 
-The profession embedding is computed once from profession_collocates.csv and
-joined to each modelling data set.  The embedding dimensions are fixed effects,
-not random effects.  LassoCV selects predictors, which are then refit with
-OLS and ranked by their unique contributions to R-squared.
+Four profession embeddings are computed from profession_collocates.csv and
+joined to each modelling data set: TF-IDF, raw counts, log(1 + x) counts, and
+PPMI.  Embedding dimensions are fixed effects, not random effects.  LassoCV
+selects predictors, which are then refit with OLS and ranked by their unique
+contributions to R-squared.
 
-R-style model formula (with k=5):
+R-style model formula (with k=10):
     log_he_she_odds ~ (tense + semantic_role + syntactic_role + valence +
                        dominance + log(frequency) + lex_emb_norm)^2 +
                        profession_embedding_1 + ... + profession_embedding_5
@@ -62,13 +63,19 @@ FIXED_PREDICTORS = [
 ]
 NUMERICAL_PREDICTORS = ["log_frequency", "lex_emb_norm"]
 PREPROCESSING_VERSION = "log-frequency_zscore_and_frequency-residualized-lex-embedding_v1"
+EMBEDDING_METHODS = {
+    "tfidf": "TF-IDF",
+    "raw_counts": "Raw counts",
+    "log_counts": "log(1 + x) counts",
+    "ppmi": "PPMI",
+}
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("results_csv", type=Path, nargs="*")
     parser.add_argument("--profession-collocates", type=Path, default=Path("profession_collocates.csv"))
-    parser.add_argument("--k", type=int, default=5, help="Number of SVD embedding dimensions (default: 5).")
+    parser.add_argument("--k", type=int, default=10, help="Number of SVD embedding dimensions (default: 10).")
     parser.add_argument("--data-dir", type=Path, default=Path("profession_embedding_model_selection_data"))
     parser.add_argument("--report-dir", type=Path, default=Path("profession_embedding_model_selection_report"))
     parser.add_argument("--maxiter", type=int, default=1000)
@@ -174,10 +181,17 @@ def load_results_csv(path: Path) -> pd.DataFrame:
     return df
 
 
-def compute_profession_embeddings(path: Path, k: int) -> tuple[pd.DataFrame, dict[str, Any]]:
-    """TF-IDF transform collocate counts and return k SVD coordinates per profession."""
+def compute_profession_embeddings(path: Path, k: int, method: str = "tfidf") -> tuple[pd.DataFrame, dict[str, Any]]:
+    """Transform collocate counts and return k SVD coordinates per profession.
+
+    PPMI is computed over the profession-by-collocate count matrix using the
+    usual marginal-distribution PMI definition, with negative PMI values set
+    to zero.
+    """
     if k < 1:
         raise ValueError("k must be at least 1")
+    if method not in EMBEDDING_METHODS:
+        raise ValueError(f"Unknown embedding method {method!r}; choose from {', '.join(EMBEDDING_METHODS)}")
     collocates = pd.read_csv(path)
     if collocates.shape[1] < 2:
         raise ValueError(f"{path} must contain a profession column and collocate columns")
@@ -190,18 +204,38 @@ def compute_profession_embeddings(path: Path, k: int) -> tuple[pd.DataFrame, dic
         raise ValueError(f"{path} contains negative collocate counts")
     if len(collocates) < 2:
         raise ValueError("At least two professions are required for SVD")
-    tfidf = TfidfTransformer().fit_transform(counts.to_numpy(dtype=float))
-    max_components = min(tfidf.shape[0] - 1, tfidf.shape[1])
+    count_matrix = counts.to_numpy(dtype=float)
+    if not np.isfinite(count_matrix).all():
+        raise ValueError(f"{path} contains non-finite collocate counts")
+    if count_matrix.sum() <= 0:
+        raise ValueError(f"{path} contains no positive collocate counts")
+    if method == "tfidf":
+        transformed = TfidfTransformer().fit_transform(count_matrix)
+    elif method == "raw_counts":
+        transformed = count_matrix
+    elif method == "log_counts":
+        transformed = np.log1p(count_matrix)
+    else:
+        total = count_matrix.sum()
+        row_totals = count_matrix.sum(axis=1, keepdims=True)
+        column_totals = count_matrix.sum(axis=0, keepdims=True)
+        with np.errstate(divide="ignore", invalid="ignore"):
+            pmi = np.log((count_matrix * total) / (row_totals * column_totals))
+        pmi = np.nan_to_num(pmi, nan=0.0, posinf=0.0, neginf=0.0)
+        transformed = np.maximum(pmi, 0.0)
+        transformed[count_matrix == 0] = 0.0
+    max_components = min(transformed.shape[0] - 1, transformed.shape[1])
     if k > max_components:
         raise ValueError(f"k={k} exceeds the maximum available SVD components ({max_components})")
-    coordinates = TruncatedSVD(n_components=k, random_state=0).fit_transform(tfidf)
+    coordinates = TruncatedSVD(n_components=k, random_state=0).fit_transform(transformed)
     columns = [f"profession_embedding_{index}" for index in range(1, k + 1)]
     embedding = pd.DataFrame(coordinates, columns=columns)
     embedding.insert(0, "profession", professions.to_numpy())
     return embedding, {
         "source": str(path.resolve()), "profession_column": str(profession_column),
         "rows": int(len(embedding)), "collocate_columns": int(counts.shape[1]),
-        "k": k, "columns": columns,
+        "k": k, "columns": columns, "method": method,
+        "method_label": EMBEDDING_METHODS[method],
     }
 
 
@@ -350,8 +384,8 @@ def select_model(df: pd.DataFrame, run_dir: Path, embedding_columns: list[str], 
 
 
 def run_one(input_csv: Path, embedding: pd.DataFrame, embedding_meta: dict[str, Any], data_dir: Path,
-            maxiter: int, interactions: bool) -> Path:
-    run_dir = data_dir / "runs" / slugify(input_csv.stem)
+            maxiter: int, interactions: bool, method: str) -> Path:
+    run_dir = data_dir / "runs" / method / slugify(input_csv.stem)
     run_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy2(input_csv, data_dir / "inputs" / input_csv.name)
     results = load_results_csv(input_csv)
@@ -392,6 +426,31 @@ def write_table(df: pd.DataFrame, path: Path, *, classes: str = "data-table") ->
     return html
 
 
+def write_grouped_table(
+    df: pd.DataFrame,
+    path: Path,
+    groups: pd.Series,
+    group_order: list[str],
+    group_labels: dict[str, str],
+    *,
+    classes: str = "data-table",
+) -> str:
+    """Write one vertically stacked HTML table for each preprocessing method."""
+    sections = []
+    for group in group_order:
+        subset = df.loc[groups.to_numpy() == group]
+        if subset.empty:
+            continue
+        table = subset.to_html(
+            index=False, border=0, classes=classes, escape=True,
+            float_format=lambda value: f"{value:.3f}",
+        )
+        sections.append(f"<h3>{escape(group_labels[group])}</h3><div class=\"table-wrap\">{table}</div>")
+    html = "\n".join(sections)
+    path.write_text(html, encoding="utf-8")
+    return html
+
+
 def savefig(path: Path) -> None:
     plt.tight_layout()
     plt.savefig(path, dpi=220, bbox_inches="tight")
@@ -419,6 +478,8 @@ def build_report(run_dirs: list[Path], report_dir: Path, embedding_meta: dict[st
             metrics_path = model_dir / "metrics.json"
             if metrics_path.exists():
                 rows.append({"target_model": clean_model_name(Path(summary["input_csv"]).stem),
+                             "embedding_method": summary["embedding"].get("method", "tfidf"),
+                             "embedding_method_label": summary["embedding"].get("method_label", "TF-IDF"),
                              "model_name": model_dir.name, "model_dir": str(model_dir),
                              **json.loads(metrics_path.read_text())})
     all_metrics = pd.DataFrame(rows)
@@ -432,11 +493,12 @@ def build_report(run_dirs: list[Path], report_dir: Path, embedding_meta: dict[st
         raise ValueError("No selected profession-embedding models were found in the supplied runs")
 
     selected["target_model"] = selected["target_model"].map(clean_model_name)
-    selected = selected.sort_values("target_model").reset_index(drop=True)
+    selected["model_label"] = selected["target_model"] + " — " + selected["embedding_method_label"]
+    selected = selected.sort_values(["target_model", "embedding_method"]).reset_index(drop=True)
     fixed_rows = []
     for _, row in selected.iterrows():
         fixed = pd.read_csv(Path(row["model_dir"]) / "fixed_effects.csv")
-        fixed.insert(0, "target_model", row["target_model"])
+        fixed.insert(0, "target_model", row["model_label"])
         fixed_rows.append(fixed)
     coefficients = pd.concat(fixed_rows, ignore_index=True) if fixed_rows else pd.DataFrame()
     coefficients.to_csv(report_dir / "selected_coefficients.csv", index=False)
@@ -445,14 +507,14 @@ def build_report(run_dirs: list[Path], report_dir: Path, embedding_meta: dict[st
         decomposition_path = Path(row["model_dir"]).parent.parent / "r2_decomposition.csv"
         if decomposition_path.exists():
             decomposition = pd.read_csv(decomposition_path)
-            decomposition.insert(0, "target_model", row["target_model"])
+            decomposition.insert(0, "target_model", row["model_label"])
             r2_rows.append(decomposition)
     r2_decomposition = pd.concat(r2_rows, ignore_index=True) if r2_rows else pd.DataFrame()
     r2_decomposition.to_csv(report_dir / "r2_decomposition.csv", index=False)
     variance_cols = [c for c in selected.columns if c.startswith("fixed_effect_variance_")]
-    variance = selected[["target_model", *variance_cols]].copy()
+    variance = selected[["model_label", *variance_cols]].copy()
     variance = variance.rename(columns={
-        "target_model": "Model",
+        "model_label": "Model",
         "fixed_effect_variance_profession_embedding": "Profession embedding",
         **{
             column: column.removeprefix("fixed_effect_variance_").replace("_", " ")
@@ -460,13 +522,24 @@ def build_report(run_dirs: list[Path], report_dir: Path, embedding_meta: dict[st
             if column != "fixed_effect_variance_profession_embedding"
         },
     })
-    available_models = set(selected["target_model"])
+    available_models = set(selected["model_label"])
     configured_order, configured_labels = load_model_display_config()
-    model_order = [model for model in configured_order if model in available_models]
+    target_order = [model for model in configured_order if model in set(selected["target_model"])]
+    target_order.extend(sorted(set(selected["target_model"]) - set(target_order)))
+    model_order = [f"{target} — {label}" for target in target_order for label in EMBEDDING_METHODS.values()
+                   if f"{target} — {label}" in available_models]
     model_order.extend(sorted(available_models - set(model_order)))
-    plot_model_labels = {model: configured_labels.get(model, model) for model in model_order}
+    plot_model_labels = {}
+    plot_model_methods = {}
+    for model in model_order:
+        target, method_label = model.split(" — ", 1)
+        plot_model_labels[model] = f"{configured_labels.get(target, target)}\n{method_label}"
+        plot_model_methods[plot_model_labels[model]] = next(
+            method for method, label in EMBEDDING_METHODS.items() if label == method_label
+        )
     plot_model_order = [plot_model_labels[model] for model in model_order]
-    plot_model_order_reversed = plot_model_order[::-1]
+    method_order = [method for method in EMBEDDING_METHODS if method in set(selected["embedding_method"])]
+    method_labels = {method: EMBEDDING_METHODS[method] for method in method_order}
     variance["Model"] = variance["Model"].map(plot_model_labels)
     variance = variance.set_index("Model").reindex(plot_model_order).reset_index()
     variance.columns = [
@@ -478,39 +551,63 @@ def build_report(run_dirs: list[Path], report_dir: Path, embedding_meta: dict[st
     variance.to_csv(report_dir / "variance_decomposition.csv", index=False)
 
     fit_table = selected[
-        ["target_model", "converged", "nobs", "aic", "bic", "log_likelihood", "R2m", "residual_variance"]
+        ["model_label", "converged", "nobs", "aic", "bic", "log_likelihood", "R2m", "residual_variance"]
     ].rename(columns={
-        "target_model": "Model", "converged": "Converged", "nobs": "N", "aic": "AIC",
+        "model_label": "Model", "converged": "Converged", "nobs": "N", "aic": "AIC",
         "bic": "BIC", "log_likelihood": "Log likelihood", "R2m": "R2", "residual_variance": "Residual variance",
     })
     fit_table["Model"] = fit_table["Model"].map(plot_model_labels)
-    fit_html = write_table(fit_table, table_dir / "selected_model_fit.html")
-    variance_html = write_table(variance, table_dir / "variance_decomposition.html")
+    fit_groups = fit_table["Model"].map(plot_model_methods)
+    variance_groups = variance["Model"].map(plot_model_methods)
+    fit_html = write_grouped_table(
+        fit_table, table_dir / "selected_model_fit.html", fit_groups,
+        method_order, method_labels,
+    )
+    variance_html = write_grouped_table(
+        variance, table_dir / "variance_decomposition.html", variance_groups,
+        method_order, method_labels,
+    )
     coefficient_table = coefficients.rename(columns={
         "target_model": "Model", "term": "Term", "coef": "Estimate",
         "std_err": "Std. error", "p_value": "p value", "ci_low": "CI low", "ci_high": "CI high",
     })
-    coefficient_html = write_table(coefficient_table, table_dir / "selected_coefficients.html", classes="data-table compact")
+    coefficient_groups = coefficient_table["Model"].map(plot_model_methods)
+    coefficient_html = write_grouped_table(
+        coefficient_table, table_dir / "selected_coefficients.html", coefficient_groups,
+        method_order, method_labels, classes="data-table compact",
+    )
     r2_table = r2_decomposition.copy()
     if not r2_table.empty:
         r2_table["target_model"] = r2_table["target_model"].map(plot_model_labels)
         r2_table["predictor"] = r2_table["predictor"].map(fixed_effect_label)
-    r2_html = write_table(
-        r2_table,
-        table_dir / "r2_decomposition.html",
+    r2_html = write_grouped_table(
+        r2_table, table_dir / "r2_decomposition.html",
+        r2_table["target_model"].map(plot_model_methods), method_order, method_labels,
         classes="data-table compact",
     ) if not r2_decomposition.empty else "<p>No R² decomposition results.</p>"
 
     sns.set_theme(style="whitegrid", context="notebook")
     fit_table = fit_table.set_index("Model").reindex(plot_model_order).reset_index()
-    plt.figure(figsize=(max(10, len(model_order) * 0.8), 6))
-    ax = sns.barplot(data=fit_table, x="Model", y="R2", order=plot_model_order, color="#315c70")
-    plt.ylim(0, 0.6)
-    plt.xlabel("Target language model")
-    plt.ylabel("Explained variance (R2)")
-    ax.tick_params(axis="x", labelrotation=45)
-    for label in ax.get_xticklabels():
-        label.set_horizontalalignment("right")
+    target_plot_order = [configured_labels.get(target, target) for target in target_order]
+    fit_table["Target model"] = fit_table["Model"].str.split("\n").str[0]
+    fit_table["Preprocessing"] = fit_table["Model"].map(plot_model_methods)
+    fig, axes = plt.subplots(
+        len(method_order), 1, sharex=True, sharey=True,
+        figsize=(max(10, len(target_plot_order) * 0.8), 2.8 * len(method_order)),
+        squeeze=False,
+    )
+    for axis, method in zip(axes[:, 0], method_order):
+        method_fit = fit_table.loc[fit_table["Preprocessing"] == method]
+        sns.barplot(data=method_fit, x="Target model", y="R2", order=target_plot_order,
+                    color="#315c70", ax=axis)
+        axis.set_title(method_labels[method], loc="left", fontweight="bold")
+        axis.set_ylim(0, 1.0)
+        axis.set_xlabel("")
+        axis.set_ylabel("Explained variance (R²)")
+        axis.tick_params(axis="x", labelrotation=45)
+        for label in axis.get_xticklabels():
+            label.set_horizontalalignment("right")
+    axes[-1, 0].set_xlabel("Target language model")
     savefig(figure_dir / "r2_comparison.png")
 
     variance_plot = variance.set_index("Model")
@@ -518,47 +615,53 @@ def build_report(run_dirs: list[Path], report_dir: Path, embedding_meta: dict[st
     fixed_effect_names = variance_plot.columns.tolist()
     fixed_effect_numbers = list(range(1, len(fixed_effect_names) + 1))
     fixed_effect_colors = sns.color_palette("husl", n_colors=len(fixed_effect_names))
-    fig, ax = plt.subplots(figsize=(13, max(5.5, len(model_order) * 0.9 + 2.5)))
-    variance_plot.loc[plot_model_order_reversed].plot(
-        kind="barh",
-        stacked=True,
-        ax=ax,
-        color=fixed_effect_colors,
+    fig, axes = plt.subplots(
+        len(method_order), 1, sharex=True,
+        figsize=(13, max(5.5, len(model_order) * 0.9 + 2.5)), squeeze=False,
     )
-    ax.set_xlabel("Proportion of covariance-adjusted fixed-effect variance")
-    ax.set_ylabel("")
-    for effect_number, container in zip(fixed_effect_numbers, ax.containers):
-        ax.bar_label(
-            container,
-            labels=[
-                str(effect_number)
-                if np.isfinite(bar.get_width()) and bar.get_width() >= 0.025
-                else ""
-                for bar in container
-            ],
-            label_type="center",
-            color="#111111",
-            fontsize=8,
-            fontweight="bold",
+    for axis, method in zip(axes[:, 0], method_order):
+        method_models = [label for label in plot_model_order if plot_model_methods[label] == method]
+        variance_plot.loc[method_models[::-1]].plot(
+            kind="barh", stacked=True, ax=axis, color=fixed_effect_colors,
         )
-    handles, _ = ax.get_legend_handles_labels()
-    ax.legend(
+        axis.set_title(method_labels[method], loc="left", fontweight="bold")
+        axis.set_xlabel("Proportion of covariance-adjusted fixed-effect variance")
+        axis.set_ylabel("")
+        for effect_number, container in zip(fixed_effect_numbers, axis.containers):
+            axis.bar_label(
+                container,
+                labels=[
+                    str(effect_number)
+                    if np.isfinite(bar.get_width()) and bar.get_width() >= 0.025 else ""
+                    for bar in container
+                ],
+                label_type="center", color="#111111", fontsize=8, fontweight="bold",
+            )
+    handles, _ = axes[0, 0].get_legend_handles_labels()
+    axes[-1, 0].legend(
         handles,
         [f"{number}. {name}" for number, name in zip(fixed_effect_numbers, fixed_effect_names)],
-        title="Fixed effect",
-        loc="upper center",
-        bbox_to_anchor=(0.5, -0.16),
-        ncols=min(3, len(fixed_effect_names)),
-        fontsize=8,
+        title="Fixed effect", loc="upper center", bbox_to_anchor=(0.5, -0.3),
+        ncols=min(3, len(fixed_effect_names)), fontsize=8,
     )
-    fig.subplots_adjust(bottom=0.3)
+    fig.subplots_adjust(bottom=0.22)
     savefig(figure_dir / "variance_decomposition.png")
 
-    coefficient_plot = coefficients.pivot(index="term", columns="target_model", values="coef").reindex(columns=plot_model_order)
-    plt.figure(figsize=(10, max(4, 0.35 * len(coefficient_plot))))
-    sns.heatmap(coefficient_plot, center=0, cmap="RdBu_r", cbar_kws={"label": "Coefficient"})
-    plt.xlabel("")
-    plt.ylabel("Fixed-effect term")
+    fig, axes = plt.subplots(
+        len(method_order), 1, sharex=False, sharey=True,
+        figsize=(10, max(4, 0.35 * coefficients["term"].nunique() * len(method_order))), squeeze=False,
+    )
+    for axis, method in zip(axes[:, 0], method_order):
+        method_models = [label for label in plot_model_order if plot_model_methods[label] == method]
+        method_coefficients = coefficients.loc[coefficients["target_model"].isin(method_models)]
+        coefficient_plot = method_coefficients.pivot(
+            index="term", columns="target_model", values="coef"
+        ).reindex(columns=method_models)
+        sns.heatmap(coefficient_plot, center=0, cmap="RdBu_r", ax=axis,
+                    cbar_kws={"label": "Coefficient"})
+        axis.set_title(method_labels[method], loc="left", fontweight="bold")
+        axis.set_xlabel("")
+        axis.set_ylabel("Fixed-effect term")
     savefig(figure_dir / "coefficient_heatmap.png")
 
     cards = [
@@ -597,7 +700,7 @@ def build_report(run_dirs: list[Path], report_dir: Path, embedding_meta: dict[st
         </head>
         <body><div class="page">
           <header><h1>Profession-Embedding Model Selection Report</h1>
-            <p class="subtitle">LassoCV-selected and OLS-refit models for log he/she odds. Profession is represented by a {escape(str(embedding_meta['k']))}-dimension SVD embedding. <code>lex_emb_norm</code> is residualized on <code>log_frequency</code>, and both are z-scored before fitting. Generated on {date.today().isoformat()}.</p>
+            <p class="subtitle">LassoCV-selected and OLS-refit models for log he/she odds. Each profession representation uses {escape(str(embedding_meta['k']))} SVD dimensions, comparing TF-IDF, raw counts, log(1 + x) counts, and PPMI. <code>lex_emb_norm</code> is residualized on <code>log_frequency</code>, and both are z-scored before fitting. Generated on {date.today().isoformat()}.</p>
             <div class="metric-grid">{cards_html}</div>
           </header>
           <section><h2>Selected Model Fit</h2><p class="section-note">One final selected configuration is reported for each target model. All candidate fits remain available in <code>all_model_metrics.csv</code>.</p><div class="table-wrap">{fit_html}</div>{figure("figures/r2_comparison.png", "Explained variance (R2) by selected model.")}</section>
@@ -618,20 +721,31 @@ def main() -> int:
         return 1
     args = parse_args()
     if args.reuse_existing:
-        runs = sorted((args.data_dir / "runs").iterdir())
-        meta = json.loads((runs[0] / "run_summary.json").read_text())["embedding"] if runs else {"k": args.k, "source": str(args.profession_collocates)}
+        runs = sorted((args.data_dir / "runs").glob("*/*/run_summary.json"))
+        # Also accept the original one-method layout for backwards compatibility.
+        if not runs:
+            runs = sorted((args.data_dir / "runs").glob("*/run_summary.json"))
+        run_dirs = [path.parent for path in runs]
+        meta = json.loads(runs[0].read_text())["embedding"] if runs else {"k": args.k, "source": str(args.profession_collocates)}
     else:
         args.data_dir.mkdir(parents=True, exist_ok=True)
         (args.data_dir / "inputs").mkdir(exist_ok=True)
         inputs = discover_inputs(args.results_csv)
-        embedding, meta = compute_profession_embeddings(args.profession_collocates, args.k)
-        (args.data_dir / "embedding.csv").write_text(embedding.to_csv(index=False), encoding="utf-8")
-        (args.data_dir / "embedding_metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
-        runs = [run_one(p, embedding, meta, args.data_dir, args.maxiter, args.starting_fixed_effect_interactions) for p in tqdm(inputs, desc="Input files")]
-    if not runs:
+        run_dirs = []
+        meta = {"k": args.k, "source": str(args.profession_collocates.resolve()), "methods": EMBEDDING_METHODS}
+        for method in EMBEDDING_METHODS:
+            embedding, method_meta = compute_profession_embeddings(args.profession_collocates, args.k, method)
+            (args.data_dir / f"embedding_{method}.csv").write_text(embedding.to_csv(index=False), encoding="utf-8")
+            (args.data_dir / f"embedding_{method}_metadata.json").write_text(json.dumps(method_meta, indent=2), encoding="utf-8")
+            run_dirs.extend(
+                run_one(p, embedding, method_meta, args.data_dir, args.maxiter,
+                        args.starting_fixed_effect_interactions, method)
+                for p in tqdm(inputs, desc=f"{method} input files")
+            )
+    if not run_dirs:
         print("No runs found", file=sys.stderr)
         return 1
-    report = build_report(runs, args.report_dir, meta)
+    report = build_report(run_dirs, args.report_dir, meta)
     print(f"Wrote report to {report}")
     return 0
 

@@ -1,0 +1,64 @@
+{
+  "input_csv": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__tiiuae_Falcon3-3B-Base.csv",
+  "embedding": {
+    "source": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/profession_collocates.csv",
+    "profession_column": "profession",
+    "rows": 34,
+    "collocate_columns": 62389,
+    "k": 10,
+    "columns": [
+      "profession_embedding_1",
+      "profession_embedding_2",
+      "profession_embedding_3",
+      "profession_embedding_4",
+      "profession_embedding_5",
+      "profession_embedding_6",
+      "profession_embedding_7",
+      "profession_embedding_8",
+      "profession_embedding_9",
+      "profession_embedding_10"
+    ],
+    "method": "log_counts",
+    "method_label": "log(1 + x) counts"
+  },
+  "selected_terms": [
+    "C(tense)",
+    "C(semantic_role)",
+    "C(syntactic_role)",
+    "C(valence, Treatment(reference='-val'))",
+    "C(dominance, Treatment(reference='-dom'))",
+    "log_frequency",
+    "lex_emb_norm",
+    "profession_embedding_1",
+    "profession_embedding_2",
+    "profession_embedding_3",
+    "profession_embedding_4",
+    "profession_embedding_5",
+    "profession_embedding_6",
+    "profession_embedding_7",
+    "profession_embedding_8",
+    "profession_embedding_9",
+    "profession_embedding_10"
+  ],
+  "selected_predictor_count": 17,
+  "selected_model": "selected_profession_embedding",
+  "baseline_model": "no_profession_embedding_baseline",
+  "preprocessing": {
+    "version": "log-frequency_zscore_and_frequency-residualized-lex-embedding_v1",
+    "lex_emb_norm": {
+      "operation": "OLS residual from lex_emb_norm ~ 1 + log_frequency",
+      "intercept": 1.4713328286772291,
+      "log_frequency_coefficient": 0.13729365413610314
+    },
+    "standardized_predictors": {
+      "log_frequency": {
+        "mean": 7.368637557804696,
+        "std": 2.024790530108731
+      },
+      "lex_emb_norm": {
+        "mean": -1.240837498110469e-15,
+        "std": 0.19748552747629486
+      }
+    }
+  }
+}

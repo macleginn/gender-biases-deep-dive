@@ -1,0 +1,22 @@
+{
+  "formula": "log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence, Treatment(reference='-val')) + C(dominance, Treatment(reference='-dom')) + log_frequency + lex_emb_norm + profession_embedding_1 + profession_embedding_2 + profession_embedding_3 + profession_embedding_4 + profession_embedding_5 + profession_embedding_6 + profession_embedding_7 + profession_embedding_8 + profession_embedding_9 + profession_embedding_10",
+  "model_type": "OLS",
+  "optimizer": "closed_form",
+  "converged": true,
+  "nobs": 16320,
+  "aic": 44029.54471274601,
+  "bic": 44198.9479385734,
+  "log_likelihood": -21992.772356373003,
+  "residual_variance": 0.8681980457510394,
+  "R2m": 0.5333094308518487,
+  "R2c": 0.5333094308518487,
+  "warnings": [],
+  "fixed_effect_variance_profession_embedding": 0.8847726285003606,
+  "fixed_effect_variance_C(tense)": 0.01458608393021222,
+  "fixed_effect_variance_C(semantic_role)": 8.235203170067079e-05,
+  "fixed_effect_variance_C(syntactic_role)": 0.014258648349099484,
+  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.000667346184877243,
+  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.0011302381572014808,
+  "fixed_effect_variance_log_frequency": 0.005364380099263105,
+  "fixed_effect_variance_lex_emb_norm": 0.06999265797780117
+}

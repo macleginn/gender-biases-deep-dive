@@ -1,0 +1,42 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        log_he_she_odds   R-squared:                       0.293
+Model:                            OLS   Adj. R-squared:                  0.292
+Method:                 Least Squares   F-statistic:                     375.0
+Date:                Sun, 26 Jul 2026   Prob (F-statistic):               0.00
+Time:                        12:41:14   Log-Likelihood:                -26660.
+No. Observations:               16320   AIC:                         5.336e+04
+Df Residuals:                   16301   BIC:                         5.350e+04
+Df Model:                          18                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================================================
+                                                        coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------------
+Intercept                                             9.4726      0.452     20.937      0.000       8.586      10.359
+C(tense)[T.past perfect]                              0.1799      0.034      5.350      0.000       0.114       0.246
+C(tense)[T.present continuous]                        0.0674      0.034      2.004      0.045       0.001       0.133
+C(tense)[T.present perfect]                           0.1995      0.034      5.932      0.000       0.134       0.265
+C(tense)[T.simple future]                             0.6294      0.034     18.716      0.000       0.563       0.695
+C(tense)[T.simple past]                               0.2040      0.034      6.065      0.000       0.138       0.270
+C(syntactic_role)[T.subject]                          0.0873      0.019      4.497      0.000       0.049       0.125
+C(dominance, Treatment(reference='-dom'))[T.+dom]     0.0740      0.019      3.814      0.000       0.036       0.112
+log_frequency                                         0.4896      0.017     29.167      0.000       0.457       0.523
+lex_emb_norm                                         -0.1161      0.011    -10.979      0.000      -0.137      -0.095
+profession_embedding_1                               -8.8145      0.476    -18.502      0.000      -9.748      -7.881
+profession_embedding_3                               -1.7067      0.129    -13.208      0.000      -1.960      -1.453
+profession_embedding_4                                0.4422      0.124      3.570      0.000       0.199       0.685
+profession_embedding_5                               -0.8590      0.127     -6.748      0.000      -1.108      -0.609
+profession_embedding_6                                2.3544      0.133     17.669      0.000       2.093       2.616
+profession_embedding_7                                1.7362      0.149     11.686      0.000       1.445       2.027
+profession_embedding_8                                0.8073      0.160      5.042      0.000       0.493       1.121
+profession_embedding_9                               -8.9932      0.143    -63.031      0.000      -9.273      -8.714
+profession_embedding_10                               0.8877      0.147      6.031      0.000       0.599       1.176
+==============================================================================
+Omnibus:                      198.669   Durbin-Watson:                   0.327
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              206.813
+Skew:                          -0.265   Prob(JB):                     1.23e-45
+Kurtosis:                       3.155   Cond. No.                         111.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

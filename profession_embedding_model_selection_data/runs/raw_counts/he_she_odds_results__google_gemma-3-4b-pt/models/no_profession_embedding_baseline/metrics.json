@@ -1,0 +1,21 @@
+{
+  "formula": "log_he_she_odds ~ C(tense) + C(semantic_role) + C(syntactic_role) + C(valence, Treatment(reference='-val')) + C(dominance, Treatment(reference='-dom')) + log_frequency + lex_emb_norm",
+  "model_type": "OLS",
+  "optimizer": "closed_form",
+  "converged": true,
+  "nobs": 16320,
+  "aic": 58102.02972155748,
+  "bic": 58194.4314810997,
+  "log_likelihood": -29039.01486077874,
+  "residual_variance": 2.057643301977821,
+  "R2m": 0.032184916304104694,
+  "R2c": 0.032184916304104694,
+  "warnings": [],
+  "fixed_effect_variance_C(tense)": 0.012014540384282265,
+  "fixed_effect_variance_C(semantic_role)": 0.0002995851343359943,
+  "fixed_effect_variance_C(syntactic_role)": 0.03863208379397855,
+  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.003085365893012444,
+  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.00032378956113389385,
+  "fixed_effect_variance_log_frequency": 0.01147807913984015,
+  "fixed_effect_variance_lex_emb_norm": 0.0025478397050652623
+}

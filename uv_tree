@@ -1,0 +1,284 @@
+flos-code v0.1.0
+├── accelerate v1.14.0
+│   ├── huggingface-hub v0.36.2
+│   │   ├── filelock v3.32.0
+│   │   ├── fsspec v2025.9.0
+│   │   │   └── aiohttp v3.14.3 (extra: http)
+│   │   │       ├── aiohappyeyeballs v2.7.1
+│   │   │       ├── aiosignal v1.4.0
+│   │   │       │   └── frozenlist v1.8.0
+│   │   │       ├── attrs v26.1.0
+│   │   │       ├── frozenlist v1.8.0
+│   │   │       ├── multidict v6.7.1
+│   │   │       ├── propcache v0.5.2
+│   │   │       └── yarl v1.24.5
+│   │   │           ├── idna v3.18
+│   │   │           ├── multidict v6.7.1
+│   │   │           └── propcache v0.5.2
+│   │   ├── hf-xet v1.5.2
+│   │   ├── packaging v26.2
+│   │   ├── pyyaml v6.0.3
+│   │   ├── requests v2.34.2
+│   │   │   ├── certifi v2026.7.22
+│   │   │   ├── charset-normalizer v3.4.9
+│   │   │   ├── idna v3.18
+│   │   │   └── urllib3 v2.7.0
+│   │   ├── tqdm v4.69.0
+│   │   └── typing-extensions v4.16.0
+│   ├── numpy v2.5.1
+│   ├── packaging v26.2
+│   ├── psutil v7.2.2
+│   ├── pyyaml v6.0.3
+│   ├── safetensors v0.8.0
+│   └── torch v2.13.0
+│       ├── cuda-bindings v13.3.1
+│       │   └── cuda-pathfinder v1.6.0
+│       ├── cuda-toolkit[cublas, cudart, cufft, cufile, cupti, curand, cusolver, cusparse, nvjitlink, nvrtc, nvtx] v13.0.3.0
+│       │   ├── nvidia-cublas v13.1.1.3 (extra: cublas)
+│       │   │   └── nvidia-cuda-nvrtc v13.0.88
+│       │   ├── nvidia-cuda-nvrtc v13.0.88 (extra: cublas)
+│       │   ├── nvidia-cuda-runtime v13.0.96 (extra: cudart)
+│       │   ├── nvidia-cufft v12.0.0.61 (extra: cufft)
+│       │   │   └── nvidia-nvjitlink v13.3.33
+│       │   ├── nvidia-nvjitlink v13.3.33 (extra: cufft)
+│       │   ├── nvidia-cufile v1.15.1.6 (extra: cufile)
+│       │   ├── nvidia-cuda-cupti v13.0.85 (extra: cupti)
+│       │   ├── nvidia-curand v10.4.0.35 (extra: curand)
+│       │   ├── nvidia-cublas v13.1.1.3 (extra: cusolver) (*)
+│       │   ├── nvidia-cusolver v12.0.4.66 (extra: cusolver)
+│       │   │   ├── nvidia-cublas v13.1.1.3 (*)
+│       │   │   ├── nvidia-cusparse v12.6.3.3
+│       │   │   │   └── nvidia-nvjitlink v13.3.33
+│       │   │   └── nvidia-nvjitlink v13.3.33
+│       │   ├── nvidia-cusparse v12.6.3.3 (extra: cusolver) (*)
+│       │   ├── nvidia-nvjitlink v13.3.33 (extra: cusolver)
+│       │   ├── nvidia-cusparse v12.6.3.3 (extra: cusparse) (*)
+│       │   ├── nvidia-nvjitlink v13.3.33 (extra: cusparse)
+│       │   ├── nvidia-nvjitlink v13.3.33 (extra: nvjitlink)
+│       │   ├── nvidia-cuda-nvrtc v13.0.88 (extra: nvrtc)
+│       │   └── nvidia-nvtx v13.0.85 (extra: nvtx)
+│       ├── filelock v3.32.0
+│       ├── fsspec v2025.9.0 (*)
+│       ├── jinja2 v3.1.6
+│       │   └── markupsafe v3.0.3
+│       ├── networkx v3.6.1
+│       ├── nvidia-cudnn-cu13 v9.20.0.48
+│       │   └── nvidia-cublas v13.1.1.3 (*)
+│       ├── nvidia-cusparselt-cu13 v0.8.1
+│       ├── nvidia-nccl-cu13 v2.29.7
+│       ├── nvidia-nvshmem-cu13 v3.4.5
+│       ├── setuptools v83.0.0
+│       ├── sympy v1.14.0
+│       │   └── mpmath v1.3.0
+│       ├── triton v3.7.1
+│       └── typing-extensions v4.16.0
+├── ipython v9.15.0
+│   ├── decorator v5.3.1
+│   ├── ipython-pygments-lexers v1.1.1
+│   │   └── pygments v2.20.0
+│   ├── jedi v0.20.0
+│   │   └── parso v0.8.7
+│   ├── matplotlib-inline v0.2.2
+│   │   └── traitlets v5.15.1
+│   ├── pexpect v4.9.0
+│   │   └── ptyprocess v0.7.0
+│   ├── prompt-toolkit v3.0.52
+│   │   └── wcwidth v0.8.2
+│   ├── psutil v7.2.2
+│   ├── pygments v2.20.0
+│   ├── stack-data v0.6.3
+│   │   ├── asttokens v3.0.2
+│   │   ├── executing v2.2.1
+│   │   └── pure-eval v0.2.3
+│   └── traitlets v5.15.1
+├── jinja2 v3.1.6 (*)
+├── matplotlib v3.11.1
+│   ├── contourpy v1.3.3
+│   │   └── numpy v2.5.1
+│   ├── cycler v0.12.1
+│   ├── fonttools v4.63.0
+│   ├── kiwisolver v1.5.0
+│   ├── numpy v2.5.1
+│   ├── packaging v26.2
+│   ├── pillow v12.3.0
+│   ├── pyparsing v3.3.2
+│   └── python-dateutil v2.9.0.post0
+│       └── six v1.17.0
+├── numpy v2.5.1
+├── pandas v3.0.5
+│   ├── numpy v2.5.1
+│   └── python-dateutil v2.9.0.post0 (*)
+├── plotly v6.9.0
+│   ├── narwhals v2.24.0
+│   └── packaging v26.2
+├── scikit-learn v1.9.0
+│   ├── joblib v1.5.3
+│   ├── narwhals v2.24.0
+│   ├── numpy v2.5.1
+│   ├── scipy v1.18.0
+│   │   └── numpy v2.5.1
+│   └── threadpoolctl v3.6.0
+├── scipy v1.18.0 (*)
+├── seaborn v0.13.2
+│   ├── matplotlib v3.11.1 (*)
+│   ├── numpy v2.5.1
+│   └── pandas v3.0.5 (*)
+├── shap v0.52.0
+│   ├── cloudpickle v3.1.2
+│   ├── llvmlite v0.48.0
+│   ├── numba v0.47.0
+│   │   ├── llvmlite v0.48.0
+│   │   ├── numpy v2.5.1
+│   │   └── setuptools v83.0.0
+│   ├── numpy v2.5.1
+│   ├── packaging v26.2
+│   ├── pandas v3.0.5 (*)
+│   ├── scikit-learn v1.9.0 (*)
+│   ├── scipy v1.18.0 (*)
+│   ├── slicer v0.0.8
+│   └── tqdm v4.69.0
+├── statsmodels v0.14.6
+│   ├── numpy v2.5.1
+│   ├── packaging v26.2
+│   ├── pandas v3.0.5 (*)
+│   ├── patsy v1.0.2
+│   │   └── numpy v2.5.1
+│   └── scipy v1.18.0 (*)
+├── torch v2.13.0 (*)
+├── tqdm v4.69.0
+├── transformers v4.57.6
+│   ├── filelock v3.32.0
+│   ├── huggingface-hub v0.36.2 (*)
+│   ├── numpy v2.5.1
+│   ├── packaging v26.2
+│   ├── pyyaml v6.0.3
+│   ├── regex v2026.7.19
+│   ├── requests v2.34.2 (*)
+│   ├── safetensors v0.8.0
+│   ├── tokenizers v0.22.2
+│   │   └── huggingface-hub v0.36.2 (*)
+│   └── tqdm v4.69.0
+└── unsloth v2026.3.11
+    ├── accelerate v1.14.0 (*)
+    ├── bitsandbytes v0.49.2
+    │   ├── numpy v2.5.1
+    │   ├── packaging v26.2
+    │   └── torch v2.13.0 (*)
+    ├── datasets v4.3.0
+    │   ├── dill v0.4.0
+    │   ├── filelock v3.32.0
+    │   ├── fsspec[http] v2025.9.0 (*)
+    │   ├── httpx v0.28.1
+    │   │   ├── anyio v4.14.2
+    │   │   │   └── idna v3.18
+    │   │   ├── certifi v2026.7.22
+    │   │   ├── httpcore v1.0.9
+    │   │   │   ├── certifi v2026.7.22
+    │   │   │   └── h11 v0.16.0
+    │   │   └── idna v3.18
+    │   ├── huggingface-hub v0.36.2 (*)
+    │   ├── multiprocess v0.70.16
+    │   │   └── dill v0.4.0
+    │   ├── numpy v2.5.1
+    │   ├── packaging v26.2
+    │   ├── pandas v3.0.5 (*)
+    │   ├── pyarrow v25.0.0
+    │   ├── pyyaml v6.0.3
+    │   ├── requests v2.34.2 (*)
+    │   ├── tqdm v4.69.0
+    │   └── xxhash v3.8.1
+    ├── diffusers v0.39.0
+    │   ├── filelock v3.32.0
+    │   ├── httpx v0.28.1 (*)
+    │   ├── huggingface-hub v0.36.2 (*)
+    │   ├── importlib-metadata v9.0.0
+    │   │   └── zipp v4.1.0
+    │   ├── numpy v2.5.1
+    │   ├── pillow v12.3.0
+    │   ├── regex v2026.7.19
+    │   ├── requests v2.34.2 (*)
+    │   └── safetensors v0.8.0
+    ├── hf-transfer v0.1.9
+    ├── huggingface-hub v0.36.2 (*)
+    ├── nest-asyncio v1.6.0
+    ├── numpy v2.5.1
+    ├── packaging v26.2
+    ├── peft v0.19.1
+    │   ├── accelerate v1.14.0 (*)
+    │   ├── huggingface-hub v0.36.2 (*)
+    │   ├── numpy v2.5.1
+    │   ├── packaging v26.2
+    │   ├── psutil v7.2.2
+    │   ├── pyyaml v6.0.3
+    │   ├── safetensors v0.8.0
+    │   ├── torch v2.13.0 (*)
+    │   ├── tqdm v4.69.0
+    │   └── transformers v4.57.6 (*)
+    ├── protobuf v7.35.1
+    ├── psutil v7.2.2
+    ├── pydantic v2.13.4
+    │   ├── annotated-types v0.8.0
+    │   ├── pydantic-core v2.46.4
+    │   │   └── typing-extensions v4.16.0
+    │   ├── typing-extensions v4.16.0
+    │   └── typing-inspection v0.4.2
+    │       └── typing-extensions v4.16.0
+    ├── pyyaml v6.0.3
+    ├── sentencepiece v0.2.2
+    ├── torch v2.13.0 (*)
+    ├── torchvision v0.28.0
+    │   ├── numpy v2.5.1
+    │   ├── pillow v12.3.0
+    │   └── torch v2.13.0 (*)
+    ├── tqdm v4.69.0
+    ├── transformers v4.57.6 (*)
+    ├── triton v3.7.1
+    ├── trl v0.24.0
+    │   ├── accelerate v1.14.0 (*)
+    │   ├── datasets v4.3.0 (*)
+    │   └── transformers v4.57.6 (*)
+    ├── typer v0.27.0
+    │   ├── annotated-doc v0.0.4
+    │   ├── rich v15.0.0
+    │   │   ├── markdown-it-py v4.2.0
+    │   │   │   └── mdurl v0.1.2
+    │   │   └── pygments v2.20.0
+    │   └── shellingham v1.5.4
+    ├── tyro v1.0.15
+    │   ├── docstring-parser v0.18.0
+    │   ├── typeguard v4.5.2
+    │   │   └── typing-extensions v4.16.0
+    │   └── typing-extensions v4.16.0
+    ├── unsloth-zoo v2026.3.6
+    │   ├── accelerate v1.14.0 (*)
+    │   ├── cut-cross-entropy v25.1.1
+    │   │   ├── torch v2.13.0 (*)
+    │   │   └── triton v3.7.1
+    │   ├── datasets v4.3.0 (*)
+    │   ├── filelock v3.32.0
+    │   ├── hf-transfer v0.1.9
+    │   ├── huggingface-hub v0.36.2 (*)
+    │   ├── msgspec v0.21.1
+    │   ├── numpy v2.5.1
+    │   ├── packaging v26.2
+    │   ├── peft v0.19.1 (*)
+    │   ├── pillow v12.3.0
+    │   ├── protobuf v7.35.1
+    │   ├── psutil v7.2.2
+    │   ├── regex v2026.7.19
+    │   ├── sentencepiece v0.2.2
+    │   ├── torch v2.13.0 (*)
+    │   ├── torchao v0.17.0
+    │   ├── tqdm v4.69.0
+    │   ├── transformers v4.57.6 (*)
+    │   ├── triton v3.7.1
+    │   ├── trl v0.24.0 (*)
+    │   ├── typing-extensions v4.16.0
+    │   ├── tyro v1.0.15 (*)
+    │   └── wheel v0.47.0
+    │       └── packaging v26.2
+    ├── wheel v0.47.0 (*)
+    └── xformers v0.0.35
+        ├── numpy v2.5.1
+        └── torch v2.13.0 (*)
+(*) Package tree already displayed

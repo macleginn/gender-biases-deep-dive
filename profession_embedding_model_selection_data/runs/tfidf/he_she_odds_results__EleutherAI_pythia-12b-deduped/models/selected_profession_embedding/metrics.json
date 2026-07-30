@@ -1,0 +1,18 @@
+{
+  "formula": "log_he_she_odds ~ C(tense) + C(syntactic_role) + log_frequency + profession_embedding_1 + profession_embedding_3 + profession_embedding_4 + profession_embedding_6 + profession_embedding_7 + profession_embedding_8 + profession_embedding_9 + profession_embedding_10",
+  "model_type": "OLS",
+  "optimizer": "closed_form",
+  "converged": true,
+  "nobs": 16320,
+  "aic": 60414.18473395787,
+  "bic": 60537.38708001416,
+  "log_likelihood": -30191.092366978934,
+  "residual_variance": 2.3702432265306577,
+  "R2m": 0.2793627882410047,
+  "R2c": 0.2793627882410047,
+  "warnings": [],
+  "fixed_effect_variance_profession_embedding": 0.9611900633686353,
+  "fixed_effect_variance_C(tense)": 0.021062749395727633,
+  "fixed_effect_variance_C(syntactic_role)": 0.001635997941419996,
+  "fixed_effect_variance_log_frequency": -0.0658830408052978
+}
