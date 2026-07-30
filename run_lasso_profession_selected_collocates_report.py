@@ -11,7 +11,7 @@ and ranked by their unique contributions to R-squared.
 R-style model formula (with k=10):
     log_he_she_odds ~ (tense + semantic_role + syntactic_role + valence +
                        dominance + log(frequency) + lex_emb_norm)^2 +
-                       profession_embedding_1 + ... + profession_embedding_5
+                       profession_embedding_1 + ... + profession_embedding_10
 """
 
 from __future__ import annotations
