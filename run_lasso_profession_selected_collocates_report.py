@@ -752,8 +752,12 @@ def write_table(df: pd.DataFrame, path: Path, *, classes: str = "data-table") ->
         escape=True,
         float_format=lambda value: f"{value:.3f}",
     )
-    path.write_text(html, encoding="utf-8")
-    return html
+    collapsed_html = (
+        '<details class="table-details"><summary>Show table</summary>'
+        f'<div class="table-wrap">{html}</div></details>'
+    )
+    path.write_text(collapsed_html, encoding="utf-8")
+    return collapsed_html
 
 
 def write_grouped_table(
@@ -779,7 +783,8 @@ def write_grouped_table(
             float_format=lambda value: f"{value:.3f}",
         )
         sections.append(
-            f'<h3>{escape(group_labels[group])}</h3><div class="table-wrap">{table}</div>'
+            f'<details class="table-details"><summary>{escape(group_labels[group])} table'
+            f'</summary><div class="table-wrap">{table}</div></details>'
         )
     html = "\n".join(sections)
     path.write_text(html, encoding="utf-8")
@@ -1255,7 +1260,7 @@ def build_report(
             .metric-grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:20px; }}
             .metric-card {{ border:1px solid var(--border); border-radius:16px; padding:14px; background:#fffdf8; }} .metric-value {{ font-size:1.7rem; font-weight:700; color:var(--accent); }}
             .figure-grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:16px; }} figure {{ margin:16px auto; }} img {{ width:100%; border:1px solid var(--border); border-radius:14px; background:white; }}
-            .table-wrap {{ overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin:12px 0 18px; background:white; }} .data-table {{ width:100%; border-collapse:collapse; font-size:.92rem; }}
+            .table-details {{ border:1px solid var(--border); border-radius:14px; margin:12px 0 18px; background:#fffdf8; }} .table-details summary {{ cursor:pointer; padding:10px 14px; color:var(--accent); font-weight:700; }} .table-details[open] summary {{ border-bottom:1px solid var(--border); }} .table-wrap {{ overflow-x:auto; background:white; }} .data-table {{ width:100%; border-collapse:collapse; font-size:.92rem; }}
             .data-table th,.data-table td {{ border:1px solid #e2d4bf; padding:8px 10px; text-align:left; vertical-align:top; white-space:nowrap; }} .data-table th {{ background:#f0dfc7; }} .compact {{ font-size:.84rem; }}
             @media (max-width:760px) {{ .page {{ padding:14px 10px 36px; }} header,section {{ padding:16px; }} .figure-grid {{ grid-template-columns:1fr; }} }}
           </style>
@@ -1265,11 +1270,11 @@ def build_report(
             <p class="subtitle">LassoCV-selected and OLS-refit models for log he/she odds. Each profession representation uses {escape(str(embedding_meta['k']))} SVD dimensions, comparing TF-IDF, raw counts, log(1 + x) counts, and PPMI. <code>lex_emb_norm</code> is residualized on <code>log_frequency</code>, and both are z-scored before fitting. Generated on {date.today().isoformat()}.</p>
             <div class="metric-grid">{cards_html}</div>
           </header>
-          <section><h2>Selected Model Fit</h2><p class="section-note">One final selected configuration is reported for each target model. All candidate fits remain available in <code>all_model_metrics.csv</code>.</p><div class="table-wrap">{fit_html}</div>{figure("figures/r2_comparison.png", "Explained variance (R2) by selected model.")}</section>
-          <section><h2>Fixed-Effect Variance</h2><p class="section-note">The embedding dimensions are grouped as one predictor; they are not included in interactions. Each term's allocation includes its fitted-contribution variance plus half of every pairwise covariance, so allocations sum to the variance of the complete fixed-effects predictor. Negative allocations can occur when a term covaries negatively with the others. Segment numbers in the horizontal bars map to the indexed legend below the plot.</p><div class="table-wrap">{variance_html}</div>{figure("figures/variance_decomposition.png", "Proportion of covariance-adjusted fixed-effect variance by selected model; segment numbers map to the indexed legend.")}</section>
-          <section><h2>Selected Coefficients</h2>{figure("figures/coefficient_heatmap.png", "Fixed-effect coefficients by selected model.")}<div class="table-wrap">{coefficient_html}</div></section>
-          <section><h2>R² Decomposition</h2><p class="section-note">Each value is the unique R² attributable to a selected predictor, estimated by the drop in R² after refitting the OLS model without that predictor. Relative R² is normalized across the selected predictors. The Lasso penalty alpha is selected by five-fold cross-validation.</p><div class="table-wrap">{r2_html}</div></section>
-          <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="section-note">R² is the payout. For each random predictor ordering, a predictor receives the increase in R² when it enters the OLS model; the reported Shapley R² is the mean payout across orderings. <code>mc_standard_error</code> quantifies Monte Carlo uncertainty. The profession SVD dimensions are added together as one predictor, consistent with the fixed-effect variance allocation. In the plot, each interaction term's Shapley contribution is split equally between its component predictors.</p><div class="table-wrap">{shapley_html}</div>{shapley_figure_html}</section>
+          <section><h2>Selected Model Fit</h2><p class="section-note">One final selected configuration is reported for each target model. All candidate fits remain available in <code>all_model_metrics.csv</code>.</p>{fit_html}{figure("figures/r2_comparison.png", "Explained variance (R2) by selected model.")}</section>
+          <section><h2>Fixed-Effect Variance</h2><p class="section-note">The embedding dimensions are grouped as one predictor; they are not included in interactions. Each term's allocation includes its fitted-contribution variance plus half of every pairwise covariance, so allocations sum to the variance of the complete fixed-effects predictor. Negative allocations can occur when a term covaries negatively with the others. Segment numbers in the horizontal bars map to the indexed legend below the plot.</p>{variance_html}{figure("figures/variance_decomposition.png", "Proportion of covariance-adjusted fixed-effect variance by selected model; segment numbers map to the indexed legend.")}</section>
+          <section><h2>Selected Coefficients</h2>{figure("figures/coefficient_heatmap.png", "Fixed-effect coefficients by selected model.")}{coefficient_html}</section>
+          <section><h2>R² Decomposition</h2><p class="section-note">Each value is the unique R² attributable to a selected predictor, estimated by the drop in R² after refitting the OLS model without that predictor. Relative R² is normalized across the selected predictors. The Lasso penalty alpha is selected by five-fold cross-validation.</p>{r2_html}</section>
+          <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="section-note">R² is the payout. For each random predictor ordering, a predictor receives the increase in R² when it enters the OLS model; the reported Shapley R² is the mean payout across orderings. <code>mc_standard_error</code> quantifies Monte Carlo uncertainty. The profession SVD dimensions are added together as one predictor, consistent with the fixed-effect variance allocation. In the plot, each interaction term's Shapley contribution is split equally between its component predictors.</p>{shapley_html}{shapley_figure_html}</section>
         </div></body></html>
         """).strip()
     path = report_dir / "report.html"

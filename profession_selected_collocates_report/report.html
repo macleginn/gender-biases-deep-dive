@@ -14,7 +14,7 @@
             .metric-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:20px; }
             .metric-card { border:1px solid var(--border); border-radius:16px; padding:14px; background:#fffdf8; } .metric-value { font-size:1.7rem; font-weight:700; color:var(--accent); }
             .figure-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:16px; } figure { margin:16px auto; } img { width:100%; border:1px solid var(--border); border-radius:14px; background:white; }
-            .table-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:14px; margin:12px 0 18px; background:white; } .data-table { width:100%; border-collapse:collapse; font-size:.92rem; }
+            .table-details { border:1px solid var(--border); border-radius:14px; margin:12px 0 18px; background:#fffdf8; } .table-details summary { cursor:pointer; padding:10px 14px; color:var(--accent); font-weight:700; } .table-details[open] summary { border-bottom:1px solid var(--border); } .table-wrap { overflow-x:auto; background:white; } .data-table { width:100%; border-collapse:collapse; font-size:.92rem; }
             .data-table th,.data-table td { border:1px solid #e2d4bf; padding:8px 10px; text-align:left; vertical-align:top; white-space:nowrap; } .data-table th { background:#f0dfc7; } .compact { font-size:.84rem; }
             @media (max-width:760px) { .page { padding:14px 10px 36px; } header,section { padding:16px; } .figure-grid { grid-template-columns:1fr; } }
           </style>
@@ -27,7 +27,7 @@
 <div class="metric-card"><div class="metric-value">16,320</div><div class="metric-label">Observations/model</div></div>
 <div class="metric-card"><div class="metric-value">yes</div><div class="metric-label">Selected models converged</div></div></div>
           </header>
-          <section><h2>Selected Model Fit</h2><p class="section-note">One final selected configuration is reported for each target model. All candidate fits remain available in <code>all_model_metrics.csv</code>.</p><div class="table-wrap"><h3>TF-IDF</h3><div class="table-wrap"><table class="dataframe data-table">
+          <section><h2>Selected Model Fit</h2><p class="section-note">One final selected configuration is reported for each target model. All candidate fits remain available in <code>all_model_metrics.csv</code>.</p><details class="table-details"><summary>TF-IDF table</summary><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -202,8 +202,8 @@
       <td>0.685</td>
     </tr>
   </tbody>
-</table></div>
-<h3>Raw counts</h3><div class="table-wrap"><table class="dataframe data-table">
+</table></div></details>
+<details class="table-details"><summary>Raw counts table</summary><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -378,8 +378,8 @@
       <td>0.942</td>
     </tr>
   </tbody>
-</table></div>
-<h3>log(1 + x) counts</h3><div class="table-wrap"><table class="dataframe data-table">
+</table></div></details>
+<details class="table-details"><summary>log(1 + x) counts table</summary><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -554,8 +554,8 @@
       <td>0.969</td>
     </tr>
   </tbody>
-</table></div>
-<h3>PPMI</h3><div class="table-wrap"><table class="dataframe data-table">
+</table></div></details>
+<details class="table-details"><summary>PPMI table</summary><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -730,8 +730,8 @@
       <td>1.267</td>
     </tr>
   </tbody>
-</table></div></div><figure><img src="figures/r2_comparison.png" alt="Explained variance (R2) by selected model." loading="lazy"><figcaption>Explained variance (R2) by selected model.</figcaption></figure></section>
-          <section><h2>Fixed-Effect Variance</h2><p class="section-note">The embedding dimensions are grouped as one predictor; they are not included in interactions. Each term's allocation includes its fitted-contribution variance plus half of every pairwise covariance, so allocations sum to the variance of the complete fixed-effects predictor. Negative allocations can occur when a term covaries negatively with the others. Segment numbers in the horizontal bars map to the indexed legend below the plot.</p><div class="table-wrap"><h3>TF-IDF</h3><div class="table-wrap"><table class="dataframe data-table">
+</table></div></details><figure><img src="figures/r2_comparison.png" alt="Explained variance (R2) by selected model." loading="lazy"><figcaption>Explained variance (R2) by selected model.</figcaption></figure></section>
+          <section><h2>Fixed-Effect Variance</h2><p class="section-note">The embedding dimensions are grouped as one predictor; they are not included in interactions. Each term's allocation includes its fitted-contribution variance plus half of every pairwise covariance, so allocations sum to the variance of the complete fixed-effects predictor. Negative allocations can occur when a term covaries negatively with the others. Segment numbers in the horizontal bars map to the indexed legend below the plot.</p><details class="table-details"><summary>TF-IDF table</summary><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -923,8 +923,8 @@
       <td>1.494</td>
     </tr>
   </tbody>
-</table></div>
-<h3>Raw counts</h3><div class="table-wrap"><table class="dataframe data-table">
+</table></div></details>
+<details class="table-details"><summary>Raw counts table</summary><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -1116,8 +1116,8 @@
       <td>1.108</td>
     </tr>
   </tbody>
-</table></div>
-<h3>log(1 + x) counts</h3><div class="table-wrap"><table class="dataframe data-table">
+</table></div></details>
+<details class="table-details"><summary>log(1 + x) counts table</summary><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -1309,8 +1309,8 @@
       <td>1.041</td>
     </tr>
   </tbody>
-</table></div>
-<h3>PPMI</h3><div class="table-wrap"><table class="dataframe data-table">
+</table></div></details>
+<details class="table-details"><summary>PPMI table</summary><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -1502,8 +1502,8 @@
       <td>0.664</td>
     </tr>
   </tbody>
-</table></div></div><figure><img src="figures/variance_decomposition.png" alt="Proportion of covariance-adjusted fixed-effect variance by selected model; segment numbers map to the indexed legend." loading="lazy"><figcaption>Proportion of covariance-adjusted fixed-effect variance by selected model; segment numbers map to the indexed legend.</figcaption></figure></section>
-          <section><h2>Selected Coefficients</h2><figure><img src="figures/coefficient_heatmap.png" alt="Fixed-effect coefficients by selected model." loading="lazy"><figcaption>Fixed-effect coefficients by selected model.</figcaption></figure><div class="table-wrap"><h3>TF-IDF</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details><figure><img src="figures/variance_decomposition.png" alt="Proportion of covariance-adjusted fixed-effect variance by selected model; segment numbers map to the indexed legend." loading="lazy"><figcaption>Proportion of covariance-adjusted fixed-effect variance by selected model; segment numbers map to the indexed legend.</figcaption></figure></section>
+          <section><h2>Selected Coefficients</h2><figure><img src="figures/coefficient_heatmap.png" alt="Fixed-effect coefficients by selected model." loading="lazy"><figcaption>Fixed-effect coefficients by selected model.</figcaption></figure><details class="table-details"><summary>TF-IDF table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -4808,8 +4808,8 @@
       <td>10.920</td>
     </tr>
   </tbody>
-</table></div>
-<h3>Raw counts</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details>
+<details class="table-details"><summary>Raw counts table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -8244,8 +8244,8 @@
       <td>-0.005</td>
     </tr>
   </tbody>
-</table></div>
-<h3>log(1 + x) counts</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details>
+<details class="table-details"><summary>log(1 + x) counts table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -11730,8 +11730,8 @@
       <td>0.131</td>
     </tr>
   </tbody>
-</table></div>
-<h3>PPMI</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details>
+<details class="table-details"><summary>PPMI table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -15136,8 +15136,8 @@
       <td>-0.129</td>
     </tr>
   </tbody>
-</table></div></div></section>
-          <section><h2>R² Decomposition</h2><p class="section-note">Each value is the unique R² attributable to a selected predictor, estimated by the drop in R² after refitting the OLS model without that predictor. Relative R² is normalized across the selected predictors. The Lasso penalty alpha is selected by five-fold cross-validation.</p><div class="table-wrap"><h3>TF-IDF</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details></section>
+          <section><h2>R² Decomposition</h2><p class="section-note">Each value is the unique R² attributable to a selected predictor, estimated by the drop in R² after refitting the OLS model without that predictor. Relative R² is normalized across the selected predictors. The Lasso penalty alpha is selected by five-fold cross-validation.</p><details class="table-details"><summary>TF-IDF table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>target_model</th>
@@ -16642,8 +16642,8 @@
       <td>0.000</td>
     </tr>
   </tbody>
-</table></div>
-<h3>Raw counts</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details>
+<details class="table-details"><summary>Raw counts table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>target_model</th>
@@ -18226,8 +18226,8 @@
       <td>0.000</td>
     </tr>
   </tbody>
-</table></div>
-<h3>log(1 + x) counts</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details>
+<details class="table-details"><summary>log(1 + x) counts table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>target_model</th>
@@ -19840,8 +19840,8 @@
       <td>0.000</td>
     </tr>
   </tbody>
-</table></div>
-<h3>PPMI</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details>
+<details class="table-details"><summary>PPMI table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>target_model</th>
@@ -21406,8 +21406,8 @@
       <td>0.001</td>
     </tr>
   </tbody>
-</table></div></div></section>
-          <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="section-note">R² is the payout. For each random predictor ordering, a predictor receives the increase in R² when it enters the OLS model; the reported Shapley R² is the mean payout across orderings. <code>mc_standard_error</code> quantifies Monte Carlo uncertainty. The profession SVD dimensions are added together as one predictor, consistent with the fixed-effect variance allocation. In the plot, each interaction term's Shapley contribution is split equally between its component predictors.</p><div class="table-wrap"><h3>TF-IDF</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details></section>
+          <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="section-note">R² is the payout. For each random predictor ordering, a predictor receives the increase in R² when it enters the OLS model; the reported Shapley R² is the mean payout across orderings. <code>mc_standard_error</code> quantifies Monte Carlo uncertainty. The profession SVD dimensions are added together as one predictor, consistent with the fixed-effect variance allocation. In the plot, each interaction term's Shapley contribution is split equally between its component predictors.</p><details class="table-details"><summary>TF-IDF table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>target_model</th>
@@ -22732,8 +22732,8 @@
       <td>0.667</td>
     </tr>
   </tbody>
-</table></div>
-<h3>Raw counts</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details>
+<details class="table-details"><summary>Raw counts table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>target_model</th>
@@ -24091,8 +24091,8 @@
       <td>0.543</td>
     </tr>
   </tbody>
-</table></div>
-<h3>log(1 + x) counts</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details>
+<details class="table-details"><summary>log(1 + x) counts table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>target_model</th>
@@ -25494,8 +25494,8 @@
       <td>0.529</td>
     </tr>
   </tbody>
-</table></div>
-<h3>PPMI</h3><div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details>
+<details class="table-details"><summary>PPMI table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>target_model</th>
@@ -26787,5 +26787,5 @@
       <td>0.385</td>
     </tr>
   </tbody>
-</table></div></div><figure><img src="figures/shapley_r2_folded.png" alt="Shapley R² contributions by selected model, with each interaction split equally between its component predictors." loading="lazy"><figcaption>Shapley R² contributions by selected model, with each interaction split equally between its component predictors.</figcaption></figure></section>
+</table></div></details><figure><img src="figures/shapley_r2_folded.png" alt="Shapley R² contributions by selected model, with each interaction split equally between its component predictors." loading="lazy"><figcaption>Shapley R² contributions by selected model, with each interaction split equally between its component predictors.</figcaption></figure></section>
         </div></body></html>
