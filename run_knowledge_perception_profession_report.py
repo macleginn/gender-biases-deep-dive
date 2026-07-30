@@ -427,6 +427,62 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
         loc="lower right",
     )
     base.savefig(figure_dir / "r2_delta_human_minus_world.png")
+    shapley_figure_html = ""
+    if not shapley.empty:
+        shapley_plot = shapley.copy()
+        shapley_plot["Input"] = shapley_plot["target_model"].map(input_labels)
+        shapley_plot["Plot model"] = shapley_plot["Input"] + ": " + shapley_plot["model"]
+        shapley_plot["Predictor"] = shapley_plot["predictor"].map(base.fixed_effect_label)
+        shapley_plot = shapley_plot.pivot_table(
+            index="Plot model",
+            columns="Predictor",
+            values="shapley_r2",
+            aggfunc="sum",
+            fill_value=0.0,
+        ).reindex(plot_model_order_with_gaps, fill_value=0.0)
+        shapley_terms = shapley_plot.sum(axis=0).sort_values(ascending=False).index.tolist()
+        shapley_plot = shapley_plot.reindex(columns=shapley_terms)
+        shapley_numbers = list(range(1, len(shapley_terms) + 1))
+        shapley_colors = base.sns.color_palette("husl", n_colors=len(shapley_terms))
+        fig, ax = base.plt.subplots(
+            figsize=(13, max(5.5, len(plot_model_order) * 0.9 + 2.5))
+        )
+        shapley_plot.reindex(plot_model_order_reversed_with_gaps).plot(
+            kind="barh", stacked=True, ax=ax, color=shapley_colors, width=0.92
+        )
+        format_paired_bar_axis(ax, plot_model_order_reversed_with_gaps)
+        ax.set_xlabel("Monte Carlo Shapley R² contribution")
+        ax.set_ylabel("")
+        for number, container in zip(shapley_numbers, ax.containers):
+            ax.bar_label(
+                container,
+                labels=[
+                    str(number)
+                    if base.np.isfinite(bar.get_width()) and bar.get_width() >= 0.025
+                    else ""
+                    for bar in container
+                ],
+                label_type="center",
+                color="#111111",
+                fontsize=8,
+                fontweight="bold",
+            )
+        handles, _ = ax.get_legend_handles_labels()
+        ax.legend(
+            handles,
+            [f"{number}. {term_name}" for number, term_name in zip(shapley_numbers, shapley_terms)],
+            title="Selected term",
+            loc="upper center",
+            bbox_to_anchor=(0.5, -0.18),
+            ncols=min(3, len(shapley_terms)),
+            fontsize=8,
+        )
+        fig.subplots_adjust(bottom=0.3)
+        base.savefig(figure_dir / "shapley_r2_decomposition.png")
+        shapley_figure_html = (
+            '<img src="figures/shapley_r2_decomposition.png" '
+            'alt="Monte Carlo Shapley R2 attribution by selected formula term">'
+        )
     variance_plot = variance.copy()
     variance_plot["Model"] = variance_plot["Input"] + ": " + variance_plot["Model"]
     variance_plot = variance_plot.set_index("Model").drop(columns="Input")
@@ -530,7 +586,7 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
         <section><h2>Fixed-Effect Variance</h2><p class="muted">Variance is decomposed across the fixed effects in the Lasso-selected OLS models. Segment numbers in the horizontal bars map to the indexed legend below the plots.</p>{variance_html}<img src="figures/variance_decomposition.png" alt="Proportion of fixed-effect variance"><img src="figures/absolute_r2_decomposition.png" alt="Absolute R2 decomposed by fixed effect"></section>
         <section><h2>Selected Coefficients</h2><img src="figures/coefficient_heatmap.png" alt="Coefficient heatmap">{coefficient_html}</section>
         <section><h2>R² Decomposition</h2><p class="muted">Unique R² is estimated from the drop in OLS R² after removing each selected formula term. Lasso alpha is selected by five-fold cross-validation.</p>{decomposition_html}</section>
-        <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="muted">R² is the payout. A predictor receives its increase in OLS R² when it enters a randomly ordered selected model; Shapley R² averages that payout across random orderings. <code>mc_standard_error</code> reports Monte Carlo uncertainty.</p>{shapley_html}</section>
+        <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="muted">R² is the payout. A predictor receives its increase in OLS R² when it enters a randomly ordered selected model; Shapley R² averages that payout across random orderings. <code>mc_standard_error</code> reports Monte Carlo uncertainty. Segment numbers in the plot map to the indexed legend.</p>{shapley_figure_html}{shapley_html}</section>
         </div></body></html>""").strip()
     path = report_dir / "report.html"
     path.write_text(html, encoding="utf-8")
