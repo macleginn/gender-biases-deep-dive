@@ -591,6 +591,27 @@ def decompose_shapley_r_squared(
     return decomposition
 
 
+def fold_shapley_interactions(decomposition: pd.DataFrame) -> pd.DataFrame:
+    """Allocate each interaction's Shapley R² equally to its component terms."""
+    columns = ["target_model", "predictor", "folded_shapley_r2"]
+    if decomposition.empty:
+        return pd.DataFrame(columns=columns)
+    rows = []
+    for row in decomposition.itertuples(index=False):
+        components = str(row.predictor).split(":")
+        for component in components:
+            rows.append(
+                {
+                    "target_model": row.target_model,
+                    "predictor": component,
+                    "folded_shapley_r2": row.shapley_r2 / len(components),
+                }
+            )
+    return pd.DataFrame(rows).groupby(
+        ["target_model", "predictor"], as_index=False
+    )["folded_shapley_r2"].sum()
+
+
 def select_model(
     df: pd.DataFrame,
     run_dir: Path,
@@ -863,6 +884,8 @@ def build_report(
     shapley_r2_decomposition.to_csv(
         report_dir / "shapley_r2_decomposition.csv", index=False
     )
+    folded_shapley = fold_shapley_interactions(shapley_r2_decomposition)
+    folded_shapley.to_csv(report_dir / "shapley_r2_folded.csv", index=False)
     variance_cols = [
         c for c in selected.columns if c.startswith("fixed_effect_variance_")
     ]
@@ -1116,6 +1139,61 @@ def build_report(
     fig.subplots_adjust(bottom=0.22)
     savefig(figure_dir / "variance_decomposition.png")
 
+    shapley_figure_html = ""
+    if not folded_shapley.empty:
+        shapley_plot = folded_shapley.copy()
+        shapley_plot["Model"] = shapley_plot["target_model"].map(plot_model_labels)
+        shapley_plot["Predictor"] = shapley_plot["predictor"].map(
+            lambda name: (
+                "Profession embedding"
+                if name == "profession_embedding"
+                else fixed_effect_label(name)
+            )
+        )
+        shapley_plot = shapley_plot.pivot_table(
+            index="Model",
+            columns="Predictor",
+            values="folded_shapley_r2",
+            aggfunc="sum",
+            fill_value=0.0,
+        ).reindex(plot_model_order, fill_value=0.0)
+        shapley_predictors = shapley_plot.sum(axis=0).sort_values(ascending=False).index
+        shapley_plot = shapley_plot.reindex(columns=shapley_predictors)
+        shapley_colors = sns.color_palette("husl", n_colors=len(shapley_predictors))
+        fig, axes = plt.subplots(
+            len(method_order),
+            1,
+            sharex=True,
+            figsize=(13, max(5.5, len(model_order) * 0.9 + 2.5)),
+            squeeze=False,
+        )
+        for axis, method in zip(axes[:, 0], method_order):
+            method_models = [
+                label for label in plot_model_order if plot_model_methods[label] == method
+            ]
+            shapley_plot.loc[method_models[::-1]].plot(
+                kind="barh", stacked=True, ax=axis, color=shapley_colors
+            )
+            axis.set_title(method_labels[method], loc="left", fontweight="bold")
+            axis.set_xlabel("Shapley R² contribution (interactions split equally)")
+            axis.set_ylabel("")
+        handles, _ = axes[0, 0].get_legend_handles_labels()
+        axes[-1, 0].legend(
+            handles,
+            shapley_predictors,
+            title="Predictor",
+            loc="upper center",
+            bbox_to_anchor=(0.5, -0.3),
+            ncols=min(3, len(shapley_predictors)),
+            fontsize=8,
+        )
+        fig.subplots_adjust(bottom=0.22)
+        savefig(figure_dir / "shapley_r2_folded.png")
+        shapley_figure_html = figure(
+            "figures/shapley_r2_folded.png",
+            "Shapley R² contributions by selected model, with each interaction split equally between its component predictors.",
+        )
+
     fig, axes = plt.subplots(
         len(method_order),
         1,
@@ -1191,7 +1269,7 @@ def build_report(
           <section><h2>Fixed-Effect Variance</h2><p class="section-note">The embedding dimensions are grouped as one predictor; they are not included in interactions. Each term's allocation includes its fitted-contribution variance plus half of every pairwise covariance, so allocations sum to the variance of the complete fixed-effects predictor. Negative allocations can occur when a term covaries negatively with the others. Segment numbers in the horizontal bars map to the indexed legend below the plot.</p><div class="table-wrap">{variance_html}</div>{figure("figures/variance_decomposition.png", "Proportion of covariance-adjusted fixed-effect variance by selected model; segment numbers map to the indexed legend.")}</section>
           <section><h2>Selected Coefficients</h2>{figure("figures/coefficient_heatmap.png", "Fixed-effect coefficients by selected model.")}<div class="table-wrap">{coefficient_html}</div></section>
           <section><h2>R² Decomposition</h2><p class="section-note">Each value is the unique R² attributable to a selected predictor, estimated by the drop in R² after refitting the OLS model without that predictor. Relative R² is normalized across the selected predictors. The Lasso penalty alpha is selected by five-fold cross-validation.</p><div class="table-wrap">{r2_html}</div></section>
-          <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="section-note">R² is the payout. For each random predictor ordering, a predictor receives the increase in R² when it enters the OLS model; the reported Shapley R² is the mean payout across orderings. <code>mc_standard_error</code> quantifies Monte Carlo uncertainty. The profession SVD dimensions are added together as one predictor, consistent with the fixed-effect variance allocation.</p><div class="table-wrap">{shapley_html}</div></section>
+          <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="section-note">R² is the payout. For each random predictor ordering, a predictor receives the increase in R² when it enters the OLS model; the reported Shapley R² is the mean payout across orderings. <code>mc_standard_error</code> quantifies Monte Carlo uncertainty. The profession SVD dimensions are added together as one predictor, consistent with the fixed-effect variance allocation. In the plot, each interaction term's Shapley contribution is split equally between its component predictors.</p><div class="table-wrap">{shapley_html}</div>{shapley_figure_html}</section>
         </div></body></html>
         """).strip()
     path = report_dir / "report.html"
