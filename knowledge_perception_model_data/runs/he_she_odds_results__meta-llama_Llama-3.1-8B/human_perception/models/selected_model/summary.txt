@@ -1,32 +1,49 @@
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:        log_he_she_odds   R-squared:                       0.551
-Model:                            OLS   Adj. R-squared:                  0.551
-Method:                 Least Squares   F-statistic:                     2224.
-Date:                Sat, 25 Jul 2026   Prob (F-statistic):               0.00
-Time:                        11:08:26   Log-Likelihood:                -23869.
-No. Observations:               16320   AIC:                         4.776e+04
-Df Residuals:                   16310   BIC:                         4.783e+04
-Df Model:                           9                                         
+Dep. Variable:        log_he_she_odds   R-squared:                       0.564
+Model:                            OLS   Adj. R-squared:                  0.563
+Method:                 Least Squares   F-statistic:                     809.9
+Date:                Thu, 30 Jul 2026   Prob (F-statistic):               0.00
+Time:                        11:30:16   Log-Likelihood:                -23633.
+No. Observations:               16320   AIC:                         4.732e+04
+Df Residuals:                   16293   BIC:                         4.753e+04
+Df Model:                          26                                         
 Covariance Type:            nonrobust                                         
-=====================================================================================================================================================================
-                                                                                                        coef    std err          t      P>|t|      [0.025      0.975]
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Intercept                                                                                             1.7088      0.020     85.291      0.000       1.670       1.748
-C(syntactic_role)[T.subject]                                                                         -0.2834      0.023    -12.251      0.000      -0.329      -0.238
-C(valence, Treatment(reference='-val'))[T.+val]                                                       0.0406      0.023      1.753      0.080      -0.005       0.086
-C(dominance, Treatment(reference='-dom'))[T.+dom]                                                     0.1203      0.028      4.245      0.000       0.065       0.176
-C(syntactic_role)[T.subject]:C(dominance, Treatment(reference='-dom'))[T.+dom]                       -0.0418      0.033     -1.279      0.201      -0.106       0.022
-C(valence, Treatment(reference='-val'))[T.+val]:C(dominance, Treatment(reference='-dom'))[T.+dom]    -0.1323      0.033     -4.044      0.000      -0.196      -0.068
-male_perc                                                                                             1.1417      0.016     69.794      0.000       1.110       1.174
-male_perc:C(syntactic_role)[T.subject]                                                                0.0620      0.016      3.793      0.000       0.030       0.094
-male_perc:C(valence, Treatment(reference='-val'))[T.+val]                                            -0.0560      0.016     -3.421      0.001      -0.088      -0.024
-male_perc:C(dominance, Treatment(reference='-dom'))[T.+dom]                                           0.0017      0.016      0.106      0.915      -0.030       0.034
+===================================================================================================================================================================
+                                                                                                      coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                                           1.7014      0.036     47.167      0.000       1.631       1.772
+C(tense)[T.past perfect]                                                                            0.0846      0.048      1.749      0.080      -0.010       0.180
+C(tense)[T.present continuous]                                                                     -0.1653      0.048     -3.416      0.001      -0.260      -0.070
+C(tense)[T.present perfect]                                                                        -0.0378      0.048     -0.780      0.435      -0.133       0.057
+C(tense)[T.simple future]                                                                           0.2430      0.048      5.022      0.000       0.148       0.338
+C(tense)[T.simple past]                                                                            -0.0178      0.048     -0.369      0.712      -0.113       0.077
+C(syntactic_role)[T.subject]                                                                       -0.4107      0.040    -10.392      0.000      -0.488      -0.333
+C(tense)[T.past perfect]:C(syntactic_role)[T.subject]                                               0.0117      0.056      0.210      0.834      -0.098       0.121
+C(tense)[T.present continuous]:C(syntactic_role)[T.subject]                                         0.1874      0.056      3.353      0.001       0.078       0.297
+C(tense)[T.present perfect]:C(syntactic_role)[T.subject]                                            0.1093      0.056      1.956      0.050      -0.000       0.219
+C(tense)[T.simple future]:C(syntactic_role)[T.subject]                                              0.2263      0.056      4.049      0.000       0.117       0.336
+C(tense)[T.simple past]:C(syntactic_role)[T.subject]                                                0.1032      0.056      1.846      0.065      -0.006       0.213
+C(tense)[past continuous]:C(dominance, Treatment(reference='-dom'))[T.+dom]                         0.0372      0.043      0.870      0.384      -0.047       0.121
+C(tense)[past perfect]:C(dominance, Treatment(reference='-dom'))[T.+dom]                            0.0978      0.043      2.292      0.022       0.014       0.182
+C(tense)[present continuous]:C(dominance, Treatment(reference='-dom'))[T.+dom]                      0.0803      0.043      1.882      0.060      -0.003       0.164
+C(tense)[present perfect]:C(dominance, Treatment(reference='-dom'))[T.+dom]                         0.1072      0.043      2.511      0.012       0.024       0.191
+C(tense)[simple future]:C(dominance, Treatment(reference='-dom'))[T.+dom]                           0.1641      0.043      3.845      0.000       0.080       0.248
+C(tense)[simple past]:C(dominance, Treatment(reference='-dom'))[T.+dom]                             0.1096      0.043      2.568      0.010       0.026       0.193
+C(valence, Treatment(reference='-val'))[T.+val]:C(dominance, Treatment(reference='-dom'))[+dom]    -0.0918      0.023     -4.022      0.000      -0.136      -0.047
+C(valence, Treatment(reference='-val'))[T.+val]:C(dominance, Treatment(reference='-dom'))[-dom]     0.0406      0.023      1.778      0.075      -0.004       0.085
+male_perc                                                                                           1.2175      0.021     57.052      0.000       1.176       1.259
+male_perc:C(tense)[T.past perfect]                                                                 -0.0283      0.028     -1.013      0.311      -0.083       0.026
+male_perc:C(tense)[T.present continuous]                                                           -0.1452      0.028     -5.198      0.000      -0.200      -0.090
+male_perc:C(tense)[T.present perfect]                                                              -0.1539      0.028     -5.508      0.000      -0.209      -0.099
+male_perc:C(tense)[T.simple future]                                                                -0.2368      0.028     -8.473      0.000      -0.292      -0.182
+male_perc:C(tense)[T.simple past]                                                                  -0.0535      0.028     -1.914      0.056      -0.108       0.001
+male_perc:C(syntactic_role)[T.subject]                                                              0.0620      0.016      3.846      0.000       0.030       0.094
 ==============================================================================
-Omnibus:                      525.892   Durbin-Watson:                   0.323
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1232.476
-Skew:                           0.165   Prob(JB):                    2.35e-268
-Kurtosis:                       4.305   Cond. No.                         8.34
+Omnibus:                      595.912   Durbin-Watson:                   0.334
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1456.876
+Skew:                           0.188   Prob(JB):                         0.00
+Kurtosis:                       4.415   Cond. No.                         19.6
 ==============================================================================
 
 Notes:

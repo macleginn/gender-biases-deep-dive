@@ -1073,6 +1073,7 @@ def build_report(
             y="R2",
             order=target_plot_order,
             color="#315c70",
+            width=0.9,
             ax=axis,
         )
         axis.set_title(method_labels[method], loc="left", fontweight="bold")
@@ -1108,6 +1109,7 @@ def build_report(
             stacked=True,
             ax=axis,
             color=fixed_effect_colors,
+            width=0.9,
         )
         axis.set_title(method_labels[method], loc="left", fontweight="bold")
         axis.set_xlabel("Proportion of covariance-adjusted fixed-effect variance")
@@ -1177,7 +1179,7 @@ def build_report(
                 label for label in plot_model_order if plot_model_methods[label] == method
             ]
             shapley_plot.loc[method_models[::-1]].plot(
-                kind="barh", stacked=True, ax=axis, color=shapley_colors
+                kind="barh", stacked=True, ax=axis, color=shapley_colors, width=0.9
             )
             axis.set_title(method_labels[method], loc="left", fontweight="bold")
             axis.set_xlabel("Shapley R² contribution (interactions split equally)")

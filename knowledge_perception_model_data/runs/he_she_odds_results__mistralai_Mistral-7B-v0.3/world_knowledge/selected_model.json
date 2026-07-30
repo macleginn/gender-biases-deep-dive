@@ -13,5 +13,7 @@
   "alpha": 0.006356841879688541,
   "alpha_selection": "LassoCV",
   "cv": 5,
-  "lasso_n_iter": 11
+  "lasso_n_iter": 11,
+  "shapley_permutations": 500,
+  "shapley_random_state": 0
 }

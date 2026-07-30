@@ -1,15 +1,20 @@
 {
   "selected_model": "selected_model",
-  "candidate_formula": "log_he_she_odds ~ male_perc + C(syntactic_role) + C(valence, Treatment(reference='-val')) + C(dominance, Treatment(reference='-dom')) + male_perc:C(syntactic_role) + male_perc:C(valence, Treatment(reference='-val')) + male_perc:C(dominance, Treatment(reference='-dom')) + C(syntactic_role):C(valence, Treatment(reference='-val')) + C(syntactic_role):C(dominance, Treatment(reference='-dom')) + C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",
+  "candidate_formula": "log_he_she_odds ~ male_perc + C(tense) + C(syntactic_role) + C(valence, Treatment(reference='-val')) + C(dominance, Treatment(reference='-dom')) + male_perc:C(tense) + male_perc:C(syntactic_role) + male_perc:C(valence, Treatment(reference='-val')) + male_perc:C(dominance, Treatment(reference='-dom')) + C(tense):C(syntactic_role) + C(tense):C(valence, Treatment(reference='-val')) + C(tense):C(dominance, Treatment(reference='-dom')) + C(syntactic_role):C(valence, Treatment(reference='-val')) + C(syntactic_role):C(dominance, Treatment(reference='-dom')) + C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",
   "selected_terms": [
-    "C(syntactic_role)",
+    "C(tense)",
+    "C(tense):C(syntactic_role)",
+    "C(tense):C(valence, Treatment(reference='-val'))",
+    "C(tense):C(dominance, Treatment(reference='-dom'))",
     "C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",
     "male_perc",
-    "male_perc:C(syntactic_role)",
-    "male_perc:C(dominance, Treatment(reference='-dom'))"
+    "male_perc:C(tense)",
+    "male_perc:C(syntactic_role)"
   ],
-  "alpha": 0.004467098122056686,
+  "alpha": 0.01272245567943966,
   "alpha_selection": "LassoCV",
   "cv": 5,
-  "lasso_n_iter": 14
+  "lasso_n_iter": 11,
+  "shapley_permutations": 500,
+  "shapley_random_state": 0
 }

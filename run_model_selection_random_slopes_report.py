@@ -31,6 +31,7 @@ try:
     import statsmodels.formula.api as smf
     from sklearn.decomposition import PCA
     from sklearn.preprocessing import StandardScaler
+    from tqdm.auto import tqdm
 
     log = np.log
 except ImportError as exc:  # pragma: no cover - dependency guard
@@ -133,6 +134,11 @@ def parse_args() -> argparse.Namespace:
         help="Top-level directory for report.html, report figures, and report tables.",
     )
     parser.add_argument("--maxiter", type=int, default=1000)
+    parser.add_argument(
+        "--shapley-permutations", type=int, default=500,
+        help="Random orderings for fixed-effect OLS Shapley R² values (default: 500).",
+    )
+    parser.add_argument("--shapley-random-state", type=int, default=0)
     parser.add_argument(
         "--reuse-existing",
         action="store_true",
@@ -816,11 +822,70 @@ def select_backward_model(
     return selected_fit, trace, current_terms
 
 
+def decompose_fixed_effect_shapley_r_squared(
+    df: pd.DataFrame,
+    terms: list[str],
+    run_dir: Path,
+    permutations: int,
+    random_state: int,
+) -> pd.DataFrame:
+    """Approximate fixed-effect Shapley values with OLS R² as the payout."""
+    if permutations < 1:
+        raise ValueError("shapley permutations must be at least 1")
+    columns = ["predictor", "shapley_r2", "mc_standard_error", "relative_r2",
+               "permutations", "random_state", "full_r2", "utility"]
+    if not terms:
+        return pd.DataFrame(columns=columns)
+    cache: dict[tuple[int, ...], float] = {(): 0.0}
+
+    def utility(indices: tuple[int, ...]) -> float:
+        if indices not in cache:
+            formula = "log_he_she_odds ~ " + " + ".join(terms[index] for index in indices)
+            cache[indices] = float(smf.ols(formula=formula, data=df).fit().rsquared)
+        return cache[indices]
+
+    rng = np.random.default_rng(random_state)
+    marginal = np.empty((permutations, len(terms)))
+    for sample in tqdm(
+        range(permutations),
+        desc=f"Shapley R²: {run_dir.name}",
+        unit="ordering",
+        dynamic_ncols=True,
+        leave=True,
+    ):
+        included: tuple[int, ...] = ()
+        previous = utility(included)
+        for index in rng.permutation(len(terms)):
+            included = tuple(sorted((*included, int(index))))
+            current = utility(included)
+            marginal[sample, index] = current - previous
+            previous = current
+    values = marginal.mean(axis=0)
+    full_r2 = utility(tuple(range(len(terms))))
+    result = pd.DataFrame({
+        "predictor": terms,
+        "shapley_r2": values,
+        "mc_standard_error": (
+            marginal.std(axis=0, ddof=1) / np.sqrt(permutations)
+            if permutations > 1 else np.zeros(len(terms))
+        ),
+        "relative_r2": values / full_r2 if full_r2 > 0 else 0.0,
+        "permutations": permutations,
+        "random_state": random_state,
+        "full_r2": full_r2,
+        "utility": "OLS fixed-effect R2",
+    }).sort_values("shapley_r2", ascending=False, ignore_index=True)
+    result.to_csv(run_dir / "shapley_r2_decomposition.csv", index=False)
+    return result
+
+
 def run_one_input(
     input_csv: Path,
     data_dir: Path,
     *,
     maxiter: int,
+    shapley_permutations: int,
+    shapley_random_state: int,
 ) -> Path:
     inputs_dir = data_dir / "inputs"
     runs_dir = data_dir / "runs"
@@ -829,6 +894,16 @@ def run_one_input(
 
     run_dir = safe_run_dir(input_csv, runs_dir)
     if run_dir_has_completed_full_model(run_dir):
+        shapley_path = run_dir / "shapley_r2_decomposition.csv"
+        prepared_path = run_dir / "prepared_results.csv"
+        if not shapley_path.exists() and prepared_path.exists():
+            decompose_fixed_effect_shapley_r_squared(
+                pd.read_csv(prepared_path),
+                hierarchical_fixed_terms(FIXED_PREDICTORS),
+                run_dir,
+                shapley_permutations,
+                shapley_random_state,
+            )
         print(f"Reusing existing full-model run for {input_csv.name}: {run_dir}")
         return run_dir
 
@@ -867,6 +942,9 @@ def run_one_input(
         maxiter=maxiter,
     )
     full_payload = report_payload(full_fit, fixed_terms, run_dir)
+    decompose_fixed_effect_shapley_r_squared(
+        df, fixed_terms, run_dir, shapley_permutations, shapley_random_state
+    )
     baseline_fit = fit_mixed_model_terms(
         df,
         name="full_mixed_random_slopes__random_intercept_baseline",
@@ -1116,8 +1194,12 @@ def write_table(df: pd.DataFrame, path: Path, *, classes: str = "data-table") ->
         escape=True,
         float_format=lambda x: f"{x:.3f}",
     )
-    path.write_text(html, encoding="utf-8")
-    return html
+    collapsed_html = (
+        '<details class="table-details"><summary>Show table</summary>'
+        f'<div class="table-wrap">{html}</div></details>'
+    )
+    path.write_text(collapsed_html, encoding="utf-8")
+    return collapsed_html
 
 
 def safe_divide(numerator: pd.Series, denominator: pd.Series) -> pd.Series:
@@ -1156,6 +1238,20 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     }
     plot_model_order = [plot_model_labels[model] for model in model_order]
     plot_model_order_reversed = plot_model_order[::-1]
+    shapley_frames = []
+    for _, model in best_models.iterrows():
+        path = Path(model["run_dir"]) / "shapley_r2_decomposition.csv"
+        if path.exists():
+            shapley = pd.read_csv(path)
+            shapley.insert(0, "target_model", model["target_model"])
+            shapley_frames.append(shapley)
+    shapley_decomposition = (
+        pd.concat(shapley_frames, ignore_index=True)
+        if shapley_frames else pd.DataFrame()
+    )
+    shapley_decomposition.to_csv(
+        report_dir / "shapley_r2_decomposition.csv", index=False
+    )
     best_models["fitted_model"] = best_models["model_name"].str.replace("_", " ", regex=False)
     fit_table = best_models[
         [
@@ -1188,6 +1284,22 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     )
     fit_table = display_model_table(fit_table, model_order, plot_model_labels)
     fit_html = write_table(fit_table, tab_dir / "model_fit.html")
+    shapley_html = "<p>No Monte Carlo Shapley R² results.</p>"
+    if not shapley_decomposition.empty:
+        shapley_table = shapley_decomposition.copy()
+        shapley_table["Model"] = shapley_table["target_model"].map(clean_model_name)
+        shapley_table = shapley_table.drop(columns="target_model")
+        shapley_table["Model"] = shapley_table["Model"].map(plot_model_labels)
+        shapley_table["predictor"] = shapley_table["predictor"].map(fixed_effect_label)
+        shapley_table = shapley_table.rename(
+            columns={"predictor": "Predictor", "shapley_r2": "Shapley R2",
+                     "mc_standard_error": "MC standard error", "relative_r2": "Relative R2",
+                     "full_r2": "Full OLS R2", "utility": "Utility"}
+        )
+        shapley_html = write_table(
+            shapley_table, tab_dir / "shapley_r2_decomposition.html",
+            classes="data-table compact",
+        )
 
     baseline = metrics.loc[
         metrics["model_name"].str.endswith("__random_intercept_baseline")
@@ -1571,7 +1683,10 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             .figure-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 16px; }}
             figure {{ margin: 16px auto; }}
             img {{ width: 100%; border: 1px solid var(--border); border-radius: 14px; background: white; }}
-            .table-wrap {{ overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; margin: 12px 0 18px; background: white; }}
+            .table-details {{ border: 1px solid var(--border); border-radius: 14px; margin: 12px 0 18px; background: #fffdf8; }}
+            .table-details summary {{ cursor: pointer; padding: 10px 14px; color: var(--accent); font-weight: 700; }}
+            .table-details[open] summary {{ border-bottom: 1px solid var(--border); }}
+            .table-wrap {{ overflow-x: auto; background: white; }}
             .data-table {{ width: 100%; border-collapse: collapse; font-size: .92rem; }}
             .data-table th, .data-table td {{ border: 1px solid #e2d4bf; padding: 8px 10px; text-align: left; vertical-align: top; }}
             .data-table th {{ background: #f0dfc7; }}
@@ -1595,7 +1710,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             <section>
               <h2>Model Fit</h2>
               <p class="section-note">Full random-slope model per target model.</p>
-              <div class="table-wrap">{fit_html}</div>
+              {fit_html}
               <div class="figure-grid">
                 {figure("figures/r2_comparison.png", "Marginal and conditional R2.")}
                 {figure("figures/random_slope_increment_aic.png", "AIC change versus the random-intercept baseline.")}
@@ -1608,7 +1723,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
                 The full fit adds the random-slope structure on top of that same
                 baseline.
               </p>
-              <div class="table-wrap">{increment_html}</div>
+              {increment_html}
             </section>
             <section>
               <h2>Explained-Variance Decomposition</h2>
@@ -1618,8 +1733,8 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
                 contribution from random slopes.
               </p>
               {figure("figures/explained_variance_decomposition.png", "Explained variance split into random intercept only, fixed effects, and additional random slopes.")}
-              <div class="table-wrap">{baseline_explained_html}</div>
-              <div class="table-wrap">{expanded_explained_html}</div>
+              {baseline_explained_html}
+              {expanded_explained_html}
             </section>
             <section>
               <h2>Fixed-Effect Variance</h2>
@@ -1630,13 +1745,13 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
                 predictor; negative allocations can occur when a term covaries negatively
                 with the others.
               </p>
-              <div class="table-wrap">{fixed_variance_html}</div>
+              {fixed_variance_html}
               {figure("figures/fixed_effect_variance.png", "Covariance-adjusted fixed-effect variance allocation by model term; segment numbers map to the legend below the plot.")}
             </section>
             <section>
               <h2>Random-Effect Variance</h2>
               <p class="section-note">The random-intercept baseline uses the same full fixed-effects formula.</p>
-              <div class="table-wrap">{variance_html}</div>
+              {variance_html}
               {figure("figures/variance_decomposition.png", "Random-slope variance decomposition.")}
             </section>
             <section>
@@ -1654,7 +1769,12 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             <section>
               <h2>Fixed Effects</h2>
               {figure("figures/coefficient_heatmap.png", "Fixed-effect coefficients by model.")}
-              <div class="table-wrap">{coef_html}</div>
+              {coef_html}
+            </section>
+            <section>
+              <h2>Monte Carlo Shapley R² Attribution</h2>
+              <p class="section-note">The payout is the R² from an OLS model containing the selected fixed effects. Each term receives its mean R² increase across random term orderings; <code>mc_standard_error</code> quantifies Monte Carlo uncertainty. This fixed-effect OLS utility is reported separately from the mixed-model marginal and conditional R² values above.</p>
+              {shapley_html}
             </section>
           </div>
         </body>
@@ -1671,6 +1791,8 @@ def main() -> int:
     if IMPORT_ERROR is not None:
         print(dependency_message(IMPORT_ERROR), file=sys.stderr)
         return 1
+    if args.shapley_permutations < 1:
+        raise ValueError("--shapley-permutations must be at least 1")
 
     args.data_dir.mkdir(parents=True, exist_ok=True)
     args.report_dir.mkdir(parents=True, exist_ok=True)
@@ -1680,6 +1802,8 @@ def main() -> int:
         "data_dir": str(args.data_dir.resolve()),
         "report_dir": str(args.report_dir.resolve()),
         "maxiter": args.maxiter,
+        "shapley_permutations": args.shapley_permutations,
+        "shapley_random_state": args.shapley_random_state,
         "reuse_existing": bool(args.reuse_existing),
     }
 
@@ -1707,6 +1831,8 @@ def main() -> int:
                     input_csv,
                     args.data_dir,
                     maxiter=args.maxiter,
+                    shapley_permutations=args.shapley_permutations,
+                    shapley_random_state=args.shapley_random_state,
                 )
             )
         manifest["run_dirs"] = [str(path.resolve()) for path in run_dirs]

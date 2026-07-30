@@ -7,7 +7,7 @@ membership frequency from ``professions.csv`` instead of profession
 embeddings.  The two candidate models are::
 
     log_he_she_odds ~ (MalePerc + semantic_role + valence + dominance)^2
-    log_he_she_odds ~ (MalePerc + syntactic_role + valence + dominance)^2
+    log_he_she_odds ~ (MalePerc + tense + syntactic_role + valence + dominance)^2
 
 Categorical predictors are expanded with treatment coding by patsy, and all
 pairwise interactions are available to LassoCV.
@@ -43,6 +43,7 @@ MODEL_SPECS = {
     "human_perception": {
         "label": "Human-Perception Model",
         "role": "syntactic_role",
+        "additional_predictors": ("tense",),
     },
 }
 PREDICTORS = ("male_perc", "valence", "dominance")
@@ -57,6 +58,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--data-dir", type=Path, default=Path("knowledge_perception_model_data"))
     parser.add_argument("--report-dir", type=Path, default=Path("knowledge_perception_model_report"))
     parser.add_argument("--maxiter", type=int, default=1000)
+    parser.add_argument("--shapley-permutations", type=int, default=500)
+    parser.add_argument("--shapley-random-state", type=int, default=0)
     parser.add_argument("--reuse-existing", action="store_true")
     return parser.parse_args()
 
@@ -127,15 +130,70 @@ def prepare_data(path: Path, metadata: base.pd.DataFrame) -> base.pd.DataFrame:
     return merged
 
 
-def model_terms(role: str) -> list[str]:
-    names = ["male_perc", role, "valence", "dominance"]
+def model_terms(role: str, additional_predictors: tuple[str, ...] = ()) -> list[str]:
+    names = ["male_perc", *additional_predictors, role, "valence", "dominance"]
     main = [base.term(name) for name in names]
     return main + [f"{a}:{b}" for a, b in combinations(main, 2)]
 
 
-def select_model(df: base.pd.DataFrame, run_dir: Path, role: str, maxiter: int) -> tuple[dict[str, Any], list[str], base.pd.DataFrame]:
+def decompose_shapley_r_squared(
+    df: base.pd.DataFrame,
+    selected: dict[str, Any],
+    terms: list[str],
+    run_dir: Path,
+    permutations: int,
+    random_state: int,
+) -> base.pd.DataFrame:
+    """Estimate selected-term Shapley R² values from random orderings."""
+    if permutations < 1:
+        raise ValueError("shapley permutations must be at least 1")
+    if not terms:
+        return base.pd.DataFrame(
+            columns=["predictor", "shapley_r2", "mc_standard_error", "relative_r2",
+                     "permutations", "random_state", "full_r2"]
+        )
+    cache: dict[tuple[int, ...], float] = {(): 0.0}
+
+    def utility(indices: tuple[int, ...]) -> float:
+        if indices not in cache:
+            formula = "log_he_she_odds ~ " + " + ".join(terms[index] for index in indices)
+            cache[indices] = float(base.smf.ols(formula=formula, data=df).fit().rsquared)
+        return cache[indices]
+
+    rng = base.np.random.default_rng(random_state)
+    marginal = base.np.empty((permutations, len(terms)))
+    for sample in range(permutations):
+        included: tuple[int, ...] = ()
+        previous = utility(included)
+        for index in rng.permutation(len(terms)):
+            included = tuple(sorted((*included, int(index))))
+            current = utility(included)
+            marginal[sample, index] = current - previous
+            previous = current
+    values = marginal.mean(axis=0)
+    standard_error = (
+        marginal.std(axis=0, ddof=1) / base.np.sqrt(permutations)
+        if permutations > 1 else base.np.zeros(len(terms))
+    )
+    full_r2 = float(selected["result"].rsquared)
+    result = base.pd.DataFrame({
+        "predictor": terms,
+        "shapley_r2": values,
+        "mc_standard_error": standard_error,
+        "relative_r2": values / full_r2 if full_r2 > 0 else 0.0,
+        "permutations": permutations,
+        "random_state": random_state,
+        "full_r2": full_r2,
+    }).sort_values("shapley_r2", ascending=False, ignore_index=True)
+    result.to_csv(run_dir / "shapley_r2_decomposition.csv", index=False)
+    return result
+
+
+def select_model(df: base.pd.DataFrame, run_dir: Path, role: str,
+                 additional_predictors: tuple[str, ...], maxiter: int,
+                 shapley_permutations: int, shapley_random_state: int) -> tuple[dict[str, Any], list[str], base.pd.DataFrame]:
     run_dir.mkdir(parents=True, exist_ok=True)
-    all_terms = model_terms(role)
+    all_terms = model_terms(role, additional_predictors)
     formula = "log_he_she_odds ~ " + " + ".join(all_terms)
     response, design = base.dmatrices(formula, data=df, return_type="dataframe")
     x_scaled = base.StandardScaler().fit_transform(design)
@@ -153,6 +211,9 @@ def select_model(df: base.pd.DataFrame, run_dir: Path, role: str, maxiter: int) 
             selected_terms.append(term_name)
     selected = base.fit_model(df, "selected_model", selected_terms, [], run_dir)
     decomposition = base.decompose_r_squared(df, selected, selected_terms, run_dir)
+    decompose_shapley_r_squared(
+        df, selected, selected_terms, run_dir, shapley_permutations, shapley_random_state
+    )
     (run_dir / "selected_model.json").write_text(json.dumps({
         "selected_model": selected["name"],
         "candidate_formula": formula,
@@ -161,12 +222,15 @@ def select_model(df: base.pd.DataFrame, run_dir: Path, role: str, maxiter: int) 
         "alpha_selection": "LassoCV",
         "cv": 5,
         "lasso_n_iter": int(lasso.n_iter_),
+        "shapley_permutations": shapley_permutations,
+        "shapley_random_state": shapley_random_state,
     }, indent=2), encoding="utf-8")
     return selected, selected_terms, decomposition
 
 
 def run_one(input_csv: Path, metadata: base.pd.DataFrame, metadata_meta: dict[str, Any],
-            data_dir: Path, maxiter: int) -> Path:
+            data_dir: Path, maxiter: int, shapley_permutations: int,
+            shapley_random_state: int) -> Path:
     run_dir = data_dir / "runs" / slugify(input_csv.stem)
     run_dir.mkdir(parents=True, exist_ok=True)
     (data_dir / "inputs").mkdir(parents=True, exist_ok=True)
@@ -176,7 +240,10 @@ def run_one(input_csv: Path, metadata: base.pd.DataFrame, metadata_meta: dict[st
     df.to_csv(run_dir / "prepared_results.csv", index=False)
     selected_models = {}
     for key, spec in MODEL_SPECS.items():
-        selected, terms, decomposition = select_model(df, run_dir / key, spec["role"], maxiter)
+        selected, terms, decomposition = select_model(
+            df, run_dir / key, spec["role"], spec.get("additional_predictors", ()), maxiter,
+            shapley_permutations, shapley_random_state,
+        )
         selected_models[key] = {
             "label": spec["label"], "role": spec["role"], "model_dir": str((run_dir / key / "models" / "selected_model").resolve()),
             "run_dir": str((run_dir / key).resolve()), "selected_terms": terms,
@@ -200,6 +267,15 @@ def discover_inputs(paths: list[Path]) -> list[Path]:
     return [path.resolve() for path in inputs]
 
 
+def write_table(df: base.pd.DataFrame, path: Path, *, classes: str = "data-table") -> str:
+    """Write a report table in a closed disclosure panel."""
+    table = df.to_html(index=False, border=0, classes=classes, escape=True,
+                       float_format=lambda value: f"{value:.3f}")
+    html = f'<details class="table-details"><summary>Show table</summary><div class="table-wrap">{table}</div></details>'
+    path.write_text(html, encoding="utf-8")
+    return html
+
+
 def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str, Any]) -> Path:
     report_dir.mkdir(parents=True, exist_ok=True)
     table_dir = report_dir / "tables"
@@ -209,6 +285,7 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     rows: list[dict[str, Any]] = []
     coefficient_frames = []
     decomposition_frames = []
+    shapley_frames = []
     for run in run_dirs:
         summary = json.loads((run / "run_summary.json").read_text())
         target = base.clean_model_name(Path(summary["input_csv"]).stem)
@@ -224,11 +301,19 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
             decomposition.insert(0, "model", model["label"])
             decomposition.insert(0, "target_model", target)
             decomposition_frames.append(decomposition)
+            shapley_path = Path(model["run_dir"]) / "shapley_r2_decomposition.csv"
+            if shapley_path.exists():
+                shapley = base.pd.read_csv(shapley_path)
+                shapley.insert(0, "model", model["label"])
+                shapley.insert(0, "target_model", target)
+                shapley_frames.append(shapley)
     metrics = base.pd.DataFrame(rows).sort_values(["target_model", "model"])
     coefficients = base.pd.concat(coefficient_frames, ignore_index=True)
     decomposition = base.pd.concat(decomposition_frames, ignore_index=True)
+    shapley = base.pd.concat(shapley_frames, ignore_index=True) if shapley_frames else base.pd.DataFrame()
     metrics.to_csv(report_dir / "model_metrics.csv", index=False)
     decomposition.to_csv(report_dir / "r2_decomposition.csv", index=False)
+    shapley.to_csv(report_dir / "shapley_r2_decomposition.csv", index=False)
     available_inputs = set(metrics["target_model"])
     configured_order, configured_labels = base.load_model_display_config()
     input_order = [name for name in configured_order if name in available_inputs]
@@ -266,17 +351,26 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     ]
     plot_model_order_with_gaps = model_order_with_pair_gaps(plot_model_order)
     plot_model_order_reversed_with_gaps = plot_model_order_with_gaps[::-1]
-    fit_html = base.write_table(fit.drop(columns=["Plot model"]), table_dir / "model_fit.html")
-    variance_html = base.write_table(variance, table_dir / "variance_decomposition.html")
+    fit_html = write_table(fit.drop(columns=["Plot model"]), table_dir / "model_fit.html")
+    variance_html = write_table(variance, table_dir / "variance_decomposition.html")
     coefficient_table = coefficients.rename(columns={
         "model": "Model", "term": "Term", "coef": "Estimate",
         "std_err": "Std. error", "p_value": "p value", "ci_low": "CI low", "ci_high": "CI high",
     })
-    coefficient_html = base.write_table(coefficient_table, table_dir / "selected_coefficients.html", classes="data-table compact")
+    coefficient_html = write_table(coefficient_table, table_dir / "selected_coefficients.html", classes="data-table compact")
     decomposition_table = decomposition.copy()
     decomposition_table["target_model"] = decomposition_table["target_model"].map(input_labels)
     decomposition_table["predictor"] = decomposition_table["predictor"].map(base.fixed_effect_label)
-    decomposition_html = base.write_table(decomposition_table, table_dir / "r2_decomposition.html", classes="data-table compact")
+    decomposition_html = write_table(decomposition_table, table_dir / "r2_decomposition.html", classes="data-table compact")
+    shapley_html = "<p>No Monte Carlo Shapley R² results.</p>"
+    if not shapley.empty:
+        shapley_table = shapley.copy()
+        shapley_table["target_model"] = shapley_table["target_model"].map(input_labels)
+        shapley_table["predictor"] = shapley_table["predictor"].map(base.fixed_effect_label)
+        shapley_html = write_table(
+            shapley_table, table_dir / "shapley_r2_decomposition.html",
+            classes="data-table compact",
+        )
     base.sns.set_theme(style="whitegrid", context="notebook")
     base.plt.figure(figsize=(8, max(3.5, len(fit) * 0.4 + 1.5)))
     ax = base.sns.barplot(
@@ -429,13 +523,14 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
         body{{margin:0;color:#1d2625;font-family:Georgia,serif;background:#f4efe6}}.page{{max-width:1220px;margin:auto;padding:32px 20px 60px}}
         header,section{{background:#fffaf1;border:1px solid #d9c8ad;border-radius:24px;padding:26px;margin-bottom:22px}}h1{{font-size:clamp(2rem,5vw,4rem);margin:0 0 12px}}h2{{margin:0 0 12px}}.muted{{color:#64706b;line-height:1.5}}
         .metric-grid{{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}}.metric-card{{border:1px solid #d9c8ad;border-radius:16px;padding:14px;background:#fffdf8;min-width:150px}}.metric-value{{font-size:1.7rem;font-weight:700;color:#315c70}}.metric-label{{color:#64706b}}
-        .table-wrap{{overflow-x:auto;border:1px solid #d9c8ad;border-radius:14px;margin:12px 0 18px;background:white}}.data-table{{width:100%;border-collapse:collapse;font-size:.9rem}}.data-table th,.data-table td{{border:1px solid #e2d4bf;padding:8px 10px;text-align:left;white-space:nowrap}}.data-table th{{background:#f0dfc7}}img{{max-width:100%;border:1px solid #d9c8ad;border-radius:14px}}
+        .table-details{{border:1px solid #d9c8ad;border-radius:14px;margin:12px 0 18px;background:#fffdf8}}.table-details summary{{cursor:pointer;padding:10px 14px;color:#315c70;font-weight:700}}.table-details[open] summary{{border-bottom:1px solid #d9c8ad}}.table-wrap{{overflow-x:auto;background:white}}.data-table{{width:100%;border-collapse:collapse;font-size:.9rem}}.data-table th,.data-table td{{border:1px solid #e2d4bf;padding:8px 10px;text-align:left;white-space:nowrap}}.data-table th{{background:#f0dfc7}}img{{max-width:100%;border:1px solid #d9c8ad;border-radius:14px}}
         </style></head><body><div class="page"><header><h1>World-Knowledge and Human-Perception Models</h1><p class="muted">LassoCV-selected and OLS-refit interaction models for he/she log odds. MalePerc is joined from the first-column profession list in <code>professions.csv</code> and z-scored before fitting; valence and dominance are categorical predictors. Generated on {date.today().isoformat()}.</p><div class="metric-grid">{cards}</div></header>
-        <section><h2>Model Fit</h2><div class="table-wrap">{fit_html}</div><img src="figures/r2_comparison.png" alt="R2 comparison"></section>
+        <section><h2>Model Fit</h2>{fit_html}<img src="figures/r2_comparison.png" alt="R2 comparison"></section>
         <section><h2>R² Change: Human-Perception vs World-Knowledge</h2><p class="muted">Each vertical bar starts at the World-Knowledge model's absolute R² (gray). The attached segment is the change after switching to the Human-Perception model: blue indicates an increase and red a decrease. Labels give the signed ΔR².</p><img src="figures/r2_delta_human_minus_world.png" alt="World-Knowledge R2 with signed change to the Human-Perception model"></section>
-        <section><h2>Fixed-Effect Variance</h2><p class="muted">Variance is decomposed across the fixed effects in the Lasso-selected OLS models. Segment numbers in the horizontal bars map to the indexed legend below the plots.</p><div class="table-wrap">{variance_html}</div><img src="figures/variance_decomposition.png" alt="Proportion of fixed-effect variance"><img src="figures/absolute_r2_decomposition.png" alt="Absolute R2 decomposed by fixed effect"></section>
-        <section><h2>Selected Coefficients</h2><img src="figures/coefficient_heatmap.png" alt="Coefficient heatmap"><div class="table-wrap">{coefficient_html}</div></section>
-        <section><h2>R² Decomposition</h2><p class="muted">Unique R² is estimated from the drop in OLS R² after removing each selected formula term. Lasso alpha is selected by five-fold cross-validation.</p><div class="table-wrap">{decomposition_html}</div></section>
+        <section><h2>Fixed-Effect Variance</h2><p class="muted">Variance is decomposed across the fixed effects in the Lasso-selected OLS models. Segment numbers in the horizontal bars map to the indexed legend below the plots.</p>{variance_html}<img src="figures/variance_decomposition.png" alt="Proportion of fixed-effect variance"><img src="figures/absolute_r2_decomposition.png" alt="Absolute R2 decomposed by fixed effect"></section>
+        <section><h2>Selected Coefficients</h2><img src="figures/coefficient_heatmap.png" alt="Coefficient heatmap">{coefficient_html}</section>
+        <section><h2>R² Decomposition</h2><p class="muted">Unique R² is estimated from the drop in OLS R² after removing each selected formula term. Lasso alpha is selected by five-fold cross-validation.</p>{decomposition_html}</section>
+        <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="muted">R² is the payout. A predictor receives its increase in OLS R² when it enters a randomly ordered selected model; Shapley R² averages that payout across random orderings. <code>mc_standard_error</code> reports Monte Carlo uncertainty.</p>{shapley_html}</section>
         </div></body></html>""").strip()
     path = report_dir / "report.html"
     path.write_text(html, encoding="utf-8")
@@ -447,6 +542,8 @@ def main() -> int:
         print(f"Missing dependencies: {IMPORT_ERROR}", file=sys.stderr)
         return 1
     args = parse_args()
+    if args.shapley_permutations < 1:
+        raise ValueError("--shapley-permutations must be at least 1")
     if args.reuse_existing:
         runs = sorted((args.data_dir / "runs").iterdir())
         metadata_meta = json.loads((args.data_dir / "profession_metadata.json").read_text())
@@ -456,7 +553,13 @@ def main() -> int:
         (args.data_dir / "profession_metadata.csv").write_text(metadata.to_csv(index=False), encoding="utf-8")
         (args.data_dir / "profession_metadata.json").write_text(json.dumps(metadata_meta, indent=2), encoding="utf-8")
         inputs = discover_inputs(args.results_csv)
-        runs = [run_one(path, metadata, metadata_meta, args.data_dir, args.maxiter) for path in base.tqdm(inputs, desc="Input files")]
+        runs = [
+            run_one(
+                path, metadata, metadata_meta, args.data_dir, args.maxiter,
+                args.shapley_permutations, args.shapley_random_state,
+            )
+            for path in base.tqdm(inputs, desc="Input files")
+        ]
     if not runs:
         print("No runs found", file=sys.stderr)
         return 1
