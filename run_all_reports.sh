@@ -1,4 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash --login
+#SBATCH -p gpuA40GB
+#SBATCH -G 2
+#SBATCH -n 24
+#SBATCH -t 2-0
+
 set -euo pipefail
 
 # Regenerate the random-slopes, profession-embedding, and knowledge/perception
@@ -7,9 +12,19 @@ set -euo pipefail
 export UV_CACHE_DIR="${UV_CACHE_DIR:-/tmp/flos-code-uv-cache}"
 mkdir -p "$UV_CACHE_DIR"
 
-# uv run python run_model_selection_random_slopes_report.py "$@"
-# uv run run_lasso_profession_selected_collocates_report.py "$@"
 uv run python run_knowledge_perception_profession_report.py "$@"
+
+git add -A && \
+	git commit -m "Update reports" && \
+	git push
+
+uv run python run_model_selection_random_slopes_report.py "$@"
+
+git add -A && \
+	git commit -m "Update reports" && \
+	git push
+
+uv run run_lasso_profession_selected_collocates_report.py "$@"
 
 git add -A && \
 	git commit -m "Update reports" && \

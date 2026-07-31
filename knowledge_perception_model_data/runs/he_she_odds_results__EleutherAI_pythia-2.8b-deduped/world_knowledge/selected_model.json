@@ -10,7 +10,7 @@
     "male_perc:C(valence, Treatment(reference='-val'))",
     "male_perc:C(dominance, Treatment(reference='-dom'))"
   ],
-  "alpha": 0.0029390522723065225,
+  "alpha": 0.002939052272306523,
   "alpha_selection": "LassoCV",
   "cv": 5,
   "lasso_n_iter": 14,

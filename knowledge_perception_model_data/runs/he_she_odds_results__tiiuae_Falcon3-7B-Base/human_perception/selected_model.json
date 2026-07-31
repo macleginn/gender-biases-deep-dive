@@ -12,7 +12,7 @@
     "male_perc:C(tense)",
     "male_perc:C(syntactic_role)"
   ],
-  "alpha": 0.014222249369258958,
+  "alpha": 0.01422224936925896,
   "alpha_selection": "LassoCV",
   "cv": 5,
   "lasso_n_iter": 13,

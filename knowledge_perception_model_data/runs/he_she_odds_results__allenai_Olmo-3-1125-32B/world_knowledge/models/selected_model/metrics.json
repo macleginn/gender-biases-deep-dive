@@ -7,14 +7,14 @@
   "aic": 52123.78487036096,
   "bic": 52177.68589676059,
   "log_likelihood": -26054.89243518048,
-  "residual_variance": 1.4269702225265055,
-  "R2m": 0.5294539696015591,
-  "R2c": 0.5294539696015591,
+  "residual_variance": 1.4269702225265053,
+  "R2m": 0.5294539696015592,
+  "R2c": 0.5294539696015592,
   "warnings": [],
-  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.0032561476212044265,
-  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.0032608675740474634,
-  "fixed_effect_variance_male_perc": 1.5859383565818719,
-  "fixed_effect_variance_male_perc:C(semantic_role)": 0.04016282219615658,
-  "fixed_effect_variance_male_perc:C(valence, Treatment(reference='-val'))": -0.04164884357534064,
-  "fixed_effect_variance_male_perc:C(dominance, Treatment(reference='-dom'))": 0.014053793191115452
+  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.0032561476212044273,
+  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.00326086757404744,
+  "fixed_effect_variance_male_perc": 1.5859383565818692,
+  "fixed_effect_variance_male_perc:C(semantic_role)": 0.040162822196156744,
+  "fixed_effect_variance_male_perc:C(valence, Treatment(reference='-val'))": -0.04164884357534087,
+  "fixed_effect_variance_male_perc:C(dominance, Treatment(reference='-dom'))": 0.014053793191115467
 }

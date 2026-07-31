@@ -11,12 +11,12 @@
   "R2m": 0.5700105795833886,
   "R2c": 0.5700105795833886,
   "warnings": [],
-  "fixed_effect_variance_C(tense)": 0.03168494088098696,
-  "fixed_effect_variance_C(syntactic_role)": 0.0790829949350845,
-  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.0032561476212044347,
-  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.0006747428982722399,
-  "fixed_effect_variance_C(tense):C(dominance, Treatment(reference='-dom'))": 0.015289728414502123,
-  "fixed_effect_variance_male_perc": 1.6278302229455035,
-  "fixed_effect_variance_male_perc:C(tense)": -0.04390333305010565,
-  "fixed_effect_variance_male_perc:C(dominance, Treatment(reference='-dom'))": 0.014053793191115539
+  "fixed_effect_variance_C(tense)": 0.031684940880987014,
+  "fixed_effect_variance_C(syntactic_role)": 0.07908299493508451,
+  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.0032561476212044325,
+  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.0006747428982722469,
+  "fixed_effect_variance_C(tense):C(dominance, Treatment(reference='-dom'))": 0.015289728414502084,
+  "fixed_effect_variance_male_perc": 1.627830222945504,
+  "fixed_effect_variance_male_perc:C(tense)": -0.04390333305010602,
+  "fixed_effect_variance_male_perc:C(dominance, Treatment(reference='-dom'))": 0.014053793191115015
 }

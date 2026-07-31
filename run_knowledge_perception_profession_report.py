@@ -16,7 +16,9 @@ pairwise interactions are available to LassoCV.
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import json
+import os
 import re
 import shutil
 import sys
@@ -136,6 +138,31 @@ def model_terms(role: str, additional_predictors: tuple[str, ...] = ()) -> list[
     return main + [f"{a}:{b}" for a, b in combinations(main, 2)]
 
 
+def _shapley_marginal_batch(
+    df: base.pd.DataFrame, terms: list[str], permutations: int, seed: int
+) -> base.np.ndarray:
+    """Compute one independent, process-local batch of Shapley orderings."""
+    cache: dict[tuple[int, ...], float] = {(): 0.0}
+
+    def utility(indices: tuple[int, ...]) -> float:
+        if indices not in cache:
+            formula = "log_he_she_odds ~ " + " + ".join(terms[index] for index in indices)
+            cache[indices] = float(base.smf.ols(formula=formula, data=df).fit().rsquared)
+        return cache[indices]
+
+    rng = base.np.random.default_rng(seed)
+    marginal = base.np.empty((permutations, len(terms)))
+    for sample in range(permutations):
+        included: tuple[int, ...] = ()
+        previous = utility(included)
+        for index in rng.permutation(len(terms)):
+            included = tuple(sorted((*included, int(index))))
+            current = utility(included)
+            marginal[sample, index] = current - previous
+            previous = current
+    return marginal
+
+
 def decompose_shapley_r_squared(
     df: base.pd.DataFrame,
     selected: dict[str, Any],
@@ -152,24 +179,24 @@ def decompose_shapley_r_squared(
             columns=["predictor", "shapley_r2", "mc_standard_error", "relative_r2",
                      "permutations", "random_state", "full_r2"]
         )
-    cache: dict[tuple[int, ...], float] = {(): 0.0}
-
-    def utility(indices: tuple[int, ...]) -> float:
-        if indices not in cache:
-            formula = "log_he_she_odds ~ " + " + ".join(terms[index] for index in indices)
-            cache[indices] = float(base.smf.ols(formula=formula, data=df).fit().rsquared)
-        return cache[indices]
-
-    rng = base.np.random.default_rng(random_state)
-    marginal = base.np.empty((permutations, len(terms)))
-    for sample in range(permutations):
-        included: tuple[int, ...] = ()
-        previous = utility(included)
-        for index in rng.permutation(len(terms)):
-            included = tuple(sorted((*included, int(index))))
-            current = utility(included)
-            marginal[sample, index] = current - previous
-            previous = current
+    worker_count = min(permutations, os.cpu_count() or 1)
+    batch_count = min(permutations, worker_count * 4)
+    batch_sizes = [permutations // batch_count] * batch_count
+    for index in range(permutations % batch_count):
+        batch_sizes[index] += 1
+    seeds = base.np.random.SeedSequence(random_state).generate_state(batch_count)
+    batches = []
+    with concurrent.futures.ProcessPoolExecutor(max_workers=worker_count) as executor:
+        futures = [
+            executor.submit(_shapley_marginal_batch, df, terms, size, int(seed))
+            for size, seed in zip(batch_sizes, seeds)
+        ]
+        with base.tqdm(total=permutations, desc="Shapley R² orderings", unit="ordering") as progress:
+            for future in concurrent.futures.as_completed(futures):
+                batch = future.result()
+                batches.append(batch)
+                progress.update(len(batch))
+    marginal = base.np.vstack(batches)
     values = marginal.mean(axis=0)
     standard_error = (
         marginal.std(axis=0, ddof=1) / base.np.sqrt(permutations)

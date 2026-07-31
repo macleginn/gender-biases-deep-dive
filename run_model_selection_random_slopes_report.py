@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import hashlib
 import json
 import os
@@ -822,6 +823,31 @@ def select_backward_model(
     return selected_fit, trace, current_terms
 
 
+def _shapley_marginal_batch(
+    df: pd.DataFrame, terms: list[str], permutations: int, seed: int
+) -> np.ndarray:
+    """Compute one independent, process-local batch of Shapley orderings."""
+    cache: dict[tuple[int, ...], float] = {(): 0.0}
+
+    def utility(indices: tuple[int, ...]) -> float:
+        if indices not in cache:
+            formula = "log_he_she_odds ~ " + " + ".join(terms[index] for index in indices)
+            cache[indices] = float(smf.ols(formula=formula, data=df).fit().rsquared)
+        return cache[indices]
+
+    rng = np.random.default_rng(seed)
+    marginal = np.empty((permutations, len(terms)))
+    for sample in range(permutations):
+        included: tuple[int, ...] = ()
+        previous = utility(included)
+        for index in rng.permutation(len(terms)):
+            included = tuple(sorted((*included, int(index))))
+            current = utility(included)
+            marginal[sample, index] = current - previous
+            previous = current
+    return marginal
+
+
 def decompose_fixed_effect_shapley_r_squared(
     df: pd.DataFrame,
     terms: list[str],
@@ -836,32 +862,35 @@ def decompose_fixed_effect_shapley_r_squared(
                "permutations", "random_state", "full_r2", "utility"]
     if not terms:
         return pd.DataFrame(columns=columns)
-    cache: dict[tuple[int, ...], float] = {(): 0.0}
 
-    def utility(indices: tuple[int, ...]) -> float:
-        if indices not in cache:
-            formula = "log_he_she_odds ~ " + " + ".join(terms[index] for index in indices)
-            cache[indices] = float(smf.ols(formula=formula, data=df).fit().rsquared)
-        return cache[indices]
-
-    rng = np.random.default_rng(random_state)
-    marginal = np.empty((permutations, len(terms)))
-    for sample in tqdm(
-        range(permutations),
-        desc=f"Shapley R²: {run_dir.name}",
-        unit="ordering",
-        dynamic_ncols=True,
-        leave=True,
-    ):
-        included: tuple[int, ...] = ()
-        previous = utility(included)
-        for index in rng.permutation(len(terms)):
-            included = tuple(sorted((*included, int(index))))
-            current = utility(included)
-            marginal[sample, index] = current - previous
-            previous = current
+    worker_count = min(permutations, os.cpu_count() or 1)
+    batch_count = min(permutations, worker_count * 4)
+    batch_sizes = [permutations // batch_count] * batch_count
+    for index in range(permutations % batch_count):
+        batch_sizes[index] += 1
+    seeds = np.random.SeedSequence(random_state).generate_state(batch_count)
+    batches = []
+    with concurrent.futures.ProcessPoolExecutor(max_workers=worker_count) as executor:
+        futures = [
+            executor.submit(_shapley_marginal_batch, df, terms, size, int(seed))
+            for size, seed in zip(batch_sizes, seeds)
+        ]
+        with tqdm(
+            total=permutations,
+            desc=f"Shapley R²: {run_dir.name}",
+            unit="ordering",
+            dynamic_ncols=True,
+            leave=True,
+        ) as progress:
+            for future in concurrent.futures.as_completed(futures):
+                batch = future.result()
+                batches.append(batch)
+                progress.update(len(batch))
+    marginal = np.vstack(batches)
     values = marginal.mean(axis=0)
-    full_r2 = utility(tuple(range(len(terms))))
+    full_r2 = float(smf.ols(
+        formula="log_he_she_odds ~ " + " + ".join(terms), data=df
+    ).fit().rsquared)
     result = pd.DataFrame({
         "predictor": terms,
         "shapley_r2": values,

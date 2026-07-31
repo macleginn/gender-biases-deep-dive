@@ -3,11 +3,11 @@ Intercept,0.0,False
 C(tense)[T.past perfect],-0.0,False
 C(tense)[T.present continuous],-0.0,False
 C(tense)[T.present perfect],0.0,False
-C(tense)[T.simple future],0.12863157139641318,True
+C(tense)[T.simple future],0.12863157139641324,True
 C(tense)[T.simple past],0.0,False
-C(syntactic_role)[T.subject],-0.2558237462036584,True
-"C(valence, Treatment(reference='-val'))[T.+val]",-0.03167628870985575,True
-"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.010655297682669934,True
+C(syntactic_role)[T.subject],-0.25582374620365844,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.031676288709855664,True
+"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.010655297682669871,True
 C(tense)[T.past perfect]:C(syntactic_role)[T.subject],-0.0,False
 C(tense)[T.present continuous]:C(syntactic_role)[T.subject],-0.0,False
 C(tense)[T.present perfect]:C(syntactic_role)[T.subject],0.0,False
@@ -21,7 +21,7 @@ C(tense)[T.simple past]:C(syntactic_role)[T.subject],-0.0,False
 "C(tense)[T.past perfect]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.0,False
 "C(tense)[T.present continuous]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.0,False
 "C(tense)[T.present perfect]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.0,False
-"C(tense)[T.simple future]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.06993004963288196,True
+"C(tense)[T.simple future]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.06993004963288191,True
 "C(tense)[T.simple past]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.0,False
 "C(syntactic_role)[T.subject]:C(valence, Treatment(reference='-val'))[T.+val]",-0.0,False
 "C(syntactic_role)[T.subject]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.0,False
@@ -34,4 +34,4 @@ male_perc:C(tense)[T.simple future],-0.0,False
 male_perc:C(tense)[T.simple past],0.012718626599903669,True
 male_perc:C(syntactic_role)[T.subject],-0.0,False
 "male_perc:C(valence, Treatment(reference='-val'))[T.+val]",-0.0,False
-"male_perc:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.0007224717346248562,True
+"male_perc:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.0007224717346248527,True
