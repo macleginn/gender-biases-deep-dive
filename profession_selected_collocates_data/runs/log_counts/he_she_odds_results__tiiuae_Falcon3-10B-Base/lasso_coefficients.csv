@@ -2,22 +2,22 @@ feature,coefficient,nonzero
 Intercept,0.0,False
 C(tense)[T.past perfect],-0.0,False
 C(tense)[T.present continuous],-0.0,False
-C(tense)[T.present perfect],0.029943377994575825,True
-C(tense)[T.simple future],0.16081688528512528,True
-C(tense)[T.simple past],0.04157731159009393,True
-C(semantic_role)[T.patient],0.005083356298044012,True
-C(syntactic_role)[T.subject],-0.134767950507597,True
-"C(valence, Treatment(reference='-val'))[T.+val]",-0.08227430435440992,True
-"C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.004368685578268988,True
-log_frequency,0.38316713860710655,True
-lex_emb_norm,-0.306483697068716,True
-profession_embedding_1,-0.5530534171615907,True
+C(tense)[T.present perfect],0.029943377994575887,True
+C(tense)[T.simple future],0.16081688528512525,True
+C(tense)[T.simple past],0.04157731159009391,True
+C(semantic_role)[T.patient],0.005083356298043973,True
+C(syntactic_role)[T.subject],-0.13476795050759702,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.08227430435440973,True
+"C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.004368685578268835,True
+log_frequency,0.3831671386071118,True
+lex_emb_norm,-0.3064836970687174,True
+profession_embedding_1,-0.5530534171615962,True
 profession_embedding_2,-0.0,False
-profession_embedding_3,-0.01741803879609855,True
-profession_embedding_4,-0.6909523246132625,True
-profession_embedding_5,-0.19613756617193653,True
-profession_embedding_6,-0.5647451197034514,True
-profession_embedding_7,0.08646922499590717,True
-profession_embedding_8,-0.09506898980291005,True
-profession_embedding_9,0.0985188574774428,True
-profession_embedding_10,0.2039907596355124,True
+profession_embedding_3,-0.01741803879609869,True
+profession_embedding_4,-0.6909523246132623,True
+profession_embedding_5,-0.19613756617194372,True
+profession_embedding_6,-0.5647451197034499,True
+profession_embedding_7,0.08646922499591116,True
+profession_embedding_8,-0.09506898980291097,True
+profession_embedding_9,0.09851885747744109,True
+profession_embedding_10,0.20399075963550736,True

@@ -1,519 +1,519 @@
 target_model,predictor,unique_r2,relative_r2
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_4,0.1665563572676808,0.4082918757468566
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_6,0.1317194594471296,0.3228936202272852
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_1,0.0256098729964042,0.0627793694271053
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_10,0.0238558070704791,0.0584794983274474
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_2,0.0212379195527699,0.0520620776859647
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_5,0.0128527069267698,0.0315067878863472
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,log_frequency,0.0125441971531243,0.030750515137385
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,C(tense),0.0064097074246598,0.0157125882814365
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_3,0.0027605236722042,0.0067670751609706
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_9,0.0018210430199741,0.0044640569873055
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_8,0.0010148987183208,0.002487896038278
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_7,0.0009392419389173,0.0023024329981254
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,C(syntactic_role),0.0004978584682763,0.0012204371613525
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",4.64265372970285e-05,0.0001138087930619
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,C(semantic_role),3.358157852462185e-05,8.232099879755692e-05
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,lex_emb_norm,2.144897612699204e-05,5.2579456223725017e-05
-EleutherAI_pythia-12b-deduped — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",1.3486187722566711e-05,3.305968605612302e-05
-EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_4,0.0759898649379867,0.1947132640185454
-EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_5,0.0718620795977728,0.1841363988350519
-EleutherAI_pythia-12b-deduped — PPMI,log_frequency,0.058504878320431,0.1499104627712577
-EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_3,0.0475870080392402,0.1219349668243101
-EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_7,0.0411337498954786,0.1053994070131236
-EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_1,0.0349341737644897,0.089513871422536
-EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_10,0.0229488244051732,0.0588031115592362
-EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_9,0.0181108151350112,0.0464063981670755
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_4,0.1665563572676806,0.4082918757468526
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_6,0.1317194594471297,0.3228936202272827
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_1,0.0256098729964049,0.0627793694271064
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_10,0.0238558070704785,0.0584794983274452
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_2,0.0212379195527703,0.0520620776859651
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_5,0.0128527069267712,0.0315067878863502
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,log_frequency,0.0125441971531249,0.0307505151373861
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,C(tense),0.0064097074246599,0.0157125882814367
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_3,0.0027605236722042,0.0067670751609705
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_9,0.0018210430199741,0.0044640569873054
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_8,0.001014898718321,0.0024878960382786
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,profession_embedding_7,0.0009392419389174,0.0023024329981257
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,C(syntactic_role),0.0004978584682765,0.0012204371613531
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",4.642653729725055e-05,0.0001138087930625
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,C(semantic_role),3.358157852484389e-05,8.232099879810054e-05
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,lex_emb_norm,2.144897612699204e-05,5.2579456223724576e-05
+EleutherAI_pythia-12b-deduped — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",1.3486187722788756e-05,3.305968605666706e-05
+EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_4,0.0759898649379858,0.1947132640185429
+EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_5,0.0718620795977731,0.1841363988350526
+EleutherAI_pythia-12b-deduped — PPMI,log_frequency,0.0585048783204306,0.1499104627712564
+EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_3,0.0475870080392403,0.1219349668243102
+EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_7,0.0411337498954792,0.1053994070131249
+EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_1,0.0349341737644893,0.0895138714225351
+EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_10,0.022948824405174,0.0588031115592384
+EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_9,0.018110815135011,0.0464063981670749
 EleutherAI_pythia-12b-deduped — PPMI,C(tense),0.0064097074246599,0.0164239672629757
-EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_8,0.0047140001604945,0.0120789576160305
-EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_6,0.0040936559151679,0.0104894133666596
+EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_8,0.0047140001604939,0.0120789576160291
+EleutherAI_pythia-12b-deduped — PPMI,profession_embedding_6,0.0040936559151685,0.010489413366661
 EleutherAI_pythia-12b-deduped — PPMI,lex_emb_norm,0.0033988532183362,0.0087090798832483
-EleutherAI_pythia-12b-deduped — PPMI,C(syntactic_role),0.0004978584682765,0.0012756917972746
-EleutherAI_pythia-12b-deduped — PPMI,"C(dominance, Treatment(reference='-dom'))",4.64265372970285e-05,0.0001189614249421
-EleutherAI_pythia-12b-deduped — PPMI,C(semantic_role),3.358157852473287e-05,8.604803773216261e-05
-EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_2,0.2172576770627813,0.4206916562860371
-EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_9,0.2081362157020895,0.4030291150149656
-EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_8,0.0347888059210274,0.0673640654774252
-EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_4,0.0273491231331476,0.0529580729408695
-EleutherAI_pythia-12b-deduped — Raw counts,log_frequency,0.0142143984326746,0.0275243613970131
-EleutherAI_pythia-12b-deduped — Raw counts,C(tense),0.0064097074246598,0.0124115772075103
-EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_6,0.0032976709117209,0.0063855172185113
-EleutherAI_pythia-12b-deduped — Raw counts,lex_emb_norm,0.0023458394853218,0.0045424176112131
-EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_10,0.0007792644768985,0.0015089458191003
-EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_7,0.0006553993881225,0.0012690969444474
+EleutherAI_pythia-12b-deduped — PPMI,C(syntactic_role),0.0004978584682766,0.0012756917972749
+EleutherAI_pythia-12b-deduped — PPMI,"C(dominance, Treatment(reference='-dom'))",4.6426537297139525e-05,0.0001189614249424
+EleutherAI_pythia-12b-deduped — PPMI,C(semantic_role),3.358157852484389e-05,8.604803773244702e-05
+EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_2,0.2172576770627815,0.4206916562860366
+EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_9,0.2081362157020891,0.4030291150149639
+EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_8,0.0347888059210277,0.0673640654774257
+EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_4,0.0273491231331475,0.0529580729408692
+EleutherAI_pythia-12b-deduped — Raw counts,log_frequency,0.0142143984326751,0.0275243613970139
+EleutherAI_pythia-12b-deduped — Raw counts,C(tense),0.0064097074246599,0.0124115772075105
+EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_6,0.0032976709117211,0.0063855172185117
+EleutherAI_pythia-12b-deduped — Raw counts,lex_emb_norm,0.0023458394853217,0.0045424176112129
+EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_10,0.0007792644768986,0.0015089458191005
+EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_7,0.0006553993881226,0.0012690969444476
 EleutherAI_pythia-12b-deduped — Raw counts,C(syntactic_role),0.0004978584682763,0.0009640391375199
-EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_5,0.0004591044354299,0.0008889969181318
-EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_3,0.0001586536992715,0.0003072125617139
-EleutherAI_pythia-12b-deduped — Raw counts,"C(dominance, Treatment(reference='-dom'))",4.642653729691748e-05,8.989904124502682e-05
-EleutherAI_pythia-12b-deduped — Raw counts,C(semantic_role),3.358157852462185e-05,6.5026424295885e-05
-EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_2,0.1560369095617078,0.4533216882592735
-EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_9,0.0574439033029496,0.1668872275068827
-EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_10,0.0371142804172629,0.107825182545211
-EleutherAI_pythia-12b-deduped — TF-IDF,lex_emb_norm,0.031089357281856,0.0903214500305978
+EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_5,0.0004591044354298,0.0008889969181316
+EleutherAI_pythia-12b-deduped — Raw counts,profession_embedding_3,0.0001586536992717,0.0003072125617141
+EleutherAI_pythia-12b-deduped — Raw counts,"C(dominance, Treatment(reference='-dom'))",4.64265372970285e-05,8.989904124524158e-05
+EleutherAI_pythia-12b-deduped — Raw counts,C(semantic_role),3.358157852473287e-05,6.502642429609984e-05
+EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_2,0.1560369095617074,0.4533216882592729
+EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_9,0.05744390330295,0.1668872275068837
+EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_10,0.0371142804172626,0.1078251825452101
+EleutherAI_pythia-12b-deduped — TF-IDF,lex_emb_norm,0.031089357281856,0.0903214500305979
 EleutherAI_pythia-12b-deduped — TF-IDF,log_frequency,0.0287248957085304,0.0834521668894815
 EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_3,0.0104696178256586,0.0304165523496224
-EleutherAI_pythia-12b-deduped — TF-IDF,C(tense),0.00640970742466,0.0186216158674035
+EleutherAI_pythia-12b-deduped — TF-IDF,C(tense),0.0064097074246599,0.0186216158674032
 EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_8,0.0061767606358901,0.0179448539919191
-EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_4,0.0057331838029005,0.0166561653132702
+EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_4,0.0057331838029006,0.0166561653132705
 EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_7,0.0024220047949699,0.0070364589103426
 EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_6,0.0014402469463932,0.0041842355060937
 EleutherAI_pythia-12b-deduped — TF-IDF,C(syntactic_role),0.0004978584682764,0.0014463888190761
 EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_5,0.0003715408128568,0.0010794081285933
 EleutherAI_pythia-12b-deduped — TF-IDF,profession_embedding_1,0.0001976320067611,0.0005741646332953
 EleutherAI_pythia-12b-deduped — TF-IDF,"C(dominance, Treatment(reference='-dom'))",4.64265372970285e-05,0.000134879345705
-EleutherAI_pythia-12b-deduped — TF-IDF,C(semantic_role),3.358157852473287e-05,9.756190323176672e-05
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_6,0.1627473369741806,0.4016817083432907
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_4,0.0971724826966003,0.2398343934790262
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_1,0.0363492589478317,0.0897147240786745
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,log_frequency,0.0333432666817526,0.0822955421052276
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_5,0.0248758420469875,0.0613968309140262
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_2,0.0162799086480659,0.0401809432891998
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_9,0.0115119175288355,0.0284129177488374
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_10,0.0050307353487675,0.0124165126550519
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,C(tense),0.0046743460040293,0.0115368971510976
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,lex_emb_norm,0.004340869765116,0.0107138341884155
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_7,0.0031174379299075,0.0076942444443076
+EleutherAI_pythia-12b-deduped — TF-IDF,C(semantic_role),3.358157852484389e-05,9.756190323208932e-05
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_6,0.1627473369741799,0.4016817083432892
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_4,0.0971724826966001,0.2398343934790257
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_1,0.0363492589478319,0.0897147240786751
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,log_frequency,0.033343266681753,0.0822955421052284
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_5,0.024875842046989,0.0613968309140298
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_2,0.0162799086480658,0.0401809432891995
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_9,0.0115119175288354,0.0284129177488371
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_10,0.0050307353487668,0.0124165126550503
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,C(tense),0.0046743460040292,0.0115368971510974
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,lex_emb_norm,0.0043408697651161,0.0107138341884157
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_7,0.0031174379299079,0.0076942444443084
 EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0015592697253793,0.0038484815709009
 EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0014370872941891,0.003546919354262
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_8,0.0012825069111278,0.0031653947560791
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_3,0.0007880406585404,0.0019449873887442
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,C(semantic_role),0.0006236061522627,0.0015391415259472
-EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,C(syntactic_role),3.1006058584859275e-05,7.652700691092911e-05
-EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_4,0.1052382210501793,0.2292042099973301
-EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_5,0.0819908229341949,0.1785724008837291
-EleutherAI_pythia-2.8b-deduped — PPMI,log_frequency,0.0681470998030144,0.1484213816813898
-EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_3,0.0542486849361772,0.1181512462878086
-EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_9,0.0390925165371833,0.0851417791017231
-EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_1,0.0251811174652208,0.0548433646812969
-EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_6,0.0196977015586405,0.0429007263659337
-EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_10,0.0171072105734312,0.0372587511040466
-EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_7,0.016639390031337,0.036239858569555
-EleutherAI_pythia-2.8b-deduped — PPMI,lex_emb_norm,0.0100808509165354,0.0219556492628628
-EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_2,0.0075881264635013,0.0165266052017106
-EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_8,0.0058090509005409,0.0126518569888967
-EleutherAI_pythia-2.8b-deduped — PPMI,C(tense),0.0046743460040292,0.0101805197048784
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_8,0.0012825069111276,0.0031653947560785
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,profession_embedding_3,0.0007880406585402,0.0019449873887437
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,C(semantic_role),0.0006236061522624,0.0015391415259464
+EleutherAI_pythia-2.8b-deduped — log(1 + x) counts,C(syntactic_role),3.10060585849703e-05,7.652700691120314e-05
+EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_4,0.1052382210501784,0.2292042099973284
+EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_5,0.081990822934195,0.1785724008837295
+EleutherAI_pythia-2.8b-deduped — PPMI,log_frequency,0.0681470998030142,0.1484213816813895
+EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_3,0.0542486849361775,0.1181512462878092
+EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_9,0.0390925165371834,0.0851417791017234
+EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_1,0.0251811174652208,0.054843364681297
+EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_6,0.0196977015586407,0.042900726365934
+EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_10,0.017107210573432,0.0372587511040484
+EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_7,0.0166393900313371,0.0362398585695552
+EleutherAI_pythia-2.8b-deduped — PPMI,lex_emb_norm,0.0100808509165355,0.021955649262863
+EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_2,0.0075881264635011,0.0165266052017101
+EleutherAI_pythia-2.8b-deduped — PPMI,profession_embedding_8,0.0058090509005404,0.0126518569888955
+EleutherAI_pythia-2.8b-deduped — PPMI,C(tense),0.0046743460040291,0.0101805197048782
 EleutherAI_pythia-2.8b-deduped — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0015592697253791,0.0033960207803956
-EleutherAI_pythia-2.8b-deduped — PPMI,"C(valence, Treatment(reference='-val'))",0.0014370872941887,0.0031299128270581
+EleutherAI_pythia-2.8b-deduped — PPMI,"C(valence, Treatment(reference='-val'))",0.0014370872941888,0.0031299128270584
 EleutherAI_pythia-2.8b-deduped — PPMI,C(semantic_role),0.0006236061522624,0.0013581867315167
-EleutherAI_pythia-2.8b-deduped — PPMI,C(syntactic_role),3.1006058584859275e-05,6.752982986746806e-05
-EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_2,0.1931925314305392,0.4257248627801153
-EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_9,0.1748135243090406,0.3852243308656713
-EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_8,0.024235278288162,0.053405586889239
-EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_6,0.0133041026654525,0.029317320083353
-EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_4,0.012939888557459,0.0285147269396121
-EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_1,0.0124352633781419,0.0274027197433223
-EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_5,0.0104899739021664,0.0231160214476119
-EleutherAI_pythia-2.8b-deduped — Raw counts,C(tense),0.0046743460040294,0.0103005291996379
-EleutherAI_pythia-2.8b-deduped — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0015592697253793,0.0034360535832254
-EleutherAI_pythia-2.8b-deduped — Raw counts,"C(valence, Treatment(reference='-val'))",0.0014370872941891,0.0031668087093816
-EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_7,0.0012813519047913,0.002823625529419
-EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_3,0.0012234904618038,0.0026961203163874
-EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_10,0.0011698581580704,0.0025779345615946
-EleutherAI_pythia-2.8b-deduped — Raw counts,C(semantic_role),0.0006236061522626,0.0013741972406231
-EleutherAI_pythia-2.8b-deduped — Raw counts,lex_emb_norm,0.0003861066602303,0.0008508362291641
-EleutherAI_pythia-2.8b-deduped — Raw counts,C(syntactic_role),3.100605858508132e-05,6.832588164119547e-05
-EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_2,0.2100936084292697,0.4935099912016736
-EleutherAI_pythia-2.8b-deduped — TF-IDF,lex_emb_norm,0.0470565715408188,0.1105359100674816
-EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_9,0.0431492115874798,0.1013575195842542
-EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_10,0.0358578825111435,0.0842301839398541
-EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_7,0.0233545251341913,0.0548597912124217
+EleutherAI_pythia-2.8b-deduped — PPMI,C(syntactic_role),3.100605858474825e-05,6.752982986722633e-05
+EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_2,0.1931925314305389,0.4257248627801169
+EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_9,0.17481352430904,0.3852243308656722
+EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_8,0.0242352782881621,0.0534055868892395
+EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_6,0.0133041026654523,0.0293173200833527
+EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_4,0.0129398885574588,0.0285147269396117
+EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_1,0.0124352633781422,0.0274027197433232
+EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_5,0.0104899739021663,0.0231160214476118
+EleutherAI_pythia-2.8b-deduped — Raw counts,C(tense),0.0046743460040292,0.0103005291996374
+EleutherAI_pythia-2.8b-deduped — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0015592697253793,0.0034360535832255
+EleutherAI_pythia-2.8b-deduped — Raw counts,"C(valence, Treatment(reference='-val'))",0.001437087294189,0.0031668087093813
+EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_7,0.001281351904791,0.0028236255294182
+EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_3,0.0012234904618035,0.002696120316387
+EleutherAI_pythia-2.8b-deduped — Raw counts,profession_embedding_10,0.0011698581580703,0.0025779345615944
+EleutherAI_pythia-2.8b-deduped — Raw counts,C(semantic_role),0.0006236061522625,0.0013741972406229
+EleutherAI_pythia-2.8b-deduped — Raw counts,lex_emb_norm,0.0003861066602302,0.0008508362291639
+EleutherAI_pythia-2.8b-deduped — Raw counts,C(syntactic_role),3.1006058584859275e-05,6.832588164070653e-05
+EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_2,0.2100936084292697,0.4935099912016735
+EleutherAI_pythia-2.8b-deduped — TF-IDF,lex_emb_norm,0.0470565715408187,0.1105359100674813
+EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_9,0.04314921158748,0.1013575195842547
+EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_10,0.0358578825111433,0.0842301839398536
+EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_7,0.0233545251341911,0.0548597912124212
 EleutherAI_pythia-2.8b-deduped — TF-IDF,log_frequency,0.0211280474865667,0.0496297941053947
 EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_4,0.0176118817837059,0.0413703191120532
 EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_3,0.0080803178769472,0.0189806707313587
-EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_8,0.0061058860320182,0.0143427293408319
-EleutherAI_pythia-2.8b-deduped — TF-IDF,C(tense),0.0046743460040293,0.010980041099626
-EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_1,0.0037957859146841,0.0089163030106641
+EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_8,0.0061058860320183,0.0143427293408321
+EleutherAI_pythia-2.8b-deduped — TF-IDF,C(tense),0.0046743460040294,0.0109800410996262
+EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_1,0.0037957859146842,0.0089163030106643
 EleutherAI_pythia-2.8b-deduped — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0015592697253792,0.003662725364213
-EleutherAI_pythia-2.8b-deduped — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0014370872941891,0.0033757187722827
+EleutherAI_pythia-2.8b-deduped — TF-IDF,"C(valence, Treatment(reference='-val'))",0.001437087294189,0.0033757187722825
 EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_5,0.0006779509742174,0.0015925071772654
-EleutherAI_pythia-2.8b-deduped — TF-IDF,C(semantic_role),0.0006236061522624,0.0014648511633324
+EleutherAI_pythia-2.8b-deduped — TF-IDF,C(semantic_role),0.0006236061522625,0.0014648511633327
 EleutherAI_pythia-2.8b-deduped — TF-IDF,profession_embedding_6,0.0004759943091894,0.00111811087018
-EleutherAI_pythia-2.8b-deduped — TF-IDF,C(syntactic_role),3.100605858474825e-05,7.283324711189014e-05
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_4,0.1446600648158204,0.3222649751376213
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_6,0.1442090061749903,0.3212601338785097
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_1,0.0422381528434508,0.0940956116208315
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_10,0.0295773202016186,0.0658905716069448
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_2,0.0295369874102384,0.0658007206447742
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,log_frequency,0.0258852306524607,0.0576655569957588
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_5,0.0147060130594736,0.0327611697051203
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_3,0.0089071552231837,0.019842823658353
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_9,0.0033426532747766,0.0074465615362546
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,C(tense),0.0026311513221792,0.00586152036158
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,C(syntactic_role),0.0011487498212807,0.0025591156278391
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0008780446355211,0.0019560549277797
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_7,0.0006760500666211,0.0015060635994381
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_8,0.0003341132924645,0.0007443174591849
+EleutherAI_pythia-2.8b-deduped — TF-IDF,C(syntactic_role),3.1006058584859275e-05,7.283324711215092e-05
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_4,0.1446600648158199,0.3222649751376191
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_6,0.1442090061749902,0.3212601338785081
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_1,0.0422381528434515,0.0940956116208326
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_10,0.0295773202016176,0.0658905716069423
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_2,0.0295369874102388,0.0658007206447747
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,log_frequency,0.0258852306524615,0.0576655569957603
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_5,0.0147060130594746,0.0327611697051224
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_3,0.0089071552231838,0.0198428236583532
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_9,0.0033426532747763,0.0074465615362538
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,C(tense),0.0026311513221795,0.0058615203615805
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,C(syntactic_role),0.0011487498212808,0.0025591156278394
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0008780446355212,0.00195605492778
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_7,0.0006760500666213,0.0015060635994383
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,profession_embedding_8,0.0003341132924647,0.0007443174591854
 EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,C(semantic_role),8.29263909450928e-05,0.0001847384165781
 EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",5.7061232445088095e-05,0.0001271175751141
-EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,lex_emb_norm,1.4789541044613053e-05,3.2947248316992445e-05
-EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_4,0.0868106380172852,0.2181513972657555
-EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_5,0.0653041062899306,0.1641064086120778
-EleutherAI_pythia-6.9b-deduped — PPMI,log_frequency,0.0526722151357579,0.1323630097806692
-EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_3,0.0411584724302263,0.103429469878912
-EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_7,0.0407706333172183,0.1024548468793649
-EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_10,0.034393403901844,0.0864291438155174
-EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_9,0.021909885180565,0.0550585985224625
-EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_1,0.0194993937408484,0.0490011372748373
-EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_6,0.0191348465554983,0.0480850458870793
-EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_8,0.0056532106330365,0.0142062750234481
-EleutherAI_pythia-6.9b-deduped — PPMI,lex_emb_norm,0.0055255211006861,0.0138853967240292
+EleutherAI_pythia-6.9b-deduped — log(1 + x) counts,lex_emb_norm,1.4789541044613053e-05,3.294724831699232e-05
+EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_4,0.0868106380172847,0.2181513972657535
+EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_5,0.0653041062899307,0.1641064086120776
+EleutherAI_pythia-6.9b-deduped — PPMI,log_frequency,0.0526722151357575,0.132363009780668
+EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_3,0.0411584724302264,0.103429469878912
+EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_7,0.0407706333172186,0.1024548468793655
+EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_10,0.0343934039018455,0.0864291438155208
+EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_9,0.0219098851805649,0.055058598522462
+EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_1,0.0194993937408484,0.0490011372748372
+EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_6,0.0191348465554992,0.0480850458870814
+EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_8,0.0056532106330358,0.0142062750234461
+EleutherAI_pythia-6.9b-deduped — PPMI,lex_emb_norm,0.0055255211006862,0.0138853967240294
 EleutherAI_pythia-6.9b-deduped — PPMI,C(tense),0.0026311513221792,0.0066119700357087
-EleutherAI_pythia-6.9b-deduped — PPMI,C(syntactic_role),0.0011487498212807,0.0028867588621026
-EleutherAI_pythia-6.9b-deduped — PPMI,"C(valence, Treatment(reference='-val'))",0.0008780446355209,0.0022064883806344
-EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_2,0.0003073153244764,0.0007722701844717
-EleutherAI_pythia-6.9b-deduped — PPMI,C(semantic_role),8.29263909450928e-05,0.0002083904515397
-EleutherAI_pythia-6.9b-deduped — PPMI,"C(dominance, Treatment(reference='-dom'))",5.7061232445088095e-05,0.0001433924213887
-EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_9,0.2382981726874918,0.4835841196374485
-EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_2,0.1647994236905561,0.3344313694199786
-EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_8,0.0368584727301208,0.0747977707313405
-EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_4,0.0265603270001429,0.0538994999617178
-EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_6,0.0097566609071907,0.0197994228079643
-EleutherAI_pythia-6.9b-deduped — Raw counts,C(tense),0.0026311513221791,0.0053394576274722
-EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_5,0.0022682357519933,0.0046029844748173
-EleutherAI_pythia-6.9b-deduped — Raw counts,lex_emb_norm,0.0021520637790088,0.004367233941573
-EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_3,0.0021316439788152,0.0043257955579361
+EleutherAI_pythia-6.9b-deduped — PPMI,C(syntactic_role),0.0011487498212808,0.0028867588621029
+EleutherAI_pythia-6.9b-deduped — PPMI,"C(valence, Treatment(reference='-val'))",0.0008780446355208,0.0022064883806341
+EleutherAI_pythia-6.9b-deduped — PPMI,profession_embedding_2,0.0003073153244765,0.000772270184472
+EleutherAI_pythia-6.9b-deduped — PPMI,C(semantic_role),8.292639094498178e-05,0.0002083904515394
+EleutherAI_pythia-6.9b-deduped — PPMI,"C(dominance, Treatment(reference='-dom'))",5.706123244497707e-05,0.0001433924213884
+EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_9,0.2382981726874913,0.4835841196374449
+EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_2,0.1647994236905563,0.3344313694199774
+EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_8,0.0368584727301213,0.074797770731341
+EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_4,0.0265603270001432,0.053899499961718
+EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_6,0.0097566609071909,0.0197994228079646
+EleutherAI_pythia-6.9b-deduped — Raw counts,C(tense),0.0026311513221793,0.0053394576274726
+EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_5,0.0022682357519934,0.0046029844748175
+EleutherAI_pythia-6.9b-deduped — Raw counts,lex_emb_norm,0.002152063779009,0.0043672339415732
+EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_3,0.0021316439788153,0.0043257955579363
 EleutherAI_pythia-6.9b-deduped — Raw counts,log_frequency,0.0019268681070885,0.0039102390367292
-EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_10,0.0013410114351035,0.0027213462317176
-EleutherAI_pythia-6.9b-deduped — Raw counts,C(syntactic_role),0.0011487498212807,0.0023311851901451
-EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_1,0.0011051913167466,0.0022427908863606
-EleutherAI_pythia-6.9b-deduped — Raw counts,"C(valence, Treatment(reference='-val'))",0.0008780446355207,0.0017818367521749
-EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_7,0.0007790120318472,0.0015808675465668
-EleutherAI_pythia-6.9b-deduped — Raw counts,C(semantic_role),8.292639094487075e-05,0.0001682844870672
-EleutherAI_pythia-6.9b-deduped — Raw counts,"C(dominance, Treatment(reference='-dom'))",5.706123244486605e-05,0.0001157957089896
-EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_2,0.23433405354615,0.5030290587755138
-EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_9,0.0613921028596581,0.1317862736994878
+EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_10,0.0013410114351037,0.002721346231718
+EleutherAI_pythia-6.9b-deduped — Raw counts,C(syntactic_role),0.0011487498212808,0.0023311851901453
+EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_1,0.0011051913167468,0.0022427908863608
+EleutherAI_pythia-6.9b-deduped — Raw counts,"C(valence, Treatment(reference='-val'))",0.0008780446355212,0.0017818367521757
+EleutherAI_pythia-6.9b-deduped — Raw counts,profession_embedding_7,0.0007790120318473,0.001580867546567
+EleutherAI_pythia-6.9b-deduped — Raw counts,C(semantic_role),8.292639094498178e-05,0.0001682844870675
+EleutherAI_pythia-6.9b-deduped — Raw counts,"C(dominance, Treatment(reference='-dom'))",5.7061232445088095e-05,0.00011579570899
+EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_2,0.2343340535461501,0.503029058775514
+EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_9,0.0613921028596584,0.1317862736994885
 EleutherAI_pythia-6.9b-deduped — TF-IDF,lex_emb_norm,0.0452109737447444,0.0970513385698095
-EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_10,0.0431099351975891,0.092541181267305
-EleutherAI_pythia-6.9b-deduped — TF-IDF,log_frequency,0.035404471544797,0.0760003837603412
-EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_3,0.018502814299687,0.0397187396412133
-EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_4,0.007262363829548,0.0155896250945167
+EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_10,0.0431099351975886,0.0925411812673041
+EleutherAI_pythia-6.9b-deduped — TF-IDF,log_frequency,0.035404471544797,0.0760003837603411
+EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_3,0.0185028142996871,0.0397187396412136
+EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_4,0.0072623638295479,0.0155896250945164
 EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_6,0.0054234132984484,0.0116420744044007
 EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_8,0.005347497698667,0.0114791115224529
 EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_1,0.0039783505586418,0.0085400559872042
-EleutherAI_pythia-6.9b-deduped — TF-IDF,C(tense),0.0026311513221792,0.0056481145316386
-EleutherAI_pythia-6.9b-deduped — TF-IDF,C(syntactic_role),0.0011487498212808,0.0024659435221763
+EleutherAI_pythia-6.9b-deduped — TF-IDF,C(tense),0.0026311513221793,0.0056481145316388
+EleutherAI_pythia-6.9b-deduped — TF-IDF,C(syntactic_role),0.0011487498212807,0.0024659435221761
 EleutherAI_pythia-6.9b-deduped — TF-IDF,profession_embedding_7,0.0010820475406646,0.0023227582491492
 EleutherAI_pythia-6.9b-deduped — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0008780446355209,0.0018848390145823
-EleutherAI_pythia-6.9b-deduped — TF-IDF,C(semantic_role),8.292639094498178e-05,0.0001780124730206
+EleutherAI_pythia-6.9b-deduped — TF-IDF,C(semantic_role),8.29263909450928e-05,0.0001780124730208
 EleutherAI_pythia-6.9b-deduped — TF-IDF,"C(dominance, Treatment(reference='-dom'))",5.706123244497707e-05,0.0001224894871872
-Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_4,0.1995892041358536,0.3410147714534392
-Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_6,0.1505736689265748,0.2572676489102636
-Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_1,0.0640970252657678,0.1095151038679082
-Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_2,0.0498030440223852,0.0850926469119999
-Qwen_Qwen3-4B-Base — log(1 + x) counts,log_frequency,0.046789587059922,0.0799439048155102
-Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_10,0.0215582358993019,0.0368340407987986
-Qwen_Qwen3-4B-Base — log(1 + x) counts,C(syntactic_role),0.0129585927854182,0.0221408346018037
-Qwen_Qwen3-4B-Base — log(1 + x) counts,lex_emb_norm,0.0107467520990436,0.018361720649117
-Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_5,0.0093638743708176,0.0159989589231969
-Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_9,0.00503022900829,0.0085945650369591
-Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_3,0.0048943842644024,0.0083624629826894
-Qwen_Qwen3-4B-Base — log(1 + x) counts,C(tense),0.0034350113818989,0.0058690029173166
-Qwen_Qwen3-4B-Base — log(1 + x) counts,C(semantic_role),0.0020073104622913,0.0034296570373036
-Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_8,0.0017353090944328,0.0029649200556774
-Qwen_Qwen3-4B-Base — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0015795509985049,0.0026987943816218
-Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_7,0.0010403619254281,0.0017775449617367
-Qwen_Qwen3-4B-Base — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",7.80890802403178e-05,0.0001334216946575
-Qwen_Qwen3-4B-Base — PPMI,profession_embedding_4,0.0819818349773137,0.2203175622813248
-Qwen_Qwen3-4B-Base — PPMI,log_frequency,0.0443919559985627,0.1192987145653621
-Qwen_Qwen3-4B-Base — PPMI,profession_embedding_5,0.0441658841973143,0.1186911703677315
-Qwen_Qwen3-4B-Base — PPMI,profession_embedding_3,0.0401423464922302,0.1078783358028985
-Qwen_Qwen3-4B-Base — PPMI,profession_embedding_9,0.0377441462372247,0.1014334247541098
-Qwen_Qwen3-4B-Base — PPMI,profession_embedding_7,0.0344885052192119,0.092684231802401
-Qwen_Qwen3-4B-Base — PPMI,profession_embedding_10,0.021917712111714,0.0589015469655315
-Qwen_Qwen3-4B-Base — PPMI,profession_embedding_6,0.0185259188396602,0.0497864591455544
-Qwen_Qwen3-4B-Base — PPMI,profession_embedding_1,0.0183899346479206,0.0494210159270516
-Qwen_Qwen3-4B-Base — PPMI,C(syntactic_role),0.012958592785418,0.0348248556996766
+Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_4,0.1995892041358542,0.3410147714534404
+Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_6,0.1505736689265741,0.2572676489102625
+Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_1,0.0640970252657683,0.109515103867909
+Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_2,0.0498030440223855,0.0850926469120005
+Qwen_Qwen3-4B-Base — log(1 + x) counts,log_frequency,0.0467895870599225,0.079943904815511
+Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_10,0.0215582358993012,0.0368340407987975
+Qwen_Qwen3-4B-Base — log(1 + x) counts,C(syntactic_role),0.0129585927854181,0.0221408346018035
+Qwen_Qwen3-4B-Base — log(1 + x) counts,lex_emb_norm,0.0107467520990435,0.0183617206491168
+Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_5,0.0093638743708183,0.0159989589231981
+Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_9,0.0050302290082896,0.0085945650369583
+Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_3,0.0048943842644023,0.0083624629826892
+Qwen_Qwen3-4B-Base — log(1 + x) counts,C(tense),0.0034350113818987,0.0058690029173162
+Qwen_Qwen3-4B-Base — log(1 + x) counts,C(semantic_role),0.0020073104622911,0.0034296570373034
+Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_8,0.0017353090944326,0.0029649200556771
+Qwen_Qwen3-4B-Base — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.001579550998505,0.002698794381622
+Qwen_Qwen3-4B-Base — log(1 + x) counts,profession_embedding_7,0.001040361925428,0.0017775449617365
+Qwen_Qwen3-4B-Base — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",7.808908024020678e-05,0.0001334216946573
+Qwen_Qwen3-4B-Base — PPMI,profession_embedding_4,0.0819818349773129,0.220317562281323
+Qwen_Qwen3-4B-Base — PPMI,log_frequency,0.0443919559985622,0.1192987145653611
+Qwen_Qwen3-4B-Base — PPMI,profession_embedding_5,0.0441658841973142,0.1186911703677313
+Qwen_Qwen3-4B-Base — PPMI,profession_embedding_3,0.0401423464922304,0.1078783358028992
+Qwen_Qwen3-4B-Base — PPMI,profession_embedding_9,0.0377441462372246,0.1014334247541096
+Qwen_Qwen3-4B-Base — PPMI,profession_embedding_7,0.0344885052192118,0.0926842318024008
+Qwen_Qwen3-4B-Base — PPMI,profession_embedding_10,0.0219177121117153,0.0589015469655351
+Qwen_Qwen3-4B-Base — PPMI,profession_embedding_6,0.018525918839661,0.0497864591455566
+Qwen_Qwen3-4B-Base — PPMI,profession_embedding_1,0.0183899346479202,0.0494210159270508
+Qwen_Qwen3-4B-Base — PPMI,C(syntactic_role),0.012958592785418,0.0348248556996767
 Qwen_Qwen3-4B-Base — PPMI,profession_embedding_2,0.0044705312705713,0.0120140827770844
-Qwen_Qwen3-4B-Base — PPMI,lex_emb_norm,0.0037950962896085,0.0101989222780976
+Qwen_Qwen3-4B-Base — PPMI,lex_emb_norm,0.0037950962896082,0.010198922278097
 Qwen_Qwen3-4B-Base — PPMI,C(tense),0.0034350113818988,0.0092312319464181
-Qwen_Qwen3-4B-Base — PPMI,profession_embedding_8,0.0020351592159747,0.0054692764249788
-Qwen_Qwen3-4B-Base — PPMI,C(semantic_role),0.0020073104622911,0.0053944358273533
-Qwen_Qwen3-4B-Base — PPMI,"C(valence, Treatment(reference='-val'))",0.0015795509985049,0.004244877241232
+Qwen_Qwen3-4B-Base — PPMI,profession_embedding_8,0.0020351592159743,0.0054692764249776
+Qwen_Qwen3-4B-Base — PPMI,C(semantic_role),0.002007310462291,0.005394435827353
+Qwen_Qwen3-4B-Base — PPMI,"C(valence, Treatment(reference='-val'))",0.0015795509985048,0.0042448772412317
 Qwen_Qwen3-4B-Base — PPMI,"C(dominance, Treatment(reference='-dom'))",7.80890802403178e-05,0.0002098561931932
-Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_9,0.2200604210723052,0.4180532099476094
-Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_2,0.2043514069304519,0.3882104796869217
-Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_8,0.0425200570197252,0.0807762079052415
-Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_4,0.0222907460352558,0.0423461787756181
-Qwen_Qwen3-4B-Base — Raw counts,C(syntactic_role),0.0129585927854181,0.0246176994661297
-Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_6,0.0079486686835529,0.0151002458405617
-Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_5,0.0052063958733307,0.0098906950032088
-Qwen_Qwen3-4B-Base — Raw counts,C(tense),0.0034350113818989,0.0065255602411921
-Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_1,0.0032167070319817,0.0061108430749533
-Qwen_Qwen3-4B-Base — Raw counts,C(semantic_role),0.0020073104622913,0.0038133280761403
-Qwen_Qwen3-4B-Base — Raw counts,"C(valence, Treatment(reference='-val'))",0.0015795509985049,0.0030007048154468
-Qwen_Qwen3-4B-Base — Raw counts,lex_emb_norm,0.0003910157201908,0.0007428204316306
-Qwen_Qwen3-4B-Base — Raw counts,log_frequency,0.0001653732334748,0.0003141628592579
-Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_7,0.0001043866459934,0.0001983054118526
-Qwen_Qwen3-4B-Base — Raw counts,"C(dominance, Treatment(reference='-dom'))",7.808908024020678e-05,0.0001483473970339
+Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_9,0.2200604210723046,0.4180532099476103
+Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_2,0.2043514069304519,0.3882104796869236
+Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_8,0.0425200570197253,0.0807762079052422
+Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_4,0.0222907460352554,0.0423461787756177
+Qwen_Qwen3-4B-Base — Raw counts,C(syntactic_role),0.0129585927854178,0.0246176994661294
+Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_6,0.007948668683553,0.015100245840562
+Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_5,0.0052063958733306,0.0098906950032087
+Qwen_Qwen3-4B-Base — Raw counts,C(tense),0.0034350113818986,0.0065255602411915
+Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_1,0.0032167070319815,0.0061108430749529
+Qwen_Qwen3-4B-Base — Raw counts,C(semantic_role),0.002007310462291,0.0038133280761399
+Qwen_Qwen3-4B-Base — Raw counts,"C(valence, Treatment(reference='-val'))",0.0015795509985048,0.0030007048154466
+Qwen_Qwen3-4B-Base — Raw counts,lex_emb_norm,0.0003910157201907,0.0007428204316304
+Qwen_Qwen3-4B-Base — Raw counts,log_frequency,0.0001653732334747,0.0003141628592577
+Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_7,0.0001043866459932,0.0001983054118522
+Qwen_Qwen3-4B-Base — Raw counts,"C(dominance, Treatment(reference='-dom'))",7.808908024009575e-05,0.0001483473970337
 Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_3,6.24080528199844e-05,0.0001185578337115
-Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_10,1.7188444293769756e-05,3.265323348924756e-05
-Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_2,0.1703434803072876,0.538142949557519
-Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_9,0.0406251610491952,0.1283415364874862
-Qwen_Qwen3-4B-Base — TF-IDF,log_frequency,0.0249090782708003,0.0786918573415699
-Qwen_Qwen3-4B-Base — TF-IDF,lex_emb_norm,0.020307028345561,0.0641532280009478
-Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_8,0.0176231309870975,0.0556743567333903
-Qwen_Qwen3-4B-Base — TF-IDF,C(syntactic_role),0.012958592785418,0.0409383166944798
-Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_4,0.0111066816666021,0.0350878262031492
-Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_10,0.0058933800997129,0.0186181528286377
+Qwen_Qwen3-4B-Base — Raw counts,profession_embedding_10,1.7188444293658733e-05,3.265323348903681e-05
+Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_2,0.1703434803072875,0.5381429495575195
+Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_9,0.0406251610491953,0.1283415364874868
+Qwen_Qwen3-4B-Base — TF-IDF,log_frequency,0.0249090782708002,0.0786918573415697
+Qwen_Qwen3-4B-Base — TF-IDF,lex_emb_norm,0.0203070283455611,0.0641532280009482
+Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_8,0.0176231309870972,0.0556743567333894
+Qwen_Qwen3-4B-Base — TF-IDF,C(syntactic_role),0.0129585927854178,0.0409383166944795
+Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_4,0.011106681666602,0.0350878262031489
+Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_10,0.0058933800997128,0.0186181528286373
 Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_3,0.0039194811675471,0.0123822828583403
-Qwen_Qwen3-4B-Base — TF-IDF,C(tense),0.0034350113818988,0.0108517634692215
+Qwen_Qwen3-4B-Base — TF-IDF,C(tense),0.0034350113818987,0.0108517634692212
 Qwen_Qwen3-4B-Base — TF-IDF,C(semantic_role),0.0020073104622911,0.0063414224653999
-Qwen_Qwen3-4B-Base — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0015795509985048,0.0049900602698648
-Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_6,0.0007753665608523,0.0024495099389341
-Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_5,0.0003388408869353,0.0010704538500513
-Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_7,0.0003224340344769,0.0010186219163665
-Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_1,0.000316844984546,0.0010009651923781
-Qwen_Qwen3-4B-Base — TF-IDF,"C(dominance, Treatment(reference='-dom'))",7.808908024009575e-05,0.000246696192263
-Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_4,0.170008924684434,0.3373063218309865
-Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_6,0.1510157358363197,0.2996228726703595
-Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_1,0.0392351154676128,0.0778444573398695
-Qwen_Qwen3-8B-Base — log(1 + x) counts,log_frequency,0.0381940356895559,0.0757789023031513
-Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_5,0.0214060111381755,0.0424706108546559
-Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_2,0.0178109836012569,0.0353378940422301
-Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_10,0.015530875013307,0.0308140430584997
-Qwen_Qwen3-8B-Base — log(1 + x) counts,C(syntactic_role),0.0107648875379946,0.0213580823895279
-Qwen_Qwen3-8B-Base — log(1 + x) counts,lex_emb_norm,0.0080668823733508,0.0160051034205931
-Qwen_Qwen3-8B-Base — log(1 + x) counts,C(tense),0.0074658044247583,0.0148125343107666
-Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_7,0.0066024974361863,0.0130996894970799
-Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_9,0.0059606980730256,0.0118263270371795
+Qwen_Qwen3-4B-Base — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0015795509985049,0.0049900602698652
+Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_6,0.0007753665608524,0.0024495099389344
+Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_5,0.0003388408869354,0.0010704538500517
+Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_7,0.0003224340344768,0.0010186219163662
+Qwen_Qwen3-4B-Base — TF-IDF,profession_embedding_1,0.0003168449845459,0.0010009651923777
+Qwen_Qwen3-4B-Base — TF-IDF,"C(dominance, Treatment(reference='-dom'))",7.808908024020678e-05,0.0002466961922633
+Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_4,0.170008924684434,0.3373063218309869
+Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_6,0.1510157358363191,0.2996228726703585
+Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_1,0.0392351154676129,0.0778444573398698
+Qwen_Qwen3-8B-Base — log(1 + x) counts,log_frequency,0.0381940356895562,0.075778902303152
+Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_5,0.0214060111381767,0.0424706108546584
+Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_2,0.0178109836012572,0.0353378940422306
+Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_10,0.0155308750133065,0.0308140430584986
+Qwen_Qwen3-8B-Base — log(1 + x) counts,C(syntactic_role),0.0107648875379945,0.0213580823895277
+Qwen_Qwen3-8B-Base — log(1 + x) counts,lex_emb_norm,0.0080668823733506,0.0160051034205926
+Qwen_Qwen3-8B-Base — log(1 + x) counts,C(tense),0.0074658044247581,0.0148125343107664
+Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_7,0.0066024974361866,0.0130996894970806
+Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_9,0.0059606980730251,0.0118263270371784
 Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_8,0.0058687662350951,0.0116439296120498
 Qwen_Qwen3-8B-Base — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0032597874995637,0.006467583589917
-Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_3,0.001718811939102,0.0034102099885276
-Qwen_Qwen3-8B-Base — log(1 + x) counts,C(semantic_role),0.0006363306162676,0.0012625121889341
-Qwen_Qwen3-8B-Base — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0004732368368155,0.0009389258656713
-Qwen_Qwen3-8B-Base — PPMI,profession_embedding_4,0.0678923771954864,0.1752761678744653
-Qwen_Qwen3-8B-Base — PPMI,profession_embedding_5,0.0659043685568754,0.1701437723056113
-Qwen_Qwen3-8B-Base — PPMI,profession_embedding_7,0.0533619439090432,0.1377632869118488
-Qwen_Qwen3-8B-Base — PPMI,profession_embedding_3,0.0451019805782464,0.1164387320912537
-Qwen_Qwen3-8B-Base — PPMI,log_frequency,0.0358029717458092,0.0924316977155484
-Qwen_Qwen3-8B-Base — PPMI,profession_embedding_9,0.0270157988247573,0.0697460581831822
-Qwen_Qwen3-8B-Base — PPMI,profession_embedding_10,0.0227138554535869,0.0586398312449121
-Qwen_Qwen3-8B-Base — PPMI,profession_embedding_6,0.0224780458653042,0.0580310471267298
-Qwen_Qwen3-8B-Base — PPMI,profession_embedding_1,0.0211176475181192,0.0545189384198751
-Qwen_Qwen3-8B-Base — PPMI,C(syntactic_role),0.0107648875379944,0.0277914592653958
-Qwen_Qwen3-8B-Base — PPMI,C(tense),0.007465804424758,0.0192742932819093
+Qwen_Qwen3-8B-Base — log(1 + x) counts,profession_embedding_3,0.0017188119391018,0.0034102099885272
+Qwen_Qwen3-8B-Base — log(1 + x) counts,C(semantic_role),0.0006363306162675,0.0012625121889339
+Qwen_Qwen3-8B-Base — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0004732368368153,0.0009389258656708
+Qwen_Qwen3-8B-Base — PPMI,profession_embedding_4,0.0678923771954858,0.1752761678744636
+Qwen_Qwen3-8B-Base — PPMI,profession_embedding_5,0.0659043685568755,0.1701437723056117
+Qwen_Qwen3-8B-Base — PPMI,profession_embedding_7,0.0533619439090432,0.1377632869118489
+Qwen_Qwen3-8B-Base — PPMI,profession_embedding_3,0.0451019805782462,0.1164387320912532
+Qwen_Qwen3-8B-Base — PPMI,log_frequency,0.0358029717458088,0.0924316977155473
+Qwen_Qwen3-8B-Base — PPMI,profession_embedding_9,0.0270157988247572,0.0697460581831819
+Qwen_Qwen3-8B-Base — PPMI,profession_embedding_10,0.0227138554535879,0.0586398312449147
+Qwen_Qwen3-8B-Base — PPMI,profession_embedding_6,0.0224780458653049,0.0580310471267318
+Qwen_Qwen3-8B-Base — PPMI,profession_embedding_1,0.0211176475181193,0.0545189384198754
+Qwen_Qwen3-8B-Base — PPMI,C(syntactic_role),0.0107648875379945,0.0277914592653961
+Qwen_Qwen3-8B-Base — PPMI,C(tense),0.007465804424758,0.0192742932819094
 Qwen_Qwen3-8B-Base — PPMI,"C(valence, Treatment(reference='-val'))",0.0032597874995637,0.0084157174135097
-Qwen_Qwen3-8B-Base — PPMI,profession_embedding_8,0.0022484322643332,0.0058047251738275
-Qwen_Qwen3-8B-Base — PPMI,profession_embedding_2,0.0011077020471061,0.0028597285583981
+Qwen_Qwen3-8B-Base — PPMI,profession_embedding_8,0.0022484322643328,0.0058047251738264
+Qwen_Qwen3-8B-Base — PPMI,profession_embedding_2,0.001107702047106,0.0028597285583979
 Qwen_Qwen3-8B-Base — PPMI,C(semantic_role),0.0006363306162675,0.0016427999214024
-Qwen_Qwen3-8B-Base — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0004732368368153,0.0012217445121296
-Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_9,0.2078518093822162,0.4102559982094193
-Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_2,0.1923580844576788,0.3796746258182387
-Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_8,0.0292607416680992,0.0577545839849739
-Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_4,0.0245007069436181,0.0483592710300001
+Qwen_Qwen3-8B-Base — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0004732368368151,0.0012217445121291
+Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_9,0.2078518093822157,0.4102559982094189
+Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_2,0.1923580844576791,0.3796746258182398
+Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_8,0.0292607416680994,0.0577545839849744
+Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_4,0.024500706943618,0.04835927103
 Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_5,0.0134458229233696,0.0265392421724381
-Qwen_Qwen3-8B-Base — Raw counts,C(syntactic_role),0.0107648875379947,0.0212476364561781
+Qwen_Qwen3-8B-Base — Raw counts,C(syntactic_role),0.0107648875379947,0.0212476364561782
 Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_6,0.0077097591007746,0.0152174519204021
-Qwen_Qwen3-8B-Base — Raw counts,C(tense),0.0074658044247581,0.0147359364145979
-Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_1,0.0060625805994016,0.0119662660764183
-Qwen_Qwen3-8B-Base — Raw counts,"C(valence, Treatment(reference='-val'))",0.003259787499564,0.0064341387191149
-Qwen_Qwen3-8B-Base — Raw counts,log_frequency,0.0008846439780612,0.0017461021838499
+Qwen_Qwen3-8B-Base — Raw counts,C(tense),0.0074658044247579,0.0147359364145975
+Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_1,0.0060625805994019,0.0119662660764188
+Qwen_Qwen3-8B-Base — Raw counts,"C(valence, Treatment(reference='-val'))",0.0032597874995639,0.0064341387191147
+Qwen_Qwen3-8B-Base — Raw counts,log_frequency,0.0008846439780609,0.0017461021838495
 Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_3,0.0006392339229994,0.001261714064212
 Qwen_Qwen3-8B-Base — Raw counts,C(semantic_role),0.0006363306162677,0.0012559835439685
-Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_7,0.0005990975096645,0.0011824931790718
+Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_7,0.0005990975096644,0.0011824931790716
 Qwen_Qwen3-8B-Base — Raw counts,profession_embedding_10,0.0005741767682267,0.0011333048478032
-Qwen_Qwen3-8B-Base — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0004732368368154,0.0009340705354177
-Qwen_Qwen3-8B-Base — Raw counts,lex_emb_norm,0.0001525900501833,0.0003011808438947
-Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_2,0.1468413277251233,0.5230500019667166
-Qwen_Qwen3-8B-Base — TF-IDF,lex_emb_norm,0.0366137864238045,0.1304186046099291
-Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_10,0.0242302700989759,0.0863084188849586
-Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_9,0.0237613954792221,0.0846382836813092
-Qwen_Qwen3-8B-Base — TF-IDF,C(syntactic_role),0.0107648875379946,0.0383446168401556
+Qwen_Qwen3-8B-Base — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0004732368368153,0.0009340705354174
+Qwen_Qwen3-8B-Base — Raw counts,lex_emb_norm,0.0001525900501831,0.0003011808438944
+Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_2,0.1468413277251233,0.5230500019667159
+Qwen_Qwen3-8B-Base — TF-IDF,lex_emb_norm,0.0366137864238045,0.130418604609929
+Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_10,0.0242302700989758,0.0863084188849581
+Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_9,0.0237613954792224,0.0846382836813099
+Qwen_Qwen3-8B-Base — TF-IDF,C(syntactic_role),0.0107648875379945,0.0383446168401552
 Qwen_Qwen3-8B-Base — TF-IDF,log_frequency,0.0095820207234722,0.034131235639868
-Qwen_Qwen3-8B-Base — TF-IDF,C(tense),0.0074658044247581,0.0265932559964505
-Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_8,0.0059026341770038,0.0210252308782581
+Qwen_Qwen3-8B-Base — TF-IDF,C(tense),0.007465804424758,0.0265932559964501
+Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_8,0.0059026341770039,0.0210252308782584
 Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_3,0.0035619971467546,0.0126878627664212
-Qwen_Qwen3-8B-Base — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0032597874995637,0.0116113895486536
-Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_4,0.0030358979056432,0.0108138929967315
+Qwen_Qwen3-8B-Base — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0032597874995639,0.011611389548654
+Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_4,0.0030358979056434,0.0108138929967319
 Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_1,0.0018506911420772,0.006592176878946
 Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_5,0.001750320667192,0.0062346564322201
 Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_7,0.0007338463371392,0.0026139666130128
 Qwen_Qwen3-8B-Base — TF-IDF,C(semantic_role),0.0006363306162676,0.0022666148232691
 Qwen_Qwen3-8B-Base — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0004732368368154,0.0016856734562519
-Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_6,0.0002762817919577,0.0009841179868474
-allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_4,0.2021042160327969,0.3674914427185138
-allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_6,0.1674962827490564,0.3045629220691276
-allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_1,0.0495245302593146,0.0900517635515274
-allenai_Olmo-3-1025-7B — log(1 + x) counts,log_frequency,0.0449178462786427,0.0816753081987568
-allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_2,0.0256870957388924,0.0467075257391084
-allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_10,0.0229931985529361,0.0418091412183134
-allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_5,0.0177735586847241,0.0323181319593626
-allenai_Olmo-3-1025-7B — log(1 + x) counts,C(syntactic_role),0.0044236761910724,0.0080436874474352
-allenai_Olmo-3-1025-7B — log(1 + x) counts,C(tense),0.0038524321709857,0.0070049793333406
-allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_9,0.002750378711859,0.0050010863735734
-allenai_Olmo-3-1025-7B — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0023133814603696,0.0042064827103435
-allenai_Olmo-3-1025-7B — log(1 + x) counts,lex_emb_norm,0.0022258542869703,0.0040473297354032
-allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_3,0.0019986561574978,0.003634209366013
-allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_8,0.0012748354391284,0.002318067004985
-allenai_Olmo-3-1025-7B — log(1 + x) counts,C(semantic_role),0.0002499754775862,0.0004545370240445
-allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_7,0.000198605182521,0.0003611290575164
-allenai_Olmo-3-1025-7B — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0001717274099722,0.0003122564926344
-allenai_Olmo-3-1025-7B — PPMI,profession_embedding_4,0.0706279005091509,0.1868060821409924
-allenai_Olmo-3-1025-7B — PPMI,profession_embedding_5,0.0664082363923007,0.1756453522320299
-allenai_Olmo-3-1025-7B — PPMI,profession_embedding_3,0.055531712695345,0.1468776731067145
-allenai_Olmo-3-1025-7B — PPMI,profession_embedding_10,0.036955257951425,0.0977441903645575
-allenai_Olmo-3-1025-7B — PPMI,log_frequency,0.0362635471216274,0.0959146613943138
-allenai_Olmo-3-1025-7B — PPMI,profession_embedding_6,0.0294951442425303,0.0780126875981064
-allenai_Olmo-3-1025-7B — PPMI,profession_embedding_1,0.02513922341482,0.0664915677846203
-allenai_Olmo-3-1025-7B — PPMI,profession_embedding_9,0.0213279843162019,0.0564110947848154
-allenai_Olmo-3-1025-7B — PPMI,profession_embedding_7,0.0209193425552753,0.0553302646056994
-allenai_Olmo-3-1025-7B — PPMI,C(syntactic_role),0.0044236761910725,0.0117003282266273
-allenai_Olmo-3-1025-7B — PPMI,C(tense),0.0038524321709859,0.0101894259264094
-allenai_Olmo-3-1025-7B — PPMI,profession_embedding_2,0.0025844445460389,0.0068356833018649
-allenai_Olmo-3-1025-7B — PPMI,"C(valence, Treatment(reference='-val'))",0.0023133814603696,0.0061187395348565
-allenai_Olmo-3-1025-7B — PPMI,profession_embedding_8,0.0015277452429541,0.0040407841842733
-allenai_Olmo-3-1025-7B — PPMI,lex_emb_norm,0.0002896439175348,0.0007660888269451
-allenai_Olmo-3-1025-7B — PPMI,C(semantic_role),0.0002499754775862,0.0006611684513141
-allenai_Olmo-3-1025-7B — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0001717274099723,0.0004542075358591
-allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_2,0.2442905288274789,0.4471005102270202
-allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_9,0.196366233889126,0.3593894686976951
-allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_4,0.0297195310478306,0.0543926838218797
-allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_8,0.0291614175540653,0.0533712245413061
-allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_1,0.0074690870031473,0.0136699225551863
-allenai_Olmo-3-1025-7B — Raw counts,lex_emb_norm,0.006671144837837,0.0122095288552987
-allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_3,0.0062588258507387,0.0114549026714972
-allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_5,0.0056261742517447,0.010297023755504
+Qwen_Qwen3-8B-Base — TF-IDF,profession_embedding_6,0.0002762817919578,0.0009841179868478
+allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_4,0.202104216032797,0.3674914427185119
+allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_6,0.1674962827490559,0.3045629220691249
+allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_1,0.0495245302593154,0.0900517635515283
+allenai_Olmo-3-1025-7B — log(1 + x) counts,log_frequency,0.0449178462786434,0.0816753081987578
+allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_2,0.0256870957388924,0.0467075257391081
+allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_10,0.0229931985529351,0.0418091412183114
+allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_5,0.0177735586847256,0.032318131959365
+allenai_Olmo-3-1025-7B — log(1 + x) counts,C(syntactic_role),0.0044236761910725,0.0080436874474353
+allenai_Olmo-3-1025-7B — log(1 + x) counts,C(tense),0.0038524321709858,0.0070049793333408
+allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_9,0.0027503787118594,0.0050010863735741
+allenai_Olmo-3-1025-7B — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0023133814603697,0.0042064827103437
+allenai_Olmo-3-1025-7B — log(1 + x) counts,lex_emb_norm,0.0022258542869701,0.004047329735403
+allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_3,0.0019986561574979,0.0036342093660132
+allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_8,0.0012748354391283,0.0023180670049848
+allenai_Olmo-3-1025-7B — log(1 + x) counts,C(semantic_role),0.0002499754775864,0.0004545370240449
+allenai_Olmo-3-1025-7B — log(1 + x) counts,profession_embedding_7,0.0001986051825212,0.0003611290575168
+allenai_Olmo-3-1025-7B — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0001717274099727,0.0003122564926352
+allenai_Olmo-3-1025-7B — PPMI,profession_embedding_4,0.0706279005091502,0.1868060821409899
+allenai_Olmo-3-1025-7B — PPMI,profession_embedding_5,0.066408236392301,0.1756453522320301
+allenai_Olmo-3-1025-7B — PPMI,profession_embedding_3,0.055531712695345,0.1468776731067139
+allenai_Olmo-3-1025-7B — PPMI,profession_embedding_10,0.0369552579514262,0.0977441903645603
+allenai_Olmo-3-1025-7B — PPMI,log_frequency,0.0362635471216272,0.0959146613943129
+allenai_Olmo-3-1025-7B — PPMI,profession_embedding_6,0.0294951442425309,0.0780126875981079
+allenai_Olmo-3-1025-7B — PPMI,profession_embedding_1,0.0251392234148198,0.0664915677846197
+allenai_Olmo-3-1025-7B — PPMI,profession_embedding_9,0.0213279843162017,0.0564110947848146
+allenai_Olmo-3-1025-7B — PPMI,profession_embedding_7,0.0209193425552747,0.0553302646056974
+allenai_Olmo-3-1025-7B — PPMI,C(syntactic_role),0.0044236761910724,0.011700328226627
+allenai_Olmo-3-1025-7B — PPMI,C(tense),0.0038524321709859,0.0101894259264093
+allenai_Olmo-3-1025-7B — PPMI,profession_embedding_2,0.0025844445460392,0.0068356833018658
+allenai_Olmo-3-1025-7B — PPMI,"C(valence, Treatment(reference='-val'))",0.0023133814603697,0.0061187395348568
+allenai_Olmo-3-1025-7B — PPMI,profession_embedding_8,0.0015277452429545,0.0040407841842742
+allenai_Olmo-3-1025-7B — PPMI,lex_emb_norm,0.000289643917535,0.0007660888269456
+allenai_Olmo-3-1025-7B — PPMI,C(semantic_role),0.0002499754775863,0.0006611684513144
+allenai_Olmo-3-1025-7B — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0001717274099725,0.0004542075358594
+allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_2,0.2442905288274788,0.4471005102270199
+allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_9,0.1963662338891258,0.3593894686976948
+allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_4,0.0297195310478305,0.0543926838218795
+allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_8,0.0291614175540657,0.0533712245413069
+allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_1,0.0074690870031475,0.0136699225551867
+allenai_Olmo-3-1025-7B — Raw counts,lex_emb_norm,0.0066711448378372,0.0122095288552991
+allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_3,0.0062588258507385,0.0114549026714968
+allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_5,0.0056261742517446,0.0102970237555038
 allenai_Olmo-3-1025-7B — Raw counts,C(syntactic_role),0.0044236761910725,0.0080962118818139
 allenai_Olmo-3-1025-7B — Raw counts,C(tense),0.003852432170986,0.0070507211128076
-allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_6,0.0035310038364025,0.0064624429954223
+allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_6,0.0035310038364024,0.0064624429954221
 allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_10,0.0025366830523447,0.0046426371600699
-allenai_Olmo-3-1025-7B — Raw counts,"C(valence, Treatment(reference='-val'))",0.0023133814603698,0.0042339506007272
-allenai_Olmo-3-1025-7B — Raw counts,log_frequency,0.0019955754223963,0.0036523020103657
-allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_7,0.0017509936769937,0.0032046685155815
-allenai_Olmo-3-1025-7B — Raw counts,C(semantic_role),0.0002499754775862,0.0004575051030814
-allenai_Olmo-3-1025-7B — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0001717274099726,0.0003142954947424
-allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_2,0.1986088825661526,0.6102427732034054
-allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_10,0.0240936659178905,0.0740298485968905
-allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_4,0.0209231007936614,0.064288016162044
-allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_9,0.0200569175103942,0.0616265939635312
-allenai_Olmo-3-1025-7B — TF-IDF,log_frequency,0.0138050569897041,0.0424172179651738
-allenai_Olmo-3-1025-7B — TF-IDF,lex_emb_norm,0.0124929248866556,0.0383855798882271
-allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_3,0.0100320903190991,0.0308244552723616
-allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_8,0.0069079404086798,0.0212252375505538
-allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_7,0.005422478549195,0.0166610289768616
-allenai_Olmo-3-1025-7B — TF-IDF,C(syntactic_role),0.0044236761910724,0.0135921233316176
-allenai_Olmo-3-1025-7B — TF-IDF,C(tense),0.0038524321709859,0.0118369272372168
-allenai_Olmo-3-1025-7B — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0023133814603696,0.0071080623364521
+allenai_Olmo-3-1025-7B — Raw counts,"C(valence, Treatment(reference='-val'))",0.0023133814603699,0.0042339506007274
+allenai_Olmo-3-1025-7B — Raw counts,log_frequency,0.0019955754223964,0.0036523020103659
+allenai_Olmo-3-1025-7B — Raw counts,profession_embedding_7,0.0017509936769934,0.003204668515581
+allenai_Olmo-3-1025-7B — Raw counts,C(semantic_role),0.0002499754775864,0.0004575051030818
+allenai_Olmo-3-1025-7B — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0001717274099723,0.000314295494742
+allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_2,0.1986088825661525,0.6102427732034009
+allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_10,0.0240936659178904,0.0740298485968896
+allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_4,0.0209231007936616,0.0642880161620443
+allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_9,0.0200569175103947,0.0616265939635322
+allenai_Olmo-3-1025-7B — TF-IDF,log_frequency,0.0138050569897042,0.0424172179651738
+allenai_Olmo-3-1025-7B — TF-IDF,lex_emb_norm,0.0124929248866557,0.0383855798882272
+allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_3,0.0100320903190993,0.030824455272362
+allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_8,0.0069079404086798,0.0212252375505536
+allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_7,0.0054224785491951,0.0166610289768619
+allenai_Olmo-3-1025-7B — TF-IDF,C(syntactic_role),0.0044236761910726,0.0135921233316182
+allenai_Olmo-3-1025-7B — TF-IDF,C(tense),0.003852432170986,0.011836927237217
+allenai_Olmo-3-1025-7B — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0023133814603699,0.007108062336453
 allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_1,0.0010521925259211,0.0032329515007877
 allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_5,0.0007432638406188,0.0022837417010791
-allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_6,0.0003090960803159,0.0009497241352005
-allenai_Olmo-3-1025-7B — TF-IDF,C(semantic_role),0.0002499754775862,0.0007680710283652
-allenai_Olmo-3-1025-7B — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0001717274099725,0.0005276471502313
-allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_4,0.1570225674388095,0.3014936493115858
-allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_6,0.1414493608963539,0.2715920692485947
-allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_1,0.0522330152112718,0.1002908220611714
-allenai_Olmo-3-1125-32B — log(1 + x) counts,log_frequency,0.0385769287038213,0.0740702384622539
-allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_10,0.0385427153970678,0.074004546664722
-allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_2,0.0331139320599583,0.0635809258672535
+allenai_Olmo-3-1025-7B — TF-IDF,profession_embedding_6,0.0003090960803161,0.0009497241352012
+allenai_Olmo-3-1025-7B — TF-IDF,C(semantic_role),0.0002499754775864,0.0007680710283658
+allenai_Olmo-3-1025-7B — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0001717274099726,0.0005276471502316
+allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_4,0.1570225674388096,0.3014936493115862
+allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_6,0.1414493608963534,0.2715920692485938
+allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_1,0.0522330152112723,0.1002908220611723
+allenai_Olmo-3-1125-32B — log(1 + x) counts,log_frequency,0.0385769287038217,0.0740702384622547
+allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_10,0.0385427153970667,0.0740045466647199
+allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_2,0.0331139320599586,0.063580925867254
 allenai_Olmo-3-1125-32B — log(1 + x) counts,C(syntactic_role),0.026087353172199,0.0500894326023006
 allenai_Olmo-3-1125-32B — log(1 + x) counts,C(tense),0.0136630807177159,0.0262340129423002
-allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_5,0.0074995545984154,0.0143996377142978
-allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_3,0.005740997088,0.0110230917184743
+allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_5,0.0074995545984161,0.0143996377142991
+allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_3,0.0057409970880001,0.0110230917184745
 allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_7,0.0014656534462981,0.0028141509424925
-allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_8,0.0013939739923463,0.0026765216799916
-allenai_Olmo-3-1125-32B — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0010756725149544,0.002065361924006
+allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_8,0.0013939739923461,0.0026765216799914
+allenai_Olmo-3-1125-32B — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0010756725149542,0.0020653619240056
 allenai_Olmo-3-1125-32B — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0010741155294496,0.0020623724095087
-allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_9,0.0010442917858015,0.0020051088616298
+allenai_Olmo-3-1125-32B — log(1 + x) counts,profession_embedding_9,0.0010442917858013,0.0020051088616294
 allenai_Olmo-3-1125-32B — log(1 + x) counts,lex_emb_norm,0.0008322931716081,0.0015980575894165
-allenai_Olmo-3-1125-32B — PPMI,profession_embedding_5,0.0627455829610453,0.1869279429100081
-allenai_Olmo-3-1125-32B — PPMI,profession_embedding_4,0.0435384712543244,0.129707247665068
-allenai_Olmo-3-1125-32B — PPMI,log_frequency,0.0364780140977443,0.1086731498050937
-allenai_Olmo-3-1125-32B — PPMI,profession_embedding_6,0.0352792295749923,0.1051018016040656
-allenai_Olmo-3-1125-32B — PPMI,profession_embedding_3,0.0308112848746896,0.0917911640667307
-allenai_Olmo-3-1125-32B — PPMI,C(syntactic_role),0.0260873531721992,0.0777179051388135
-allenai_Olmo-3-1125-32B — PPMI,profession_embedding_9,0.0237716581487964,0.0708191229982385
-allenai_Olmo-3-1125-32B — PPMI,profession_embedding_7,0.0213718957961283,0.0636698924247392
-allenai_Olmo-3-1125-32B — PPMI,profession_embedding_10,0.0198220229693573,0.0590526026394123
-allenai_Olmo-3-1125-32B — PPMI,C(tense),0.0136630807177161,0.040704244854362
-allenai_Olmo-3-1125-32B — PPMI,profession_embedding_1,0.0132611995975769,0.0395069843057012
-allenai_Olmo-3-1125-32B — PPMI,profession_embedding_2,0.0042243767016647,0.0125850141102267
-allenai_Olmo-3-1125-32B — PPMI,profession_embedding_8,0.0022819062704171,0.0067981206789861
-allenai_Olmo-3-1125-32B — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0010756725149545,0.0032045801628797
-allenai_Olmo-3-1125-32B — PPMI,"C(valence, Treatment(reference='-val'))",0.0010741155294499,0.0031999416834236
-allenai_Olmo-3-1125-32B — PPMI,lex_emb_norm,0.0001813559479995,0.0005402849522505
-allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_9,0.2210859522793117,0.4288359833138219
-allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_2,0.174735591154362,0.3389311183278409
-allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_8,0.0278645606985871,0.0540483290032373
-allenai_Olmo-3-1125-32B — Raw counts,C(syntactic_role),0.0260873531721991,0.0506011152419194
-allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_4,0.0219166946815492,0.0425113726939875
-allenai_Olmo-3-1125-32B — Raw counts,C(tense),0.0136630807177159,0.0265020033804568
-allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_10,0.0120397922970664,0.0233533434185985
-allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_6,0.0063151565268126,0.0122493823376666
-allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_1,0.0035999893459764,0.0069828270642484
-allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_5,0.0028137998178053,0.0054578710192874
+allenai_Olmo-3-1125-32B — PPMI,profession_embedding_5,0.0627455829610448,0.1869279429100084
+allenai_Olmo-3-1125-32B — PPMI,profession_embedding_4,0.0435384712543236,0.129707247665067
+allenai_Olmo-3-1125-32B — PPMI,log_frequency,0.0364780140977439,0.1086731498050938
+allenai_Olmo-3-1125-32B — PPMI,profession_embedding_6,0.0352792295749926,0.1051018016040676
+allenai_Olmo-3-1125-32B — PPMI,profession_embedding_3,0.0308112848746894,0.091791164066731
+allenai_Olmo-3-1125-32B — PPMI,C(syntactic_role),0.0260873531721991,0.0777179051388139
+allenai_Olmo-3-1125-32B — PPMI,profession_embedding_9,0.0237716581487963,0.0708191229982389
+allenai_Olmo-3-1125-32B — PPMI,profession_embedding_7,0.0213718957961279,0.0636698924247389
+allenai_Olmo-3-1125-32B — PPMI,profession_embedding_10,0.0198220229693578,0.0590526026394145
+allenai_Olmo-3-1125-32B — PPMI,C(tense),0.0136630807177159,0.0407042448543618
+allenai_Olmo-3-1125-32B — PPMI,profession_embedding_1,0.0132611995975767,0.0395069843057009
+allenai_Olmo-3-1125-32B — PPMI,profession_embedding_2,0.0042243767016645,0.0125850141102261
+allenai_Olmo-3-1125-32B — PPMI,profession_embedding_8,0.0022819062704165,0.0067981206789845
+allenai_Olmo-3-1125-32B — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0010756725149542,0.0032045801628787
+allenai_Olmo-3-1125-32B — PPMI,"C(valence, Treatment(reference='-val'))",0.0010741155294498,0.0031999416834233
+allenai_Olmo-3-1125-32B — PPMI,lex_emb_norm,0.0001813559479992,0.0005402849522499
+allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_9,0.221085952279312,0.4288359833138205
+allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_2,0.174735591154362,0.3389311183278393
+allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_8,0.0278645606985876,0.0540483290032382
+allenai_Olmo-3-1125-32B — Raw counts,C(syntactic_role),0.0260873531721992,0.0506011152419194
+allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_4,0.0219166946815493,0.0425113726939875
+allenai_Olmo-3-1125-32B — Raw counts,C(tense),0.013663080717716,0.0265020033804569
+allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_10,0.012039792297066,0.0233533434185977
+allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_6,0.0063151565268128,0.0122493823376668
+allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_1,0.0035999893459768,0.006982827064249
+allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_5,0.0028137998178057,0.005457871019288
 allenai_Olmo-3-1125-32B — Raw counts,profession_embedding_3,0.0024864602982921,0.0048229371246608
-allenai_Olmo-3-1125-32B — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0010756725149544,0.0020864603830249
-allenai_Olmo-3-1125-32B — Raw counts,"C(valence, Treatment(reference='-val'))",0.0010741155294496,0.002083440329498
-allenai_Olmo-3-1125-32B — Raw counts,lex_emb_norm,0.0006720751451342,0.0013036106670418
-allenai_Olmo-3-1125-32B — Raw counts,log_frequency,0.0001186823102893,0.000230205694709
-allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_2,0.1688156433676816,0.4708928590850487
-allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_10,0.0420263798243677,0.117228011324686
-allenai_Olmo-3-1125-32B — TF-IDF,log_frequency,0.0261775041906002,0.0730192981297044
-allenai_Olmo-3-1125-32B — TF-IDF,C(syntactic_role),0.0260873531721992,0.0727678316781515
-allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_9,0.0223868382766209,0.0624456482329218
-allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_4,0.0180180747235814,0.0502594579064916
-allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_8,0.0170883037715583,0.0476659630551952
-allenai_Olmo-3-1125-32B — TF-IDF,lex_emb_norm,0.0170799194314175,0.0476425758511322
-allenai_Olmo-3-1125-32B — TF-IDF,C(tense),0.0136630807177161,0.0381116762328843
+allenai_Olmo-3-1125-32B — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0010756725149545,0.0020864603830252
+allenai_Olmo-3-1125-32B — Raw counts,"C(valence, Treatment(reference='-val'))",0.00107411552945,0.0020834403294987
+allenai_Olmo-3-1125-32B — Raw counts,lex_emb_norm,0.0006720751451344,0.0013036106670422
+allenai_Olmo-3-1125-32B — Raw counts,log_frequency,0.0001186823102894,0.0002302056947093
+allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_2,0.1688156433676814,0.4708928590850501
+allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_10,0.0420263798243674,0.1172280113246855
+allenai_Olmo-3-1125-32B — TF-IDF,log_frequency,0.0261775041906001,0.0730192981297044
+allenai_Olmo-3-1125-32B — TF-IDF,C(syntactic_role),0.026087353172199,0.0727678316781512
+allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_9,0.022386838276621,0.0624456482329223
+allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_4,0.0180180747235813,0.0502594579064915
+allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_8,0.0170883037715583,0.0476659630551954
+allenai_Olmo-3-1125-32B — TF-IDF,lex_emb_norm,0.0170799194314174,0.0476425758511322
+allenai_Olmo-3-1125-32B — TF-IDF,C(tense),0.0136630807177159,0.0381116762328839
 allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_3,0.00294124496767,0.0082042826391336
-allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_5,0.0014465560909313,0.0040350107365462
-allenai_Olmo-3-1125-32B — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0010756725149544,0.0030004713775422
+allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_5,0.0014465560909312,0.0040350107365459
+allenai_Olmo-3-1125-32B — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0010756725149543,0.0030004713775419
 allenai_Olmo-3-1125-32B — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0010741155294499,0.0029961283359783
-allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_6,0.0005958032320818,0.0016619282538649
-allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_1,2.4685373037458547e-05,6.885716071864451e-05
-google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_6,0.1478002253130074,0.3452815947576398
-google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_4,0.1401328627545124,0.3273695843653987
-google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_1,0.036537004499539,0.0853554529741142
-google_gemma-3-12b-pt — log(1 + x) counts,log_frequency,0.0361638264178327,0.0844836577998697
-google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_10,0.0214700708746387,0.0501570298384544
-google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_5,0.0183264365393294,0.0428130689322261
-google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_2,0.0121482553834035,0.0283799905136918
-google_gemma-3-12b-pt — log(1 + x) counts,C(tense),0.0041977937659235,0.0098066218971738
-google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_3,0.0035575874707581,0.0083110121976592
-google_gemma-3-12b-pt — log(1 + x) counts,C(syntactic_role),0.0023556966218264,0.0055032303545334
-google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_7,0.0018007411427982,0.0042067782522951
-google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_8,0.0011679933881431,0.0027285927262313
-google_gemma-3-12b-pt — log(1 + x) counts,lex_emb_norm,0.0010655980129329,0.0024893830878597
-google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_9,0.0009396693550182,0.0021951964738785
-google_gemma-3-12b-pt — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0003703571240567,0.0008652050303262
-google_gemma-3-12b-pt — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",1.3769408798491868e-05,3.2167227206484765e-05
-google_gemma-3-12b-pt — log(1 + x) counts,C(semantic_role),9.174791637645008e-06,2.143357144081655e-05
-google_gemma-3-12b-pt — PPMI,profession_embedding_5,0.0887191652502024,0.2298806297645966
-google_gemma-3-12b-pt — PPMI,profession_embedding_4,0.0726535403231811,0.1882529164585698
-google_gemma-3-12b-pt — PPMI,profession_embedding_7,0.0536722421929602,0.1390703891475976
-google_gemma-3-12b-pt — PPMI,log_frequency,0.0424143624843109,0.1099000461902457
-google_gemma-3-12b-pt — PPMI,profession_embedding_6,0.0382144995038564,0.0990177622536338
-google_gemma-3-12b-pt — PPMI,profession_embedding_3,0.0217622093437442,0.0563881589158382
-google_gemma-3-12b-pt — PPMI,profession_embedding_1,0.0172106334365351,0.0445945500262617
-google_gemma-3-12b-pt — PPMI,profession_embedding_10,0.0168250560366439,0.0435954786840098
-google_gemma-3-12b-pt — PPMI,profession_embedding_9,0.0158761622567195,0.0411367957253325
-google_gemma-3-12b-pt — PPMI,lex_emb_norm,0.0087025556616207,0.022549231278416
+allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_6,0.0005958032320817,0.0016619282538646
+allenai_Olmo-3-1125-32B — TF-IDF,profession_embedding_1,2.4685373037458547e-05,6.885716071864481e-05
+google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_6,0.1478002253130071,0.3452815947576353
+google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_4,0.1401328627545123,0.3273695843653947
+google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_1,0.0365370044995395,0.0853554529741145
+google_gemma-3-12b-pt — log(1 + x) counts,log_frequency,0.0361638264178333,0.08448365779987
+google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_10,0.0214700708746382,0.0501570298384528
+google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_5,0.0183264365393309,0.0428130689322292
+google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_2,0.0121482553834039,0.0283799905136923
+google_gemma-3-12b-pt — log(1 + x) counts,C(tense),0.0041977937659239,0.0098066218971747
+google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_3,0.0035575874707585,0.0083110121976598
+google_gemma-3-12b-pt — log(1 + x) counts,C(syntactic_role),0.0023556966218268,0.0055032303545343
+google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_7,0.0018007411427984,0.0042067782522956
+google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_8,0.0011679933881434,0.0027285927262321
+google_gemma-3-12b-pt — log(1 + x) counts,lex_emb_norm,0.0010655980129331,0.0024893830878602
+google_gemma-3-12b-pt — log(1 + x) counts,profession_embedding_9,0.0009396693550184,0.002195196473879
+google_gemma-3-12b-pt — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.000370357124057,0.000865205030327
+google_gemma-3-12b-pt — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",1.3769408798713911e-05,3.216722720700312e-05
+google_gemma-3-12b-pt — log(1 + x) counts,C(semantic_role),9.174791637645008e-06,2.14335714408163e-05
+google_gemma-3-12b-pt — PPMI,profession_embedding_5,0.0887191652502025,0.229880629764596
+google_gemma-3-12b-pt — PPMI,profession_embedding_4,0.0726535403231808,0.1882529164585682
+google_gemma-3-12b-pt — PPMI,profession_embedding_7,0.0536722421929601,0.1390703891475968
+google_gemma-3-12b-pt — PPMI,log_frequency,0.0424143624843105,0.1099000461902441
+google_gemma-3-12b-pt — PPMI,profession_embedding_6,0.0382144995038578,0.0990177622536369
+google_gemma-3-12b-pt — PPMI,profession_embedding_3,0.0217622093437444,0.0563881589158383
+google_gemma-3-12b-pt — PPMI,profession_embedding_1,0.0172106334365349,0.0445945500262609
+google_gemma-3-12b-pt — PPMI,profession_embedding_10,0.0168250560366449,0.0435954786840122
+google_gemma-3-12b-pt — PPMI,profession_embedding_9,0.0158761622567193,0.0411367957253321
+google_gemma-3-12b-pt — PPMI,lex_emb_norm,0.0087025556616209,0.0225492312784165
 google_gemma-3-12b-pt — PPMI,C(tense),0.0041977937659238,0.0108769223854963
-google_gemma-3-12b-pt — PPMI,C(syntactic_role),0.0023556966218268,0.0061038561559128
-google_gemma-3-12b-pt — PPMI,profession_embedding_2,0.0019574415136986,0.0050719355465914
+google_gemma-3-12b-pt — PPMI,C(syntactic_role),0.0023556966218267,0.0061038561559125
+google_gemma-3-12b-pt — PPMI,profession_embedding_2,0.0019574415136988,0.0050719355465917
 google_gemma-3-12b-pt — PPMI,profession_embedding_8,0.0010040866488807,0.0026016934506989
-google_gemma-3-12b-pt — PPMI,"C(valence, Treatment(reference='-val'))",0.000370357124057,0.0009596340167983
-google_gemma-3-12b-pt — Raw counts,profession_embedding_2,0.1879764457173925,0.404242437044387
-google_gemma-3-12b-pt — Raw counts,profession_embedding_9,0.1875682908524119,0.4033647019819878
-google_gemma-3-12b-pt — Raw counts,profession_embedding_4,0.0280801800465466,0.0603862913320895
-google_gemma-3-12b-pt — Raw counts,profession_embedding_8,0.0215833844353455,0.0464149638031096
-google_gemma-3-12b-pt — Raw counts,profession_embedding_5,0.0103624234568349,0.0222843415082684
+google_gemma-3-12b-pt — PPMI,"C(valence, Treatment(reference='-val'))",0.0003703571240569,0.000959634016798
+google_gemma-3-12b-pt — Raw counts,profession_embedding_2,0.1879764457173923,0.4042424370443872
+google_gemma-3-12b-pt — Raw counts,profession_embedding_9,0.1875682908524117,0.4033647019819883
+google_gemma-3-12b-pt — Raw counts,profession_embedding_4,0.0280801800465465,0.0603862913320894
+google_gemma-3-12b-pt — Raw counts,profession_embedding_8,0.0215833844353456,0.0464149638031099
+google_gemma-3-12b-pt — Raw counts,profession_embedding_5,0.0103624234568348,0.0222843415082682
 google_gemma-3-12b-pt — Raw counts,profession_embedding_1,0.0074937167997324,0.0161152017215953
-google_gemma-3-12b-pt — Raw counts,profession_embedding_6,0.0065240530501043,0.014029944519464
-google_gemma-3-12b-pt — Raw counts,profession_embedding_3,0.0048285431605858,0.0103837587052995
+google_gemma-3-12b-pt — Raw counts,profession_embedding_6,0.0065240530501041,0.0140299445194636
+google_gemma-3-12b-pt — Raw counts,profession_embedding_3,0.0048285431605858,0.0103837587052996
 google_gemma-3-12b-pt — Raw counts,C(tense),0.0041977937659239,0.0090273351837817
-google_gemma-3-12b-pt — Raw counts,lex_emb_norm,0.002769126738548,0.0059549936536109
-google_gemma-3-12b-pt — Raw counts,C(syntactic_role),0.0023556966218267,0.0050659141878666
+google_gemma-3-12b-pt — Raw counts,lex_emb_norm,0.0027691267385479,0.0059549936536107
+google_gemma-3-12b-pt — Raw counts,C(syntactic_role),0.0023556966218268,0.0050659141878669
 google_gemma-3-12b-pt — Raw counts,log_frequency,0.0007440532445501,0.0016000829025139
-google_gemma-3-12b-pt — Raw counts,"C(valence, Treatment(reference='-val'))",0.0003703571240571,0.0007964512034168
+google_gemma-3-12b-pt — Raw counts,"C(valence, Treatment(reference='-val'))",0.000370357124057,0.0007964512034165
 google_gemma-3-12b-pt — Raw counts,profession_embedding_7,0.000141349402225,0.0003039712056059
-google_gemma-3-12b-pt — Raw counts,"C(dominance, Treatment(reference='-dom'))",1.3769408798713911e-05,2.9611047002244305e-05
+google_gemma-3-12b-pt — Raw counts,"C(dominance, Treatment(reference='-dom'))",1.3769408798713911e-05,2.9611047002244356e-05
 google_gemma-3-12b-pt — TF-IDF,profession_embedding_2,0.6308403213956645,0.883948206546586
-google_gemma-3-12b-pt — TF-IDF,profession_embedding_10,0.0218953573595017,0.0306802866164432
+google_gemma-3-12b-pt — TF-IDF,profession_embedding_10,0.0218953573595015,0.0306802866164429
 google_gemma-3-12b-pt — TF-IDF,log_frequency,0.0164143766292823,0.0230002082792262
 google_gemma-3-12b-pt — TF-IDF,profession_embedding_9,0.0157324279697665,0.0220446458744609
 google_gemma-3-12b-pt — TF-IDF,profession_embedding_3,0.0083553112129988,0.011707657407708
-google_gemma-3-12b-pt — TF-IDF,profession_embedding_4,0.0050889529460889,0.0071307598410055
+google_gemma-3-12b-pt — TF-IDF,profession_embedding_4,0.0050889529460891,0.0071307598410058
 google_gemma-3-12b-pt — TF-IDF,profession_embedding_8,0.0044406814893713,0.0062223867201292
 google_gemma-3-12b-pt — TF-IDF,C(tense),0.0041977937659238,0.0058820467636429
 google_gemma-3-12b-pt — TF-IDF,C(syntactic_role),0.0023556966218267,0.0033008571795549
@@ -522,517 +522,517 @@ google_gemma-3-12b-pt — TF-IDF,profession_embedding_7,0.0010676459879772,0.001
 google_gemma-3-12b-pt — TF-IDF,profession_embedding_6,0.0006474432828571,0.0009072126643015
 google_gemma-3-12b-pt — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0003703571240569,0.0005189530606851
 google_gemma-3-12b-pt — TF-IDF,profession_embedding_5,3.0027008553146217e-05,4.207454637615847e-05
-google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_6,0.1572052901859754,0.3847435362641287
-google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_4,0.1312407562236376,0.3211980499620964
-google_gemma-3-4b-pt — log(1 + x) counts,log_frequency,0.0248558580322697,0.0608321177035539
-google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_1,0.0236226907686171,0.0578140695624157
-google_gemma-3-4b-pt — log(1 + x) counts,C(syntactic_role),0.0181829049981525,0.0445007617763236
-google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_10,0.0139885496543828,0.0342355149427011
-google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_5,0.0139268358056189,0.0340844767404763
-google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_9,0.007920223244123,0.019383919557289
+google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_6,0.1572052901859748,0.3847435362641271
+google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_4,0.1312407562236376,0.3211980499620963
+google_gemma-3-4b-pt — log(1 + x) counts,log_frequency,0.0248558580322703,0.0608321177035552
+google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_1,0.0236226907686173,0.0578140695624162
+google_gemma-3-4b-pt — log(1 + x) counts,C(syntactic_role),0.0181829049981525,0.0445007617763235
+google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_10,0.0139885496543822,0.0342355149426995
+google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_5,0.0139268358056198,0.0340844767404785
+google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_9,0.0079202232441228,0.0193839195572888
 google_gemma-3-4b-pt — log(1 + x) counts,C(tense),0.0056548657216863,0.013839693513409
-google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_2,0.0041554317768115,0.0101699854669231
+google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_2,0.0041554317768113,0.0101699854669226
 google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_3,0.0030433078792462,0.0074481783279462
-google_gemma-3-4b-pt — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0014521845421636,0.0035540700659576
-google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_8,0.0012857008489267,0.0031466186068463
-google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_7,0.0012299943884729,0.0030102828603685
+google_gemma-3-4b-pt — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0014521845421635,0.0035540700659573
+google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_8,0.0012857008489266,0.0031466186068461
+google_gemma-3-4b-pt — log(1 + x) counts,profession_embedding_7,0.0012299943884731,0.0030102828603691
 google_gemma-3-4b-pt — log(1 + x) counts,lex_emb_norm,0.000539615189593,0.0013206518433332
-google_gemma-3-4b-pt — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0001523975476156,0.0003729770882281
+google_gemma-3-4b-pt — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0001523975476157,0.0003729770882284
 google_gemma-3-4b-pt — log(1 + x) counts,C(semantic_role),0.0001410052863195,0.0003450957180024
-google_gemma-3-4b-pt — PPMI,profession_embedding_5,0.0837292883518309,0.2042013757301489
-google_gemma-3-4b-pt — PPMI,profession_embedding_4,0.0716314463910203,0.1746968138212644
-google_gemma-3-4b-pt — PPMI,log_frequency,0.0555636858888398,0.135510301382979
-google_gemma-3-4b-pt — PPMI,profession_embedding_7,0.0452731229465289,0.1104133830737286
-google_gemma-3-4b-pt — PPMI,profession_embedding_3,0.0378425392073711,0.0922914635891361
-google_gemma-3-4b-pt — PPMI,profession_embedding_6,0.0265739629909255,0.0648093386217153
-google_gemma-3-4b-pt — PPMI,profession_embedding_1,0.0263326059316337,0.0642207101439184
-google_gemma-3-4b-pt — PPMI,profession_embedding_9,0.021258653330141,0.0518462098703625
-google_gemma-3-4b-pt — PPMI,C(syntactic_role),0.0181829049981526,0.0443449871422702
-google_gemma-3-4b-pt — PPMI,lex_emb_norm,0.009420580654207,0.0229751807000021
-google_gemma-3-4b-pt — PPMI,C(tense),0.0056548657216867,0.0137912477541371
-google_gemma-3-4b-pt — PPMI,profession_embedding_10,0.0052481277972511,0.0127992837070719
-google_gemma-3-4b-pt — PPMI,"C(valence, Treatment(reference='-val'))",0.0014521845421636,0.0035416290662572
-google_gemma-3-4b-pt — PPMI,profession_embedding_8,0.0012600606691046,0.0030730718867861
-google_gemma-3-4b-pt — PPMI,profession_embedding_2,0.0003154975060659,0.0007694443132895
-google_gemma-3-4b-pt — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0001523975476157,0.0003716714842991
-google_gemma-3-4b-pt — PPMI,C(semantic_role),0.0001410052863196,0.0003438877126329
-google_gemma-3-4b-pt — Raw counts,profession_embedding_2,0.1820890065935941,0.4086170916877338
-google_gemma-3-4b-pt — Raw counts,profession_embedding_9,0.1321880362525502,0.2966367489168894
-google_gemma-3-4b-pt — Raw counts,profession_embedding_4,0.0410770945360378,0.092179111843693
-google_gemma-3-4b-pt — Raw counts,profession_embedding_8,0.0218893262606287,0.049120773422555
-google_gemma-3-4b-pt — Raw counts,C(syntactic_role),0.0181829049981525,0.0408033735686316
-google_gemma-3-4b-pt — Raw counts,profession_embedding_6,0.0126870229970954,0.0284703318241449
-google_gemma-3-4b-pt — Raw counts,profession_embedding_1,0.0107544986824734,0.0241336479142858
-google_gemma-3-4b-pt — Raw counts,profession_embedding_5,0.0092479647984206,0.0207529084300804
+google_gemma-3-4b-pt — PPMI,profession_embedding_5,0.0837292883518306,0.2042013757301495
+google_gemma-3-4b-pt — PPMI,profession_embedding_4,0.0716314463910194,0.1746968138212632
+google_gemma-3-4b-pt — PPMI,log_frequency,0.0555636858888395,0.1355103013829789
+google_gemma-3-4b-pt — PPMI,profession_embedding_7,0.0452731229465287,0.1104133830737286
+google_gemma-3-4b-pt — PPMI,profession_embedding_3,0.0378425392073706,0.0922914635891355
+google_gemma-3-4b-pt — PPMI,profession_embedding_6,0.0265739629909264,0.0648093386217178
+google_gemma-3-4b-pt — PPMI,profession_embedding_1,0.0263326059316334,0.0642207101439179
+google_gemma-3-4b-pt — PPMI,profession_embedding_9,0.021258653330141,0.0518462098703627
+google_gemma-3-4b-pt — PPMI,C(syntactic_role),0.0181829049981525,0.0443449871422701
+google_gemma-3-4b-pt — PPMI,lex_emb_norm,0.0094205806542069,0.022975180700002
+google_gemma-3-4b-pt — PPMI,C(tense),0.0056548657216867,0.0137912477541372
+google_gemma-3-4b-pt — PPMI,profession_embedding_10,0.0052481277972514,0.0127992837070728
+google_gemma-3-4b-pt — PPMI,"C(valence, Treatment(reference='-val'))",0.0014521845421635,0.0035416290662569
+google_gemma-3-4b-pt — PPMI,profession_embedding_8,0.0012600606691043,0.0030730718867853
+google_gemma-3-4b-pt — PPMI,profession_embedding_2,0.0003154975060656,0.0007694443132887
+google_gemma-3-4b-pt — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0001523975476158,0.0003716714842994
+google_gemma-3-4b-pt — PPMI,C(semantic_role),0.0001410052863195,0.0003438877126327
+google_gemma-3-4b-pt — Raw counts,profession_embedding_2,0.1820890065935939,0.4086170916877346
+google_gemma-3-4b-pt — Raw counts,profession_embedding_9,0.1321880362525499,0.2966367489168895
+google_gemma-3-4b-pt — Raw counts,profession_embedding_4,0.0410770945360375,0.0921791118436927
+google_gemma-3-4b-pt — Raw counts,profession_embedding_8,0.0218893262606288,0.0491207734225554
+google_gemma-3-4b-pt — Raw counts,C(syntactic_role),0.0181829049981525,0.0408033735686318
+google_gemma-3-4b-pt — Raw counts,profession_embedding_6,0.0126870229970953,0.0284703318241447
+google_gemma-3-4b-pt — Raw counts,profession_embedding_1,0.0107544986824736,0.0241336479142864
+google_gemma-3-4b-pt — Raw counts,profession_embedding_5,0.0092479647984204,0.0207529084300802
 google_gemma-3-4b-pt — Raw counts,profession_embedding_3,0.0073645281725575,0.0165263798173123
-google_gemma-3-4b-pt — Raw counts,C(tense),0.0056548657216866,0.0126898093866668
-google_gemma-3-4b-pt — Raw counts,"C(valence, Treatment(reference='-val'))",0.0014521845421636,0.0032587767669971
-google_gemma-3-4b-pt — Raw counts,log_frequency,0.0012731449710662,0.0028570027653292
-google_gemma-3-4b-pt — Raw counts,profession_embedding_10,0.0009474822737993,0.002126198930887
+google_gemma-3-4b-pt — Raw counts,C(tense),0.0056548657216863,0.0126898093866664
+google_gemma-3-4b-pt — Raw counts,"C(valence, Treatment(reference='-val'))",0.0014521845421634,0.0032587767669966
+google_gemma-3-4b-pt — Raw counts,log_frequency,0.0012731449710661,0.0028570027653289
+google_gemma-3-4b-pt — Raw counts,profession_embedding_10,0.0009474822737992,0.0021261989308867
 google_gemma-3-4b-pt — Raw counts,lex_emb_norm,0.000506551262436,0.0011367270738608
-google_gemma-3-4b-pt — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0001523975476157,0.0003419879313531
+google_gemma-3-4b-pt — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0001523975476158,0.0003419879313534
 google_gemma-3-4b-pt — Raw counts,C(semantic_role),0.0001410052863196,0.0003164231113475
-google_gemma-3-4b-pt — Raw counts,profession_embedding_7,1.4574803460454255e-05,3.270660823156279e-05
-google_gemma-3-4b-pt — TF-IDF,profession_embedding_2,0.5428041585317538,0.8267702328648222
-google_gemma-3-4b-pt — TF-IDF,profession_embedding_9,0.0242742150992639,0.0369731848122074
-google_gemma-3-4b-pt — TF-IDF,log_frequency,0.0228115468643564,0.0347453268671808
-google_gemma-3-4b-pt — TF-IDF,C(syntactic_role),0.0181829049981525,0.0276952273913024
-google_gemma-3-4b-pt — TF-IDF,profession_embedding_10,0.0181194041529666,0.0275985063037126
-google_gemma-3-4b-pt — TF-IDF,profession_embedding_3,0.0070987170400406,0.0108123857343154
-google_gemma-3-4b-pt — TF-IDF,profession_embedding_4,0.006363397082808,0.0096923857440506
-google_gemma-3-4b-pt — TF-IDF,C(tense),0.0056548657216863,0.0086131887091363
-google_gemma-3-4b-pt — TF-IDF,lex_emb_norm,0.003212098213801,0.0048924960254401
-google_gemma-3-4b-pt — TF-IDF,profession_embedding_8,0.0029846830972686,0.0045461094956075
-google_gemma-3-4b-pt — TF-IDF,profession_embedding_6,0.0020831155401381,0.0031728900619754
-google_gemma-3-4b-pt — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0014521845421634,0.0022118897455295
-google_gemma-3-4b-pt — TF-IDF,profession_embedding_5,0.0008971746043912,0.0013665283232157
-google_gemma-3-4b-pt — TF-IDF,profession_embedding_7,0.0003038134844134,0.0004627524334658
-google_gemma-3-4b-pt — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0001523975476157,0.0002321237852545
+google_gemma-3-4b-pt — Raw counts,profession_embedding_7,1.4574803460343231e-05,3.270660823131374e-05
+google_gemma-3-4b-pt — TF-IDF,profession_embedding_2,0.542804158531754,0.8267702328648191
+google_gemma-3-4b-pt — TF-IDF,profession_embedding_9,0.0242742150992644,0.0369731848122079
+google_gemma-3-4b-pt — TF-IDF,log_frequency,0.0228115468643564,0.0347453268671806
+google_gemma-3-4b-pt — TF-IDF,C(syntactic_role),0.0181829049981527,0.0276952273913027
+google_gemma-3-4b-pt — TF-IDF,profession_embedding_10,0.0181194041529666,0.0275985063037125
+google_gemma-3-4b-pt — TF-IDF,profession_embedding_3,0.0070987170400407,0.0108123857343156
+google_gemma-3-4b-pt — TF-IDF,profession_embedding_4,0.0063633970828083,0.0096923857440509
+google_gemma-3-4b-pt — TF-IDF,C(tense),0.0056548657216866,0.0086131887091366
+google_gemma-3-4b-pt — TF-IDF,lex_emb_norm,0.0032120982138013,0.0048924960254404
+google_gemma-3-4b-pt — TF-IDF,profession_embedding_8,0.0029846830972688,0.0045461094956078
+google_gemma-3-4b-pt — TF-IDF,profession_embedding_6,0.0020831155401384,0.0031728900619758
+google_gemma-3-4b-pt — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0014521845421636,0.0022118897455298
+google_gemma-3-4b-pt — TF-IDF,profession_embedding_5,0.0008971746043913,0.0013665283232158
+google_gemma-3-4b-pt — TF-IDF,profession_embedding_7,0.0003038134844135,0.000462752433466
+google_gemma-3-4b-pt — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0001523975476158,0.0002321237852547
 google_gemma-3-4b-pt — TF-IDF,C(semantic_role),0.0001410052863195,0.000214771702783
-gpt2 — log(1 + x) counts,profession_embedding_6,0.2241391739572942,0.4567347238916771
-gpt2 — log(1 + x) counts,profession_embedding_4,0.1160638763355547,0.2365066381569583
-gpt2 — log(1 + x) counts,lex_emb_norm,0.0347364857273269,0.0707835178363809
-gpt2 — log(1 + x) counts,profession_embedding_5,0.028387034580507,0.0578450619421917
-gpt2 — log(1 + x) counts,log_frequency,0.0218511834632347,0.0445267735647516
-gpt2 — log(1 + x) counts,profession_embedding_1,0.0157617361901099,0.0321181349058372
-gpt2 — log(1 + x) counts,profession_embedding_8,0.0120865480926025,0.0246291003416034
-gpt2 — log(1 + x) counts,profession_embedding_9,0.0116791178340189,0.0237988681988957
+gpt2 — log(1 + x) counts,profession_embedding_6,0.2241391739572938,0.4567347238916773
+gpt2 — log(1 + x) counts,profession_embedding_4,0.1160638763355546,0.2365066381569586
+gpt2 — log(1 + x) counts,lex_emb_norm,0.0347364857273269,0.0707835178363811
+gpt2 — log(1 + x) counts,profession_embedding_5,0.0283870345805085,0.0578450619421948
+gpt2 — log(1 + x) counts,log_frequency,0.0218511834632347,0.0445267735647517
+gpt2 — log(1 + x) counts,profession_embedding_1,0.0157617361901099,0.0321181349058373
+gpt2 — log(1 + x) counts,profession_embedding_8,0.0120865480926023,0.024629100341603
+gpt2 — log(1 + x) counts,profession_embedding_9,0.0116791178340187,0.0237988681988953
 gpt2 — log(1 + x) counts,profession_embedding_2,0.0111892203610258,0.0228005902847219
-gpt2 — log(1 + x) counts,C(tense),0.006875583136898,0.0140105699069977
-gpt2 — log(1 + x) counts,profession_embedding_10,0.0026132271859519,0.0053250468276883
-gpt2 — log(1 + x) counts,profession_embedding_3,0.0019939268707898,0.0040630810880203
-gpt2 — log(1 + x) counts,C(semantic_role),0.0015039566052517,0.003064654842422
-gpt2 — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0013524411311411,0.0027559074824163
-gpt2 — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0004262619877946,0.0008686060890809
-gpt2 — log(1 + x) counts,C(syntactic_role),8.28003642757702e-05,0.0001687246403559
-gpt2 — PPMI,profession_embedding_3,0.0674676150654016,0.1931863818957009
-gpt2 — PPMI,profession_embedding_4,0.0670051062637066,0.1918620368464832
-gpt2 — PPMI,log_frequency,0.0393045764161489,0.112544498607492
-gpt2 — PPMI,profession_embedding_1,0.0380691195389998,0.1090068984736614
-gpt2 — PPMI,profession_embedding_9,0.0370019170058725,0.1059510768631756
-gpt2 — PPMI,profession_embedding_5,0.0328074962331181,0.0939407964871598
-gpt2 — PPMI,profession_embedding_7,0.0227707106020593,0.0652015220953288
-gpt2 — PPMI,profession_embedding_2,0.0156633684082878,0.0448503992347034
-gpt2 — PPMI,profession_embedding_6,0.0080065523352659,0.0229259160207338
-gpt2 — PPMI,C(tense),0.0068755831368978,0.0196875053068467
-gpt2 — PPMI,profession_embedding_10,0.0054177071997923,0.015513031712824
-gpt2 — PPMI,profession_embedding_8,0.0047961983319044,0.0137334067863023
+gpt2 — log(1 + x) counts,C(tense),0.0068755831368978,0.0140105699069973
+gpt2 — log(1 + x) counts,profession_embedding_10,0.0026132271859515,0.0053250468276876
+gpt2 — log(1 + x) counts,profession_embedding_3,0.0019939268707895,0.0040630810880198
+gpt2 — log(1 + x) counts,C(semantic_role),0.0015039566052514,0.0030646548424216
+gpt2 — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0013524411311408,0.0027559074824156
+gpt2 — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0004262619877944,0.0008686060890807
+gpt2 — log(1 + x) counts,C(syntactic_role),8.280036427565918e-05,0.0001687246403557
+gpt2 — PPMI,profession_embedding_3,0.0674676150654025,0.1931863818957029
+gpt2 — PPMI,profession_embedding_4,0.0670051062637061,0.1918620368464814
+gpt2 — PPMI,log_frequency,0.0393045764161489,0.1125444986074917
+gpt2 — PPMI,profession_embedding_1,0.0380691195389998,0.1090068984736611
+gpt2 — PPMI,profession_embedding_9,0.0370019170058728,0.1059510768631762
+gpt2 — PPMI,profession_embedding_5,0.0328074962331184,0.0939407964871602
+gpt2 — PPMI,profession_embedding_7,0.0227707106020598,0.0652015220953299
+gpt2 — PPMI,profession_embedding_2,0.0156633684082876,0.0448503992347026
+gpt2 — PPMI,profession_embedding_6,0.0080065523352661,0.0229259160207344
+gpt2 — PPMI,C(tense),0.0068755831368978,0.0196875053068466
+gpt2 — PPMI,profession_embedding_10,0.0054177071997928,0.0155130317128252
+gpt2 — PPMI,profession_embedding_8,0.0047961983319037,0.0137334067863
 gpt2 — PPMI,C(semantic_role),0.0015039566052512,0.0043064207148123
 gpt2 — PPMI,"C(valence, Treatment(reference='-val'))",0.0013524411311408,0.0038725721755357
-gpt2 — PPMI,lex_emb_norm,0.0006844640944165,0.0019598905609702
-gpt2 — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0004262619877942,0.0012205561302532
+gpt2 — PPMI,lex_emb_norm,0.0006844640944163,0.0019598905609696
+gpt2 — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0004262619877944,0.0012205561302539
 gpt2 — PPMI,C(syntactic_role),8.280036427565918e-05,0.0002370900880156
-gpt2 — Raw counts,profession_embedding_2,0.2948505800401824,0.5932290638937641
-gpt2 — Raw counts,profession_embedding_9,0.0919558738805106,0.1850120049763311
-gpt2 — Raw counts,profession_embedding_8,0.0444656654722452,0.0894633651387712
-gpt2 — Raw counts,profession_embedding_4,0.016536295233441,0.0332704481716408
-gpt2 — Raw counts,lex_emb_norm,0.0155001595812693,0.0311857794458036
+gpt2 — Raw counts,profession_embedding_2,0.2948505800401824,0.593229063893763
+gpt2 — Raw counts,profession_embedding_9,0.0919558738805105,0.1850120049763305
+gpt2 — Raw counts,profession_embedding_8,0.0444656654722455,0.0894633651387715
+gpt2 — Raw counts,profession_embedding_4,0.0165362952334411,0.033270448171641
+gpt2 — Raw counts,lex_emb_norm,0.0155001595812693,0.0311857794458035
 gpt2 — Raw counts,profession_embedding_6,0.0084666318227848,0.0170345673726648
-gpt2 — Raw counts,profession_embedding_5,0.0073611270398372,0.0148103303797151
-gpt2 — Raw counts,C(tense),0.0068755831368978,0.0138334330136633
-gpt2 — Raw counts,profession_embedding_7,0.0053171403149632,0.0106979005135671
+gpt2 — Raw counts,profession_embedding_5,0.0073611270398373,0.0148103303797153
+gpt2 — Raw counts,C(tense),0.0068755831368979,0.0138334330136635
+gpt2 — Raw counts,profession_embedding_7,0.0053171403149632,0.010697900513567
 gpt2 — Raw counts,log_frequency,0.0015432768000009,0.0031050189939215
 gpt2 — Raw counts,C(semantic_role),0.0015039566052514,0.0030259081360755
 gpt2 — Raw counts,"C(valence, Treatment(reference='-val'))",0.0013524411311409,0.0027210642966645
-gpt2 — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0004262619877943,0.0008576242243047
-gpt2 — Raw counts,profession_embedding_3,0.0003430244826323,0.0006901532725385
-gpt2 — Raw counts,profession_embedding_10,0.000251624664407,0.00050626003211
+gpt2 — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0004262619877946,0.0008576242243051
+gpt2 — Raw counts,profession_embedding_3,0.0003430244826324,0.0006901532725388
+gpt2 — Raw counts,profession_embedding_10,0.0002516246644072,0.0005062600321102
 gpt2 — Raw counts,profession_embedding_1,0.0001940822469295,0.0003904866988856
 gpt2 — Raw counts,C(syntactic_role),8.280036427565918e-05,0.000166591439578
-gpt2 — TF-IDF,profession_embedding_2,0.4135323435286432,0.5914363977228145
-gpt2 — TF-IDF,profession_embedding_4,0.0936456185293332,0.1339325161676924
-gpt2 — TF-IDF,profession_embedding_10,0.0561027562612658,0.0802384930338244
-gpt2 — TF-IDF,profession_embedding_9,0.0520852682169485,0.0744926579280369
+gpt2 — TF-IDF,profession_embedding_2,0.4135323435286434,0.591436397722814
+gpt2 — TF-IDF,profession_embedding_4,0.0936456185293332,0.1339325161676922
+gpt2 — TF-IDF,profession_embedding_10,0.0561027562612654,0.0802384930338238
+gpt2 — TF-IDF,profession_embedding_9,0.0520852682169489,0.0744926579280372
 gpt2 — TF-IDF,profession_embedding_7,0.0290783168583494,0.0415879803446464
-gpt2 — TF-IDF,lex_emb_norm,0.0163781752705532,0.0234241629098063
+gpt2 — TF-IDF,lex_emb_norm,0.0163781752705534,0.0234241629098064
 gpt2 — TF-IDF,profession_embedding_3,0.0109528036510084,0.0156647644076455
-gpt2 — TF-IDF,log_frequency,0.0079888809978969,0.0114257447408225
+gpt2 — TF-IDF,log_frequency,0.007988880997897,0.0114257447408227
 gpt2 — TF-IDF,C(tense),0.0068755831368978,0.0098334995711137
-gpt2 — TF-IDF,profession_embedding_8,0.0066806565284015,0.0095547143854965
-gpt2 — TF-IDF,profession_embedding_5,0.0021257649447498,0.0030402815668544
+gpt2 — TF-IDF,profession_embedding_8,0.0066806565284016,0.0095547143854966
+gpt2 — TF-IDF,profession_embedding_5,0.0021257649447499,0.0030402815668546
 gpt2 — TF-IDF,C(semantic_role),0.0015039566052514,0.0021509676107831
-gpt2 — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0013524411311408,0.0019342692857075
-gpt2 — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0004262619877943,0.0006096424100617
+gpt2 — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0013524411311409,0.0019342692857077
+gpt2 — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0004262619877944,0.0006096424100618
 gpt2 — TF-IDF,profession_embedding_6,0.0003883960659046,0.0005554863451508
-gpt2 — TF-IDF,C(syntactic_role),8.280036427565918e-05,0.0001184215695426
-meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_4,0.1895885687889702,0.3623542847646341
-meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_6,0.1404627345310262,0.2684617223084167
-meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_1,0.0482951200621107,0.0923048462231251
-meta-llama_Llama-3.1-70B — log(1 + x) counts,log_frequency,0.0398897002851708,0.076239848787495
-meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_2,0.0346401345270092,0.0662065294910089
-meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_10,0.0301356742619197,0.0575973053799075
-meta-llama_Llama-3.1-70B — log(1 + x) counts,C(tense),0.0185137887747413,0.0353847847083129
-meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_5,0.0155146722040948,0.0296526736067623
-meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_3,0.0028977550989793,0.0055383823139806
-meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_7,0.0015370909723584,0.0029377905190427
-meta-llama_Llama-3.1-70B — log(1 + x) counts,C(syntactic_role),0.000877389156909,0.0016769245236821
+gpt2 — TF-IDF,C(syntactic_role),8.280036427588122e-05,0.000118421569543
+meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_4,0.1895885687889704,0.3623542847646324
+meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_6,0.1404627345310256,0.268461722308414
+meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_1,0.0482951200621115,0.0923048462231261
+meta-llama_Llama-3.1-70B — log(1 + x) counts,log_frequency,0.0398897002851716,0.0762398487874962
+meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_2,0.0346401345270096,0.0662065294910093
+meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_10,0.0301356742619193,0.0575973053799063
+meta-llama_Llama-3.1-70B — log(1 + x) counts,C(tense),0.0185137887747414,0.0353847847083129
+meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_5,0.0155146722040959,0.0296526736067642
+meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_3,0.0028977550989794,0.0055383823139808
+meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_7,0.0015370909723585,0.0029377905190429
+meta-llama_Llama-3.1-70B — log(1 + x) counts,C(syntactic_role),0.0008773891569091,0.0016769245236823
 meta-llama_Llama-3.1-70B — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0006309852672685,0.0012059810181521
-meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_8,0.0001219916509741,0.0002331585586533
-meta-llama_Llama-3.1-70B — log(1 + x) counts,C(semantic_role),5.928419825340647e-05,0.0001133079034942
-meta-llama_Llama-3.1-70B — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",4.673524188059108e-05,8.932350327404853e-05
-meta-llama_Llama-3.1-70B — log(1 + x) counts,lex_emb_norm,1.6410008856215796e-06,3.136390057722364e-06
-meta-llama_Llama-3.1-70B — PPMI,profession_embedding_5,0.0829377340673234,0.2109451143273297
-meta-llama_Llama-3.1-70B — PPMI,profession_embedding_4,0.0629664207166099,0.160149767367242
-meta-llama_Llama-3.1-70B — PPMI,profession_embedding_3,0.0460837059876519,0.1172100098647658
-meta-llama_Llama-3.1-70B — PPMI,profession_embedding_7,0.0390288826902524,0.0992666632835696
-meta-llama_Llama-3.1-70B — PPMI,log_frequency,0.0384575346398841,0.0978134878241604
-meta-llama_Llama-3.1-70B — PPMI,profession_embedding_9,0.027429097880958,0.0697635913671995
-meta-llama_Llama-3.1-70B — PPMI,profession_embedding_6,0.0267544526255913,0.0680476882005156
-meta-llama_Llama-3.1-70B — PPMI,profession_embedding_1,0.0260159842981559,0.0661694564461789
-meta-llama_Llama-3.1-70B — PPMI,C(tense),0.0185137887747411,0.0470882564328279
-meta-llama_Llama-3.1-70B — PPMI,profession_embedding_10,0.0148021665447949,0.0376480591035842
-meta-llama_Llama-3.1-70B — PPMI,profession_embedding_8,0.006202292671822,0.0157750070153475
-meta-llama_Llama-3.1-70B — PPMI,profession_embedding_2,0.0023656475252616,0.0060168244682139
-meta-llama_Llama-3.1-70B — PPMI,C(syntactic_role),0.000877389156909,0.0022315651385351
-meta-llama_Llama-3.1-70B — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0006309852672685,0.0016048576783492
-meta-llama_Llama-3.1-70B — PPMI,C(semantic_role),5.928419825329545e-05,0.0001507843458587
-meta-llama_Llama-3.1-70B — PPMI,"C(valence, Treatment(reference='-val'))",4.673524188036904e-05,0.0001188671363214
-meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_9,0.2243172703399482,0.425550142331591
-meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_2,0.2140830810785927,0.4061349600310124
-meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_8,0.0294868065396278,0.0559391379042118
-meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_4,0.0205874802993455,0.0390563114394098
-meta-llama_Llama-3.1-70B — Raw counts,C(tense),0.0185137887747413,0.035122331135041
-meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_1,0.0057322897409839,0.0108746718942541
-meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_6,0.0051713898738261,0.009810594135368
+meta-llama_Llama-3.1-70B — log(1 + x) counts,profession_embedding_8,0.0001219916509742,0.0002331585586536
+meta-llama_Llama-3.1-70B — log(1 + x) counts,C(semantic_role),5.9284198253517495e-05,0.0001133079034944
+meta-llama_Llama-3.1-70B — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",4.6735241880702105e-05,8.932350327426018e-05
+meta-llama_Llama-3.1-70B — log(1 + x) counts,lex_emb_norm,1.6410008856215796e-06,3.1363900577223446e-06
+meta-llama_Llama-3.1-70B — PPMI,profession_embedding_5,0.0829377340673231,0.2109451143273318
+meta-llama_Llama-3.1-70B — PPMI,profession_embedding_4,0.0629664207166089,0.1601497673672415
+meta-llama_Llama-3.1-70B — PPMI,profession_embedding_3,0.0460837059876514,0.1172100098647658
+meta-llama_Llama-3.1-70B — PPMI,profession_embedding_7,0.0390288826902524,0.0992666632835708
+meta-llama_Llama-3.1-70B — PPMI,log_frequency,0.0384575346398833,0.0978134878241597
+meta-llama_Llama-3.1-70B — PPMI,profession_embedding_9,0.0274290978809577,0.0697635913671995
+meta-llama_Llama-3.1-70B — PPMI,profession_embedding_6,0.026754452625592,0.0680476882005181
+meta-llama_Llama-3.1-70B — PPMI,profession_embedding_1,0.0260159842981554,0.0661694564461783
+meta-llama_Llama-3.1-70B — PPMI,C(tense),0.018513788774741,0.0470882564328282
+meta-llama_Llama-3.1-70B — PPMI,profession_embedding_10,0.0148021665447956,0.0376480591035863
+meta-llama_Llama-3.1-70B — PPMI,profession_embedding_8,0.0062022926718208,0.0157750070153446
+meta-llama_Llama-3.1-70B — PPMI,profession_embedding_2,0.0023656475252614,0.0060168244682134
+meta-llama_Llama-3.1-70B — PPMI,C(syntactic_role),0.0008773891569087,0.0022315651385343
+meta-llama_Llama-3.1-70B — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0006309852672682,0.0016048576783483
+meta-llama_Llama-3.1-70B — PPMI,C(semantic_role),5.9284198253073406e-05,0.0001507843458581
+meta-llama_Llama-3.1-70B — PPMI,"C(valence, Treatment(reference='-val'))",4.673524188003597e-05,0.0001188671363205
+meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_9,0.2243172703399479,0.4255501423315904
+meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_2,0.2140830810785927,0.4061349600310123
+meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_8,0.029486806539628,0.0559391379042122
+meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_4,0.0205874802993453,0.0390563114394094
+meta-llama_Llama-3.1-70B — Raw counts,C(tense),0.0185137887747413,0.0351223311350409
+meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_1,0.0057322897409841,0.0108746718942545
+meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_6,0.0051713898738263,0.0098105941353684
 meta-llama_Llama-3.1-70B — Raw counts,lex_emb_norm,0.0029598902340779,0.0056151793773563
-meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_5,0.0020382027692988,0.0038666549270206
-meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_3,0.0017858923947996,0.0033879993352457
+meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_5,0.002038202769299,0.0038666549270208
+meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_3,0.0017858923947995,0.0033879993352455
 meta-llama_Llama-3.1-70B — Raw counts,C(syntactic_role),0.0008773891569089,0.0016644865553015
 meta-llama_Llama-3.1-70B — Raw counts,profession_embedding_7,0.0008325203498569,0.0015793663717406
-meta-llama_Llama-3.1-70B — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0006309852672685,0.0011970360993085
-meta-llama_Llama-3.1-70B — Raw counts,C(semantic_role),5.928419825329545e-05,0.0001124674839635
-meta-llama_Llama-3.1-70B — Raw counts,"C(valence, Treatment(reference='-val'))",4.673524188036904e-05,8.866097917450688e-05
-meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_2,0.6306256616506539,0.8380157854984477
-meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_9,0.0302112626631343,0.040146661563499
-meta-llama_Llama-3.1-70B — TF-IDF,C(tense),0.018513788774741,0.0246023087642946
-meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_10,0.0148191086927415,0.0196925811408134
-meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_4,0.0143367866705336,0.0190516407337171
-meta-llama_Llama-3.1-70B — TF-IDF,log_frequency,0.0135281039258864,0.0179770112876195
+meta-llama_Llama-3.1-70B — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0006309852672683,0.0011970360993081
+meta-llama_Llama-3.1-70B — Raw counts,C(semantic_role),5.928419825340647e-05,0.0001124674839637
+meta-llama_Llama-3.1-70B — Raw counts,"C(valence, Treatment(reference='-val'))",4.673524188048006e-05,8.866097917471746e-05
+meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_2,0.6306256616506539,0.8380157854984471
+meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_9,0.0302112626631344,0.0401466615634991
+meta-llama_Llama-3.1-70B — TF-IDF,C(tense),0.0185137887747411,0.0246023087642947
+meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_10,0.0148191086927413,0.0196925811408132
+meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_4,0.0143367866705337,0.0190516407337172
+meta-llama_Llama-3.1-70B — TF-IDF,log_frequency,0.0135281039258865,0.0179770112876196
 meta-llama_Llama-3.1-70B — TF-IDF,lex_emb_norm,0.0133336172851772,0.017718564978035
 meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_8,0.0082737903887557,0.010994742798024
 meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_3,0.0068672137956795,0.0091255936970737
 meta-llama_Llama-3.1-70B — TF-IDF,C(syntactic_role),0.0008773891569089,0.0011659309289607
 meta-llama_Llama-3.1-70B — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0006309852672684,0.0008384936524845
 meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_7,0.0003045445532748,0.0004046983155806
-meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_6,9.414146931108204e-05,0.0001251012163796
-meta-llama_Llama-3.1-70B — TF-IDF,C(semantic_role),5.928419825329545e-05,7.878064117600529e-05
-meta-llama_Llama-3.1-70B — TF-IDF,"C(valence, Treatment(reference='-val'))",4.673524188048006e-05,6.21047838941678e-05
-meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_4,0.1899732605535756,0.3368669247668234
-meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_6,0.1417547082370208,0.2513641788106096
-meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_1,0.0683653990624696,0.1212278068793579
-meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_2,0.0507672903063629,0.0900222532077142
-meta-llama_Llama-3.1-8B — log(1 + x) counts,log_frequency,0.0477092185615294,0.0845995783460177
-meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_10,0.0283060689691025,0.0501932660316163
-meta-llama_Llama-3.1-8B — log(1 + x) counts,C(syntactic_role),0.0095286952878947,0.0168966004442925
-meta-llama_Llama-3.1-8B — log(1 + x) counts,C(tense),0.0094861325712382,0.0168211268148561
-meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_5,0.009460612185283,0.0167758732148994
-meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_3,0.0056486965829827,0.0100164572703831
-meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_7,0.0014187867851076,0.0025158400703673
-meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_8,0.0008290718821257,0.0014701379264035
-meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_9,0.0004385779977365,0.0007777011403466
-meta-llama_Llama-3.1-8B — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0001134594227535,0.0002011900344155
-meta-llama_Llama-3.1-8B — log(1 + x) counts,lex_emb_norm,7.419016884413487e-05,0.0001315564830209
-meta-llama_Llama-3.1-8B — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",6.739584365345053e-05,0.0001195085588753
-meta-llama_Llama-3.1-8B — PPMI,profession_embedding_5,0.0729127075465266,0.1755117005816995
-meta-llama_Llama-3.1-8B — PPMI,profession_embedding_4,0.070802824615937,0.1704328994558492
-meta-llama_Llama-3.1-8B — PPMI,log_frequency,0.0640064289592154,0.1540729671521956
-meta-llama_Llama-3.1-8B — PPMI,profession_embedding_7,0.0472654478348387,0.1137749427691269
-meta-llama_Llama-3.1-8B — PPMI,profession_embedding_3,0.0438621483337805,0.1055826961344998
-meta-llama_Llama-3.1-8B — PPMI,profession_embedding_6,0.036462489575592,0.0877706200770418
-meta-llama_Llama-3.1-8B — PPMI,profession_embedding_1,0.0291144737586795,0.0700828562382819
-meta-llama_Llama-3.1-8B — PPMI,profession_embedding_9,0.0162985990771191,0.0392331451866482
-meta-llama_Llama-3.1-8B — PPMI,C(syntactic_role),0.009528695287895,0.0229369827370091
-meta-llama_Llama-3.1-8B — PPMI,C(tense),0.0094861325712383,0.0228345279656371
-meta-llama_Llama-3.1-8B — PPMI,profession_embedding_10,0.0072280074638028,0.0173988859346601
-meta-llama_Llama-3.1-8B — PPMI,profession_embedding_8,0.0060772447611129,0.0146288294422961
-meta-llama_Llama-3.1-8B — PPMI,profession_embedding_2,0.0022032713396085,0.0053036008765804
-meta-llama_Llama-3.1-8B — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0001134594227536,0.000273113657476
+meta-llama_Llama-3.1-70B — TF-IDF,profession_embedding_6,9.414146931119304e-05,0.0001251012163797
+meta-llama_Llama-3.1-70B — TF-IDF,C(semantic_role),5.928419825329545e-05,7.878064117600524e-05
+meta-llama_Llama-3.1-70B — TF-IDF,"C(valence, Treatment(reference='-val'))",4.673524188048006e-05,6.210478389416777e-05
+meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_4,0.189973260553576,0.3368669247668208
+meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_6,0.1417547082370205,0.2513641788106066
+meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_1,0.0683653990624705,0.1212278068793583
+meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_2,0.0507672903063637,0.0900222532077147
+meta-llama_Llama-3.1-8B — log(1 + x) counts,log_frequency,0.0477092185615304,0.0845995783460187
+meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_10,0.028306068969102,0.0501932660316149
+meta-llama_Llama-3.1-8B — log(1 + x) counts,C(syntactic_role),0.0095286952878949,0.0168966004442925
+meta-llama_Llama-3.1-8B — log(1 + x) counts,C(tense),0.0094861325712385,0.0168211268148566
+meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_5,0.009460612185284,0.016775873214901
+meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_3,0.0056486965829831,0.0100164572703838
+meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_7,0.0014187867851078,0.0025158400703677
+meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_8,0.0008290718821259,0.0014701379264039
+meta-llama_Llama-3.1-8B — log(1 + x) counts,profession_embedding_9,0.0004385779977368,0.0007777011403472
+meta-llama_Llama-3.1-8B — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0001134594227536,0.0002011900344157
+meta-llama_Llama-3.1-8B — log(1 + x) counts,lex_emb_norm,7.419016884457896e-05,0.0001315564830217
+meta-llama_Llama-3.1-8B — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",6.739584365356155e-05,0.0001195085588755
+meta-llama_Llama-3.1-8B — PPMI,profession_embedding_5,0.0729127075465267,0.1755117005816993
+meta-llama_Llama-3.1-8B — PPMI,profession_embedding_4,0.0708028246159364,0.1704328994558474
+meta-llama_Llama-3.1-8B — PPMI,log_frequency,0.0640064289592152,0.1540729671521946
+meta-llama_Llama-3.1-8B — PPMI,profession_embedding_7,0.0472654478348389,0.1137749427691271
+meta-llama_Llama-3.1-8B — PPMI,profession_embedding_3,0.0438621483337806,0.1055826961344998
+meta-llama_Llama-3.1-8B — PPMI,profession_embedding_6,0.036462489575593,0.087770620077044
+meta-llama_Llama-3.1-8B — PPMI,profession_embedding_1,0.0291144737586795,0.0700828562382817
+meta-llama_Llama-3.1-8B — PPMI,profession_embedding_9,0.0162985990771192,0.0392331451866484
+meta-llama_Llama-3.1-8B — PPMI,C(syntactic_role),0.0095286952878947,0.0229369827370085
+meta-llama_Llama-3.1-8B — PPMI,C(tense),0.0094861325712385,0.0228345279656376
+meta-llama_Llama-3.1-8B — PPMI,profession_embedding_10,0.0072280074638035,0.0173988859346619
+meta-llama_Llama-3.1-8B — PPMI,profession_embedding_8,0.0060772447611121,0.0146288294422941
+meta-llama_Llama-3.1-8B — PPMI,profession_embedding_2,0.0022032713396087,0.0053036008765809
+meta-llama_Llama-3.1-8B — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0001134594227537,0.0002731136574762
 meta-llama_Llama-3.1-8B — PPMI,"C(valence, Treatment(reference='-val'))",6.739584365356155e-05,0.0001622317909978
-meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_9,0.2308669033200721,0.4409089397730337
-meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_2,0.1932936294936387,0.3691516108169334
-meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_8,0.0336050651258164,0.0641788555334222
-meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_4,0.0203083258584273,0.0387847815950931
-meta-llama_Llama-3.1-8B — Raw counts,C(syntactic_role),0.0095286952878947,0.0181978745172553
-meta-llama_Llama-3.1-8B — Raw counts,C(tense),0.0094861325712383,0.0181165883649096
-meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_6,0.0079952506287415,0.0152693063719524
-meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_1,0.0057750046269817,0.0110290870222172
-meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_5,0.0054593807461842,0.0104263094536345
-meta-llama_Llama-3.1-8B — Raw counts,lex_emb_norm,0.0048230709045521,0.0092110867707531
-meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_3,0.0010540683023212,0.002013056574768
-meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_7,0.0007629743751733,0.0014571262402445
-meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_10,0.0003528036674504,0.0006737834168805
-meta-llama_Llama-3.1-8B — Raw counts,log_frequency,0.0001236763262049,0.0002361966876925
-meta-llama_Llama-3.1-8B — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0001134594227535,0.0002166844752284
+meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_9,0.2308669033200715,0.4409089397730347
+meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_2,0.1932936294936384,0.3691516108169347
+meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_8,0.0336050651258167,0.0641788555334231
+meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_4,0.020308325858427,0.0387847815950927
+meta-llama_Llama-3.1-8B — Raw counts,C(syntactic_role),0.0095286952878947,0.0181978745172554
+meta-llama_Llama-3.1-8B — Raw counts,C(tense),0.0094861325712382,0.0181165883649094
+meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_6,0.0079952506287414,0.0152693063719522
+meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_1,0.0057750046269817,0.0110290870222173
+meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_5,0.0054593807461841,0.0104263094536344
+meta-llama_Llama-3.1-8B — Raw counts,lex_emb_norm,0.0048230709045519,0.0092110867707527
+meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_3,0.0010540683023209,0.0020130565747674
+meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_7,0.0007629743751732,0.0014571262402443
+meta-llama_Llama-3.1-8B — Raw counts,profession_embedding_10,0.0003528036674503,0.0006737834168803
+meta-llama_Llama-3.1-8B — Raw counts,log_frequency,0.0001236763262045,0.0002361966876918
+meta-llama_Llama-3.1-8B — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0001134594227533,0.000216684475228
 meta-llama_Llama-3.1-8B — Raw counts,"C(valence, Treatment(reference='-val'))",6.739584365345053e-05,0.0001287123859809
-meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_2,0.1782356745832807,0.5544765861252599
-meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_9,0.0261972811166087,0.0814975959962145
+meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_2,0.1782356745832803,0.5544765861252582
+meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_9,0.026197281116609,0.0814975959962151
 meta-llama_Llama-3.1-8B — TF-IDF,lex_emb_norm,0.0226078074567303,0.070331037418257
-meta-llama_Llama-3.1-8B — TF-IDF,log_frequency,0.0225885268332352,0.070271056977647
-meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_10,0.0225661041638248,0.0702013018895283
+meta-llama_Llama-3.1-8B — TF-IDF,log_frequency,0.0225885268332354,0.0702710569776476
+meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_10,0.0225661041638248,0.0702013018895282
 meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_4,0.011500372175654,0.0357767159578766
-meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_8,0.0098829785341167,0.0307451368036078
-meta-llama_Llama-3.1-8B — TF-IDF,C(syntactic_role),0.0095286952878947,0.0296429906404122
+meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_8,0.0098829785341166,0.0307451368036075
+meta-llama_Llama-3.1-8B — TF-IDF,C(syntactic_role),0.0095286952878949,0.0296429906404125
 meta-llama_Llama-3.1-8B — TF-IDF,C(tense),0.0094861325712384,0.0295105815147811
-meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_7,0.0041611803541095,0.0129450912809268
+meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_7,0.0041611803541096,0.0129450912809271
 meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_3,0.0034942903106164,0.0108704509739203
-meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_5,0.0008347983183289,0.0025969891983318
-meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_6,0.0001159525743619,0.000360718962323
-meta-llama_Llama-3.1-8B — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0001134594227534,0.0003529629718581
-meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_1,6.786431927274794e-05,0.0002111203391691
-meta-llama_Llama-3.1-8B — TF-IDF,"C(valence, Treatment(reference='-val'))",6.739584365345053e-05,0.0002096629498856
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_6,0.1854611113223087,0.2937761648733847
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_4,0.0981660258198454,0.1554980361144148
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,log_frequency,0.0773374488131767,0.1225049227379121
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_1,0.0691029763710375,0.1094612624440669
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,lex_emb_norm,0.0524918343440314,0.0831486971624959
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_10,0.0504298207165467,0.0798824034846458
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_5,0.0237605054711471,0.0376373791950153
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_7,0.0200688537183675,0.0317896880739643
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_8,0.0152753615354581,0.0241966474639663
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_2,0.0150500280684291,0.023839712248333
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,C(tense),0.0101754223284294,0.0161181852427164
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_9,0.0097977837858092,0.0155199940533701
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_3,0.0026536169372197,0.0042034117088012
+meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_5,0.0008347983183288,0.0025969891983315
+meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_6,0.000115952574362,0.0003607189623234
+meta-llama_Llama-3.1-8B — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0001134594227535,0.0003529629718585
+meta-llama_Llama-3.1-8B — TF-IDF,profession_embedding_1,6.786431927285896e-05,0.0002111203391695
+meta-llama_Llama-3.1-8B — TF-IDF,"C(valence, Treatment(reference='-val'))",6.73958436533395e-05,0.0002096629498853
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_6,0.1854611113223078,0.2937761648733803
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_4,0.098166025819846,0.1554980361144141
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,log_frequency,0.077337448813178,0.122504922737913
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_1,0.0691029763710389,0.1094612624440679
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,lex_emb_norm,0.0524918343440314,0.0831486971624951
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_10,0.0504298207165462,0.0798824034846441
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_5,0.0237605054711488,0.0376373791950176
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_7,0.0200688537183683,0.0317896880739653
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_8,0.0152753615354586,0.0241966474639667
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_2,0.0150500280684297,0.0238397122483337
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,C(tense),0.0101754223284298,0.0161181852427167
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_9,0.0097977837858089,0.0155199940533696
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,profession_embedding_3,0.0026536169372199,0.0042034117088015
 mistralai_Mistral-7B-v0.3 — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0007823765550958,0.0012393087812542
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,C(syntactic_role),0.0006009946280023,0.0009519941709892
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",9.745231764224373e-05,0.0001543675001774
-mistralai_Mistral-7B-v0.3 — log(1 + x) counts,C(semantic_role),4.913081906421368e-05,7.78247444915246e-05
-mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_5,0.0870035389086261,0.2297793753204837
-mistralai_Mistral-7B-v0.3 — PPMI,log_frequency,0.059067482538084,0.1559992778409714
-mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_7,0.0521606886132299,0.137758194622655
-mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_3,0.0462269556800422,0.1220869993608346
-mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_6,0.0398017146433818,0.1051177140856931
-mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_4,0.0338267048382192,0.0893375051679164
-mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_1,0.0304471600039203,0.0804120096003358
-mistralai_Mistral-7B-v0.3 — PPMI,C(tense),0.0101754223284296,0.0268736446307569
-mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_9,0.0079988708306625,0.0211252963476482
-mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_10,0.0041174695212862,0.0108743803570555
-mistralai_Mistral-7B-v0.3 — PPMI,lex_emb_norm,0.0032364467866077,0.0085475686416127
-mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_8,0.0024869417298707,0.0065680996924538
-mistralai_Mistral-7B-v0.3 — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0007823765550958,0.0020662837207589
-mistralai_Mistral-7B-v0.3 — PPMI,C(syntactic_role),0.0006009946280026,0.001587247736422
-mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_2,0.0005601106423832,0.0014792717070089
-mistralai_Mistral-7B-v0.3 — PPMI,"C(valence, Treatment(reference='-val'))",9.745231764235474e-05,0.0002573749637346
-mistralai_Mistral-7B-v0.3 — PPMI,C(semantic_role),4.9130819064324704e-05,0.0001297562036578
-mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_9,0.2778431099460324,0.340353379979148
-mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_2,0.1479601493306921,0.1812488239737242
-mistralai_Mistral-7B-v0.3 — Raw counts,lex_emb_norm,0.0855217498275595,0.1047627800494847
-mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_5,0.0675594080467021,0.0827591977449137
-mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_1,0.0552277765006139,0.0676531457064671
-mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_4,0.0532676452921843,0.0652520162268798
-mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_6,0.0412814776785457,0.0505691519978878
-mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_8,0.0377103326855893,0.0461945563169497
-mistralai_Mistral-7B-v0.3 — Raw counts,log_frequency,0.0242190710553386,0.0296679759136037
-mistralai_Mistral-7B-v0.3 — Raw counts,C(tense),0.0101754223284298,0.0124647301236625
-mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_3,0.008496185221108,0.010407691439585
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,C(syntactic_role),0.0006009946280027,0.0009519941709899
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",9.745231764246576e-05,0.0001543675001778
+mistralai_Mistral-7B-v0.3 — log(1 + x) counts,C(semantic_role),4.913081906443573e-05,7.782474449187553e-05
+mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_5,0.0870035389086261,0.2297793753204816
+mistralai_Mistral-7B-v0.3 — PPMI,log_frequency,0.059067482538084,0.1559992778409699
+mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_7,0.0521606886132295,0.1377581946226526
+mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_3,0.0462269556800427,0.1220869993608349
+mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_6,0.0398017146433832,0.1051177140856957
+mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_4,0.0338267048382188,0.0893375051679144
+mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_1,0.0304471600039202,0.0804120096003347
+mistralai_Mistral-7B-v0.3 — PPMI,C(tense),0.0101754223284299,0.0268736446307576
+mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_9,0.0079988708306627,0.0211252963476486
+mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_10,0.0041174695212871,0.0108743803570577
+mistralai_Mistral-7B-v0.3 — PPMI,lex_emb_norm,0.0032364467866078,0.008547568641613
+mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_8,0.0024869417298705,0.0065680996924531
+mistralai_Mistral-7B-v0.3 — PPMI,"C(dominance, Treatment(reference='-dom'))",0.000782376555096,0.0020662837207595
+mistralai_Mistral-7B-v0.3 — PPMI,C(syntactic_role),0.0006009946280026,0.0015872477364219
+mistralai_Mistral-7B-v0.3 — PPMI,profession_embedding_2,0.0005601106423835,0.0014792717070097
+mistralai_Mistral-7B-v0.3 — PPMI,"C(valence, Treatment(reference='-val'))",9.74523176426878e-05,0.0002573749637355
+mistralai_Mistral-7B-v0.3 — PPMI,C(semantic_role),4.913081906465777e-05,0.0001297562036587
+mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_9,0.2778431099460321,0.3403533799791484
+mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_2,0.1479601493306918,0.1812488239737242
+mistralai_Mistral-7B-v0.3 — Raw counts,lex_emb_norm,0.0855217498275595,0.104762780049485
+mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_5,0.0675594080467019,0.0827591977449136
+mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_1,0.0552277765006143,0.0676531457064679
+mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_4,0.0532676452921836,0.0652520162268792
+mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_6,0.0412814776785457,0.050569151997888
+mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_8,0.0377103326855896,0.0461945563169503
+mistralai_Mistral-7B-v0.3 — Raw counts,log_frequency,0.0242190710553384,0.0296679759136036
+mistralai_Mistral-7B-v0.3 — Raw counts,C(tense),0.0101754223284297,0.0124647301236624
+mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_3,0.0084961852211078,0.0104076914395848
 mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_7,0.0055032490241464,0.0067413923152494
-mistralai_Mistral-7B-v0.3 — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.000782376555096,0.0009583988064167
-mistralai_Mistral-7B-v0.3 — Raw counts,C(syntactic_role),0.0006009946280026,0.0007362088375333
+mistralai_Mistral-7B-v0.3 — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0007823765550958,0.0009583988064164
+mistralai_Mistral-7B-v0.3 — Raw counts,C(syntactic_role),0.0006009946280025,0.0007362088375332
 mistralai_Mistral-7B-v0.3 — Raw counts,"C(valence, Treatment(reference='-val'))",9.745231764224373e-05,0.0001193775354111
-mistralai_Mistral-7B-v0.3 — Raw counts,C(semantic_role),4.913081906465777e-05,6.018447005235524e-05
-mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_10,4.162385848749395e-05,5.098856303020809e-05
-mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_2,0.1850907569231278,0.6098727599406527
-mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_9,0.0378124262036119,0.1245916820061776
-mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_10,0.0221417761417805,0.0729569987721439
-mistralai_Mistral-7B-v0.3 — TF-IDF,log_frequency,0.0189857660694189,0.0625579674794516
-mistralai_Mistral-7B-v0.3 — TF-IDF,lex_emb_norm,0.0103716894490022,0.0341746447778449
-mistralai_Mistral-7B-v0.3 — TF-IDF,C(tense),0.0101754223284298,0.0335279459772192
-mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_7,0.0075719685009332,0.0249495836778373
-mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_4,0.0075616979282322,0.0249157422120427
-mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_3,0.0013510009870459,0.0044515388793535
-mistralai_Mistral-7B-v0.3 — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.000782376555096,0.0025779253210761
+mistralai_Mistral-7B-v0.3 — Raw counts,C(semantic_role),4.9130819064324704e-05,6.018447005194738e-05
+mistralai_Mistral-7B-v0.3 — Raw counts,profession_embedding_10,4.1623858487382925e-05,5.098856303007221e-05
+mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_2,0.1850907569231275,0.6098727599406534
+mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_9,0.0378124262036119,0.1245916820061779
+mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_10,0.0221417761417803,0.0729569987721434
+mistralai_Mistral-7B-v0.3 — TF-IDF,log_frequency,0.0189857660694188,0.0625579674794514
+mistralai_Mistral-7B-v0.3 — TF-IDF,lex_emb_norm,0.0103716894490022,0.034174644777845
+mistralai_Mistral-7B-v0.3 — TF-IDF,C(tense),0.0101754223284298,0.0335279459772193
+mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_7,0.0075719685009332,0.0249495836778374
+mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_4,0.0075616979282322,0.0249157422120428
+mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_3,0.0013510009870458,0.0044515388793532
+mistralai_Mistral-7B-v0.3 — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.000782376555096,0.0025779253210762
 mistralai_Mistral-7B-v0.3 — TF-IDF,C(syntactic_role),0.0006009946280027,0.0019802731296938
 mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_8,0.0004918962644375,0.0016207947786481
-mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_6,0.0002432896068279,0.0008016375666055
-mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_5,0.000155910099376,0.0005137226957725
+mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_6,0.0002432896068278,0.0008016375666052
+mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_5,0.0001559100993759,0.0005137226957721
 mistralai_Mistral-7B-v0.3 — TF-IDF,"C(valence, Treatment(reference='-val'))",9.745231764246576e-05,0.000321104710528
 mistralai_Mistral-7B-v0.3 — TF-IDF,C(semantic_role),4.913081906454675e-05,0.0001618857079583
-mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_1,7.220763911908179e-06,2.3792366993584e-05
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_4,0.1927349207989225,0.4132502038787866
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_6,0.1305926085756089,0.280008531382003
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,lex_emb_norm,0.0371935923429058,0.0797481823998355
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_1,0.0245044295579432,0.0525408704804367
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_5,0.0167130189101158,0.0358350134132725
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_10,0.015207190071909,0.0326063090777217
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,log_frequency,0.0138127721877242,0.0296164851654645
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,C(tense),0.0110990819598061,0.0237979597249139
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,C(syntactic_role),0.008250710280472,0.0176906587110235
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_9,0.0048257036805777,0.0103469730425132
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_8,0.0047902711328464,0.0102710007822024
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0032934886779844,0.0070616931379522
-tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_7,0.0031416547431529,0.0067361402787988
+mistralai_Mistral-7B-v0.3 — TF-IDF,profession_embedding_1,7.220763912019201e-06,2.3792366993949887e-05
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_4,0.1927349207989224,0.4132502038787865
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_6,0.1305926085756084,0.280008531382002
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,lex_emb_norm,0.0371935923429063,0.0797481823998365
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_1,0.0245044295579435,0.0525408704804373
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_5,0.0167130189101171,0.0358350134132751
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_10,0.0152071900719082,0.03260630907772
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,log_frequency,0.0138127721877244,0.029616485165465
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,C(tense),0.0110990819598059,0.0237979597249135
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,C(syntactic_role),0.0082507102804717,0.0176906587110228
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_9,0.0048257036805774,0.0103469730425125
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_8,0.0047902711328463,0.0102710007822022
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0032934886779841,0.0070616931379518
+tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_7,0.0031416547431533,0.0067361402787995
 tiiuae_Falcon3-10B-Base — log(1 + x) counts,profession_embedding_3,0.0001010000586553,0.0002165580303666
 tiiuae_Falcon3-10B-Base — log(1 + x) counts,C(semantic_role),6.739431996416467e-05,0.0001445027001335
 tiiuae_Falcon3-10B-Base — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",6.012570760693947e-05,0.0001289177945746
-tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_4,0.0729427633428827,0.2109047560868783
-tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_3,0.0619978922182316,0.1792590482858714
-tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_10,0.0405257165716854,0.1171749735970381
-tiiuae_Falcon3-10B-Base — PPMI,log_frequency,0.0383138444142052,0.1107796255667494
-tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_5,0.0371163385427212,0.1073171891006296
-tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_9,0.0234400212975618,0.0677738510014356
-tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_1,0.0206795007829105,0.0597921557772149
-tiiuae_Falcon3-10B-Base — PPMI,lex_emb_norm,0.0133298027948088,0.0385414354801745
-tiiuae_Falcon3-10B-Base — PPMI,C(tense),0.011099081959806,0.0320915888875433
-tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_7,0.0100270065767188,0.0289918187826751
-tiiuae_Falcon3-10B-Base — PPMI,C(syntactic_role),0.0082507102804718,0.0238558831541197
-tiiuae_Falcon3-10B-Base — PPMI,"C(valence, Treatment(reference='-val'))",0.0032934886779841,0.0095227051248384
-tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_6,0.0027883231013139,0.0080620828801025
-tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_8,0.0010282441595627,0.0029730376768278
-tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_2,0.0010236826319768,0.0029598485979008
-tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_2,0.174238495780197,0.3693436001410105
-tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_9,0.1405777494470772,0.2979909339093684
-tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_4,0.0538960652364386,0.1142466633376631
-tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_8,0.0321155192853783,0.0680771574625119
-tiiuae_Falcon3-10B-Base — Raw counts,lex_emb_norm,0.0269337100092504,0.057092971191164
-tiiuae_Falcon3-10B-Base — Raw counts,C(tense),0.0110990819598062,0.023527377637984
-tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_1,0.0087866765899484,0.0186256358015181
-tiiuae_Falcon3-10B-Base — Raw counts,C(syntactic_role),0.0082507102804721,0.0174895164530936
+tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_4,0.0729427633428818,0.2109047560868739
+tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_3,0.0619978922182319,0.1792590482858708
+tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_10,0.0405257165716868,0.1171749735970409
+tiiuae_Falcon3-10B-Base — PPMI,log_frequency,0.038313844414205,0.1107796255667478
+tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_5,0.0371163385427218,0.1073171891006306
+tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_9,0.0234400212975619,0.0677738510014353
+tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_1,0.0206795007829105,0.0597921557772144
+tiiuae_Falcon3-10B-Base — PPMI,lex_emb_norm,0.0133298027948089,0.0385414354801745
+tiiuae_Falcon3-10B-Base — PPMI,C(tense),0.0110990819598061,0.0320915888875434
+tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_7,0.010027006576719,0.0289918187826754
+tiiuae_Falcon3-10B-Base — PPMI,C(syntactic_role),0.008250710280472,0.0238558831541201
+tiiuae_Falcon3-10B-Base — PPMI,"C(valence, Treatment(reference='-val'))",0.0032934886779844,0.009522705124839
+tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_6,0.0027883231013143,0.0080620828801037
+tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_8,0.0010282441595628,0.0029730376768281
+tiiuae_Falcon3-10B-Base — PPMI,profession_embedding_2,0.001023682631977,0.0029598485979014
+tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_2,0.1742384957801971,0.3693436001410093
+tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_9,0.1405777494470769,0.2979909339093665
+tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_4,0.0538960652364389,0.1142466633376634
+tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_8,0.0321155192853785,0.0680771574625121
+tiiuae_Falcon3-10B-Base — Raw counts,lex_emb_norm,0.0269337100092504,0.0570929711911638
+tiiuae_Falcon3-10B-Base — Raw counts,C(tense),0.0110990819598064,0.0235273776379844
+tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_1,0.0087866765899489,0.018625635801519
+tiiuae_Falcon3-10B-Base — Raw counts,C(syntactic_role),0.0082507102804721,0.0174895164530935
 tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_3,0.0041001131005085,0.0086912511884715
-tiiuae_Falcon3-10B-Base — Raw counts,"C(valence, Treatment(reference='-val'))",0.0032934886779842,0.0069814018991813
-tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_5,0.0031940833371939,0.0067706865444812
-tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_10,0.0018235863004698,0.0038655632692848
-tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_6,0.0016507008131343,0.0034990877208205
-tiiuae_Falcon3-10B-Base — Raw counts,log_frequency,0.0014016394072522,0.002971137591931
+tiiuae_Falcon3-10B-Base — Raw counts,"C(valence, Treatment(reference='-val'))",0.0032934886779844,0.0069814018991815
+tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_5,0.0031940833371939,0.0067706865444811
+tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_10,0.0018235863004701,0.0038655632692854
+tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_6,0.0016507008131345,0.003499087720821
+tiiuae_Falcon3-10B-Base — Raw counts,log_frequency,0.0014016394072522,0.0029711375919309
 tiiuae_Falcon3-10B-Base — Raw counts,profession_embedding_7,0.0002626261612332,0.0005567041396149
 tiiuae_Falcon3-10B-Base — Raw counts,C(semantic_role),6.73943199642757e-05,0.0001428597087756
-tiiuae_Falcon3-10B-Base — Raw counts,"C(dominance, Treatment(reference='-dom'))",6.012570760716152e-05,0.0001274520031248
-tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_2,0.1723647034554256,0.6803009645929252
-tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_10,0.0294086897832112,0.116072256244194
-tiiuae_Falcon3-10B-Base — TF-IDF,C(tense),0.0110990819598062,0.0438066263682852
-tiiuae_Falcon3-10B-Base — TF-IDF,log_frequency,0.0085336026123311,0.0336810145710772
-tiiuae_Falcon3-10B-Base — TF-IDF,C(syntactic_role),0.0082507102804719,0.032564475497928
-tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_9,0.0059295297715348,0.0234030792980813
-tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_1,0.0054255893280698,0.0214140922089973
-tiiuae_Falcon3-10B-Base — TF-IDF,lex_emb_norm,0.0043975442931615,0.0173565327732632
-tiiuae_Falcon3-10B-Base — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0032934886779844,0.0129989695082095
-tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_5,0.0030444658888312,0.0120161090949676
-tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_7,0.0008762851501062,0.0034585829982872
-tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_8,0.0007416756386736,0.0029272968437836
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_6,0.1732002340759199,0.410346564994715
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_4,0.1506032109698126,0.3568096234301165
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_1,0.0197915595612312,0.0468902280944935
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,log_frequency,0.0160175833491307,0.0379489112234759
+tiiuae_Falcon3-10B-Base — Raw counts,"C(dominance, Treatment(reference='-dom'))",6.012570760738356e-05,0.0001274520031253
+tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_2,0.1723647034554254,0.6803009645929294
+tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_10,0.0294086897832108,0.1160722562441936
+tiiuae_Falcon3-10B-Base — TF-IDF,C(tense),0.011099081959806,0.0438066263682847
+tiiuae_Falcon3-10B-Base — TF-IDF,log_frequency,0.008533602612331,0.033681014571077
+tiiuae_Falcon3-10B-Base — TF-IDF,C(syntactic_role),0.0082507102804718,0.0325644754979278
+tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_9,0.0059295297715347,0.0234030792980811
+tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_1,0.0054255893280695,0.0214140922089966
+tiiuae_Falcon3-10B-Base — TF-IDF,lex_emb_norm,0.0043975442931613,0.0173565327732625
+tiiuae_Falcon3-10B-Base — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0032934886779842,0.0129989695082092
+tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_5,0.0030444658888311,0.0120161090949672
+tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_7,0.0008762851501062,0.0034585829982873
+tiiuae_Falcon3-10B-Base — TF-IDF,profession_embedding_8,0.0007416756386735,0.0029272968437832
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_6,0.1732002340759195,0.4103465649947153
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_4,0.1506032109698122,0.3568096234301164
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_1,0.0197915595612314,0.0468902280944941
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,log_frequency,0.0160175833491307,0.037948911223476
 tiiuae_Falcon3-3B-Base — log(1 + x) counts,lex_emb_norm,0.012190224636609,0.0288811203566492
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_8,0.010566502148128,0.0250341916893312
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,C(tense),0.0078506959525682,0.0185998947065059
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,C(syntactic_role),0.0076744596712147,0.0181823551283021
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_5,0.00760616028282,0.0180205399923784
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_8,0.0105665021481278,0.0250341916893307
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,C(tense),0.0078506959525681,0.0185998947065057
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,C(syntactic_role),0.0076744596712146,0.0181823551283019
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_5,0.0076061602828207,0.0180205399923803
 tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_2,0.0059889514627511,0.0141890435297147
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_10,0.004968838428889,0.0117721883702225
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_7,0.0027523236567621,0.0065208142721734
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_9,0.0014432336284573,0.0034193138657233
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_10,0.0049688384288888,0.011772188370222
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_7,0.0027523236567622,0.0065208142721737
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_9,0.0014432336284571,0.0034193138657228
 tiiuae_Falcon3-3B-Base — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0006083302529062,0.0014412580386758
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_3,0.0004169973557653,0.000987951508629
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0003591870180951,0.0008509870662265
-tiiuae_Falcon3-3B-Base — log(1 + x) counts,C(semantic_role),4.432449210156619e-05,0.0001050137326664
-tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_4,0.0884420875559439,0.2379135244323057
-tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_3,0.0632864139801888,0.1702435369267441
-tiiuae_Falcon3-3B-Base — PPMI,log_frequency,0.0613443697100206,0.1650193432234123
-tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_9,0.0530989043083389,0.1428386395730393
-tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_5,0.0302456072433234,0.0813621570533672
-tiiuae_Falcon3-3B-Base — PPMI,lex_emb_norm,0.0122583905843348,0.0329756679018019
-tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_1,0.0117788895223999,0.0316857866838601
-tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_7,0.0101326942561132,0.027257441214761
-tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_10,0.008405490943296,0.0226111801537748
-tiiuae_Falcon3-3B-Base — PPMI,C(tense),0.007850695952568,0.0211187545990525
-tiiuae_Falcon3-3B-Base — PPMI,C(syntactic_role),0.0076744596712146,0.0206446704159636
-tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_8,0.0062748017234866,0.0168795223451085
-tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_6,0.005135765568798,0.0138154595950477
-tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_2,0.0048443908052264,0.0130316472852344
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,profession_embedding_3,0.000416997355765,0.0009879515086282
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.000359187018095,0.0008509870662263
+tiiuae_Falcon3-3B-Base — log(1 + x) counts,C(semantic_role),4.432449210145517e-05,0.0001050137326661
+tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_4,0.0884420875559431,0.2379135244323024
+tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_3,0.0632864139801893,0.1702435369267443
+tiiuae_Falcon3-3B-Base — PPMI,log_frequency,0.0613443697100205,0.1650193432234111
+tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_9,0.0530989043083391,0.1428386395730392
+tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_5,0.0302456072433237,0.0813621570533673
+tiiuae_Falcon3-3B-Base — PPMI,lex_emb_norm,0.0122583905843349,0.032975667901802
+tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_1,0.0117788895224001,0.0316857866838605
+tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_7,0.0101326942561138,0.0272574412147624
+tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_10,0.0084054909432969,0.0226111801537771
+tiiuae_Falcon3-3B-Base — PPMI,C(tense),0.0078506959525682,0.021118754599053
+tiiuae_Falcon3-3B-Base — PPMI,C(syntactic_role),0.0076744596712147,0.0206446704159638
+tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_8,0.0062748017234862,0.0168795223451075
+tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_6,0.0051357655687982,0.0138154595950483
+tiiuae_Falcon3-3B-Base — PPMI,profession_embedding_2,0.0048443908052265,0.0130316472852346
 tiiuae_Falcon3-3B-Base — PPMI,"C(dominance, Treatment(reference='-dom'))",0.0006083302529062,0.001636438018225
-tiiuae_Falcon3-3B-Base — PPMI,"C(valence, Treatment(reference='-val'))",0.0003591870180951,0.0009662305783011
-tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_2,0.2139947472553131,0.4590997937116345
-tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_9,0.1151271032511349,0.2469912464260349
-tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_4,0.0459691873775106,0.0986213199753324
-tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_8,0.0402287592592419,0.086305927197166
-tiiuae_Falcon3-3B-Base — Raw counts,lex_emb_norm,0.0184004033872642,0.0394758353074207
+tiiuae_Falcon3-3B-Base — PPMI,"C(valence, Treatment(reference='-val'))",0.000359187018095,0.0009662305783008
+tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_2,0.2139947472553128,0.4590997937116345
+tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_9,0.1151271032511347,0.2469912464260347
+tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_4,0.0459691873775107,0.0986213199753327
+tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_8,0.0402287592592423,0.0863059271971668
+tiiuae_Falcon3-3B-Base — Raw counts,lex_emb_norm,0.0184004033872641,0.0394758353074205
 tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_6,0.0079706869843587,0.0171001428642228
 tiiuae_Falcon3-3B-Base — Raw counts,C(tense),0.0078506959525683,0.0168427166486322
-tiiuae_Falcon3-3B-Base — Raw counts,C(syntactic_role),0.0076744596712149,0.0164646230671232
-tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_1,0.0032005378056334,0.0068663659514012
+tiiuae_Falcon3-3B-Base — Raw counts,C(syntactic_role),0.0076744596712147,0.0164646230671227
+tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_1,0.0032005378056336,0.0068663659514017
 tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_5,0.0024790542866648,0.0053185105064746
 tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_3,0.0015680799776028,0.0033641255380064
 tiiuae_Falcon3-3B-Base — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0006083302529065,0.0013050988269572
 tiiuae_Falcon3-3B-Base — Raw counts,"C(valence, Treatment(reference='-val'))",0.000359187018095,0.0007705922132498
 tiiuae_Falcon3-3B-Base — Raw counts,log_frequency,0.0003322501042668,0.0007128023294309
-tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_7,0.0002367332716716,0.0005078825418992
+tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_7,0.0002367332716715,0.000507882541899
 tiiuae_Falcon3-3B-Base — Raw counts,profession_embedding_10,7.361127533112022e-05,0.000157924069412
-tiiuae_Falcon3-3B-Base — Raw counts,C(semantic_role),4.432449210178824e-05,9.5092825601114e-05
-tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_2,0.1877903737869986,0.6592740167032071
-tiiuae_Falcon3-3B-Base — TF-IDF,log_frequency,0.0317930188753559,0.1116154722651067
-tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_10,0.0188864501534866,0.0663044947558228
-tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_9,0.0142368931509953,0.0499813358041299
+tiiuae_Falcon3-3B-Base — Raw counts,C(semantic_role),4.432449210156619e-05,9.509282560063772e-05
+tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_2,0.1877903737869986,0.6592740167032066
+tiiuae_Falcon3-3B-Base — TF-IDF,log_frequency,0.0317930188753559,0.1116154722651066
+tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_10,0.0188864501534866,0.0663044947558227
+tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_9,0.0142368931509955,0.0499813358041306
 tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_4,0.0112920512315433,0.0396429051293222
 tiiuae_Falcon3-3B-Base — TF-IDF,C(tense),0.0078506959525681,0.0275613693619664
 tiiuae_Falcon3-3B-Base — TF-IDF,C(syntactic_role),0.0076744596712146,0.0269426581961397
 tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_1,0.00136546275047,0.0047937180911202
 tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_8,0.0012629673716157,0.0044338884643504
-tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_6,0.0008904098760733,0.0031259541353111
-tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_7,0.0007086958226634,0.0024880122032136
+tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_6,0.0008904098760734,0.0031259541353115
+tiiuae_Falcon3-3B-Base — TF-IDF,profession_embedding_7,0.0007086958226634,0.0024880122032135
 tiiuae_Falcon3-3B-Base — TF-IDF,"C(dominance, Treatment(reference='-dom'))",0.0006083302529062,0.002135659678544
-tiiuae_Falcon3-3B-Base — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0003591870180948,0.0012609947112393
-tiiuae_Falcon3-3B-Base — TF-IDF,lex_emb_norm,0.0001251948613014,0.0004395205005259
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_4,0.1486354665520949,0.3422039629630899
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_6,0.1423101695919307,0.3276412092886302
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,C(syntactic_role),0.0232448167117416,0.0535166241384299
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,log_frequency,0.021244710205031,0.048911771818713
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_1,0.0207394551090381,0.0477485212152949
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,C(tense),0.0169441293038322,0.0390105291236003
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_10,0.0145591315365886,0.0335195402866739
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_5,0.0139935777369218,0.0322174637634576
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,lex_emb_norm,0.0135349173968039,0.0311614884321099
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_9,0.0054414574218785,0.0125278867638842
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_8,0.0041470696793209,0.0095478132633325
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0034322551495769,0.0079020932307164
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_2,0.0029069772585533,0.0066927440751288
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_7,0.0016900174352226,0.0038909331482282
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_3,0.0011063081466803,0.0025470571784404
+tiiuae_Falcon3-3B-Base — TF-IDF,"C(valence, Treatment(reference='-val'))",0.000359187018095,0.0012609947112397
+tiiuae_Falcon3-3B-Base — TF-IDF,lex_emb_norm,0.0001251948613012,0.0004395205005251
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_4,0.1486354665520947,0.3422039629630914
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_6,0.1423101695919301,0.3276412092886306
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,C(syntactic_role),0.0232448167117413,0.0535166241384297
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,log_frequency,0.021244710205031,0.0489117718187133
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_1,0.0207394551090381,0.0477485212152952
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,C(tense),0.0169441293038319,0.0390105291235998
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_10,0.0145591315365879,0.0335195402866726
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_5,0.0139935777369226,0.0322174637634596
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,lex_emb_norm,0.0135349173968037,0.0311614884321098
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_9,0.0054414574218782,0.0125278867638837
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_8,0.0041470696793208,0.0095478132633323
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,"C(valence, Treatment(reference='-val'))",0.0034322551495766,0.0079020932307159
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_2,0.002906977258553,0.0066927440751281
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_7,0.0016900174352227,0.0038909331482285
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,profession_embedding_3,0.0011063081466801,0.0025470571784399
 tiiuae_Falcon3-7B-Base — log(1 + x) counts,C(semantic_role),0.0002976989068793,0.0006853932514699
-tiiuae_Falcon3-7B-Base — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0001194317136267,0.0002749680587991
-tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_4,0.0747982159755894,0.1847991771418501
-tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_3,0.0600849388433936,0.1484480226172938
-tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_5,0.0584312031742402,0.1443622434729168
-tiiuae_Falcon3-7B-Base — PPMI,log_frequency,0.0555879156649649,0.1373375145373596
-tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_9,0.0304445327125509,0.0752173634139036
-tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_10,0.024400355479934,0.0602844005815863
-tiiuae_Falcon3-7B-Base — PPMI,C(syntactic_role),0.0232448167117415,0.0574294847158499
-tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_7,0.0220536055526655,0.0544864353512599
-tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_1,0.0171036112018748,0.0422568003131534
-tiiuae_Falcon3-7B-Base — PPMI,C(tense),0.016944129303832,0.0418627785688787
-tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_6,0.0133175553170449,0.032902833737828
-tiiuae_Falcon3-7B-Base — PPMI,"C(valence, Treatment(reference='-val'))",0.0034322551495766,0.0084798536851419
-tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_8,0.002166914912404,0.0053536583396502
-tiiuae_Falcon3-7B-Base — PPMI,lex_emb_norm,0.0021632686588319,0.0053446497737241
-tiiuae_Falcon3-7B-Base — PPMI,C(semantic_role),0.0002976989068794,0.0007355056843241
-tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_2,0.0002830356312332,0.0006992780652788
-tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_2,0.1872459138353763,0.3569833282490084
-tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_9,0.1326771249471982,0.2529482255500732
-tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_4,0.0523236037183025,0.0997546692408135
-tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_8,0.0372887556195735,0.0710908121554124
-tiiuae_Falcon3-7B-Base — Raw counts,lex_emb_norm,0.0237604622843518,0.0452991936286538
-tiiuae_Falcon3-7B-Base — Raw counts,C(syntactic_role),0.0232448167117415,0.0443161181161535
-tiiuae_Falcon3-7B-Base — Raw counts,C(tense),0.0169441293038321,0.0323038914402241
-tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_1,0.0163866910806906,0.0312411384641286
-tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_3,0.0099626815227382,0.0189937987720193
-tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_5,0.0090912481097467,0.0173324156542514
+tiiuae_Falcon3-7B-Base — log(1 + x) counts,"C(dominance, Treatment(reference='-dom'))",0.0001194317136266,0.0002749680587988
+tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_4,0.0747982159755885,0.1847991771418469
+tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_3,0.060084938843394,0.1484480226172941
+tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_5,0.0584312031742404,0.1443622434729165
+tiiuae_Falcon3-7B-Base — PPMI,log_frequency,0.0555879156649646,0.1373375145373582
+tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_9,0.0304445327125512,0.0752173634139037
+tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_10,0.0244003554799354,0.0602844005815895
+tiiuae_Falcon3-7B-Base — PPMI,C(syntactic_role),0.0232448167117417,0.0574294847158501
+tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_7,0.0220536055526656,0.0544864353512599
+tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_1,0.0171036112018747,0.0422568003131529
+tiiuae_Falcon3-7B-Base — PPMI,C(tense),0.0169441293038321,0.0418627785688788
+tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_6,0.0133175553170453,0.0329028337378289
+tiiuae_Falcon3-7B-Base — PPMI,"C(valence, Treatment(reference='-val'))",0.0034322551495769,0.0084798536851424
+tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_8,0.0021669149124037,0.0053536583396493
+tiiuae_Falcon3-7B-Base — PPMI,lex_emb_norm,0.002163268658832,0.0053446497737244
+tiiuae_Falcon3-7B-Base — PPMI,C(semantic_role),0.0002976989068795,0.0007355056843244
+tiiuae_Falcon3-7B-Base — PPMI,profession_embedding_2,0.0002830356312334,0.0006992780652794
+tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_2,0.1872459138353764,0.3569833282490079
+tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_9,0.1326771249471979,0.2529482255500723
+tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_4,0.0523236037183024,0.0997546692408131
+tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_8,0.0372887556195737,0.0710908121554127
+tiiuae_Falcon3-7B-Base — Raw counts,lex_emb_norm,0.0237604622843519,0.0452991936286539
+tiiuae_Falcon3-7B-Base — Raw counts,C(syntactic_role),0.0232448167117416,0.0443161181161536
+tiiuae_Falcon3-7B-Base — Raw counts,C(tense),0.0169441293038321,0.032303891440224
+tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_1,0.0163866910806909,0.031241138464129
+tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_3,0.0099626815227382,0.0189937987720192
+tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_5,0.0090912481097469,0.0173324156542517
 tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_6,0.0054027064059307,0.0103002307224555
-tiiuae_Falcon3-7B-Base — Raw counts,"C(valence, Treatment(reference='-val'))",0.0034322551495766,0.0065435759937218
-tiiuae_Falcon3-7B-Base — Raw counts,log_frequency,0.0026447136295084,0.0050421323188793
-tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_10,0.002375739238108,0.0045293340874568
+tiiuae_Falcon3-7B-Base — Raw counts,"C(valence, Treatment(reference='-val'))",0.0034322551495767,0.006543575993722
+tiiuae_Falcon3-7B-Base — Raw counts,log_frequency,0.0026447136295085,0.0050421323188795
+tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_10,0.0023757392381081,0.004529334087457
 tiiuae_Falcon3-7B-Base — Raw counts,profession_embedding_7,0.0013248809034129,0.0025258783209001
 tiiuae_Falcon3-7B-Base — Raw counts,C(semantic_role),0.0002976989068792,0.0005675613657838
-tiiuae_Falcon3-7B-Base — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0001194317136266,0.0002276959200636
-tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_2,0.1889745385418871,0.6573798894152685
+tiiuae_Falcon3-7B-Base — Raw counts,"C(dominance, Treatment(reference='-dom'))",0.0001194317136267,0.0002276959200638
+tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_2,0.1889745385418869,0.6573798894152679
 tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_10,0.0251623404890827,0.087531456543158
-tiiuae_Falcon3-7B-Base — TF-IDF,C(syntactic_role),0.0232448167117416,0.0808610258151568
+tiiuae_Falcon3-7B-Base — TF-IDF,C(syntactic_role),0.0232448167117417,0.0808610258151572
 tiiuae_Falcon3-7B-Base — TF-IDF,C(tense),0.016944129303832,0.0589430191703956
-tiiuae_Falcon3-7B-Base — TF-IDF,log_frequency,0.0120688180564546,0.0419834245424898
+tiiuae_Falcon3-7B-Base — TF-IDF,log_frequency,0.0120688180564547,0.0419834245424902
 tiiuae_Falcon3-7B-Base — TF-IDF,lex_emb_norm,0.0076066939334727,0.0264611712000225
-tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_9,0.0049018641838686,0.0170519635078032
+tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_9,0.0049018641838688,0.017051963507804
 tiiuae_Falcon3-7B-Base — TF-IDF,"C(valence, Treatment(reference='-val'))",0.0034322551495767,0.0119396799594441
-tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_4,0.0024846289617415,0.0086432020139346
-tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_5,0.0012521803139439,0.0043559209757031
-tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_6,0.0008027786355896,0.00279260124015
-tiiuae_Falcon3-7B-Base — TF-IDF,C(semantic_role),0.0002976989068792,0.0010355959908321
+tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_4,0.0024846289617413,0.0086432020139342
+tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_5,0.0012521803139436,0.0043559209757023
+tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_6,0.0008027786355895,0.0027926012401496
+tiiuae_Falcon3-7B-Base — TF-IDF,C(semantic_role),0.0002976989068793,0.0010355959908325
 tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_3,0.0002934852774013,0.001020938168135
-tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_1,3.204027254621877e-08,1.1145750631691433e-07
+tiiuae_Falcon3-7B-Base — TF-IDF,profession_embedding_1,3.204027254621877e-08,1.1145750631691437e-07

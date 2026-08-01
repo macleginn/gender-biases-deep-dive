@@ -1,23 +1,23 @@
 feature,coefficient,nonzero
 Intercept,0.0,False
-C(tense)[T.past perfect],0.027436794366340125,True
-C(tense)[T.present continuous],-0.0064497407443913435,True
-C(tense)[T.present perfect],0.017566649735766174,True
-C(tense)[T.simple future],0.09290807136163998,True
-C(tense)[T.simple past],0.016664475145047982,True
+C(tense)[T.past perfect],0.027436794366340212,True
+C(tense)[T.present continuous],-0.006449740744391261,True
+C(tense)[T.present perfect],0.017566649735766278,True
+C(tense)[T.simple future],0.09290807136164006,True
+C(tense)[T.simple past],0.01666447514504805,True
 C(semantic_role)[T.patient],-0.0,False
-C(syntactic_role)[T.subject],-0.06885115006935903,True
-"C(valence, Treatment(reference='-val'))[T.+val]",-0.023675451281507366,True
+C(syntactic_role)[T.subject],-0.068851150069359,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.0236754512815073,True
 "C(dominance, Treatment(reference='-dom'))[T.+dom]",0.0,False
-log_frequency,-0.4158468354183334,True
-lex_emb_norm,0.18252975065054633,True
-profession_embedding_1,0.2969430168826609,True
-profession_embedding_2,-0.08045131186551575,True
-profession_embedding_3,-0.281894095983017,True
-profession_embedding_4,-0.4400041888670423,True
-profession_embedding_5,-0.48515793818130887,True
-profession_embedding_6,0.3181191119922604,True
-profession_embedding_7,0.3710781000423685,True
-profession_embedding_8,-0.0413053587839702,True
-profession_embedding_9,0.19890237400197547,True
-profession_embedding_10,-0.19814979072152902,True
+log_frequency,-0.415846835418332,True
+lex_emb_norm,0.18252975065054705,True
+profession_embedding_1,0.2969430168826598,True
+profession_embedding_2,-0.08045131186551592,True
+profession_embedding_3,-0.2818940959830165,True
+profession_embedding_4,-0.4400041888670406,True
+profession_embedding_5,-0.4851579381813086,True
+profession_embedding_6,0.31811911199226567,True
+profession_embedding_7,0.3710781000423665,True
+profession_embedding_8,-0.041305358783962014,True
+profession_embedding_9,0.1989023740019749,True
+profession_embedding_10,-0.19814979072153532,True

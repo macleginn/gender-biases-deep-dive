@@ -17,7 +17,7 @@
     "profession_embedding_9",
     "profession_embedding_10"
   ],
-  "alpha": 0.014333716190511065,
+  "alpha": 0.014333716190511015,
   "alpha_selection": "LassoCV",
   "cv": 5,
   "lasso_n_iter": 17,

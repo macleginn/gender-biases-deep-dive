@@ -1,23 +1,23 @@
 feature,coefficient,nonzero
 Intercept,0.0,False
-C(tense)[T.past perfect],0.008433683750247266,True
-C(tense)[T.present continuous],-0.005682102484544319,True
-C(tense)[T.present perfect],0.04838130888113539,True
-C(tense)[T.simple future],0.18003876716524406,True
-C(tense)[T.simple past],0.026243243939940944,True
-C(semantic_role)[T.patient],-0.01618805665209351,True
+C(tense)[T.past perfect],0.00843368375024728,True
+C(tense)[T.present continuous],-0.005682102484544283,True
+C(tense)[T.present perfect],0.04838130888113538,True
+C(tense)[T.simple future],0.18003876716524408,True
+C(tense)[T.simple past],0.026243243939940895,True
+C(semantic_role)[T.patient],-0.016188056652093486,True
 C(syntactic_role)[T.subject],-0.21012474050333924,True
 "C(valence, Treatment(reference='-val'))[T.+val]",-0.0754719804641753,True
-"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.007115102800986837,True
-log_frequency,0.05135826144273177,True
-lex_emb_norm,-0.22887380997516898,True
-profession_embedding_1,-0.2552713154674407,True
-profession_embedding_2,-0.6262057831499991,True
+"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.007115102800986731,True
+log_frequency,0.05135826144273173,True
+lex_emb_norm,-0.22887380997516912,True
+profession_embedding_1,-0.2552713154674425,True
+profession_embedding_2,-0.6262057831499993,True
 profession_embedding_3,0.127253472795075,True
-profession_embedding_4,0.32160068520524304,True
-profession_embedding_5,0.1255370950679732,True
-profession_embedding_6,0.09751621536980834,True
-profession_embedding_7,-0.03800174219889765,True
-profession_embedding_8,-0.2688141701141116,True
-profession_embedding_9,-0.5409194895542575,True
-profession_embedding_10,-0.05323684387458405,True
+profession_embedding_4,0.3216006852052427,True
+profession_embedding_5,0.1255370950679731,True
+profession_embedding_6,0.09751621536980874,True
+profession_embedding_7,-0.0380017421988982,True
+profession_embedding_8,-0.2688141701141125,True
+profession_embedding_9,-0.540919489554257,True
+profession_embedding_10,-0.05323684387458572,True

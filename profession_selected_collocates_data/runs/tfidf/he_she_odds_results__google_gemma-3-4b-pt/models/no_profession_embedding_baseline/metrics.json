@@ -11,11 +11,11 @@
   "R2m": 0.032184916304104694,
   "R2c": 0.032184916304104694,
   "warnings": [],
-  "fixed_effect_variance_C(tense)": 0.012014540384282265,
-  "fixed_effect_variance_C(semantic_role)": 0.0002995851343359943,
-  "fixed_effect_variance_C(syntactic_role)": 0.03863208379397855,
-  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.003085365893012444,
-  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.00032378956113389385,
-  "fixed_effect_variance_log_frequency": 0.01147807913984015,
-  "fixed_effect_variance_lex_emb_norm": 0.0025478397050652623
+  "fixed_effect_variance_C(tense)": 0.012014540384282221,
+  "fixed_effect_variance_C(semantic_role)": 0.00029958513433599827,
+  "fixed_effect_variance_C(syntactic_role)": 0.038632083793978464,
+  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.003085365893012431,
+  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.0003237895611338921,
+  "fixed_effect_variance_log_frequency": 0.01147807913984016,
+  "fixed_effect_variance_lex_emb_norm": 0.002547839705065247
 }

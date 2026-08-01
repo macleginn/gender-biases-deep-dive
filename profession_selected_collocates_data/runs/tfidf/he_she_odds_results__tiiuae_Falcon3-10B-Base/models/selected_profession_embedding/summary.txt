@@ -3,8 +3,8 @@
 Dep. Variable:        log_he_she_odds   R-squared:                       0.683
 Model:                            OLS   Adj. R-squared:                  0.683
 Method:                 Least Squares   F-statistic:                     2200.
-Date:                Thu, 30 Jul 2026   Prob (F-statistic):               0.00
-Time:                        10:07:53   Log-Likelihood:                -21128.
+Date:                Sat, 01 Aug 2026   Prob (F-statistic):               0.00
+Time:                        04:03:50   Log-Likelihood:                -21128.
 No. Observations:               16320   AIC:                         4.229e+04
 Df Residuals:                   16303   BIC:                         4.242e+04
 Df Model:                          16                                         

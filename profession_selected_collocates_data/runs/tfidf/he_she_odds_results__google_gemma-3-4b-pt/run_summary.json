@@ -301,8 +301,8 @@
     "version": "log-frequency_zscore_and_frequency-residualized-lex-embedding_v1",
     "lex_emb_norm": {
       "operation": "OLS residual from lex_emb_norm ~ 1 + log_frequency",
-      "intercept": 0.5756192827421718,
-      "log_frequency_coefficient": 0.044610167841395494
+      "intercept": 0.5756192827421719,
+      "log_frequency_coefficient": 0.04461016784139548
     },
     "standardized_predictors": {
       "log_frequency": {
@@ -310,7 +310,7 @@
         "std": 2.024790530108731
       },
       "lex_emb_norm": {
-        "mean": -2.3939456081966365e-15,
+        "mean": -2.4065716739668834e-15,
         "std": 0.08544247285494842
       }
     }

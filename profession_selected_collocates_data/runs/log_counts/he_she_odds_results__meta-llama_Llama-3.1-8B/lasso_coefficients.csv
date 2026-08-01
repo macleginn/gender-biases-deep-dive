@@ -1,23 +1,23 @@
 feature,coefficient,nonzero
 Intercept,0.0,False
-C(tense)[T.past perfect],0.035399934932334697,True
-C(tense)[T.present continuous],-0.02347005422721489,True
-C(tense)[T.present perfect],0.009712458308954819,True
-C(tense)[T.simple future],0.1467589081249711,True
-C(tense)[T.simple past],0.01644537693896656,True
+C(tense)[T.past perfect],0.0353999349323346,True
+C(tense)[T.present continuous],-0.023470054227214855,True
+C(tense)[T.present perfect],0.00971245830895489,True
+C(tense)[T.simple future],0.14675890812497105,True
+C(tense)[T.simple past],0.016445376938966503,True
 C(semantic_role)[T.patient],0.0,False
-C(syntactic_role)[T.subject],-0.1492793534491799,True
-"C(valence, Treatment(reference='-val'))[T.+val]",-0.00990668116249172,True
-"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.01371383879116829,True
-log_frequency,1.087862629277074,True
-lex_emb_norm,0.0010265060098149847,True
-profession_embedding_1,-1.954668323591904,True
-profession_embedding_2,-0.8659442328798971,True
-profession_embedding_3,0.12343356264639696,True
-profession_embedding_4,-0.7904205604975028,True
-profession_embedding_5,-0.16953783305992057,True
-profession_embedding_6,-0.5985497327286404,True
-profession_embedding_7,0.06679822412080393,True
-profession_embedding_8,-0.04212731888119366,True
-profession_embedding_9,0.03236048351463946,True
-profession_embedding_10,0.27005452020424536,True
+C(syntactic_role)[T.subject],-0.14927935344917995,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.009906681162491805,True
+"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.013713838791168324,True
+log_frequency,1.0878626292770817,True
+lex_emb_norm,0.0010265060098163254,True
+profession_embedding_1,-1.9546683235919147,True
+profession_embedding_2,-0.8659442328799009,True
+profession_embedding_3,0.12343356264639824,True
+profession_embedding_4,-0.7904205604975035,True
+profession_embedding_5,-0.1695378330599279,True
+profession_embedding_6,-0.5985497327286391,True
+profession_embedding_7,0.06679822412080746,True
+profession_embedding_8,-0.0421273188811937,True
+profession_embedding_9,0.03236048351463893,True
+profession_embedding_10,0.27005452020424126,True

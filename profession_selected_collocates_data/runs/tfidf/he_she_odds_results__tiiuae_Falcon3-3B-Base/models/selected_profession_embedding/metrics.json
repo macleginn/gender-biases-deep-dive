@@ -7,15 +7,15 @@
   "aic": 35906.2441960313,
   "bic": 36052.546981973144,
   "log_likelihood": -17934.12209801565,
-  "residual_variance": 0.5278711327331157,
+  "residual_variance": 0.5278711327331156,
   "R2m": 0.7161962905939714,
   "R2c": 0.7161962905939714,
   "warnings": [],
-  "fixed_effect_variance_profession_embedding": 1.2763636300976304,
-  "fixed_effect_variance_C(tense)": 0.014586083930212075,
-  "fixed_effect_variance_C(syntactic_role)": 0.014258648349099264,
-  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.0006673461848772849,
-  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.0011302381572014055,
-  "fixed_effect_variance_log_frequency": 0.03296111154919532,
-  "fixed_effect_variance_lex_emb_norm": -0.009320798595740499
+  "fixed_effect_variance_profession_embedding": 1.2763636300976264,
+  "fixed_effect_variance_C(tense)": 0.014586083930211994,
+  "fixed_effect_variance_C(syntactic_role)": 0.014258648349099413,
+  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.0006673461848772164,
+  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.0011302381572015092,
+  "fixed_effect_variance_log_frequency": 0.032961111549196065,
+  "fixed_effect_variance_lex_emb_norm": -0.009320798595739919
 }

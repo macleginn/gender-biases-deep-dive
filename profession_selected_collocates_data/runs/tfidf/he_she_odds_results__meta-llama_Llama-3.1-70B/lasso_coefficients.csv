@@ -1,23 +1,23 @@
 feature,coefficient,nonzero
 Intercept,0.0,False
-C(tense)[T.past perfect],0.0354851886080278,True
+C(tense)[T.past perfect],0.03548518860802774,True
 C(tense)[T.present continuous],-0.0,False
-C(tense)[T.present perfect],0.042776934654153095,True
-C(tense)[T.simple future],0.2029916910080559,True
-C(tense)[T.simple past],0.04445013805938508,True
-C(semantic_role)[T.patient],-0.003744553236873113,True
-C(syntactic_role)[T.subject],0.03605354311700497,True
-"C(valence, Treatment(reference='-val'))[T.+val]",-0.002472149744226157,True
-"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.02941914130940693,True
+C(tense)[T.present perfect],0.04277693465415307,True
+C(tense)[T.simple future],0.20299169100805592,True
+C(tense)[T.simple past],0.04445013805938507,True
+C(semantic_role)[T.patient],-0.0037445532368732028,True
+C(syntactic_role)[T.subject],0.036053543117004865,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.0024721497442260153,True
+"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.029419141309406798,True
 log_frequency,-0.18551769559863512,True
-lex_emb_norm,-0.1718459077750569,True
+lex_emb_norm,-0.17184590777505673,True
 profession_embedding_1,0.0,False
 profession_embedding_2,-1.1657808942044117,True
-profession_embedding_3,-0.11662495249248078,True
-profession_embedding_4,-0.1808591993840614,True
+profession_embedding_3,-0.1166249524924807,True
+profession_embedding_4,-0.18085919938406153,True
 profession_embedding_5,0.0,False
-profession_embedding_6,-0.00953585526036217,True
-profession_embedding_7,0.017858817167730513,True
-profession_embedding_8,-0.1324483893483929,True
-profession_embedding_9,-0.2484678925362292,True
-profession_embedding_10,0.17211526320161957,True
+profession_embedding_6,-0.009535855260362219,True
+profession_embedding_7,0.017858817167731255,True
+profession_embedding_8,-0.1324483893483922,True
+profession_embedding_9,-0.2484678925362299,True
+profession_embedding_10,0.1721152632016188,True

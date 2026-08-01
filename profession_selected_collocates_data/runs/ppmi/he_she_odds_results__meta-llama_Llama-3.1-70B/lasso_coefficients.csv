@@ -1,23 +1,23 @@
 feature,coefficient,nonzero
 Intercept,0.0,False
-C(tense)[T.past perfect],0.03558825595669647,True
+C(tense)[T.past perfect],0.03558825595669654,True
 C(tense)[T.present continuous],-0.0,False
-C(tense)[T.present perfect],0.042880004585028206,True
-C(tense)[T.simple future],0.2030947629591791,True
-C(tense)[T.simple past],0.04455321159109536,True
-C(semantic_role)[T.patient],-0.0037857849224500043,True
-C(syntactic_role)[T.subject],0.03609477480258182,True
-"C(valence, Treatment(reference='-val'))[T.+val]",-0.0025133814298029873,True
-"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.02946037299498374,True
-log_frequency,-0.3691385646720606,True
+C(tense)[T.present perfect],0.04288000458502828,True
+C(tense)[T.simple future],0.2030947629591792,True
+C(tense)[T.simple past],0.04455321159109544,True
+C(semantic_role)[T.patient],-0.0037857849224500204,True
+C(syntactic_role)[T.subject],0.0360947748025818,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.0025133814298031686,True
+"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.02946037299498396,True
+log_frequency,-0.36913856467205935,True
 lex_emb_norm,0.0,False
-profession_embedding_1,0.33318317450158913,True
+profession_embedding_1,0.33318317450158813,True
 profession_embedding_2,-0.08389057458001703,True
-profession_embedding_3,-0.3609730126767744,True
-profession_embedding_4,-0.37129464413935115,True
-profession_embedding_5,-0.4231408047104258,True
-profession_embedding_6,0.23511867352984242,True
-profession_embedding_7,0.2899718421423621,True
-profession_embedding_8,-0.10774069047580259,True
-profession_embedding_9,0.23956599295790945,True
-profession_embedding_10,-0.17606322645389452,True
+profession_embedding_3,-0.3609730126767741,True
+profession_embedding_4,-0.37129464413934893,True
+profession_embedding_5,-0.4231408047104253,True
+profession_embedding_6,0.2351186735298462,True
+profession_embedding_7,0.2899718421423623,True
+profession_embedding_8,-0.10774069047579575,True
+profession_embedding_9,0.23956599295790923,True
+profession_embedding_10,-0.17606322645390066,True

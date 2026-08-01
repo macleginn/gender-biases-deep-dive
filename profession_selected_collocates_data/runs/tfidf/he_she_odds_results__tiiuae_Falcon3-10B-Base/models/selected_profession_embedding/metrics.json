@@ -7,14 +7,14 @@
   "aic": 42289.09181545804,
   "bic": 42419.99430814285,
   "log_likelihood": -21127.54590772902,
-  "residual_variance": 0.7806137426749962,
-  "R2m": 0.6834667082258093,
-  "R2c": 0.6834667082258093,
+  "residual_variance": 0.7806137426749965,
+  "R2m": 0.6834667082258092,
+  "R2c": 0.6834667082258092,
   "warnings": [],
-  "fixed_effect_variance_profession_embedding": 1.6725342030940031,
-  "fixed_effect_variance_C(tense)": 0.027344994670860233,
-  "fixed_effect_variance_C(syntactic_role)": 0.02032741351648229,
-  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.00811422338119137,
-  "fixed_effect_variance_log_frequency": 0.010206519830140223,
-  "fixed_effect_variance_lex_emb_norm": -0.054658944310123664
+  "fixed_effect_variance_profession_embedding": 1.6725342030939991,
+  "fixed_effect_variance_C(tense)": 0.027344994670860278,
+  "fixed_effect_variance_C(syntactic_role)": 0.020327413516482613,
+  "fixed_effect_variance_C(valence, Treatment(reference='-val'))": 0.008114223381191166,
+  "fixed_effect_variance_log_frequency": 0.010206519830140282,
+  "fixed_effect_variance_lex_emb_norm": -0.054658944310123095
 }

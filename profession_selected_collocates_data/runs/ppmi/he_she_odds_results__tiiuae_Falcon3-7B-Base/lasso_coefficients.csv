@@ -2,22 +2,22 @@ feature,coefficient,nonzero
 Intercept,0.0,False
 C(tense)[T.past perfect],0.0,False
 C(tense)[T.present continuous],-0.009898606396083174,True
-C(tense)[T.present perfect],0.028512461995168208,True
-C(tense)[T.simple future],0.16016986327158866,True
-C(tense)[T.simple past],0.006374287726123002,True
-C(semantic_role)[T.patient],-0.006796688126557334,True
-C(syntactic_role)[T.subject],-0.200733371977803,True
-"C(valence, Treatment(reference='-val'))[T.+val]",-0.06608061193863925,True
+C(tense)[T.present perfect],0.02851246199516835,True
+C(tense)[T.simple future],0.16016986327158877,True
+C(tense)[T.simple past],0.006374287726123158,True
+C(semantic_role)[T.patient],-0.006796688126557187,True
+C(syntactic_role)[T.subject],-0.20073337197780305,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.06608061193863937,True
 "C(dominance, Treatment(reference='-dom'))[T.+dom]",0.0,False
-log_frequency,-0.39048849783479844,True
-lex_emb_norm,-0.08396428721868812,True
-profession_embedding_1,0.21292959143039739,True
-profession_embedding_2,-0.028497305683836138,True
-profession_embedding_3,-0.4026716721648827,True
-profession_embedding_4,-0.4017333999123826,True
-profession_embedding_5,-0.34749992146387915,True
-profession_embedding_6,0.15939834771426292,True
-profession_embedding_7,0.23966287835069325,True
-profession_embedding_8,-0.04709324935609554,True
-profession_embedding_9,0.23986788021466196,True
-profession_embedding_10,-0.2173250471641619,True
+log_frequency,-0.39048849783479717,True
+lex_emb_norm,-0.08396428721868884,True
+profession_embedding_1,0.21292959143039694,True
+profession_embedding_2,-0.028497305683835707,True
+profession_embedding_3,-0.40267167216488325,True
+profession_embedding_4,-0.40173339991238,True
+profession_embedding_5,-0.3474999214638794,True
+profession_embedding_6,0.15939834771426592,True
+profession_embedding_7,0.23966287835069297,True
+profession_embedding_8,-0.0470932493560888,True
+profession_embedding_9,0.2398678802146618,True
+profession_embedding_10,-0.21732504716416767,True

@@ -1,23 +1,23 @@
 feature,coefficient,nonzero
 Intercept,0.0,False
-C(tense)[T.past perfect],0.009916058834024103,True
-C(tense)[T.present continuous],-0.028194534866102097,True
-C(tense)[T.present perfect],-0.004895092544507305,True
-C(tense)[T.simple future],0.09010581614693976,True
-C(tense)[T.simple past],0.004861702574773668,True
-C(semantic_role)[T.patient],0.023735947364582847,True
-C(syntactic_role)[T.subject],-0.10757734329107464,True
-"C(valence, Treatment(reference='-val'))[T.+val]",-0.07712810241198288,True
-"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.01926088981022405,True
-log_frequency,0.11311386666892853,True
-lex_emb_norm,-0.14509570987459933,True
-profession_embedding_1,-0.23353674520405773,True
-profession_embedding_2,-0.8262526398154122,True
-profession_embedding_3,0.13978557341000977,True
-profession_embedding_4,0.2867933328406834,True
-profession_embedding_5,0.14322547514354272,True
-profession_embedding_6,0.09710862082957901,True
-profession_embedding_7,0.0694935572529115,True
-profession_embedding_8,-0.28060004074915296,True
+C(tense)[T.past perfect],0.009916058834024122,True
+C(tense)[T.present continuous],-0.028194534866102003,True
+C(tense)[T.present perfect],-0.0048950925445073,True
+C(tense)[T.simple future],0.09010581614693985,True
+C(tense)[T.simple past],0.004861702574773659,True
+C(semantic_role)[T.patient],0.023735947364582795,True
+C(syntactic_role)[T.subject],-0.10757734329107455,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.07712810241198272,True
+"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.019260889810224134,True
+log_frequency,0.11311386666892796,True
+lex_emb_norm,-0.14509570987459897,True
+profession_embedding_1,-0.23353674520405981,True
+profession_embedding_2,-0.8262526398154123,True
+profession_embedding_3,0.13978557341000877,True
+profession_embedding_4,0.2867933328406828,True
+profession_embedding_5,0.143225475143542,True
+profession_embedding_6,0.09710862082957962,True
+profession_embedding_7,0.06949355725291069,True
+profession_embedding_8,-0.2806000407491542,True
 profession_embedding_9,-0.747848100161831,True
-profession_embedding_10,0.08417325498305088,True
+profession_embedding_10,0.08417325498304819,True
