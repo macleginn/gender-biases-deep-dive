@@ -30,7 +30,10 @@
             .figure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 16px; }
             figure { margin: 16px auto; }
             img { width: 100%; border: 1px solid var(--border); border-radius: 14px; background: white; }
-            .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; margin: 12px 0 18px; background: white; }
+            .table-details { border: 1px solid var(--border); border-radius: 14px; margin: 12px 0 18px; background: #fffdf8; }
+            .table-details summary { cursor: pointer; padding: 10px 14px; color: var(--accent); font-weight: 700; }
+            .table-details[open] summary { border-bottom: 1px solid var(--border); }
+            .table-wrap { overflow-x: auto; background: white; }
             .data-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
             .data-table th, .data-table td { border: 1px solid #e2d4bf; padding: 8px 10px; text-align: left; vertical-align: top; }
             .data-table th { background: #f0dfc7; }
@@ -47,7 +50,7 @@
                 estimates shift predictions toward "he"; negative estimates shift them
                 toward "she". `log_frequency` and the frequency-residualized
                 `lex_emb_norm` are standardized before fitting. Generated on
-                2026-07-25.
+                2026-08-01.
               </p>
               <div class="metric-grid"><div class="metric-card"><div class="metric-value">16</div><div class="metric-label">Target models</div></div>
 <div class="metric-card"><div class="metric-value">34</div><div class="metric-label">Professions</div></div>
@@ -57,7 +60,7 @@
             <section>
               <h2>Model Fit</h2>
               <p class="section-note">Full random-slope model per target model.</p>
-              <div class="table-wrap"><table class="dataframe data-table">
+              <details class="table-details"><summary>Show table</summary><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -283,7 +286,7 @@
       <td>0.230</td>
     </tr>
   </tbody>
-</table></div>
+</table></div></details>
               <div class="figure-grid">
                 <figure><img src="figures/r2_comparison.png" alt="Marginal and conditional R2." loading="lazy"><figcaption>Marginal and conditional R2.</figcaption></figure>
                 <figure><img src="figures/random_slope_increment_aic.png" alt="AIC change versus the random-intercept baseline." loading="lazy"><figcaption>AIC change versus the random-intercept baseline.</figcaption></figure>
@@ -296,7 +299,7 @@
                 The full fit adds the random-slope structure on top of that same
                 baseline.
               </p>
-              <div class="table-wrap"><table class="dataframe data-table">
+              <details class="table-details"><summary>Show table</summary><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -488,7 +491,7 @@
       <td>1 + C(semantic_role) + C(syntactic_role) + C(valence, Treatment(reference='-val')) + C(dominance, Treatment(reference='-dom'))</td>
     </tr>
   </tbody>
-</table></div>
+</table></div></details>
             </section>
             <section>
               <h2>Explained-Variance Decomposition</h2>
@@ -498,7 +501,7 @@
                 contribution from random slopes.
               </p>
               <figure><img src="figures/explained_variance_decomposition.png" alt="Explained variance split into random intercept only, fixed effects, and additional random slopes." loading="lazy"><figcaption>Explained variance split into random intercept only, fixed effects, and additional random slopes.</figcaption></figure>
-              <div class="table-wrap"><table class="dataframe data-table compact">
+              <details class="table-details"><summary>Show table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -639,8 +642,8 @@
       <td>0.969</td>
     </tr>
   </tbody>
-</table></div>
-              <div class="table-wrap"><table class="dataframe data-table compact">
+</table></div></details>
+              <details class="table-details"><summary>Show table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -781,7 +784,7 @@
       <td>0.009</td>
     </tr>
   </tbody>
-</table></div>
+</table></div></details>
             </section>
             <section>
               <h2>Fixed-Effect Variance</h2>
@@ -792,7 +795,7 @@
                 predictor; negative allocations can occur when a term covaries negatively
                 with the others.
               </p>
-              <div class="table-wrap"><table class="dataframe data-table compact">
+              <details class="table-details"><summary>Show table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -1341,13 +1344,13 @@
       <td>0.060</td>
     </tr>
   </tbody>
-</table></div>
+</table></div></details>
               <figure><img src="figures/fixed_effect_variance.png" alt="Covariance-adjusted fixed-effect variance allocation by model term; segment numbers map to the legend below the plot." loading="lazy"><figcaption>Covariance-adjusted fixed-effect variance allocation by model term; segment numbers map to the legend below the plot.</figcaption></figure>
             </section>
             <section>
               <h2>Random-Effect Variance</h2>
               <p class="section-note">The random-intercept baseline uses the same full fixed-effects formula.</p>
-              <div class="table-wrap"><table class="dataframe data-table">
+              <details class="table-details"><summary>Show table</summary><div class="table-wrap"><table class="dataframe data-table">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -1488,7 +1491,7 @@
       <td>0.068</td>
     </tr>
   </tbody>
-</table></div>
+</table></div></details>
               <figure><img src="figures/variance_decomposition.png" alt="Random-slope variance decomposition." loading="lazy"><figcaption>Random-slope variance decomposition.</figcaption></figure>
             </section>
             <section>
@@ -1506,7 +1509,7 @@
             <section>
               <h2>Fixed Effects</h2>
               <figure><img src="figures/coefficient_heatmap.png" alt="Fixed-effect coefficients by model." loading="lazy"><figcaption>Fixed-effect coefficients by model.</figcaption></figure>
-              <div class="table-wrap"><table class="dataframe data-table compact">
+              <details class="table-details"><summary>Show table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
       <th>Model</th>
@@ -9728,7 +9731,4956 @@
       <td>0.486</td>
     </tr>
   </tbody>
-</table></div>
+</table></div></details>
+            </section>
+            <section>
+              <h2>Monte Carlo Shapley R² Attribution</h2>
+              <p class="section-note">The payout is the R² from an OLS model containing the selected fixed effects. Each term receives its mean R² increase across random term orderings; <code>mc_standard_error</code> quantifies Monte Carlo uncertainty. This fixed-effect OLS utility is reported separately from the mixed-model marginal and conditional R² values above.</p>
+              <details class="table-details"><summary>Show table</summary><div class="table-wrap"><table class="dataframe data-table compact">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Predictor</th>
+      <th>Shapley R2</th>
+      <th>MC standard error</th>
+      <th>Relative R2</th>
+      <th>permutations</th>
+      <th>random_state</th>
+      <th>Full OLS R2</th>
+      <th>Utility</th>
+      <th>Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.085</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.067</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.065</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.064</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.062</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.058</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.055</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.054</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.052</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.049</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.049</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.044</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.044</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.043</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.041</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.041</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.040</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.036</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.021</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.004</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 12b</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.148</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.094</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.065</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.062</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.060</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.059</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.057</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.049</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.044</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.040</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.039</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.038</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.037</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.029</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.020</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.020</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.016</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.016</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.015</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.024</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 2.8b</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.195</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.059</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.051</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.051</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.048</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.046</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.044</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.044</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.043</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.043</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.043</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.039</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.036</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.033</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.031</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.030</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.027</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.026</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.024</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.022</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.021</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.016</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.002</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.023</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Pythia 6.9b</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.011</td>
+      <td>0.000</td>
+      <td>0.297</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.091</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.082</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.081</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.079</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.070</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.038</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.035</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.030</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.025</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.023</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.023</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.011</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.011</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.002</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.037</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 4B</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.028</td>
+      <td>0.000</td>
+      <td>0.461</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.060</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.052</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.042</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.042</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.041</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.035</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.032</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.027</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.025</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.022</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.020</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.020</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.016</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.015</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.014</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.004</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.004</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.002</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.002</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.002</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.061</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Qwen3 8B</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.105</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.095</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.089</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.075</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.061</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.060</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.055</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.047</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.047</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.045</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.043</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.042</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.040</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.036</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.032</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.028</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.027</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.025</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.024</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.011</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.002</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.019</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.007</td>
+      <td>0.001</td>
+      <td>0.132</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.006</td>
+      <td>0.000</td>
+      <td>0.111</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.006</td>
+      <td>0.000</td>
+      <td>0.111</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.006</td>
+      <td>0.000</td>
+      <td>0.109</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.096</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.095</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.077</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.063</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.051</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.047</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.011</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.004</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.004</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.004</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.055</td>
+      <td>OLS fixed-effect R2</td>
+      <td>OLMo3 32B</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.046</td>
+      <td>0.000</td>
+      <td>0.660</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.029</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.028</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.027</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.024</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.024</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.020</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.020</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.017</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.016</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.015</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.011</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.002</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.002</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.069</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 12b</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.054</td>
+      <td>0.000</td>
+      <td>0.583</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.050</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.046</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.043</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.041</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.039</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.018</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.016</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.015</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.014</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.014</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.011</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.093</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Gemma3 4B</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.022</td>
+      <td>0.000</td>
+      <td>0.218</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.011</td>
+      <td>0.001</td>
+      <td>0.113</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.011</td>
+      <td>0.001</td>
+      <td>0.112</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.010</td>
+      <td>0.001</td>
+      <td>0.101</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.010</td>
+      <td>0.001</td>
+      <td>0.100</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.009</td>
+      <td>0.001</td>
+      <td>0.091</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.008</td>
+      <td>0.001</td>
+      <td>0.080</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.024</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.017</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.014</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.011</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.009</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.009</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.004</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.100</td>
+      <td>OLS fixed-effect R2</td>
+      <td>GPT2</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.172</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.151</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.143</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.140</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.131</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.030</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.027</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.025</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.023</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.021</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.016</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.027</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 70B</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.135</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.076</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.072</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.071</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.068</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.067</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.065</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.063</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.063</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.032</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.029</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.029</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.026</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.025</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.025</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.025</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.024</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.022</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.021</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.017</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.016</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.030</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Llama3.1 8B</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.028</td>
+      <td>0.000</td>
+      <td>0.612</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.059</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.050</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.050</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.045</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.043</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.017</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.011</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.011</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.009</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.004</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.004</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.046</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Mistral 7B</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.043</td>
+      <td>0.001</td>
+      <td>0.375</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.008</td>
+      <td>0.001</td>
+      <td>0.070</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.008</td>
+      <td>0.001</td>
+      <td>0.070</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.008</td>
+      <td>0.001</td>
+      <td>0.068</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.006</td>
+      <td>0.001</td>
+      <td>0.056</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.006</td>
+      <td>0.001</td>
+      <td>0.054</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.005</td>
+      <td>0.001</td>
+      <td>0.048</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.037</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.031</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.027</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.022</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.022</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.020</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.016</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.014</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.007</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.004</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.114</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 10B</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.010</td>
+      <td>0.001</td>
+      <td>0.115</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.010</td>
+      <td>0.001</td>
+      <td>0.111</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.010</td>
+      <td>0.001</td>
+      <td>0.107</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.010</td>
+      <td>0.001</td>
+      <td>0.106</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.009</td>
+      <td>0.001</td>
+      <td>0.096</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.008</td>
+      <td>0.001</td>
+      <td>0.090</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.007</td>
+      <td>0.001</td>
+      <td>0.081</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.036</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.035</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.022</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.022</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.020</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.020</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.019</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.018</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.017</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.015</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.013</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.011</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.002</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.002</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.091</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 3B</td>
+    </tr>
+    <tr>
+      <td>Log frequency:lex emb norm</td>
+      <td>0.058</td>
+      <td>0.000</td>
+      <td>0.421</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:syntactic role</td>
+      <td>0.009</td>
+      <td>0.001</td>
+      <td>0.066</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(valence</td>
+      <td>0.006</td>
+      <td>0.000</td>
+      <td>0.040</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role):C(dominance</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.037</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:syntactic role</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.037</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:lex emb norm</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.035</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:lex emb norm</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.034</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.033</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(valence</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.033</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Valence:lex emb norm</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.033</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense):C(dominance</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.029</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Lex emb norm</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.028</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Dominance:lex emb norm</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.027</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.025</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:lex emb norm</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.025</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:semantic role</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.024</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Tense:log frequency</td>
+      <td>0.002</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Syntactic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.009</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Valence:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Dominance:log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Log frequency</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.008</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Valence:dominance</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.006</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Valence</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.005</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role):C(dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Semantic role</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+    <tr>
+      <td>Dominance</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>500</td>
+      <td>0</td>
+      <td>0.139</td>
+      <td>OLS fixed-effect R2</td>
+      <td>Falcon3 7B</td>
+    </tr>
+  </tbody>
+</table></div></details>
             </section>
           </div>
         </body>
