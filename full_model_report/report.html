@@ -50,7 +50,7 @@
                 estimates shift predictions toward "he"; negative estimates shift them
                 toward "she". `log_frequency` and the frequency-residualized
                 `lex_emb_norm` are standardized before fitting. Generated on
-                2026-08-01.
+                2026-08-11.
               </p>
               <div class="metric-grid"><div class="metric-card"><div class="metric-value">16</div><div class="metric-label">Target models</div></div>
 <div class="metric-card"><div class="metric-value">34</div><div class="metric-label">Professions</div></div>
@@ -9736,6 +9736,7 @@
             <section>
               <h2>Monte Carlo Shapley R² Attribution</h2>
               <p class="section-note">The payout is the R² from an OLS model containing the selected fixed effects. Each term receives its mean R² increase across random term orderings; <code>mc_standard_error</code> quantifies Monte Carlo uncertainty. This fixed-effect OLS utility is reported separately from the mixed-model marginal and conditional R² values above.</p>
+              <figure><img src="figures/shapley_r2_decomposition.png" alt="Monte Carlo Shapley R² contributions by fixed-effect predictor and model." loading="lazy"><figcaption>Monte Carlo Shapley R² contributions by fixed-effect predictor and model.</figcaption></figure>
               <details class="table-details"><summary>Show table</summary><div class="table-wrap"><table class="dataframe data-table compact">
   <thead>
     <tr style="text-align: right;">
