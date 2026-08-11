@@ -1017,6 +1017,24 @@ def run_one_input(
     return run_dir
 
 
+def ensure_shapley_results(
+    run_dirs: list[Path], permutations: int, random_state: int
+) -> None:
+    """Create missing per-run Shapley files while preserving precomputed ones."""
+    terms = hierarchical_fixed_terms(FIXED_PREDICTORS)
+    for run_dir in run_dirs:
+        shapley_path = run_dir / "shapley_r2_decomposition.csv"
+        prepared_path = run_dir / "prepared_results.csv"
+        if not shapley_path.exists() and prepared_path.exists():
+            decompose_fixed_effect_shapley_r_squared(
+                pd.read_csv(prepared_path),
+                terms,
+                run_dir,
+                permutations,
+                random_state,
+            )
+
+
 def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -1314,6 +1332,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     fit_table = display_model_table(fit_table, model_order, plot_model_labels)
     fit_html = write_table(fit_table, tab_dir / "model_fit.html")
     shapley_html = "<p>No Monte Carlo Shapley R² results.</p>"
+    shapley_figure_html = ""
     if not shapley_decomposition.empty:
         shapley_table = shapley_decomposition.copy()
         shapley_table["Model"] = shapley_table["target_model"].map(clean_model_name)
@@ -1328,6 +1347,35 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         shapley_html = write_table(
             shapley_table, tab_dir / "shapley_r2_decomposition.html",
             classes="data-table compact",
+        )
+        shapley_plot = shapley_decomposition.copy()
+        shapley_plot["Model"] = shapley_plot["target_model"].map(clean_model_name)
+        shapley_plot["Model"] = shapley_plot["Model"].map(plot_model_labels)
+        shapley_plot["Predictor"] = shapley_plot["predictor"].map(fixed_effect_label)
+        predictor_order = (
+            shapley_plot.groupby("Predictor")["shapley_r2"]
+            .mean()
+            .sort_values()
+            .index.tolist()
+        )
+        shapley_plot = shapley_plot.dropna(subset=["shapley_r2", "Model", "Predictor"])
+        plt.figure(figsize=(9, max(4.5, len(predictor_order) * 0.55 + 1.5)))
+        sns.barplot(
+            data=shapley_plot,
+            x="shapley_r2",
+            y="Predictor",
+            hue="Model",
+            order=predictor_order,
+            hue_order=plot_model_order,
+        )
+        plt.xlabel("Shapley R² contribution")
+        plt.ylabel("")
+        plt.axvline(0, color="#222", linewidth=1)
+        plt.legend(title="Model", bbox_to_anchor=(1.02, 1), loc="upper left")
+        savefig(fig_dir / "shapley_r2_decomposition.png")
+        shapley_figure_html = figure(
+            "figures/shapley_r2_decomposition.png",
+            "Monte Carlo Shapley R² contributions by fixed-effect predictor and model.",
         )
 
     baseline = metrics.loc[
@@ -1803,6 +1851,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             <section>
               <h2>Monte Carlo Shapley R² Attribution</h2>
               <p class="section-note">The payout is the R² from an OLS model containing the selected fixed effects. Each term receives its mean R² increase across random term orderings; <code>mc_standard_error</code> quantifies Monte Carlo uncertainty. This fixed-effect OLS utility is reported separately from the mixed-model marginal and conditional R² values above.</p>
+              {shapley_figure_html}
               {shapley_html}
             </section>
           </div>
@@ -1868,6 +1917,10 @@ def main() -> int:
 
     (args.data_dir / "execution_manifest.json").write_text(
         json.dumps(manifest, indent=2), encoding="utf-8"
+    )
+
+    ensure_shapley_results(
+        run_dirs, args.shapley_permutations, args.shapley_random_state
     )
 
     metrics = collect_model_rows(run_dirs)
