@@ -1,0 +1,113 @@
+target_model,predictor,folded_shapley_r2
+EleutherAI_pythia-12b-deduped,"C(dominance, Treatment(reference='-dom'))",0.0020052963792500985
+EleutherAI_pythia-12b-deduped,C(semantic_role),0.001694916767457499
+EleutherAI_pythia-12b-deduped,C(syntactic_role),0.002694067928091583
+EleutherAI_pythia-12b-deduped,C(tense),0.005308950238452
+EleutherAI_pythia-12b-deduped,"C(valence, Treatment(reference='-val'))",0.0019469544468195478
+EleutherAI_pythia-12b-deduped,lex_emb_norm,0.004321154895656
+EleutherAI_pythia-12b-deduped,log_frequency,0.00466638274717115
+EleutherAI_pythia-2.8b-deduped,"C(dominance, Treatment(reference='-dom'))",0.0032508613772068502
+EleutherAI_pythia-2.8b-deduped,C(semantic_role),0.0020579822607164
+EleutherAI_pythia-2.8b-deduped,C(syntactic_role),0.0021991096490465703
+EleutherAI_pythia-2.8b-deduped,C(tense),0.0047715646801093
+EleutherAI_pythia-2.8b-deduped,"C(valence, Treatment(reference='-val'))",0.0032978950737666502
+EleutherAI_pythia-2.8b-deduped,lex_emb_norm,0.005523101432562
+EleutherAI_pythia-2.8b-deduped,log_frequency,0.0032647018358973002
+EleutherAI_pythia-6.9b-deduped,"C(dominance, Treatment(reference='-dom'))",0.0017848931752017677
+EleutherAI_pythia-6.9b-deduped,C(semantic_role),0.0017085373346145422
+EleutherAI_pythia-6.9b-deduped,C(syntactic_role),0.0043437547069736
+EleutherAI_pythia-6.9b-deduped,C(tense),0.00519075765182405
+EleutherAI_pythia-6.9b-deduped,"C(valence, Treatment(reference='-val'))",0.00219473478964365
+EleutherAI_pythia-6.9b-deduped,lex_emb_norm,0.00345029825691385
+EleutherAI_pythia-6.9b-deduped,log_frequency,0.0040653120869539
+Qwen_Qwen3-4B-Base,"C(dominance, Treatment(reference='-dom'))",0.003284628190560619
+Qwen_Qwen3-4B-Base,C(semantic_role),0.0035333389958665698
+Qwen_Qwen3-4B-Base,C(syntactic_role),0.009102638587980499
+Qwen_Qwen3-4B-Base,C(tense),0.004502725015018231
+Qwen_Qwen3-4B-Base,"C(valence, Treatment(reference='-val'))",0.0038131388130334203
+Qwen_Qwen3-4B-Base,lex_emb_norm,0.005725664796408926
+Qwen_Qwen3-4B-Base,log_frequency,0.007197648659536649
+Qwen_Qwen3-8B-Base,"C(dominance, Treatment(reference='-dom'))",0.0034620586151918723
+Qwen_Qwen3-8B-Base,C(semantic_role),0.0033411225773757
+Qwen_Qwen3-8B-Base,C(syntactic_role),0.0090335290245358
+Qwen_Qwen3-8B-Base,C(tense),0.0073525008264995004
+Qwen_Qwen3-8B-Base,"C(valence, Treatment(reference='-val'))",0.00512108180500265
+Qwen_Qwen3-8B-Base,lex_emb_norm,0.018162878178473
+Qwen_Qwen3-8B-Base,log_frequency,0.0150044096328744
+allenai_Olmo-3-1025-7B,"C(dominance, Treatment(reference='-dom'))",0.0017911536024150098
+allenai_Olmo-3-1025-7B,C(semantic_role),0.0021195664199847087
+allenai_Olmo-3-1025-7B,C(syntactic_role),0.00483414446468765
+allenai_Olmo-3-1025-7B,C(tense),0.00420552815154075
+allenai_Olmo-3-1025-7B,"C(valence, Treatment(reference='-val'))",0.0029394875332709102
+allenai_Olmo-3-1025-7B,lex_emb_norm,0.002687374784495732
+allenai_Olmo-3-1025-7B,log_frequency,0.0003835321259781024
+allenai_Olmo-3-1125-32B,"C(dominance, Treatment(reference='-dom'))",0.00609884363937375
+allenai_Olmo-3-1125-32B,C(semantic_role),0.0049566211207564175
+allenai_Olmo-3-1125-32B,C(syntactic_role),0.01833850981687095
+allenai_Olmo-3-1125-32B,C(tense),0.012085501393233401
+allenai_Olmo-3-1125-32B,"C(valence, Treatment(reference='-val'))",0.0056644951504425
+allenai_Olmo-3-1125-32B,lex_emb_norm,0.0037470794833321503
+allenai_Olmo-3-1125-32B,log_frequency,0.004162522156211101
+google_gemma-3-12b-pt,"C(dominance, Treatment(reference='-dom'))",0.0021492937453265124
+google_gemma-3-12b-pt,C(semantic_role),0.0020922031938123914
+google_gemma-3-12b-pt,C(syntactic_role),0.0036238586523316
+google_gemma-3-12b-pt,C(tense),0.00466867673019655
+google_gemma-3-12b-pt,"C(valence, Treatment(reference='-val'))",0.002326544357018422
+google_gemma-3-12b-pt,lex_emb_norm,0.02899932122583905
+google_gemma-3-12b-pt,log_frequency,0.025570746730518852
+google_gemma-3-4b-pt,"C(dominance, Treatment(reference='-dom'))",0.004163491669013008
+google_gemma-3-4b-pt,C(semantic_role),0.0036198192888963897
+google_gemma-3-4b-pt,C(syntactic_role),0.01305744076016635
+google_gemma-3-4b-pt,C(tense),0.00665417169299335
+google_gemma-3-4b-pt,"C(valence, Treatment(reference='-val'))",0.004918610477245199
+google_gemma-3-4b-pt,lex_emb_norm,0.0295001583685476
+google_gemma-3-4b-pt,log_frequency,0.03123868233396355
+gpt2,"C(dominance, Treatment(reference='-dom'))",0.006487221571414251
+gpt2,C(semantic_role),0.0065343641129406
+gpt2,C(syntactic_role),0.007357088885097829
+gpt2,C(tense),0.01141710578055735
+gpt2,"C(valence, Treatment(reference='-val'))",0.0079268004755726
+gpt2,lex_emb_norm,0.0455198862226243
+gpt2,log_frequency,0.01431092112883145
+meta-llama_Llama-3.1-70B,"C(dominance, Treatment(reference='-dom'))",0.0034865834536580618
+meta-llama_Llama-3.1-70B,C(semantic_role),0.0024349253703834653
+meta-llama_Llama-3.1-70B,C(syntactic_role),0.00324120954204695
+meta-llama_Llama-3.1-70B,C(tense),0.012563952366741
+meta-llama_Llama-3.1-70B,"C(valence, Treatment(reference='-val'))",0.0028952721372446856
+meta-llama_Llama-3.1-70B,lex_emb_norm,0.002212584470903
+meta-llama_Llama-3.1-70B,log_frequency,0.000460441317843848
+meta-llama_Llama-3.1-8B,"C(dominance, Treatment(reference='-dom'))",0.0031508597270891534
+meta-llama_Llama-3.1-8B,C(semantic_role),0.0027465533117815664
+meta-llama_Llama-3.1-8B,C(syntactic_role),0.00784565122614585
+meta-llama_Llama-3.1-8B,C(tense),0.00795708799348965
+meta-llama_Llama-3.1-8B,"C(valence, Treatment(reference='-val'))",0.0030470997670185153
+meta-llama_Llama-3.1-8B,lex_emb_norm,0.0023356431616615003
+meta-llama_Llama-3.1-8B,log_frequency,0.00299946175103115
+mistralai_Mistral-7B-v0.3,"C(dominance, Treatment(reference='-dom'))",0.00219479188381245
+mistralai_Mistral-7B-v0.3,C(semantic_role),0.0019100379099860967
+mistralai_Mistral-7B-v0.3,C(syntactic_role),0.0022831840109724
+mistralai_Mistral-7B-v0.3,C(tense),0.0073155275683027
+mistralai_Mistral-7B-v0.3,"C(valence, Treatment(reference='-val'))",0.0017543770053224344
+mistralai_Mistral-7B-v0.3,lex_emb_norm,0.014792233015323
+mistralai_Mistral-7B-v0.3,log_frequency,0.0159384355080809
+tiiuae_Falcon3-10B-Base,"C(dominance, Treatment(reference='-dom'))",0.0059719661587125635
+tiiuae_Falcon3-10B-Base,C(semantic_role),0.006016578030995583
+tiiuae_Falcon3-10B-Base,C(syntactic_role),0.0116536535066482
+tiiuae_Falcon3-10B-Base,C(tense),0.0128539752281959
+tiiuae_Falcon3-10B-Base,"C(valence, Treatment(reference='-val'))",0.0086590670905385
+tiiuae_Falcon3-10B-Base,lex_emb_norm,0.0455159665520564
+tiiuae_Falcon3-10B-Base,log_frequency,0.02344448358855205
+tiiuae_Falcon3-3B-Base,"C(dominance, Treatment(reference='-dom'))",0.0068352437156027
+tiiuae_Falcon3-3B-Base,C(semantic_role),0.00703027245113687
+tiiuae_Falcon3-3B-Base,C(syntactic_role),0.0121368758838625
+tiiuae_Falcon3-3B-Base,C(tense),0.01185499504133675
+tiiuae_Falcon3-3B-Base,"C(valence, Treatment(reference='-val'))",0.007784669002253965
+tiiuae_Falcon3-3B-Base,lex_emb_norm,0.0364899940480192
+tiiuae_Falcon3-3B-Base,log_frequency,0.00882470019614385
+tiiuae_Falcon3-7B-Base,"C(dominance, Treatment(reference='-dom'))",0.007613493376476937
+tiiuae_Falcon3-7B-Base,C(semantic_role),0.007070385566708033
+tiiuae_Falcon3-7B-Base,C(syntactic_role),0.0201746870962513
+tiiuae_Falcon3-7B-Base,C(tense),0.01729290207014285
+tiiuae_Falcon3-7B-Base,"C(valence, Treatment(reference='-val'))",0.0094268939120025
+tiiuae_Falcon3-7B-Base,lex_emb_norm,0.04375774343209365
+tiiuae_Falcon3-7B-Base,log_frequency,0.03350224892730465

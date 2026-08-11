@@ -69,7 +69,9 @@ FIXED_PREDICTORS = [
     "lex_emb_norm",
 ]
 NUMERICAL_PREDICTORS = ["log_frequency", "lex_emb_norm"]
-PREPROCESSING_VERSION = "log-frequency_zscore_and_frequency-residualized-lex-embedding_v1"
+PREPROCESSING_VERSION = (
+    "log-frequency_zscore_and_frequency-residualized-lex-embedding_v1"
+)
 RANDOM_PREDICTORS = ["semantic_role", "syntactic_role", "valence", "dominance"]
 RANDOM_EFFECT_VARIANCE_COLUMNS = [
     "random_effect_variance_semantic_role",
@@ -136,7 +138,9 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--maxiter", type=int, default=1000)
     parser.add_argument(
-        "--shapley-permutations", type=int, default=500,
+        "--shapley-permutations",
+        type=int,
+        default=500,
         help="Random orderings for fixed-effect OLS Shapley R² values (default: 500).",
     )
     parser.add_argument("--shapley-random-state", type=int, default=0)
@@ -188,7 +192,9 @@ def display_model_table(
     table["_model_order"] = pd.Categorical(
         table["Model"], categories=model_order, ordered=True
     )
-    table = table.sort_values("_model_order", kind="stable").drop(columns="_model_order")
+    table = table.sort_values("_model_order", kind="stable").drop(
+        columns="_model_order"
+    )
     table["Model"] = table["Model"].map(model_labels)
     return table
 
@@ -196,9 +202,7 @@ def display_model_table(
 def fixed_effect_label(term_name: str) -> str:
     if term_name == "Intercept":
         return "Intercept"
-    label = re.sub(
-        r"C\(([^,]+), Treatment\(reference='[^']+'\)\)", r"\1", term_name
-    )
+    label = re.sub(r"C\(([^,]+), Treatment\(reference='[^']+'\)\)", r"\1", term_name)
     label = re.sub(r"C\(([^)]+)\)", r"\1", label)
     label = re.sub(r"\[T\.([^]]+)\]", r" (\1)", label)
     label = label.replace("_", " ")
@@ -223,7 +227,9 @@ def build_random_formula(random_predictors: list[str]) -> str:
     return "1 + " + " + ".join(term(name) for name in random_predictors)
 
 
-def hierarchical_fixed_terms(predictors: list[str], pairwise_interactions: bool = True) -> list[str]:
+def hierarchical_fixed_terms(
+    predictors: list[str], pairwise_interactions: bool = True
+) -> list[str]:
     main_effects = [term(name) for name in predictors]
     if not pairwise_interactions:
         return main_effects
@@ -269,7 +275,9 @@ def discover_inputs(paths: list[Path]) -> list[Path]:
     if missing:
         raise FileNotFoundError("Missing input CSVs: " + ", ".join(map(str, missing)))
     if not csvs:
-        raise FileNotFoundError("No he_she_odds_results__*.csv files found in modelling_data.")
+        raise FileNotFoundError(
+            "No he_she_odds_results__*.csv files found in modelling_data."
+        )
     return [path.resolve() for path in csvs]
 
 
@@ -278,10 +286,14 @@ def discover_existing_run_dirs(data_dir: Path) -> list[Path]:
     if not runs_dir.exists():
         raise FileNotFoundError(f"No runs directory found under {data_dir}")
     run_dirs = sorted(
-        path for path in runs_dir.iterdir() if path.is_dir() and (path / "run_summary.json").exists()
+        path
+        for path in runs_dir.iterdir()
+        if path.is_dir() and (path / "run_summary.json").exists()
     )
     if not run_dirs:
-        raise FileNotFoundError(f"No existing run directories with run_summary.json found under {runs_dir}")
+        raise FileNotFoundError(
+            f"No existing run directories with run_summary.json found under {runs_dir}"
+        )
     return run_dirs
 
 
@@ -296,16 +308,22 @@ def load_results_csv(path: Path) -> pd.DataFrame:
         else:
             df[column] = pd.to_numeric(df[column], errors="coerce")
     if (df["frequency"] <= 0).any():
-        raise ValueError(f"{path} contains non-positive frequency values, which cannot be logged.")
+        raise ValueError(
+            f"{path} contains non-positive frequency values, which cannot be logged."
+        )
     df["log_frequency"] = np.log(df["frequency"])
     df = df.dropna(subset=sorted(REQUIRED_COLUMNS)).copy()
 
     # Orthogonalize lexical-embedding norm against log frequency before scaling,
     # so its coefficient represents variation not linearly associated with word
     # frequency.  The residual replaces the original column used in the formula.
-    frequency_design = np.column_stack([np.ones(len(df)), df["log_frequency"].to_numpy()])
+    frequency_design = np.column_stack(
+        [np.ones(len(df)), df["log_frequency"].to_numpy()]
+    )
     lex_embedding = df["lex_emb_norm"].to_numpy()
-    frequency_coefficients, *_ = np.linalg.lstsq(frequency_design, lex_embedding, rcond=None)
+    frequency_coefficients, *_ = np.linalg.lstsq(
+        frequency_design, lex_embedding, rcond=None
+    )
     df["lex_emb_norm"] = lex_embedding - frequency_design @ frequency_coefficients
 
     scaling: dict[str, dict[str, float]] = {}
@@ -313,7 +331,9 @@ def load_results_csv(path: Path) -> pd.DataFrame:
         mean = float(df[column].mean())
         std = float(df[column].std(ddof=0))
         if not np.isfinite(std) or std == 0:
-            raise ValueError(f"{path} has no usable variation in {column} for standardization.")
+            raise ValueError(
+                f"{path} has no usable variation in {column} for standardization."
+            )
         df[column] = (df[column] - mean) / std
         scaling[column] = {"mean": mean, "std": std}
     df.attrs["preprocessing"] = {
@@ -395,7 +415,9 @@ def random_effect_variances_from_covariance(cov_re: pd.DataFrame) -> dict[str, f
     """
     variances: dict[str, float] = {}
     for name in RANDOM_PREDICTORS:
-        matches = [label for label in cov_re.index if str(label).startswith(f"C({name}")]
+        matches = [
+            label for label in cov_re.index if str(label).startswith(f"C({name}")
+        ]
         if matches:
             variances[f"random_effect_variance_{name}"] = float(
                 cov_re.loc[matches[0], matches[0]]
@@ -405,19 +427,28 @@ def random_effect_variances_from_covariance(cov_re: pd.DataFrame) -> dict[str, f
 
 def extract_random_effect_variances(result: Any) -> dict[str, float]:
     cov_re = pd.DataFrame(
-        np.asarray(result.cov_re), index=result.cov_re.index, columns=result.cov_re.columns
+        np.asarray(result.cov_re),
+        index=result.cov_re.index,
+        columns=result.cov_re.columns,
     )
     return random_effect_variances_from_covariance(cov_re)
 
 
 def warning_messages(caught_warnings: list[warnings.WarningMessage]) -> list[str]:
-    return [f"{warning.category.__name__}: {warning.message}" for warning in caught_warnings]
+    return [
+        f"{warning.category.__name__}: {warning.message}" for warning in caught_warnings
+    ]
 
 
-def has_numerical_issue_warnings(caught_warnings: list[warnings.WarningMessage]) -> bool:
+def has_numerical_issue_warnings(
+    caught_warnings: list[warnings.WarningMessage],
+) -> bool:
     for warning in caught_warnings:
         warning_text = f"{warning.category.__name__}: {warning.message}".lower()
-        if any(re.search(pattern, warning_text) for pattern in NUMERICAL_ISSUE_WARNING_PATTERNS):
+        if any(
+            re.search(pattern, warning_text)
+            for pattern in NUMERICAL_ISSUE_WARNING_PATTERNS
+        ):
             return True
     return False
 
@@ -448,7 +479,9 @@ def fit_mixed_model_terms(
                     groups=df[group_col],
                     re_formula=re_formula,
                 )
-                result = model.fit(reml=False, method=method, maxiter=maxiter, disp=False)
+                result = model.fit(
+                    reml=False, method=method, maxiter=maxiter, disp=False
+                )
 
             warning_texts = warning_messages(caught_warnings)
             numerical_issue_warnings = has_numerical_issue_warnings(caught_warnings)
@@ -501,9 +534,7 @@ def fit_mixed_model_terms(
             (model_dir / "metrics.json").write_text(
                 json.dumps(metrics, indent=2), encoding="utf-8"
             )
-            (model_dir / "summary.txt").write_text(
-                summary_text, encoding="utf-8"
-            )
+            (model_dir / "summary.txt").write_text(summary_text, encoding="utf-8")
             spec = ModelSpec(name, [], group_col, random_predictors)
             return {"status": "ok", "spec": spec, "result": result, "metrics": metrics}
         except Exception as exc:  # pragma: no cover - optimizer/runtime dependent
@@ -511,7 +542,10 @@ def fit_mixed_model_terms(
 
     spec = ModelSpec(name, [], group_col, random_predictors)
     (model_dir / "fit_failed.json").write_text(
-        json.dumps({"status": "failed", "spec": asdict(spec), "fit_errors": fit_errors}, indent=2),
+        json.dumps(
+            {"status": "failed", "spec": asdict(spec), "fit_errors": fit_errors},
+            indent=2,
+        ),
         encoding="utf-8",
     )
     return {"status": "failed", "spec": spec, "fit_errors": fit_errors}
@@ -571,7 +605,9 @@ def _extract_fit_stat(fit: Any, key: str) -> float | int:
     return getattr(fit, key)
 
 
-def likelihood_ratio_test(full_result: Any, reduced_result: Any) -> dict[str, float | int]:
+def likelihood_ratio_test(
+    full_result: Any, reduced_result: Any
+) -> dict[str, float | int]:
     full_llf = float(_extract_fit_stat(full_result, "llf"))
     reduced_llf = float(_extract_fit_stat(reduced_result, "llf"))
     full_df = int(_extract_fit_stat(full_result, "df_modelwc"))
@@ -585,7 +621,9 @@ def likelihood_ratio_test(full_result: Any, reduced_result: Any) -> dict[str, fl
     }
 
 
-def report_payload(fit: dict[str, Any], fixed_terms: list[str], run_dir: Path) -> dict[str, Any]:
+def report_payload(
+    fit: dict[str, Any], fixed_terms: list[str], run_dir: Path
+) -> dict[str, Any]:
     payload: dict[str, Any] = {
         "status": fit["status"],
         "full_model": fit["spec"].name,
@@ -742,7 +780,9 @@ def select_backward_model(
                         **test,
                         "aic": float(reduced_fit["metrics"]["aic"]),
                         "bic": float(reduced_fit["metrics"]["bic"]),
-                        "log_likelihood": float(reduced_fit["metrics"]["log_likelihood"]),
+                        "log_likelihood": float(
+                            reduced_fit["metrics"]["log_likelihood"]
+                        ),
                         "R2m": float(reduced_fit["metrics"]["R2m"]),
                         "R2c": float(reduced_fit["metrics"]["R2c"]),
                         "converged": bool(reduced_fit["metrics"]["converged"]),
@@ -831,7 +871,9 @@ def _shapley_marginal_batch(
 
     def utility(indices: tuple[int, ...]) -> float:
         if indices not in cache:
-            formula = "log_he_she_odds ~ " + " + ".join(terms[index] for index in indices)
+            formula = "log_he_she_odds ~ " + " + ".join(
+                terms[index] for index in indices
+            )
             cache[indices] = float(smf.ols(formula=formula, data=df).fit().rsquared)
         return cache[indices]
 
@@ -858,8 +900,16 @@ def decompose_fixed_effect_shapley_r_squared(
     """Approximate fixed-effect Shapley values with OLS R² as the payout."""
     if permutations < 1:
         raise ValueError("shapley permutations must be at least 1")
-    columns = ["predictor", "shapley_r2", "mc_standard_error", "relative_r2",
-               "permutations", "random_state", "full_r2", "utility"]
+    columns = [
+        "predictor",
+        "shapley_r2",
+        "mc_standard_error",
+        "relative_r2",
+        "permutations",
+        "random_state",
+        "full_r2",
+        "utility",
+    ]
     if not terms:
         return pd.DataFrame(columns=columns)
 
@@ -888,24 +938,52 @@ def decompose_fixed_effect_shapley_r_squared(
                 progress.update(len(batch))
     marginal = np.vstack(batches)
     values = marginal.mean(axis=0)
-    full_r2 = float(smf.ols(
-        formula="log_he_she_odds ~ " + " + ".join(terms), data=df
-    ).fit().rsquared)
-    result = pd.DataFrame({
-        "predictor": terms,
-        "shapley_r2": values,
-        "mc_standard_error": (
-            marginal.std(axis=0, ddof=1) / np.sqrt(permutations)
-            if permutations > 1 else np.zeros(len(terms))
-        ),
-        "relative_r2": values / full_r2 if full_r2 > 0 else 0.0,
-        "permutations": permutations,
-        "random_state": random_state,
-        "full_r2": full_r2,
-        "utility": "OLS fixed-effect R2",
-    }).sort_values("shapley_r2", ascending=False, ignore_index=True)
+    full_r2 = float(
+        smf.ols(formula="log_he_she_odds ~ " + " + ".join(terms), data=df)
+        .fit()
+        .rsquared
+    )
+    result = pd.DataFrame(
+        {
+            "predictor": terms,
+            "shapley_r2": values,
+            "mc_standard_error": (
+                marginal.std(axis=0, ddof=1) / np.sqrt(permutations)
+                if permutations > 1
+                else np.zeros(len(terms))
+            ),
+            "relative_r2": values / full_r2 if full_r2 > 0 else 0.0,
+            "permutations": permutations,
+            "random_state": random_state,
+            "full_r2": full_r2,
+            "utility": "OLS fixed-effect R2",
+        }
+    ).sort_values("shapley_r2", ascending=False, ignore_index=True)
     result.to_csv(run_dir / "shapley_r2_decomposition.csv", index=False)
     return result
+
+
+def fold_shapley_interactions(decomposition: pd.DataFrame) -> pd.DataFrame:
+    """Split interaction Shapley values equally across their simple effects."""
+    columns = ["target_model", "predictor", "folded_shapley_r2"]
+    if decomposition.empty:
+        return pd.DataFrame(columns=columns)
+    rows: list[dict[str, Any]] = []
+    for row in decomposition.itertuples(index=False):
+        components = str(row.predictor).split(":")
+        for component in components:
+            rows.append(
+                {
+                    "target_model": row.target_model,
+                    "predictor": component,
+                    "folded_shapley_r2": row.shapley_r2 / len(components),
+                }
+            )
+    return (
+        pd.DataFrame(rows)
+        .groupby(["target_model", "predictor"], as_index=False)["folded_shapley_r2"]
+        .sum()
+    )
 
 
 def run_one_input(
@@ -949,7 +1027,12 @@ def run_one_input(
                 "columns": list(df.columns),
                 "preprocessing": df.attrs["preprocessing"],
                 "category_levels": {
-                    column: df[column].astype("string").dropna().sort_values().unique().tolist()
+                    column: df[column]
+                    .astype("string")
+                    .dropna()
+                    .sort_values()
+                    .unique()
+                    .tolist()
                     for column in sorted(CATEGORICAL_COLUMNS)
                     if column in df.columns
                 },
@@ -1063,7 +1146,9 @@ def collect_model_rows(run_dirs: list[Path]) -> pd.DataFrame:
             covariance_path = model_dir / "random_effects_covariance.csv"
             if covariance_path.exists():
                 covariance = pd.read_csv(covariance_path, index_col=0)
-                recovered_variances = random_effect_variances_from_covariance(covariance)
+                recovered_variances = random_effect_variances_from_covariance(
+                    covariance
+                )
                 metrics = {**recovered_variances, **metrics}
             rows.append(
                 {
@@ -1097,7 +1182,9 @@ def collect_model_rows(run_dirs: list[Path]) -> pd.DataFrame:
     ]:
         if column in df.columns:
             df[column] = pd.to_numeric(df[column], errors="coerce")
-    for column in [column for column in df.columns if column.startswith("fixed_effect_variance_")]:
+    for column in [
+        column for column in df.columns if column.startswith("fixed_effect_variance_")
+    ]:
         df[column] = pd.to_numeric(df[column], errors="coerce")
     if "converged" in df.columns:
         df["converged"] = df["converged"].astype("boolean")
@@ -1164,9 +1251,9 @@ def aggregate_outputs(
     metrics: pd.DataFrame, top_candidates: pd.DataFrame, comparisons_dir: Path
 ) -> dict[str, pd.DataFrame]:
     comparisons_dir.mkdir(parents=True, exist_ok=True)
-    metrics.sort_values(["target_model", "aic", "model_name"], na_position="last").to_csv(
-        comparisons_dir / "model_metrics_across_full_model_runs.csv", index=False
-    )
+    metrics.sort_values(
+        ["target_model", "aic", "model_name"], na_position="last"
+    ).to_csv(comparisons_dir / "model_metrics_across_full_model_runs.csv", index=False)
 
     summary = (
         metrics.groupby(["target_model", "model_name"], dropna=False)
@@ -1196,7 +1283,10 @@ def aggregate_outputs(
                     "best_model_name": best["model_name"],
                     "best_model_aic": best["aic"],
                     **row.to_dict(),
-                    **{column: best.get(column) for column in RANDOM_EFFECT_VARIANCE_COLUMNS},
+                    **{
+                        column: best.get(column)
+                        for column in RANDOM_EFFECT_VARIANCE_COLUMNS
+                    },
                 }
             )
         random_effects = load_group_random_effects(Path(best["model_dir"]))
@@ -1212,7 +1302,9 @@ def aggregate_outputs(
 
     coefficients = pd.DataFrame(coefficient_rows)
     random_effects = pd.DataFrame(random_effect_rows)
-    coefficients.to_csv(comparisons_dir / "best_coefficients_by_target_model.csv", index=False)
+    coefficients.to_csv(
+        comparisons_dir / "best_coefficients_by_target_model.csv", index=False
+    )
     random_effects.to_csv(
         comparisons_dir / "best_random_effects_by_target_model.csv", index=False
     )
@@ -1278,7 +1370,9 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
 
     available_models = set(best_models["model"].unique())
     configured_model_order, configured_model_labels = load_model_display_config()
-    model_order = [model for model in configured_model_order if model in available_models]
+    model_order = [
+        model for model in configured_model_order if model in available_models
+    ]
     model_order.extend(sorted(available_models - set(model_order)))
     plot_model_labels = {
         model: configured_model_labels.get(model, model) for model in model_order
@@ -1294,12 +1388,17 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             shapley_frames.append(shapley)
     shapley_decomposition = (
         pd.concat(shapley_frames, ignore_index=True)
-        if shapley_frames else pd.DataFrame()
+        if shapley_frames
+        else pd.DataFrame()
     )
     shapley_decomposition.to_csv(
         report_dir / "shapley_r2_decomposition.csv", index=False
     )
-    best_models["fitted_model"] = best_models["model_name"].str.replace("_", " ", regex=False)
+    folded_shapley = fold_shapley_interactions(shapley_decomposition)
+    folded_shapley.to_csv(report_dir / "shapley_r2_folded.csv", index=False)
+    best_models["fitted_model"] = best_models["model_name"].str.replace(
+        "_", " ", regex=False
+    )
     fit_table = best_models[
         [
             "model",
@@ -1333,45 +1432,45 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     fit_html = write_table(fit_table, tab_dir / "model_fit.html")
     shapley_html = "<p>No Monte Carlo Shapley R² results.</p>"
     shapley_figure_html = ""
-    if not shapley_decomposition.empty:
-        shapley_table = shapley_decomposition.copy()
+    if not folded_shapley.empty:
+        shapley_table = folded_shapley.copy()
         shapley_table["Model"] = shapley_table["target_model"].map(clean_model_name)
         shapley_table = shapley_table.drop(columns="target_model")
         shapley_table["Model"] = shapley_table["Model"].map(plot_model_labels)
         shapley_table["predictor"] = shapley_table["predictor"].map(fixed_effect_label)
         shapley_table = shapley_table.rename(
-            columns={"predictor": "Predictor", "shapley_r2": "Shapley R2",
-                     "mc_standard_error": "MC standard error", "relative_r2": "Relative R2",
-                     "full_r2": "Full OLS R2", "utility": "Utility"}
+            columns={"predictor": "Predictor", "folded_shapley_r2": "Shapley R2"}
         )
         shapley_html = write_table(
-            shapley_table, tab_dir / "shapley_r2_decomposition.html",
+            shapley_table,
+            tab_dir / "shapley_r2_decomposition.html",
             classes="data-table compact",
         )
-        shapley_plot = shapley_decomposition.copy()
+        shapley_plot = folded_shapley.copy()
         shapley_plot["Model"] = shapley_plot["target_model"].map(clean_model_name)
         shapley_plot["Model"] = shapley_plot["Model"].map(plot_model_labels)
         shapley_plot["Predictor"] = shapley_plot["predictor"].map(fixed_effect_label)
-        predictor_order = (
-            shapley_plot.groupby("Predictor")["shapley_r2"]
-            .mean()
-            .sort_values()
-            .index.tolist()
+        shapley_plot = shapley_plot.pivot_table(
+            index="Model",
+            columns="Predictor",
+            values="folded_shapley_r2",
+            aggfunc="sum",
+            fill_value=0.0,
+        ).reindex(plot_model_order, fill_value=0.0)
+        predictor_order = shapley_plot.sum(axis=0).sort_values(ascending=False).index
+        shapley_plot = shapley_plot.reindex(columns=predictor_order)
+        shapley_colors = sns.color_palette("husl", n_colors=len(predictor_order))
+        ax = shapley_plot.plot(
+            kind="barh",
+            stacked=True,
+            figsize=(9, max(4.5, len(plot_model_order) * 0.55 + 1.5)),
+            color=shapley_colors,
+            width=0.9,
         )
-        shapley_plot = shapley_plot.dropna(subset=["shapley_r2", "Model", "Predictor"])
-        plt.figure(figsize=(9, max(4.5, len(predictor_order) * 0.55 + 1.5)))
-        sns.barplot(
-            data=shapley_plot,
-            x="shapley_r2",
-            y="Predictor",
-            hue="Model",
-            order=predictor_order,
-            hue_order=plot_model_order,
-        )
-        plt.xlabel("Shapley R² contribution")
-        plt.ylabel("")
-        plt.axvline(0, color="#222", linewidth=1)
-        plt.legend(title="Model", bbox_to_anchor=(1.02, 1), loc="upper left")
+        ax.set_xlabel("Shapley R² contribution (interactions split equally)")
+        ax.set_ylabel("")
+        ax.axvline(0, color="#222", linewidth=1)
+        ax.legend(title="Predictor", bbox_to_anchor=(1.02, 1), loc="upper left")
         savefig(fig_dir / "shapley_r2_decomposition.png")
         shapley_figure_html = figure(
             "figures/shapley_r2_decomposition.png",
@@ -1383,12 +1482,16 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     ].copy()
     baseline["model"] = baseline["target_model"].map(clean_model_name)
     increment = best_models.merge(
-        baseline.sort_values(["target_model", "aic"]).groupby("target_model", as_index=False).first(),
+        baseline.sort_values(["target_model", "aic"])
+        .groupby("target_model", as_index=False)
+        .first(),
         on="target_model",
         suffixes=("_expanded", "_baseline"),
     )
     increment["Model"] = increment["model_expanded"]
-    increment["Delta conditional R2"] = increment["R2c_expanded"] - increment["R2c_baseline"]
+    increment["Delta conditional R2"] = (
+        increment["R2c_expanded"] - increment["R2c_baseline"]
+    )
     increment["Delta AIC"] = increment["aic_expanded"] - increment["aic_baseline"]
     increment_table = increment[
         [
@@ -1412,22 +1515,31 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             "re_formula_expanded": "Expanded random effects",
         }
     )
-    increment_table = display_model_table(increment_table, model_order, plot_model_labels)
-    increment_html = write_table(increment_table, tab_dir / "random_slope_increment.html")
+    increment_table = display_model_table(
+        increment_table, model_order, plot_model_labels
+    )
+    increment_html = write_table(
+        increment_table, tab_dir / "random_slope_increment.html"
+    )
 
     baseline_explained = pd.DataFrame(
         {
             "Model": increment["Model"],
             "Fixed effects R2": increment["R2m_baseline"],
-            "Random intercept only R2": increment["R2c_baseline"] - increment["R2m_baseline"],
+            "Random intercept only R2": increment["R2c_baseline"]
+            - increment["R2m_baseline"],
             "Random intercept + fixed effects R2": increment["R2c_baseline"],
         }
     )
-    baseline_explained["Fixed-effects share within baseline explained variance"] = safe_divide(
-        baseline_explained["Fixed effects R2"],
-        baseline_explained["Random intercept + fixed effects R2"],
+    baseline_explained["Fixed-effects share within baseline explained variance"] = (
+        safe_divide(
+            baseline_explained["Fixed effects R2"],
+            baseline_explained["Random intercept + fixed effects R2"],
+        )
     )
-    baseline_explained["Random-intercept-only share within baseline explained variance"] = safe_divide(
+    baseline_explained[
+        "Random-intercept-only share within baseline explained variance"
+    ] = safe_divide(
         baseline_explained["Random intercept only R2"],
         baseline_explained["Random intercept + fixed effects R2"],
     )
@@ -1444,7 +1556,8 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         {
             "Model": increment["Model"],
             "Random intercept + fixed effects R2": increment["R2c_baseline"],
-            "Additional random-slope R2": increment["R2c_expanded"] - increment["R2c_baseline"],
+            "Additional random-slope R2": increment["R2c_expanded"]
+            - increment["R2c_baseline"],
             "Full model with random slopes R2": increment["R2c_expanded"],
         }
     )
@@ -1452,9 +1565,11 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         expanded_explained["Random intercept + fixed effects R2"],
         expanded_explained["Full model with random slopes R2"],
     )
-    expanded_explained["Random-slope share within full explained variance"] = safe_divide(
-        expanded_explained["Additional random-slope R2"],
-        expanded_explained["Full model with random slopes R2"],
+    expanded_explained["Random-slope share within full explained variance"] = (
+        safe_divide(
+            expanded_explained["Additional random-slope R2"],
+            expanded_explained["Full model with random slopes R2"],
+        )
     )
     expanded_explained = display_model_table(
         expanded_explained, model_order, plot_model_labels
@@ -1467,9 +1582,11 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     combined_explained = pd.DataFrame(
         {
             "Model": increment["Model"],
-            "Random intercept only R2": increment["R2c_baseline"] - increment["R2m_baseline"],
+            "Random intercept only R2": increment["R2c_baseline"]
+            - increment["R2m_baseline"],
             "Fixed effects R2": increment["R2m_baseline"],
-            "Additional random-slope R2": increment["R2c_expanded"] - increment["R2c_baseline"],
+            "Additional random-slope R2": increment["R2c_expanded"]
+            - increment["R2c_baseline"],
             "Full model with random slopes R2": increment["R2c_expanded"],
         }
     )
@@ -1523,7 +1640,13 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     )
     plt.xlabel("Explained variance (R2)")
     plt.ylabel("")
-    plt.xlim(0, max(1.0, float(combined_explained["Full model with random slopes R2"].max()) * 1.08))
+    plt.xlim(
+        0,
+        max(
+            1.0,
+            float(combined_explained["Full model with random slopes R2"].max()) * 1.08,
+        ),
+    )
     plt.legend(title="", bbox_to_anchor=(0.5, -0.16), loc="upper center", ncol=3)
     plt.subplots_adjust(bottom=0.2)
     savefig(fig_dir / "explained_variance_decomposition.png")
@@ -1577,14 +1700,14 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         tab_dir / "fixed_effect_variance.html",
         classes="data-table compact",
     )
-    fixed_variance_allocation.index = fixed_variance_allocation.index.map(plot_model_labels)
+    fixed_variance_allocation.index = fixed_variance_allocation.index.map(
+        plot_model_labels
+    )
     fixed_effect_names = list(fixed_variance_labels.values())
     fixed_effect_numbers = list(range(1, len(fixed_effect_names) + 1))
     # HUSL creates a distinct colour for every full-model term.
     fixed_effect_colors = sns.color_palette("husl", n_colors=len(fixed_effect_names))
-    fig, ax = plt.subplots(
-        figsize=(11, max(4.5, len(model_order) * 0.55 + 1.5))
-    )
+    fig, ax = plt.subplots(figsize=(11, max(4.5, len(model_order) * 0.55 + 1.5)))
     fixed_variance_allocation.loc[plot_model_order_reversed].plot(
         kind="barh",
         stacked=True,
@@ -1601,9 +1724,11 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         ax.bar_label(
             container,
             labels=[
-                str(effect_number)
-                if np.isfinite(bar.get_width()) and abs(bar.get_width()) >= 0.025
-                else ""
+                (
+                    str(effect_number)
+                    if np.isfinite(bar.get_width()) and abs(bar.get_width()) >= 0.025
+                    else ""
+                )
                 for bar in container
             ],
             label_type="center",
@@ -1614,7 +1739,10 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     handles, _ = ax.get_legend_handles_labels()
     ax.legend(
         handles,
-        [f"{number}. {name}" for number, name in zip(fixed_effect_numbers, fixed_effect_names)],
+        [
+            f"{number}. {name}"
+            for number, name in zip(fixed_effect_numbers, fixed_effect_names)
+        ],
         title="Fixed effect",
         loc="upper center",
         bbox_to_anchor=(0.5, -0.16),
@@ -1632,16 +1760,18 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     pca_html = "<p>No random-effect rows were available for PCA.</p>"
     if not re_model.empty and "Group" in re_model.columns:
         profession_order = (
-            re_model.groupby("Unnamed: 0")["Group"].mean().sort_values(ascending=False).index
+            re_model.groupby("Unnamed: 0")["Group"]
+            .mean()
+            .sort_values(ascending=False)
+            .index
         )
         for column, label in RANDOM_EFFECT_LABELS.items():
             if column not in re_model.columns:
                 continue
             name = slugify(label.lower())
-            heat = (
-                re_model.pivot(index="Unnamed: 0", columns="model", values=column)
-                .reindex(index=profession_order, columns=model_order)
-            )
+            heat = re_model.pivot(
+                index="Unnamed: 0", columns="model", values=column
+            ).reindex(index=profession_order, columns=model_order)
             heat.columns = heat.columns.map(plot_model_labels)
             plt.figure(figsize=(9, max(6, len(profession_order) * 0.22 + 1.5)))
             heat_ax = sns.heatmap(
@@ -1655,7 +1785,9 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             plt.title(label)
             heat_name = f"profession_{name}_heatmap.png"
             savefig(fig_dir / heat_name)
-            heatmap_blocks.append(figure(f"figures/{heat_name}", f"{label} by profession."))
+            heatmap_blocks.append(
+                figure(f"figures/{heat_name}", f"{label} by profession.")
+            )
 
             correlation_size = 2 * max(8, len(model_order) * 0.55)
             plt.figure(figsize=(correlation_size, correlation_size))
@@ -1672,7 +1804,9 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             plt.title(label)
             corr_name = f"{name}_correlation.png"
             savefig(fig_dir / corr_name)
-            corr_blocks.append(figure(f"figures/{corr_name}", f"Cross-model correlation: {label}."))
+            corr_blocks.append(
+                figure(f"figures/{corr_name}", f"Cross-model correlation: {label}.")
+            )
 
         features = [c for c in RANDOM_EFFECT_LABELS if c in re_model.columns]
         if len(re_model) >= 3 and len(features) >= 2:
@@ -1689,7 +1823,9 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
                 plt.text(row["PC1"], row["PC2"], str(row["Unnamed: 0"]), fontsize=7)
             plt.legend(title="", bbox_to_anchor=(1.02, 1), loc="upper left")
             savefig(fig_dir / "profession_pca.png")
-            pca_html = figure("figures/profession_pca.png", "PCA of profession random effects.")
+            pca_html = figure(
+                "figures/profession_pca.png", "PCA of profession random effects."
+            )
 
     coef_model = coefficients.groupby(["model", "term"], as_index=False)[
         ["coef", "std_err", "p_value", "ci_low", "ci_high"]
@@ -1706,8 +1842,12 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         }
     )
     coef_table = display_model_table(coef_table, model_order, plot_model_labels)
-    coef_html = write_table(coef_table, tab_dir / "coefficients.html", classes="data-table compact")
-    coef_heat = coef_model.pivot(index="term", columns="model", values="coef").reindex(columns=model_order)
+    coef_html = write_table(
+        coef_table, tab_dir / "coefficients.html", classes="data-table compact"
+    )
+    coef_heat = coef_model.pivot(index="term", columns="model", values="coef").reindex(
+        columns=model_order
+    )
     coef_heat.columns = coef_heat.columns.map(plot_model_labels)
     plt.figure(figsize=(10, max(5, 0.35 * len(coef_heat))))
     sns.heatmap(coef_heat, center=0, cmap="RdBu_r", cbar_kws={"label": "Coefficient"})
@@ -1719,15 +1859,17 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         ("Target models", str(metrics["target_model"].nunique())),
         ("Professions", str(random_effects["Unnamed: 0"].nunique())),
         ("Observations/model", f"{int(best_models['nobs'].median()):,}"),
-        ("Best models converged", "yes" if bool(best_models["converged"].all()) else "no"),
+        (
+            "Best models converged",
+            "yes" if bool(best_models["converged"].all()) else "no",
+        ),
     ]
     cards_html = "\n".join(
         f'<div class="metric-card"><div class="metric-value">{escape(value)}</div>'
         f'<div class="metric-label">{escape(label)}</div></div>'
         for label, value in cards
     )
-    html = textwrap.dedent(
-        f"""
+    html = textwrap.dedent(f"""
         <!doctype html>
         <html lang="en">
         <head>
@@ -1857,8 +1999,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
           </div>
         </body>
         </html>
-        """
-    ).strip()
+        """).strip()
     report_path = report_dir / "report.html"
     report_path.write_text(html, encoding="utf-8")
     return report_path
@@ -1927,7 +2068,9 @@ def main() -> int:
     if metrics.empty:
         print("No fitted model metrics were generated.", file=sys.stderr)
         return 1
-    artifacts = aggregate_outputs(metrics, pd.DataFrame(), args.data_dir / "comparisons")
+    artifacts = aggregate_outputs(
+        metrics, pd.DataFrame(), args.data_dir / "comparisons"
+    )
     report_path = build_report(artifacts, args.report_dir)
 
     manifest["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
