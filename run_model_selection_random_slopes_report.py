@@ -1456,14 +1456,14 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             values="folded_shapley_r2",
             aggfunc="sum",
             fill_value=0.0,
-        ).reindex(plot_model_order, fill_value=0.0)
+        ).reindex(plot_model_order_reversed, fill_value=0.0)
         predictor_order = shapley_plot.sum(axis=0).sort_values(ascending=False).index
         shapley_plot = shapley_plot.reindex(columns=predictor_order)
         shapley_colors = sns.color_palette("husl", n_colors=len(predictor_order))
         ax = shapley_plot.plot(
             kind="barh",
             stacked=True,
-            figsize=(9, max(4.5, len(plot_model_order) * 0.55 + 1.5)),
+            figsize=(9, max(4.5, len(plot_model_order_reversed) * 0.55 + 1.5)),
             color=shapley_colors,
             width=0.9,
         )
