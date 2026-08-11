@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-08-11T10:01:04.951496+00:00",
+  "started_at_utc": "2026-08-11T10:05:42.290294+00:00",
   "data_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_data",
   "report_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_report",
   "maxiter": 1000,
@@ -24,6 +24,6 @@
     "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_data/runs/he_she_odds_results__tiiuae_Falcon3-3B-Base__89f88db2",
     "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_data/runs/he_she_odds_results__tiiuae_Falcon3-7B-Base__0e7d5b82"
   ],
-  "finished_at_utc": "2026-08-11T10:02:16.491358+00:00",
+  "finished_at_utc": "2026-08-11T10:06:24.154532+00:00",
   "report_html": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_report/report.html"
 }
