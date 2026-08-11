@@ -1,0 +1,14 @@
+            Mixed Linear Model Regression Results
+=============================================================
+Model:            MixedLM Dependent Variable: log_he_she_odds
+No. Observations: 16320   Method:             ML             
+No. Groups:       34      Scale:              0.2582         
+Min. group size:  480     Log-Likelihood:     -12249.6283    
+Max. group size:  480     Converged:          Yes            
+Mean group size:  480.0                                      
+---------------------------------------------------------------
+             Coef.   Std.Err.     z     P>|z|   [0.025   0.975]
+---------------------------------------------------------------
+Intercept    1.668      0.254   6.557   0.000    1.169    2.166
+Group Var    2.198      1.038                                  
+=============================================================

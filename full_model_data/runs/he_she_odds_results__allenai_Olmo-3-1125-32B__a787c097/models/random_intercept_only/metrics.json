@@ -1,0 +1,17 @@
+{
+  "formula": "log_he_she_odds ~ 1",
+  "re_formula": "1",
+  "group_col": "profession",
+  "optimizer": "lbfgs",
+  "converged": true,
+  "warning_count": 0,
+  "warnings": [],
+  "numerical_issue_warnings": false,
+  "aic": 32521.03958965055,
+  "bic": 32544.140029536105,
+  "log_likelihood": -16257.519794825275,
+  "nobs": 16320,
+  "residual_variance": 0.4222427945729483,
+  "R2m": 6.549541618691449e-32,
+  "R2c": 0.8597812474423356
+}

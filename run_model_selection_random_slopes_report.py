@@ -465,7 +465,7 @@ def fit_mixed_model_terms(
 ) -> dict[str, Any]:
     model_dir = run_dir / "models" / name
     model_dir.mkdir(parents=True, exist_ok=True)
-    formula = "log_he_she_odds ~ " + " + ".join(fixed_terms)
+    formula = "log_he_she_odds ~ " + (" + ".join(fixed_terms) if fixed_terms else "1")
     re_formula = build_random_formula(random_predictors)
     fit_errors: list[dict[str, str]] = []
 
@@ -1067,10 +1067,23 @@ def run_one_input(
         maxiter=maxiter,
     )
     baseline_payload = report_payload(baseline_fit, fixed_terms, run_dir)
+    standalone_random_intercept_fit = fit_mixed_model_terms(
+        df,
+        name="random_intercept_only",
+        fixed_terms=[],
+        group_col="profession",
+        random_predictors=[],
+        run_dir=run_dir,
+        maxiter=maxiter,
+    )
+    standalone_random_intercept_payload = report_payload(
+        standalone_random_intercept_fit, [], run_dir
+    )
     report_reuse_summary = {
         **full_payload,
         "full_model_metrics": full_payload,
         "random_intercept_baseline_metrics": baseline_payload,
+        "standalone_random_intercept_metrics": standalone_random_intercept_payload,
     }
     (run_dir / "report_reuse_summary.json").write_text(
         json.dumps(report_reuse_summary, indent=2), encoding="utf-8"
@@ -1091,6 +1104,7 @@ def run_one_input(
                     ),
                     "full_model_metrics": full_payload,
                     "random_intercept_baseline_metrics": baseline_payload,
+                    "standalone_random_intercept_metrics": standalone_random_intercept_payload,
                 },
             },
             indent=2,
@@ -1118,6 +1132,26 @@ def ensure_shapley_results(
             )
 
 
+def ensure_standalone_random_intercept_results(
+    run_dirs: list[Path], maxiter: int
+) -> None:
+    for run_dir in run_dirs:
+        model_dir = run_dir / "models" / "random_intercept_only"
+        metrics_path = model_dir / "metrics.json"
+        prepared_path = run_dir / "prepared_results.csv"
+        if metrics_path.exists() or not prepared_path.exists():
+            continue
+        fit_mixed_model_terms(
+            pd.read_csv(prepared_path),
+            name="random_intercept_only",
+            fixed_terms=[],
+            group_col="profession",
+            random_predictors=[],
+            run_dir=run_dir,
+            maxiter=maxiter,
+        )
+
+
 def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -1137,6 +1171,7 @@ def collect_model_rows(run_dirs: list[Path]) -> pd.DataFrame:
             if model_dir.name not in {
                 "full_mixed_random_slopes",
                 "full_mixed_random_slopes__random_intercept_baseline",
+                "random_intercept_only",
             }:
                 continue
             metrics_path = model_dir / "metrics.json"
@@ -1159,9 +1194,13 @@ def collect_model_rows(run_dirs: list[Path]) -> pd.DataFrame:
                     "model_name": model_dir.name,
                     "model_dir": str(model_dir.resolve()),
                     "fit_variant": (
-                        "random_intercept_baseline"
-                        if model_dir.name.endswith("__random_intercept_baseline")
-                        else "random_slopes"
+                        "standalone_random_intercept"
+                        if model_dir.name == "random_intercept_only"
+                        else (
+                            "random_intercept_baseline"
+                            if model_dir.name.endswith("__random_intercept_baseline")
+                            else "random_slopes"
+                        )
                     ),
                     **metrics,
                 }
@@ -1481,12 +1520,25 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         metrics["model_name"].str.endswith("__random_intercept_baseline")
     ].copy()
     baseline["model"] = baseline["target_model"].map(clean_model_name)
+    standalone_random_intercept = metrics.loc[
+        metrics["model_name"].eq("random_intercept_only")
+    ].copy()
+    standalone_random_intercept["model"] = standalone_random_intercept[
+        "target_model"
+    ].map(clean_model_name)
     increment = best_models.merge(
         baseline.sort_values(["target_model", "aic"])
         .groupby("target_model", as_index=False)
         .first(),
         on="target_model",
         suffixes=("_expanded", "_baseline"),
+    )
+    increment = increment.merge(
+        standalone_random_intercept[["target_model", "R2c"]].rename(
+            columns={"R2c": "R2c_standalone_random_intercept"}
+        ),
+        on="target_model",
+        how="left",
     )
     increment["Model"] = increment["model_expanded"]
     increment["Delta conditional R2"] = (
@@ -1526,8 +1578,9 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         {
             "Model": increment["Model"],
             "Fixed effects R2": increment["R2m_baseline"],
-            "Random intercept only R2": increment["R2c_baseline"]
-            - increment["R2m_baseline"],
+            "Standalone random intercept R2": increment[
+                "R2c_standalone_random_intercept"
+            ],
             "Random intercept + fixed effects R2": increment["R2c_baseline"],
         }
     )
@@ -1540,7 +1593,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     baseline_explained[
         "Random-intercept-only share within baseline explained variance"
     ] = safe_divide(
-        baseline_explained["Random intercept only R2"],
+        baseline_explained["Standalone random intercept R2"],
         baseline_explained["Random intercept + fixed effects R2"],
     )
     baseline_explained = display_model_table(
@@ -1582,8 +1635,9 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     combined_explained = pd.DataFrame(
         {
             "Model": increment["Model"],
-            "Random intercept only R2": increment["R2c_baseline"]
-            - increment["R2m_baseline"],
+            "Standalone random intercept R2": increment[
+                "R2c_standalone_random_intercept"
+            ],
             "Fixed effects R2": increment["R2m_baseline"],
             "Additional random-slope R2": increment["R2c_expanded"]
             - increment["R2c_baseline"],
@@ -1619,13 +1673,13 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
 
     combined_explained_plot = combined_explained.set_index("Model")[
         [
-            "Random intercept only R2",
+            "Standalone random intercept R2",
             "Fixed effects R2",
             "Additional random-slope R2",
         ]
     ].rename(
         columns={
-            "Random intercept only R2": "Random intercept only",
+            "Standalone random intercept R2": "Standalone random intercept",
             "Fixed effects R2": "Fixed effects",
             "Additional random-slope R2": "Additional random slopes",
         }
@@ -1948,10 +2002,11 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
               <h2>Explained-Variance Decomposition</h2>
               <p class="section-note">
                 The plot shows absolute explained variance (`R2`) split into three stacked
-                components: the random intercept alone, fixed effects, and the additional
-                contribution from random slopes.
+                                standalone components: the random intercept from a model with no fixed
+                                predictors, fixed effects, and the additional contribution from random slopes.
+                                These standalone quantities need not sum to the expanded model R2.
               </p>
-              {figure("figures/explained_variance_decomposition.png", "Explained variance split into random intercept only, fixed effects, and additional random slopes.")}
+                            {figure("figures/explained_variance_decomposition.png", "Standalone explained variance from the random intercept, fixed effects, and additional random slopes.")}
               {baseline_explained_html}
               {expanded_explained_html}
             </section>
@@ -1969,7 +2024,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
             </section>
             <section>
               <h2>Random-Effect Variance</h2>
-              <p class="section-note">The random-intercept baseline uses the same full fixed-effects formula.</p>
+                            <p class="section-note">The random-intercept baseline uses the same full fixed-effects formula; standalone random-intercept importance is reported separately in the explained-variance decomposition.</p>
               {variance_html}
               {figure("figures/variance_decomposition.png", "Random-slope variance decomposition.")}
             </section>
@@ -2063,6 +2118,7 @@ def main() -> int:
     ensure_shapley_results(
         run_dirs, args.shapley_permutations, args.shapley_random_state
     )
+    ensure_standalone_random_intercept_results(run_dirs, args.maxiter)
 
     metrics = collect_model_rows(run_dirs)
     if metrics.empty:
