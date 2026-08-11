@@ -1578,9 +1578,8 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
         {
             "Model": increment["Model"],
             "Fixed effects R2": increment["R2m_baseline"],
-            "Standalone random intercept R2": increment[
-                "R2c_standalone_random_intercept"
-            ],
+            "Random intercept only R2": increment["R2c_baseline"]
+            - increment["R2m_baseline"],
             "Random intercept + fixed effects R2": increment["R2c_baseline"],
         }
     )
@@ -1593,7 +1592,7 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     baseline_explained[
         "Random-intercept-only share within baseline explained variance"
     ] = safe_divide(
-        baseline_explained["Standalone random intercept R2"],
+        baseline_explained["Random intercept only R2"],
         baseline_explained["Random intercept + fixed effects R2"],
     )
     baseline_explained = display_model_table(
@@ -1602,6 +1601,22 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     baseline_explained_html = write_table(
         baseline_explained,
         tab_dir / "baseline_explained_variance_decomposition.html",
+        classes="data-table compact",
+    )
+    standalone_random_intercept_explained = pd.DataFrame(
+        {
+            "Model": increment["Model"],
+            "Standalone random intercept R2": increment[
+                "R2c_standalone_random_intercept"
+            ],
+        }
+    )
+    standalone_random_intercept_explained = display_model_table(
+        standalone_random_intercept_explained, model_order, plot_model_labels
+    )
+    standalone_random_intercept_html = write_table(
+        standalone_random_intercept_explained,
+        tab_dir / "standalone_random_intercept_r2.html",
         classes="data-table compact",
     )
 
@@ -1635,9 +1650,8 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     combined_explained = pd.DataFrame(
         {
             "Model": increment["Model"],
-            "Standalone random intercept R2": increment[
-                "R2c_standalone_random_intercept"
-            ],
+            "Random intercept only R2": increment["R2c_baseline"]
+            - increment["R2m_baseline"],
             "Fixed effects R2": increment["R2m_baseline"],
             "Additional random-slope R2": increment["R2c_expanded"]
             - increment["R2c_baseline"],
@@ -1673,13 +1687,13 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
 
     combined_explained_plot = combined_explained.set_index("Model")[
         [
-            "Standalone random intercept R2",
+            "Random intercept only R2",
             "Fixed effects R2",
             "Additional random-slope R2",
         ]
     ].rename(
         columns={
-            "Standalone random intercept R2": "Standalone random intercept",
+            "Random intercept only R2": "Random intercept only",
             "Fixed effects R2": "Fixed effects",
             "Additional random-slope R2": "Additional random slopes",
         }
@@ -1704,6 +1718,18 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
     plt.legend(title="", bbox_to_anchor=(0.5, -0.16), loc="upper center", ncol=3)
     plt.subplots_adjust(bottom=0.2)
     savefig(fig_dir / "explained_variance_decomposition.png")
+
+    standalone_plot = standalone_random_intercept_explained.set_index("Model")
+    standalone_plot.loc[plot_model_order_reversed].plot(
+        kind="barh",
+        legend=False,
+        figsize=(8, max(3.5, len(model_order) * 0.4 + 1.5)),
+        color="#6c8da6",
+    )
+    plt.xlabel("Standalone random-intercept R2")
+    plt.ylabel("")
+    plt.xlim(0, 1)
+    savefig(fig_dir / "standalone_random_intercept_r2.png")
 
     variance_table = best_models[["model", *RANDOM_EFFECT_VARIANCE_COLUMNS]].rename(
         columns={"model": "Model", **VARIANCE_LABELS}
@@ -2002,13 +2028,20 @@ def build_report(artifacts: dict[str, pd.DataFrame], report_dir: Path) -> Path:
               <h2>Explained-Variance Decomposition</h2>
               <p class="section-note">
                 The plot shows absolute explained variance (`R2`) split into three stacked
-                                standalone components: the random intercept from a model with no fixed
-                                predictors, fixed effects, and the additional contribution from random slopes.
-                                These standalone quantities need not sum to the expanded model R2.
+                                components: the random intercept conditional on the fixed effects, fixed
+                                effects, and the additional contribution from random slopes. These components
+                                sum to the expanded model's conditional R2.
               </p>
-                            {figure("figures/explained_variance_decomposition.png", "Standalone explained variance from the random intercept, fixed effects, and additional random slopes.")}
+                            {figure("figures/explained_variance_decomposition.png", "Explained variance split into conditional random intercept, fixed effects, and additional random slopes.")}
               {baseline_explained_html}
               {expanded_explained_html}
+                            <h3>Standalone Random-Intercept R2</h3>
+                            <p class="section-note">
+                                This separate plot reports conditional R2 from a model containing only an
+                                intercept and profession random intercept, with no fixed predictors.
+                            </p>
+                            {figure("figures/standalone_random_intercept_r2.png", "Standalone random-intercept R2 from a model with no fixed predictors.")}
+                            {standalone_random_intercept_html}
             </section>
             <section>
               <h2>Fixed-Effect Variance</h2>
