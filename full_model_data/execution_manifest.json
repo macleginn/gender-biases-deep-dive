@@ -1,11 +1,29 @@
 {
-  "started_at_utc": "2026-08-11T10:50:00.976396+00:00",
+  "started_at_utc": "2026-08-12T07:07:11.552805+00:00",
   "data_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_data",
   "report_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_report",
   "maxiter": 1000,
   "shapley_permutations": 500,
   "shapley_random_state": 0,
-  "reuse_existing": true,
+  "reuse_existing": false,
+  "inputs": [
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__EleutherAI_pythia-12b-deduped.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__EleutherAI_pythia-2.8b-deduped.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__EleutherAI_pythia-6.9b-deduped.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__Qwen_Qwen3-4B-Base.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__Qwen_Qwen3-8B-Base.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__allenai_Olmo-3-1025-7B.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__allenai_Olmo-3-1125-32B.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__google_gemma-3-12b-pt.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__google_gemma-3-4b-pt.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__gpt2.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__meta-llama_Llama-3.1-70B.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__meta-llama_Llama-3.1-8B.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__mistralai_Mistral-7B-v0.3.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__tiiuae_Falcon3-10B-Base.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__tiiuae_Falcon3-3B-Base.csv",
+    "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/modelling_data/he_she_odds_results__tiiuae_Falcon3-7B-Base.csv"
+  ],
   "run_dirs": [
     "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_data/runs/he_she_odds_results__EleutherAI_pythia-12b-deduped__d403ebe4",
     "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_data/runs/he_she_odds_results__EleutherAI_pythia-2.8b-deduped__ee03af74",
@@ -24,6 +42,6 @@
     "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_data/runs/he_she_odds_results__tiiuae_Falcon3-3B-Base__89f88db2",
     "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_data/runs/he_she_odds_results__tiiuae_Falcon3-7B-Base__0e7d5b82"
   ],
-  "finished_at_utc": "2026-08-11T10:50:27.199167+00:00",
+  "finished_at_utc": "2026-08-12T07:45:10.608479+00:00",
   "report_html": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/full_model_report/report.html"
 }

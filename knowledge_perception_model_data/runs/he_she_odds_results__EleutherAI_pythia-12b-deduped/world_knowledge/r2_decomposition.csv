@@ -1,11 +1,11 @@
 predictor,unique_r2,relative_r2
-male_perc:C(semantic_role),0.0004419910878395994,0.5224044610520537
-"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001486750853393337,0.17572419436825612
-"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001343677647944741,0.1588138803733079
-"male_perc:C(dominance, Treatment(reference='-dom'))",0.00010785423652759363,0.12747662985871247
-"C(semantic_role):C(dominance, Treatment(reference='-dom'))",1.0825083877508135e-05,0.012794538768901976
-"male_perc:C(valence, Treatment(reference='-val'))",2.357402942965159e-06,0.0027862955787677844
-"C(valence, Treatment(reference='-val'))",0.0,0.0
-C(semantic_role),0.0,0.0
+male_perc:C(tense),0.002812685043301899,0.7473441128718181
+male_perc:C(semantic_role),0.00044199108783948837,0.11743918439260442
+"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.0003605702771671826,0.09580527850395731
+C(semantic_role):C(tense),7.200612436619735e-05,0.019132377890636626
+"C(tense):C(dominance, Treatment(reference='-dom'))",6.0232499188184185e-05,0.016004068347091647
+"C(syntactic_role):C(valence, Treatment(reference='-val'))",1.608919700668565e-05,0.004274977993862354
+C(tense),1.1102230246251565e-16,2.949916640699741e-14
+C(syntactic_role),0.0,0.0
 "C(dominance, Treatment(reference='-dom'))",0.0,0.0
 male_perc,0.0,0.0

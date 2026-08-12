@@ -30,7 +30,6 @@ from typing import Any
 
 import run_lasso_profession_embeddings_report as base
 
-
 if base.IMPORT_ERROR is not None:  # pragma: no cover
     IMPORT_ERROR = base.IMPORT_ERROR
 else:
@@ -40,15 +39,19 @@ else:
 MODEL_SPECS = {
     "world_knowledge": {
         "label": "World-Knowledge Model",
-        "role": "semantic_role",
     },
     "human_perception": {
         "label": "Human-Perception Model",
-        "role": "syntactic_role",
-        "additional_predictors": ("tense",),
     },
 }
-PREDICTORS = ("male_perc", "valence", "dominance")
+PREDICTORS = (
+    "male_perc",
+    "semantic_role",
+    "syntactic_role",
+    "tense",
+    "valence",
+    "dominance",
+)
 NUMERICAL_PREDICTORS = ("male_perc",)
 PREPROCESSING_VERSION = "zscore_numeric-model-predictors_v1"
 
@@ -57,8 +60,12 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("results_csv", type=Path, nargs="*")
     parser.add_argument("--professions", type=Path, default=Path("professions.csv"))
-    parser.add_argument("--data-dir", type=Path, default=Path("knowledge_perception_model_data"))
-    parser.add_argument("--report-dir", type=Path, default=Path("knowledge_perception_model_report"))
+    parser.add_argument(
+        "--data-dir", type=Path, default=Path("knowledge_perception_model_data")
+    )
+    parser.add_argument(
+        "--report-dir", type=Path, default=Path("knowledge_perception_model_report")
+    )
     parser.add_argument("--maxiter", type=int, default=1000)
     parser.add_argument("--shapley-permutations", type=int, default=500)
     parser.add_argument("--shapley-random-state", type=int, default=0)
@@ -84,7 +91,9 @@ def format_paired_bar_axis(ax: Any, plot_order: list[str]) -> None:
     """Hide gap-row labels and mark the widened spaces between model pairs."""
     ax.set_yticks(
         range(len(plot_order)),
-        labels=["" if label.startswith("__pair_gap_") else label for label in plot_order],
+        labels=[
+            "" if label.startswith("__pair_gap_") else label for label in plot_order
+        ],
     )
     for position, label in enumerate(plot_order):
         if label.startswith("__pair_gap_"):
@@ -121,9 +130,13 @@ def prepare_data(path: Path, metadata: base.pd.DataFrame) -> base.pd.DataFrame:
     known = set(metadata["profession"].astype(str))
     unknown = sorted(set(data["profession"].dropna().astype(str)) - known)
     if unknown:
-        raise ValueError(f"{path} contains professions absent from professions.csv: {unknown[:10]}")
+        raise ValueError(
+            f"{path} contains professions absent from professions.csv: {unknown[:10]}"
+        )
     merged = data.merge(metadata, on="profession", how="inner", validate="many_to_one")
-    scaling = base.standardize_predictors(merged, list(NUMERICAL_PREDICTORS), source=path)
+    scaling = base.standardize_predictors(
+        merged, list(NUMERICAL_PREDICTORS), source=path
+    )
     merged.attrs["preprocessing"] = {
         "version": PREPROCESSING_VERSION,
         "standardized_predictors": scaling,
@@ -132,8 +145,8 @@ def prepare_data(path: Path, metadata: base.pd.DataFrame) -> base.pd.DataFrame:
     return merged
 
 
-def model_terms(role: str, additional_predictors: tuple[str, ...] = ()) -> list[str]:
-    names = ["male_perc", *additional_predictors, role, "valence", "dominance"]
+def model_terms() -> list[str]:
+    names = list(PREDICTORS)
     main = [base.term(name) for name in names]
     return main + [f"{a}:{b}" for a, b in combinations(main, 2)]
 
@@ -146,8 +159,12 @@ def _shapley_marginal_batch(
 
     def utility(indices: tuple[int, ...]) -> float:
         if indices not in cache:
-            formula = "log_he_she_odds ~ " + " + ".join(terms[index] for index in indices)
-            cache[indices] = float(base.smf.ols(formula=formula, data=df).fit().rsquared)
+            formula = "log_he_she_odds ~ " + " + ".join(
+                terms[index] for index in indices
+            )
+            cache[indices] = float(
+                base.smf.ols(formula=formula, data=df).fit().rsquared
+            )
         return cache[indices]
 
     rng = base.np.random.default_rng(seed)
@@ -176,8 +193,15 @@ def decompose_shapley_r_squared(
         raise ValueError("shapley permutations must be at least 1")
     if not terms:
         return base.pd.DataFrame(
-            columns=["predictor", "shapley_r2", "mc_standard_error", "relative_r2",
-                     "permutations", "random_state", "full_r2"]
+            columns=[
+                "predictor",
+                "shapley_r2",
+                "mc_standard_error",
+                "relative_r2",
+                "permutations",
+                "random_state",
+                "full_r2",
+            ]
         )
     worker_count = min(permutations, os.cpu_count() or 1)
     batch_count = min(permutations, worker_count * 4)
@@ -191,7 +215,9 @@ def decompose_shapley_r_squared(
             executor.submit(_shapley_marginal_batch, df, terms, size, int(seed))
             for size, seed in zip(batch_sizes, seeds)
         ]
-        with base.tqdm(total=permutations, desc="Shapley R² orderings", unit="ordering") as progress:
+        with base.tqdm(
+            total=permutations, desc="Shapley R² orderings", unit="ordering"
+        ) as progress:
             for future in concurrent.futures.as_completed(futures):
                 batch = future.result()
                 batches.append(batch)
@@ -200,64 +226,95 @@ def decompose_shapley_r_squared(
     values = marginal.mean(axis=0)
     standard_error = (
         marginal.std(axis=0, ddof=1) / base.np.sqrt(permutations)
-        if permutations > 1 else base.np.zeros(len(terms))
+        if permutations > 1
+        else base.np.zeros(len(terms))
     )
     full_r2 = float(selected["result"].rsquared)
-    result = base.pd.DataFrame({
-        "predictor": terms,
-        "shapley_r2": values,
-        "mc_standard_error": standard_error,
-        "relative_r2": values / full_r2 if full_r2 > 0 else 0.0,
-        "permutations": permutations,
-        "random_state": random_state,
-        "full_r2": full_r2,
-    }).sort_values("shapley_r2", ascending=False, ignore_index=True)
+    result = base.pd.DataFrame(
+        {
+            "predictor": terms,
+            "shapley_r2": values,
+            "mc_standard_error": standard_error,
+            "relative_r2": values / full_r2 if full_r2 > 0 else 0.0,
+            "permutations": permutations,
+            "random_state": random_state,
+            "full_r2": full_r2,
+        }
+    ).sort_values("shapley_r2", ascending=False, ignore_index=True)
     result.to_csv(run_dir / "shapley_r2_decomposition.csv", index=False)
     return result
 
 
-def select_model(df: base.pd.DataFrame, run_dir: Path, role: str,
-                 additional_predictors: tuple[str, ...], maxiter: int,
-                 shapley_permutations: int, shapley_random_state: int) -> tuple[dict[str, Any], list[str], base.pd.DataFrame]:
+def select_model(
+    df: base.pd.DataFrame,
+    run_dir: Path,
+    maxiter: int,
+    shapley_permutations: int,
+    shapley_random_state: int,
+) -> tuple[dict[str, Any], list[str], base.pd.DataFrame]:
     run_dir.mkdir(parents=True, exist_ok=True)
-    all_terms = model_terms(role, additional_predictors)
+    all_terms = model_terms()
     formula = "log_he_she_odds ~ " + " + ".join(all_terms)
     response, design = base.dmatrices(formula, data=df, return_type="dataframe")
     x_scaled = base.StandardScaler().fit_transform(design)
     y = base.np.asarray(response).ravel()
-    lasso = base.LassoCV(cv=5, max_iter=maxiter, n_jobs=-1, random_state=0).fit(x_scaled, y)
-    base.pd.DataFrame({
-        "feature": list(design.columns),
-        "coefficient": lasso.coef_,
-        "nonzero": base.np.abs(lasso.coef_) > 1e-10,
-    }).to_csv(run_dir / "lasso_coefficients.csv", index=False)
+    lasso = base.LassoCV(cv=5, max_iter=maxiter, n_jobs=-1, random_state=0).fit(
+        x_scaled, y
+    )
+    base.pd.DataFrame(
+        {
+            "feature": list(design.columns),
+            "coefficient": lasso.coef_,
+            "nonzero": base.np.abs(lasso.coef_) > 1e-10,
+        }
+    ).to_csv(run_dir / "lasso_coefficients.csv", index=False)
 
     selected_terms = []
     for term_name, term_slice in design.design_info.term_name_slices.items():
-        if term_name != "Intercept" and (base.np.abs(lasso.coef_[term_slice]) > 1e-10).any():
+        if (
+            term_name != "Intercept"
+            and (base.np.abs(lasso.coef_[term_slice]) > 1e-10).any()
+        ):
             selected_terms.append(term_name)
     selected = base.fit_model(df, "selected_model", selected_terms, [], run_dir)
     decomposition = base.decompose_r_squared(df, selected, selected_terms, run_dir)
     decompose_shapley_r_squared(
-        df, selected, selected_terms, run_dir, shapley_permutations, shapley_random_state
+        df,
+        selected,
+        selected_terms,
+        run_dir,
+        shapley_permutations,
+        shapley_random_state,
     )
-    (run_dir / "selected_model.json").write_text(json.dumps({
-        "selected_model": selected["name"],
-        "candidate_formula": formula,
-        "selected_terms": selected_terms,
-        "alpha": float(lasso.alpha_),
-        "alpha_selection": "LassoCV",
-        "cv": 5,
-        "lasso_n_iter": int(lasso.n_iter_),
-        "shapley_permutations": shapley_permutations,
-        "shapley_random_state": shapley_random_state,
-    }, indent=2), encoding="utf-8")
+    (run_dir / "selected_model.json").write_text(
+        json.dumps(
+            {
+                "selected_model": selected["name"],
+                "candidate_formula": formula,
+                "selected_terms": selected_terms,
+                "alpha": float(lasso.alpha_),
+                "alpha_selection": "LassoCV",
+                "cv": 5,
+                "lasso_n_iter": int(lasso.n_iter_),
+                "shapley_permutations": shapley_permutations,
+                "shapley_random_state": shapley_random_state,
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
     return selected, selected_terms, decomposition
 
 
-def run_one(input_csv: Path, metadata: base.pd.DataFrame, metadata_meta: dict[str, Any],
-            data_dir: Path, maxiter: int, shapley_permutations: int,
-            shapley_random_state: int) -> Path:
+def run_one(
+    input_csv: Path,
+    metadata: base.pd.DataFrame,
+    metadata_meta: dict[str, Any],
+    data_dir: Path,
+    maxiter: int,
+    shapley_permutations: int,
+    shapley_random_state: int,
+) -> Path:
     run_dir = data_dir / "runs" / slugify(input_csv.stem)
     run_dir.mkdir(parents=True, exist_ok=True)
     (data_dir / "inputs").mkdir(parents=True, exist_ok=True)
@@ -268,19 +325,32 @@ def run_one(input_csv: Path, metadata: base.pd.DataFrame, metadata_meta: dict[st
     selected_models = {}
     for key, spec in MODEL_SPECS.items():
         selected, terms, decomposition = select_model(
-            df, run_dir / key, spec["role"], spec.get("additional_predictors", ()), maxiter,
-            shapley_permutations, shapley_random_state,
+            df,
+            run_dir / key,
+            maxiter,
+            shapley_permutations,
+            shapley_random_state,
         )
         selected_models[key] = {
-            "label": spec["label"], "role": spec["role"], "model_dir": str((run_dir / key / "models" / "selected_model").resolve()),
-            "run_dir": str((run_dir / key).resolve()), "selected_terms": terms,
+            "label": spec["label"],
+            "model_dir": str((run_dir / key / "models" / "selected_model").resolve()),
+            "run_dir": str((run_dir / key).resolve()),
+            "selected_terms": terms,
             "selected_predictor_count": int(len(decomposition)),
             "name": selected["name"],
         }
-    (run_dir / "run_summary.json").write_text(json.dumps({
-        "input_csv": str(input_csv.resolve()), "profession_metadata": metadata_meta,
-        "models": selected_models, "preprocessing": preprocessing,
-    }, indent=2), encoding="utf-8")
+    (run_dir / "run_summary.json").write_text(
+        json.dumps(
+            {
+                "input_csv": str(input_csv.resolve()),
+                "profession_metadata": metadata_meta,
+                "models": selected_models,
+                "preprocessing": preprocessing,
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
     return run_dir
 
 
@@ -294,16 +364,25 @@ def discover_inputs(paths: list[Path]) -> list[Path]:
     return [path.resolve() for path in inputs]
 
 
-def write_table(df: base.pd.DataFrame, path: Path, *, classes: str = "data-table") -> str:
+def write_table(
+    df: base.pd.DataFrame, path: Path, *, classes: str = "data-table"
+) -> str:
     """Write a report table in a closed disclosure panel."""
-    table = df.to_html(index=False, border=0, classes=classes, escape=True,
-                       float_format=lambda value: f"{value:.3f}")
+    table = df.to_html(
+        index=False,
+        border=0,
+        classes=classes,
+        escape=True,
+        float_format=lambda value: f"{value:.3f}",
+    )
     html = f'<details class="table-details"><summary>Show table</summary><div class="table-wrap">{table}</div></details>'
     path.write_text(html, encoding="utf-8")
     return html
 
 
-def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str, Any]) -> Path:
+def build_report(
+    run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str, Any]
+) -> Path:
     report_dir.mkdir(parents=True, exist_ok=True)
     table_dir = report_dir / "tables"
     figure_dir = report_dir / "figures"
@@ -319,12 +398,22 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
         for key, model in summary["models"].items():
             model_dir = Path(model["model_dir"])
             metrics = json.loads((model_dir / "metrics.json").read_text())
-            rows.append({"target_model": target, "model": model["label"], "model_key": key, "model_dir": str(model_dir), **metrics})
+            rows.append(
+                {
+                    "target_model": target,
+                    "model": model["label"],
+                    "model_key": key,
+                    "model_dir": str(model_dir),
+                    **metrics,
+                }
+            )
             fixed = base.pd.read_csv(model_dir / "fixed_effects.csv")
             fixed.insert(0, "model", model["label"])
             fixed.insert(0, "target_model", target)
             coefficient_frames.append(fixed)
-            decomposition = base.pd.read_csv(Path(model["run_dir"]) / "r2_decomposition.csv")
+            decomposition = base.pd.read_csv(
+                Path(model["run_dir"]) / "r2_decomposition.csv"
+            )
             decomposition.insert(0, "model", model["label"])
             decomposition.insert(0, "target_model", target)
             decomposition_frames.append(decomposition)
@@ -337,7 +426,11 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     metrics = base.pd.DataFrame(rows).sort_values(["target_model", "model"])
     coefficients = base.pd.concat(coefficient_frames, ignore_index=True)
     decomposition = base.pd.concat(decomposition_frames, ignore_index=True)
-    shapley = base.pd.concat(shapley_frames, ignore_index=True) if shapley_frames else base.pd.DataFrame()
+    shapley = (
+        base.pd.concat(shapley_frames, ignore_index=True)
+        if shapley_frames
+        else base.pd.DataFrame()
+    )
     metrics.to_csv(report_dir / "model_metrics.csv", index=False)
     decomposition.to_csv(report_dir / "r2_decomposition.csv", index=False)
     shapley.to_csv(report_dir / "shapley_r2_decomposition.csv", index=False)
@@ -347,16 +440,22 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     input_order.extend(sorted(available_inputs - set(input_order)))
     input_labels = {name: configured_labels.get(name, name) for name in input_order}
     plot_input_order = [input_labels[name] for name in input_order]
-    variance_cols = [column for column in metrics.columns if column.startswith("fixed_effect_variance_")]
+    variance_cols = [
+        column
+        for column in metrics.columns
+        if column.startswith("fixed_effect_variance_")
+    ]
     variance = metrics[["target_model", "model", *variance_cols]].copy()
-    variance = variance.rename(columns={
-        "target_model": "Input",
-        "model": "Model",
-        **{
-            column: column.removeprefix("fixed_effect_variance_").replace("_", " ")
-            for column in variance_cols
-        },
-    })
+    variance = variance.rename(
+        columns={
+            "target_model": "Input",
+            "model": "Model",
+            **{
+                column: column.removeprefix("fixed_effect_variance_").replace("_", " ")
+                for column in variance_cols
+            },
+        }
+    )
     variance["Input"] = variance["Input"].map(input_labels)
     variance.columns = [
         column if column in {"Input", "Model"} else base.fixed_effect_label(column)
@@ -365,9 +464,17 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     coefficients["term"] = coefficients["term"].map(base.fixed_effect_label)
     coefficients.to_csv(report_dir / "selected_coefficients.csv", index=False)
     variance.to_csv(report_dir / "variance_decomposition.csv", index=False)
-    fit = metrics[["target_model", "model", "nobs", "aic", "bic", "R2m", "residual_variance"]].rename(columns={
-        "target_model": "Input", "model": "Model", "nobs": "N", "R2m": "R2", "residual_variance": "Residual variance",
-    })
+    fit = metrics[
+        ["target_model", "model", "nobs", "aic", "bic", "R2m", "residual_variance"]
+    ].rename(
+        columns={
+            "target_model": "Input",
+            "model": "Model",
+            "nobs": "N",
+            "R2m": "R2",
+            "residual_variance": "Residual variance",
+        }
+    )
     fit["Input"] = fit["Input"].map(input_labels)
     fit["Plot model"] = fit["Input"] + ": " + fit["Model"]
     plot_model_order = [
@@ -378,30 +485,59 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     ]
     plot_model_order_with_gaps = model_order_with_pair_gaps(plot_model_order)
     plot_model_order_reversed_with_gaps = plot_model_order_with_gaps[::-1]
-    fit_html = write_table(fit.drop(columns=["Plot model"]), table_dir / "model_fit.html")
+    fit_html = write_table(
+        fit.drop(columns=["Plot model"]), table_dir / "model_fit.html"
+    )
     variance_html = write_table(variance, table_dir / "variance_decomposition.html")
-    coefficient_table = coefficients.rename(columns={
-        "model": "Model", "term": "Term", "coef": "Estimate",
-        "std_err": "Std. error", "p_value": "p value", "ci_low": "CI low", "ci_high": "CI high",
-    })
-    coefficient_html = write_table(coefficient_table, table_dir / "selected_coefficients.html", classes="data-table compact")
+    coefficient_table = coefficients.rename(
+        columns={
+            "model": "Model",
+            "term": "Term",
+            "coef": "Estimate",
+            "std_err": "Std. error",
+            "p_value": "p value",
+            "ci_low": "CI low",
+            "ci_high": "CI high",
+        }
+    )
+    coefficient_html = write_table(
+        coefficient_table,
+        table_dir / "selected_coefficients.html",
+        classes="data-table compact",
+    )
     decomposition_table = decomposition.copy()
-    decomposition_table["target_model"] = decomposition_table["target_model"].map(input_labels)
-    decomposition_table["predictor"] = decomposition_table["predictor"].map(base.fixed_effect_label)
-    decomposition_html = write_table(decomposition_table, table_dir / "r2_decomposition.html", classes="data-table compact")
+    decomposition_table["target_model"] = decomposition_table["target_model"].map(
+        input_labels
+    )
+    decomposition_table["predictor"] = decomposition_table["predictor"].map(
+        base.fixed_effect_label
+    )
+    decomposition_html = write_table(
+        decomposition_table,
+        table_dir / "r2_decomposition.html",
+        classes="data-table compact",
+    )
     shapley_html = "<p>No Monte Carlo Shapley R² results.</p>"
     if not shapley.empty:
         shapley_table = shapley.copy()
         shapley_table["target_model"] = shapley_table["target_model"].map(input_labels)
-        shapley_table["predictor"] = shapley_table["predictor"].map(base.fixed_effect_label)
+        shapley_table["predictor"] = shapley_table["predictor"].map(
+            base.fixed_effect_label
+        )
         shapley_html = write_table(
-            shapley_table, table_dir / "shapley_r2_decomposition.html",
+            shapley_table,
+            table_dir / "shapley_r2_decomposition.html",
             classes="data-table compact",
         )
     base.sns.set_theme(style="whitegrid", context="notebook")
     base.plt.figure(figsize=(8, max(3.5, len(fit) * 0.4 + 1.5)))
     ax = base.sns.barplot(
-        data=fit, x="R2", y="Plot model", order=plot_model_order_with_gaps, color="#315c70", width=0.92
+        data=fit,
+        x="R2",
+        y="Plot model",
+        order=plot_model_order_with_gaps,
+        color="#315c70",
+        width=0.92,
     )
     format_paired_bar_axis(ax, plot_model_order_with_gaps)
     base.plt.xlim(0, max(1.0, float(fit["R2"].max()) * 1.08))
@@ -417,9 +553,13 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     ).dropna()
     world_r2 = r2_by_input.loc[human_minus_world.index, "world_knowledge"]
     delta_labels = [input_labels[name] for name in human_minus_world.index]
-    delta_colors = ["#315c70" if value >= 0 else "#b75d42" for value in human_minus_world]
+    delta_colors = [
+        "#315c70" if value >= 0 else "#b75d42" for value in human_minus_world
+    ]
     fig, ax = base.plt.subplots(figsize=(max(10, len(human_minus_world) * 0.8), 6))
-    ax.bar(delta_labels, world_r2.to_numpy(), color="#c8d1d0", label="World-Knowledge R²")
+    ax.bar(
+        delta_labels, world_r2.to_numpy(), color="#c8d1d0", label="World-Knowledge R²"
+    )
     ax.bar(
         delta_labels,
         human_minus_world.to_numpy(),
@@ -447,7 +587,9 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
         )
     ax.legend(
         handles=[
-            base.plt.Rectangle((0, 0), 1, 1, color="#c8d1d0", label="World-Knowledge R²"),
+            base.plt.Rectangle(
+                (0, 0), 1, 1, color="#c8d1d0", label="World-Knowledge R²"
+            ),
             base.plt.Rectangle((0, 0), 1, 1, color="#315c70", label="Positive ΔR²"),
             base.plt.Rectangle((0, 0), 1, 1, color="#b75d42", label="Negative ΔR²"),
         ],
@@ -458,8 +600,12 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     if not shapley.empty:
         shapley_plot = shapley.copy()
         shapley_plot["Input"] = shapley_plot["target_model"].map(input_labels)
-        shapley_plot["Plot model"] = shapley_plot["Input"] + ": " + shapley_plot["model"]
-        shapley_plot["Predictor"] = shapley_plot["predictor"].map(base.fixed_effect_label)
+        shapley_plot["Plot model"] = (
+            shapley_plot["Input"] + ": " + shapley_plot["model"]
+        )
+        shapley_plot["Predictor"] = shapley_plot["predictor"].map(
+            base.fixed_effect_label
+        )
         shapley_plot = shapley_plot.pivot_table(
             index="Plot model",
             columns="Predictor",
@@ -467,7 +613,9 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
             aggfunc="sum",
             fill_value=0.0,
         ).reindex(plot_model_order_with_gaps, fill_value=0.0)
-        shapley_terms = shapley_plot.sum(axis=0).sort_values(ascending=False).index.tolist()
+        shapley_terms = (
+            shapley_plot.sum(axis=0).sort_values(ascending=False).index.tolist()
+        )
         shapley_plot = shapley_plot.reindex(columns=shapley_terms)
         shapley_numbers = list(range(1, len(shapley_terms) + 1))
         shapley_colors = base.sns.color_palette("husl", n_colors=len(shapley_terms))
@@ -484,9 +632,12 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
             ax.bar_label(
                 container,
                 labels=[
-                    str(number)
-                    if base.np.isfinite(bar.get_width()) and bar.get_width() >= 0.025
-                    else ""
+                    (
+                        str(number)
+                        if base.np.isfinite(bar.get_width())
+                        and bar.get_width() >= 0.025
+                        else ""
+                    )
                     for bar in container
                 ],
                 label_type="center",
@@ -497,7 +648,10 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
         handles, _ = ax.get_legend_handles_labels()
         ax.legend(
             handles,
-            [f"{number}. {term_name}" for number, term_name in zip(shapley_numbers, shapley_terms)],
+            [
+                f"{number}. {term_name}"
+                for number, term_name in zip(shapley_numbers, shapley_terms)
+            ],
             title="Selected term",
             loc="upper center",
             bbox_to_anchor=(0.5, -0.18),
@@ -513,10 +667,14 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     variance_plot = variance.copy()
     variance_plot["Model"] = variance_plot["Input"] + ": " + variance_plot["Model"]
     variance_plot = variance_plot.set_index("Model").drop(columns="Input")
-    variance_plot = variance_plot.div(variance_plot.sum(axis=1).replace(0, base.np.nan), axis=0)
+    variance_plot = variance_plot.div(
+        variance_plot.sum(axis=1).replace(0, base.np.nan), axis=0
+    )
     fixed_effect_names = variance_plot.columns.tolist()
     fixed_effect_numbers = list(range(1, len(fixed_effect_names) + 1))
-    fixed_effect_colors = base.sns.color_palette("husl", n_colors=len(fixed_effect_names))
+    fixed_effect_colors = base.sns.color_palette(
+        "husl", n_colors=len(fixed_effect_names)
+    )
     fig, ax = base.plt.subplots(figsize=(13, max(5.5, len(variance_plot) * 0.9 + 2.5)))
     variance_plot.reindex(plot_model_order_reversed_with_gaps).plot(
         kind="barh", stacked=True, ax=ax, color=fixed_effect_colors, width=0.92
@@ -528,9 +686,11 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
         ax.bar_label(
             container,
             labels=[
-                str(effect_number)
-                if base.np.isfinite(bar.get_width()) and bar.get_width() >= 0.025
-                else ""
+                (
+                    str(effect_number)
+                    if base.np.isfinite(bar.get_width()) and bar.get_width() >= 0.025
+                    else ""
+                )
                 for bar in container
             ],
             label_type="center",
@@ -541,7 +701,10 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     handles, _ = ax.get_legend_handles_labels()
     ax.legend(
         handles,
-        [f"{number}. {name}" for number, name in zip(fixed_effect_numbers, fixed_effect_names)],
+        [
+            f"{number}. {name}"
+            for number, name in zip(fixed_effect_numbers, fixed_effect_names)
+        ],
         title="Fixed effect",
         loc="upper center",
         bbox_to_anchor=(0.5, -0.16),
@@ -554,11 +717,14 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     r2_by_model = fit.set_index("Plot model")["R2"]
     absolute_r2_plot = variance_plot.copy()
     absolute_r2_plot["R2"] = [
-        r2_by_model.loc[label]
-        for label in absolute_r2_plot.index
+        r2_by_model.loc[label] for label in absolute_r2_plot.index
     ]
-    absolute_r2_plot = absolute_r2_plot[fixed_effect_names].mul(absolute_r2_plot["R2"], axis=0)
-    fig, ax = base.plt.subplots(figsize=(13, max(5.5, len(absolute_r2_plot) * 0.9 + 2.5)))
+    absolute_r2_plot = absolute_r2_plot[fixed_effect_names].mul(
+        absolute_r2_plot["R2"], axis=0
+    )
+    fig, ax = base.plt.subplots(
+        figsize=(13, max(5.5, len(absolute_r2_plot) * 0.9 + 2.5))
+    )
     absolute_r2_plot.reindex(plot_model_order_reversed_with_gaps).plot(
         kind="barh", stacked=True, ax=ax, color=fixed_effect_colors, width=0.92
     )
@@ -569,9 +735,11 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
         ax.bar_label(
             container,
             labels=[
-                str(effect_number)
-                if base.np.isfinite(bar.get_width()) and bar.get_width() >= 0.025
-                else ""
+                (
+                    str(effect_number)
+                    if base.np.isfinite(bar.get_width()) and bar.get_width() >= 0.025
+                    else ""
+                )
                 for bar in container
             ],
             label_type="center",
@@ -582,7 +750,10 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     handles, _ = ax.get_legend_handles_labels()
     ax.legend(
         handles,
-        [f"{number}. {name}" for number, name in zip(fixed_effect_numbers, fixed_effect_names)],
+        [
+            f"{number}. {name}"
+            for number, name in zip(fixed_effect_numbers, fixed_effect_names)
+        ],
         title="Fixed effect",
         loc="upper center",
         bbox_to_anchor=(0.5, -0.16),
@@ -591,15 +762,21 @@ def build_report(run_dirs: list[Path], report_dir: Path, metadata_meta: dict[str
     )
     fig.subplots_adjust(bottom=0.3)
     base.savefig(figure_dir / "absolute_r2_decomposition.png")
-    coefficient_plot = coefficients.pivot_table(index="term", columns="model", values="coef", aggfunc="first")
+    coefficient_plot = coefficients.pivot_table(
+        index="term", columns="model", values="coef", aggfunc="first"
+    )
     base.plt.figure(figsize=(10, max(4, len(coefficient_plot) * 0.3)))
-    base.sns.heatmap(coefficient_plot, center=0, cmap="RdBu_r", cbar_kws={"label": "Coefficient"})
+    base.sns.heatmap(
+        coefficient_plot, center=0, cmap="RdBu_r", cbar_kws={"label": "Coefficient"}
+    )
     base.plt.xlabel("")
     base.plt.ylabel("Fixed-effect term")
     base.savefig(figure_dir / "coefficient_heatmap.png")
-    cards = f"<div class='metric-card'><div class='metric-value'>{len(metrics)}</div><div class='metric-label'>Model fits</div></div>" \
-            f"<div class='metric-card'><div class='metric-value'>{int(metrics['nobs'].median()):,}</div><div class='metric-label'>Observations/model</div></div>" \
-            f"<div class='metric-card'><div class='metric-value'>{metadata_meta['rows']}</div><div class='metric-label'>Professions</div></div>"
+    cards = (
+        f"<div class='metric-card'><div class='metric-value'>{len(metrics)}</div><div class='metric-label'>Model fits</div></div>"
+        f"<div class='metric-card'><div class='metric-value'>{int(metrics['nobs'].median()):,}</div><div class='metric-label'>Observations/model</div></div>"
+        f"<div class='metric-card'><div class='metric-value'>{metadata_meta['rows']}</div><div class='metric-label'>Professions</div></div>"
+    )
     html = textwrap.dedent(f"""\
         <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
         <title>World-Knowledge and Human-Perception Models</title><style>
@@ -629,17 +806,28 @@ def main() -> int:
         raise ValueError("--shapley-permutations must be at least 1")
     if args.reuse_existing:
         runs = sorted((args.data_dir / "runs").iterdir())
-        metadata_meta = json.loads((args.data_dir / "profession_metadata.json").read_text())
+        metadata_meta = json.loads(
+            (args.data_dir / "profession_metadata.json").read_text()
+        )
     else:
         metadata, metadata_meta = load_profession_metadata(args.professions)
         args.data_dir.mkdir(parents=True, exist_ok=True)
-        (args.data_dir / "profession_metadata.csv").write_text(metadata.to_csv(index=False), encoding="utf-8")
-        (args.data_dir / "profession_metadata.json").write_text(json.dumps(metadata_meta, indent=2), encoding="utf-8")
+        (args.data_dir / "profession_metadata.csv").write_text(
+            metadata.to_csv(index=False), encoding="utf-8"
+        )
+        (args.data_dir / "profession_metadata.json").write_text(
+            json.dumps(metadata_meta, indent=2), encoding="utf-8"
+        )
         inputs = discover_inputs(args.results_csv)
         runs = [
             run_one(
-                path, metadata, metadata_meta, args.data_dir, args.maxiter,
-                args.shapley_permutations, args.shapley_random_state,
+                path,
+                metadata,
+                metadata_meta,
+                args.data_dir,
+                args.maxiter,
+                args.shapley_permutations,
+                args.shapley_random_state,
             )
             for path in base.tqdm(inputs, desc="Input files")
         ]

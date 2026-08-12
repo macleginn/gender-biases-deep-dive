@@ -72,8 +72,15 @@ NUMERICAL_PREDICTORS = ["log_frequency", "lex_emb_norm"]
 PREPROCESSING_VERSION = (
     "log-frequency_zscore_and_frequency-residualized-lex-embedding_v1"
 )
-RANDOM_PREDICTORS = ["semantic_role", "syntactic_role", "valence", "dominance"]
+RANDOM_PREDICTORS = [
+    "tense",
+    "semantic_role",
+    "syntactic_role",
+    "valence",
+    "dominance",
+]
 RANDOM_EFFECT_VARIANCE_COLUMNS = [
+    "random_effect_variance_tense",
     "random_effect_variance_semantic_role",
     "random_effect_variance_syntactic_role",
     "random_effect_variance_valence",
@@ -81,12 +88,14 @@ RANDOM_EFFECT_VARIANCE_COLUMNS = [
 ]
 RANDOM_EFFECT_LABELS = {
     "Group": "Profession intercept",
+    "C(tense)": "Tense",
     "C(semantic_role)[T.patient]": "Semantic role: patient",
     "C(syntactic_role)[T.subject]": "Syntactic role: subject",
     "C(valence, Treatment(reference='-val'))[T.+val]": "Valence: positive",
     "C(dominance, Treatment(reference='-dom'))[T.+dom]": "Dominance: positive",
 }
 VARIANCE_LABELS = {
+    "random_effect_variance_tense": "Tense",
     "random_effect_variance_semantic_role": "Semantic role",
     "random_effect_variance_syntactic_role": "Syntactic role",
     "random_effect_variance_valence": "Valence",

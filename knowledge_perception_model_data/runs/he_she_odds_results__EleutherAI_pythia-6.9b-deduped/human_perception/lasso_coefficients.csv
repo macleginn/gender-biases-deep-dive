@@ -1,37 +1,47 @@
 feature,coefficient,nonzero
 Intercept,0.0,False
+C(semantic_role)[T.patient],0.0,False
+C(syntactic_role)[T.subject],-0.0,False
 C(tense)[T.past perfect],-0.0,False
 C(tense)[T.present continuous],-0.0,False
-C(tense)[T.present perfect],0.028601670877596543,True
-C(tense)[T.simple future],0.12321234702579681,True
-C(tense)[T.simple past],-0.00883458356686092,True
-C(syntactic_role)[T.subject],0.0,False
-"C(valence, Treatment(reference='-val'))[T.+val]",-0.025638323730936583,True
-"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.008118245942051568,True
-C(tense)[T.past perfect]:C(syntactic_role)[T.subject],0.0,False
-C(tense)[T.present continuous]:C(syntactic_role)[T.subject],-0.031027285360297148,True
-C(tense)[T.present perfect]:C(syntactic_role)[T.subject],-0.010565393494727578,True
-C(tense)[T.simple future]:C(syntactic_role)[T.subject],-0.10930797979562042,True
-C(tense)[T.simple past]:C(syntactic_role)[T.subject],-0.0,False
+C(tense)[T.present perfect],0.012748710209337242,True
+C(tense)[T.simple future],0.11843603372355524,True
+C(tense)[T.simple past],-0.008104433113579798,True
+"C(valence, Treatment(reference='-val'))[T.+val]",-0.0218883355411592,True
+"C(dominance, Treatment(reference='-dom'))[T.+dom]",0.005276470897561446,True
+C(semantic_role)[T.patient]:C(syntactic_role)[T.subject],0.01819534337531478,True
+C(semantic_role)[T.patient]:C(tense)[T.past perfect],-0.0,False
+C(semantic_role)[T.patient]:C(tense)[T.present continuous],0.0,False
+C(semantic_role)[T.patient]:C(tense)[T.present perfect],0.016295081930426038,True
+C(semantic_role)[T.patient]:C(tense)[T.simple future],0.0,False
+C(semantic_role)[T.patient]:C(tense)[T.simple past],-0.0,False
+"C(semantic_role)[T.patient]:C(valence, Treatment(reference='-val'))[T.+val]",-0.0,False
+"C(semantic_role)[T.patient]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.0,False
+C(syntactic_role)[T.subject]:C(tense)[T.past perfect],0.0,False
+C(syntactic_role)[T.subject]:C(tense)[T.present continuous],-0.02926504612165925,True
+C(syntactic_role)[T.subject]:C(tense)[T.present perfect],-0.006419741471302131,True
+C(syntactic_role)[T.subject]:C(tense)[T.simple future],-0.1051865526358867,True
+C(syntactic_role)[T.subject]:C(tense)[T.simple past],-0.0,False
+"C(syntactic_role)[T.subject]:C(valence, Treatment(reference='-val'))[T.+val]",-0.019351578736624367,True
+"C(syntactic_role)[T.subject]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.01480161511940353,True
 "C(tense)[T.past perfect]:C(valence, Treatment(reference='-val'))[T.+val]",-0.0,False
 "C(tense)[T.present continuous]:C(valence, Treatment(reference='-val'))[T.+val]",0.0,False
 "C(tense)[T.present perfect]:C(valence, Treatment(reference='-val'))[T.+val]",-0.0,False
 "C(tense)[T.simple future]:C(valence, Treatment(reference='-val'))[T.+val]",-0.0,False
-"C(tense)[T.simple past]:C(valence, Treatment(reference='-val'))[T.+val]",-0.012049433408491224,True
+"C(tense)[T.simple past]:C(valence, Treatment(reference='-val'))[T.+val]",-0.011949580317362877,True
 "C(tense)[T.past perfect]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.0,False
-"C(tense)[T.present continuous]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.007593944445686728,True
-"C(tense)[T.present perfect]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.0068851850665204595,True
-"C(tense)[T.simple future]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.020804722654449426,True
+"C(tense)[T.present continuous]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.004329141867375902,True
+"C(tense)[T.present perfect]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.0060337702674463116,True
+"C(tense)[T.simple future]:C(dominance, Treatment(reference='-dom'))[T.+dom]",0.019896476516761036,True
 "C(tense)[T.simple past]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.0,False
-"C(syntactic_role)[T.subject]:C(valence, Treatment(reference='-val'))[T.+val]",-0.010067539291680692,True
-"C(syntactic_role)[T.subject]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.012530418922789827,True
-"C(valence, Treatment(reference='-val'))[T.+val]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.012582909926118485,True
-male_perc,1.299714160741065,True
-male_perc:C(tense)[T.past perfect],0.031126451488165674,True
-male_perc:C(tense)[T.present continuous],-0.031457987042730576,True
-male_perc:C(tense)[T.present perfect],-0.0038587624908398184,True
-male_perc:C(tense)[T.simple future],-0.060503014528116975,True
-male_perc:C(tense)[T.simple past],0.0016371112868604982,True
-male_perc:C(syntactic_role)[T.subject],-0.06284630633623847,True
+"C(valence, Treatment(reference='-val'))[T.+val]:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.006363998354771852,True
+male_perc,1.2842482763203944,True
+male_perc:C(semantic_role)[T.patient],0.0,False
+male_perc:C(syntactic_role)[T.subject],-0.056046669899162495,True
+male_perc:C(tense)[T.past perfect],0.033451663600554134,True
+male_perc:C(tense)[T.present continuous],-0.02506425728571848,True
+male_perc:C(tense)[T.present perfect],-0.0,False
+male_perc:C(tense)[T.simple future],-0.0541092847711049,True
+male_perc:C(tense)[T.simple past],0.003962323399248709,True
 "male_perc:C(valence, Treatment(reference='-val'))[T.+val]",-0.0,False
 "male_perc:C(dominance, Treatment(reference='-dom'))[T.+dom]",-0.0,False
