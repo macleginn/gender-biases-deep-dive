@@ -1,7 +1,7 @@
 #!/bin/bash --login
 #SBATCH -p gpuA40GB
-#SBATCH -G 2
-#SBATCH -n 24
+#SBATCH -G 4
+#SBATCH -n 48
 #SBATCH -t 2-0
 
 set -euo pipefail

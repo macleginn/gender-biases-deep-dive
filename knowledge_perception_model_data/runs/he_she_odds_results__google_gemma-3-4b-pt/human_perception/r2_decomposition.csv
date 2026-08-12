@@ -1,15 +1,15 @@
 predictor,unique_r2,relative_r2
-male_perc:C(syntactic_role),0.001012324208134352,0.2412161605593808
-"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0007762462986306007,0.1849636216338055
-male_perc:C(tense),0.0007510824635221791,0.17896759423366135
-C(syntactic_role):C(tense),0.0004773757598164341,0.11374888301767747
-male_perc:C(semantic_role),0.0004449549475020742,0.10602366632736565
-"C(valence, Treatment(reference='-val')):C(tense)",0.00018746401799751844,0.0446688425516687
-"C(dominance, Treatment(reference='-dom')):C(tense)",0.00016681104431892635,0.03974766120002926
-"C(semantic_role):C(valence, Treatment(reference='-val'))",0.00014935318546260845,0.03558781038240493
-C(semantic_role):C(syntactic_role),0.00012468720979186276,0.02971041270689786
-C(semantic_role):C(tense),0.00010645205175374706,0.025365347387108498
-C(tense),0.0,0.0
-C(syntactic_role),0.0,0.0
-"C(valence, Treatment(reference='-val'))",0.0,0.0
-male_perc,0.0,0.0
+male_perc:C(syntactic_role),0.001012324208134463,0.24121616055923498
+"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0007762462986309338,0.18496362163375274
+male_perc:C(tense),0.0007510824635224012,0.1789675942335864
+C(syntactic_role):C(tense),0.0004773757598165451,0.11374888301762268
+male_perc:C(semantic_role),0.00044495494750218523,0.10602366632731637
+"C(valence, Treatment(reference='-val')):C(tense)",0.00018746401799774048,0.0446688425516897
+"C(dominance, Treatment(reference='-dom')):C(tense)",0.00016681104431903737,0.039747661200027325
+"C(semantic_role):C(valence, Treatment(reference='-val'))",0.00014935318546305254,0.035587810382485326
+C(semantic_role):C(syntactic_role),0.00012468720979219583,0.029710412706956003
+C(semantic_role):C(tense),0.00010645205175385808,0.025365347387116835
+C(tense),2.220446049250313e-16,5.290868937295431e-14
+C(syntactic_role),2.220446049250313e-16,5.290868937295431e-14
+"C(valence, Treatment(reference='-val'))",2.220446049250313e-16,5.290868937295431e-14
+male_perc,2.220446049250313e-16,5.290868937295431e-14

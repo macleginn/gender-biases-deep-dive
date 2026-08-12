@@ -5303,3 +5303,7 @@
 Shapley R² orderings: 100%|██████████| 500/500 [10:15<00:00,  4.02ordering/s][AShapley R² orderings: 100%|██████████| 500/500 [10:15<00:00,  1.23s/ordering]
 Input files: 100%|██████████| 16/16 [3:05:44<00:00, 666.72s/it]Input files: 100%|██████████| 16/16 [3:05:44<00:00, 696.53s/it]
 Wrote report to knowledge_perception_model_report/report.html
+[main f9ae85d] Update reports
+ 141 files changed, 18245 insertions(+), 28036 deletions(-)
+To github.com:macleginn/gender-biases-deep-dive.git
+   0566172..f9ae85d  main -> main

@@ -186,6 +186,27 @@ def _shapley_marginal_batch(
     return marginal
 
 
+def fold_shapley_interactions(
+    marginal: base.np.ndarray, terms: list[str]
+) -> tuple[base.np.ndarray, list[str]]:
+    """Split interaction payouts equally across their component predictors."""
+    predictors: list[str] = []
+    component_indices: list[list[int]] = []
+    for term_name in terms:
+        indices = []
+        for component in term_name.split(":"):
+            if component not in predictors:
+                predictors.append(component)
+            indices.append(predictors.index(component))
+        component_indices.append(indices)
+
+    folded = base.np.zeros((marginal.shape[0], len(predictors)))
+    for term_index, indices in enumerate(component_indices):
+        for predictor_index in indices:
+            folded[:, predictor_index] += marginal[:, term_index] / len(indices)
+    return folded, predictors
+
+
 def decompose_shapley_r_squared(
     df: base.pd.DataFrame,
     selected: dict[str, Any],
@@ -194,7 +215,7 @@ def decompose_shapley_r_squared(
     permutations: int,
     random_state: int,
 ) -> base.pd.DataFrame:
-    """Estimate selected-term Shapley R² values from random orderings."""
+    """Estimate predictor Shapley R² values, splitting interaction payouts."""
     if permutations < 1:
         raise ValueError("shapley permutations must be at least 1")
     if not terms:
@@ -229,16 +250,17 @@ def decompose_shapley_r_squared(
                 batches.append(batch)
                 progress.update(len(batch))
     marginal = base.np.vstack(batches)
+    marginal, predictors = fold_shapley_interactions(marginal, terms)
     values = marginal.mean(axis=0)
     standard_error = (
         marginal.std(axis=0, ddof=1) / base.np.sqrt(permutations)
         if permutations > 1
-        else base.np.zeros(len(terms))
+        else base.np.zeros(len(predictors))
     )
     full_r2 = float(selected["result"].rsquared)
     result = base.pd.DataFrame(
         {
-            "predictor": terms,
+            "predictor": predictors,
             "shapley_r2": values,
             "mc_standard_error": standard_error,
             "relative_r2": values / full_r2 if full_r2 > 0 else 0.0,
@@ -798,7 +820,7 @@ def build_report(
         <section><h2>Fixed-Effect Variance</h2><p class="muted">Variance is decomposed across the fixed effects in the Lasso-selected OLS models. Segment numbers in the horizontal bars map to the indexed legend below the plots.</p>{variance_html}<img src="figures/variance_decomposition.png" alt="Proportion of fixed-effect variance"><img src="figures/absolute_r2_decomposition.png" alt="Absolute R2 decomposed by fixed effect"></section>
         <section><h2>Selected Coefficients</h2><img src="figures/coefficient_heatmap.png" alt="Coefficient heatmap">{coefficient_html}</section>
         <section><h2>R² Decomposition</h2><p class="muted">Unique R² is estimated from the drop in OLS R² after removing each selected formula term. Lasso alpha is selected by five-fold cross-validation.</p>{decomposition_html}</section>
-        <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="muted">R² is the payout. A predictor receives its increase in OLS R² when it enters a randomly ordered selected model; Shapley R² averages that payout across random orderings. <code>mc_standard_error</code> reports Monte Carlo uncertainty. Segment numbers in the plot map to the indexed legend.</p>{shapley_figure_html}{shapley_html}</section>
+        <section><h2>Monte Carlo Shapley R² Attribution</h2><p class="muted">R² is the payout. A predictor receives its increase in OLS R² when it enters a randomly ordered selected model; Shapley R² averages that payout across random orderings. Each interaction payout is split equally between its two participating predictors. <code>mc_standard_error</code> reports Monte Carlo uncertainty. Segment numbers in the plot map to the indexed legend.</p>{shapley_figure_html}{shapley_html}</section>
         </div></body></html>""").strip()
     path = report_dir / "report.html"
     path.write_text(html, encoding="utf-8")
