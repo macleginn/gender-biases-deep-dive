@@ -1,401 +1,331 @@
 target_model,model,predictor,unique_r2,relative_r2
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,male_perc:C(tense),0.0028126850433018,0.7473441128718181
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,male_perc:C(semantic_role),0.0004419910878394,0.1174391843926044
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.0003605702771671,0.0958052785039573
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,C(semantic_role):C(tense),7.200612436619735e-05,0.0191323778906366
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",6.0232499188184185e-05,0.0160040683470916
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",1.608919700668565e-05,0.0042749779938623
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,C(tense),1.1102230246251563e-16,2.949916640699741e-14
-EleutherAI_pythia-12b-deduped,World-Knowledge Model,C(syntactic_role),0.0,0.0
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,male_perc:C(semantic_role),0.0004419910878395,0.5224044610520537
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001486750853393,0.1757241943682561
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001343677647944,0.1588138803733079
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001078542365275,0.1274766298587124
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",1.0825083877508137e-05,0.0127945387689019
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",2.357402942965159e-06,0.0027862955787677
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+EleutherAI_pythia-12b-deduped,World-Knowledge Model,C(semantic_role),0.0,0.0
 EleutherAI_pythia-12b-deduped,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 EleutherAI_pythia-12b-deduped,World-Knowledge Model,male_perc,0.0,0.0
-EleutherAI_pythia-12b-deduped,Human-Perception Model,male_perc:C(tense),0.0028126850433018,0.7473441128718181
+EleutherAI_pythia-12b-deduped,Human-Perception Model,male_perc:C(tense),0.0028126850433021,0.7473441128718772
 EleutherAI_pythia-12b-deduped,Human-Perception Model,male_perc:C(semantic_role),0.0004419910878394,0.1174391843926044
-EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.0003605702771671,0.0958052785039573
+EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(syntactic_role)",0.0003605702771671,0.0958052785039573
 EleutherAI_pythia-12b-deduped,Human-Perception Model,C(semantic_role):C(tense),7.200612436619735e-05,0.0191323778906366
-EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",6.0232499188184185e-05,0.0160040683470916
-EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",1.608919700668565e-05,0.0042749779938623
-EleutherAI_pythia-12b-deduped,Human-Perception Model,C(tense),1.1102230246251563e-16,2.949916640699741e-14
+EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",6.023249918807316e-05,0.0160040683470621
+EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(syntactic_role)",1.608919700668565e-05,0.0042749779938623
 EleutherAI_pythia-12b-deduped,Human-Perception Model,C(syntactic_role),0.0,0.0
 EleutherAI_pythia-12b-deduped,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+EleutherAI_pythia-12b-deduped,Human-Perception Model,C(tense),0.0,0.0
 EleutherAI_pythia-12b-deduped,Human-Perception Model,male_perc,0.0,0.0
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc:C(syntactic_role),0.0043295074124865,0.5000494017879247
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0017075603064193,0.1972197823889237
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc:C(tense),0.0006583325666467,0.0760360878883758
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,C(syntactic_role):C(tense),0.0005814730369898,0.0671589667369558
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,C(semantic_role):C(tense),0.0004719505057841,0.0545093345747053
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc:C(semantic_role),0.0003899643124021,0.0450400940700387
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0003370452260937,0.0389280459937776
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001486049560549,0.0171635736582151
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",3.3721044989665216e-05,0.003894712901083
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,C(tense),0.0,0.0
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,C(semantic_role),0.0,0.0
-EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc,0.0,0.0
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc:C(syntactic_role),0.0043295074124865,0.5000494017879247
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0017075603064193,0.1972197823889237
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc:C(tense),0.0006583325666467,0.0760360878883758
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(syntactic_role):C(tense),0.0005814730369898,0.0671589667369558
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(semantic_role):C(tense),0.0004719505057841,0.0545093345747053
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc:C(semantic_role),0.0003899643124021,0.0450400940700387
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0003370452260937,0.0389280459937776
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001486049560549,0.0171635736582151
-EleutherAI_pythia-2.8b-deduped,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",3.3721044989665216e-05,0.003894712901083
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0031446476006086,0.8417553547270408
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc:C(semantic_role),0.0003899643124021,0.1043851616484486
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001398121213728,0.0374247345866477
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",3.372104498988726e-05,0.0090264073410754
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",2.7676240858198756e-05,0.0074083416967278
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,C(semantic_role),1.1102230246251563e-16,2.9718311703308365e-14
+EleutherAI_pythia-2.8b-deduped,World-Knowledge Model,male_perc,1.1102230246251563e-16,2.9718311703308365e-14
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc:C(syntactic_role),0.0043295074124865,0.500049401787899
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0017075603064196,0.1972197823889392
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc:C(tense),0.0006583325666467,0.0760360878883719
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(syntactic_role):C(tense),0.0005814730369898,0.0671589667369524
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(semantic_role):C(tense),0.0004719505057843,0.0545093345747153
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc:C(semantic_role),0.000389964312402,0.0450400940700235
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(tense)",0.0003370452260936,0.0389280459937628
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.000148604956055,0.0171635736582271
+EleutherAI_pythia-2.8b-deduped,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",3.372104498988726e-05,0.0038947129011084
 EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(tense),0.0,0.0
 EleutherAI_pythia-2.8b-deduped,Human-Perception Model,C(semantic_role),0.0,0.0
 EleutherAI_pythia-2.8b-deduped,Human-Perception Model,male_perc,0.0,0.0
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,C(syntactic_role):C(tense),0.0037668447159217,0.3872417348791328
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,male_perc:C(tense),0.0029952757885504,0.3079223807387322
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,male_perc:C(syntactic_role),0.0014499455200048,0.1490582864416084
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,C(semantic_role):C(syntactic_role),0.000426995515263,0.0438962836501237
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.000328498105081,0.0337704858335189
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0002756123431214,0.0283336877289724
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001693807414825,0.0174127942969273
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001509329370837,0.015516310550229
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,C(semantic_role):C(tense),0.0001127778165703,0.0115938618759617
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",5.110930926000013e-05,0.0052541740047475
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,C(tense),2.220446049250313e-16,2.2826780639053043e-14
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",1.1102230246251563e-16,1.1413390319526522e-14
-EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",1.1102230246251563e-16,1.1413390319526522e-14
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001693807414826,0.4324542411165213
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,C(semantic_role),8.292639094498178e-05,0.2117234176136695
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",7.048171341139664e-05,0.1799503037896421
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",4.665404689874197e-05,0.1191147250272057
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,male_perc:C(semantic_role),2.223031884951432e-05,0.0567573124529612
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 EleutherAI_pythia-6.9b-deduped,World-Knowledge Model,male_perc,0.0,0.0
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(syntactic_role):C(tense),0.0037668447159217,0.3872417348791328
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,male_perc:C(tense),0.0029952757885504,0.3079223807387322
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,male_perc:C(syntactic_role),0.0014499455200048,0.1490582864416084
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(semantic_role):C(syntactic_role),0.000426995515263,0.0438962836501237
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.000328498105081,0.0337704858335189
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0002756123431214,0.0283336877289724
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001693807414825,0.0174127942969273
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001509329370837,0.015516310550229
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(semantic_role):C(tense),0.0001127778165703,0.0115938618759617
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",5.110930926000013e-05,0.0052541740047475
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(tense),2.220446049250313e-16,2.2826780639053043e-14
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val'))",1.1102230246251563e-16,1.1413390319526522e-14
-EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",1.1102230246251563e-16,1.1413390319526522e-14
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(syntactic_role):C(tense),0.0037668447159213,0.3872417348791781
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,male_perc:C(tense),0.0029952757885505,0.3079223807388068
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,male_perc:C(syntactic_role),0.0014499455200047,0.1490582864416276
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0004269955152629,0.0438962836501213
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(syntactic_role)",0.0003284981050809,0.0337704858335144
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(tense)",0.0002756123431211,0.028333687728944
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001693807414824,0.0174127942969194
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.0001509329370835,0.0155163105502094
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(semantic_role):C(tense),0.0001127778165701,0.0115938618759413
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(syntactic_role)",5.11093092598891e-05,0.0052541740047372
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,C(tense),0.0,0.0
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+EleutherAI_pythia-6.9b-deduped,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 EleutherAI_pythia-6.9b-deduped,Human-Perception Model,male_perc,0.0,0.0
-Qwen_Qwen3-4B-Base,World-Knowledge Model,male_perc:C(tense),0.0013668975211019,0.3210225547322063
-Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0010853112573324,0.2548906462480148
-Qwen_Qwen3-4B-Base,World-Knowledge Model,C(syntactic_role):C(tense),0.0005008975171179,0.1176382268032606
-Qwen_Qwen3-4B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0004644769610532,0.1090846814407495
-Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",0.00043426626047,0.1019895509487117
-Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0002891307039279,0.0679037570802373
-Qwen_Qwen3-4B-Base,World-Knowledge Model,C(semantic_role):C(tense),0.0001163224673365,0.0273188992302903
-Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",6.458606089942975e-07,0.0001516835165031
-Qwen_Qwen3-4B-Base,World-Knowledge Model,C(semantic_role),1.1102230246251563e-16,2.6074129639239902e-14
-Qwen_Qwen3-4B-Base,World-Knowledge Model,C(syntactic_role),0.0,0.0
-Qwen_Qwen3-4B-Base,World-Knowledge Model,C(tense),0.0,0.0
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0010853112573326,0.4754786203095393
+Qwen_Qwen3-4B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0004644769610533,0.2034889651379623
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",0.0004342662604699,0.1902535525916275
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0001408843897866,0.0617219390532646
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",9.973012812547476e-05,0.0436921145008067
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",5.789684525892014e-05,0.0253648084067994
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+Qwen_Qwen3-4B-Base,World-Knowledge Model,C(semantic_role),0.0,0.0
+Qwen_Qwen3-4B-Base,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 Qwen_Qwen3-4B-Base,World-Knowledge Model,male_perc,0.0,0.0
-Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc:C(tense),0.0013668975211019,0.3210225547322063
-Qwen_Qwen3-4B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0010853112573324,0.2548906462480148
-Qwen_Qwen3-4B-Base,Human-Perception Model,C(syntactic_role):C(tense),0.0005008975171179,0.1176382268032606
-Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc:C(semantic_role),0.0004644769610532,0.1090846814407495
-Qwen_Qwen3-4B-Base,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",0.00043426626047,0.1019895509487117
-Qwen_Qwen3-4B-Base,Human-Perception Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0002891307039279,0.0679037570802373
-Qwen_Qwen3-4B-Base,Human-Perception Model,C(semantic_role):C(tense),0.0001163224673365,0.0273188992302903
-Qwen_Qwen3-4B-Base,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",6.458606089942975e-07,0.0001516835165031
-Qwen_Qwen3-4B-Base,Human-Perception Model,C(semantic_role),1.1102230246251563e-16,2.6074129639239902e-14
+Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc:C(tense),0.0013668975211023,0.3210225547320418
+Qwen_Qwen3-4B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0010853112573327,0.2548906462479003
+Qwen_Qwen3-4B-Base,Human-Perception Model,C(syntactic_role):C(tense),0.0005008975171183,0.117638226803276
+Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc:C(semantic_role),0.0004644769610535,0.1090846814407452
+Qwen_Qwen3-4B-Base,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",0.0004342662604703,0.1019895509487128
+Qwen_Qwen3-4B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(tense)",0.0002891307039283,0.0679037570802642
+Qwen_Qwen3-4B-Base,Human-Perception Model,C(semantic_role):C(tense),0.0001163224673368,0.0273188992303478
+Qwen_Qwen3-4B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(syntactic_role)",6.458606094383867e-07,0.0001516835166073
+Qwen_Qwen3-4B-Base,Human-Perception Model,C(tense),2.220446049250313e-16,5.2148259278440367e-14
+Qwen_Qwen3-4B-Base,Human-Perception Model,C(semantic_role),1.1102230246251563e-16,2.6074129639220183e-14
+Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc,1.1102230246251563e-16,2.6074129639220183e-14
 Qwen_Qwen3-4B-Base,Human-Perception Model,C(syntactic_role),0.0,0.0
-Qwen_Qwen3-4B-Base,Human-Perception Model,C(tense),0.0,0.0
-Qwen_Qwen3-4B-Base,Human-Perception Model,male_perc,0.0,0.0
-Qwen_Qwen3-8B-Base,World-Knowledge Model,male_perc:C(tense),0.0023296976557242,0.391920489234254
-Qwen_Qwen3-8B-Base,World-Knowledge Model,male_perc:C(syntactic_role),0.0008542429614509,0.1437076259892232
-Qwen_Qwen3-8B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0007873487740224,0.1324541474103568
-Qwen_Qwen3-8B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0007194924774035,0.1210388150803655
-Qwen_Qwen3-8B-Base,World-Knowledge Model,C(syntactic_role):C(tense),0.0005024255853463,0.084522075527228
-Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0003886597971601,0.0653834790426286
-Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.000221882040855,0.037326782636596
-Qwen_Qwen3-8B-Base,World-Knowledge Model,C(semantic_role):C(tense),0.0001375674428756,0.0231427023940417
-Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",2.995235878100466e-06,0.0005038826853058
-Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
-Qwen_Qwen3-8B-Base,World-Knowledge Model,C(tense),0.0,0.0
+Qwen_Qwen3-8B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0007873487740225,0.4382048921334029
+Qwen_Qwen3-8B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0007194924774036,0.4004389590151854
+Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0002265086328944,0.1260650861722712
+Qwen_Qwen3-8B-Base,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",5.839835590748521e-05,0.0325020449583823
+Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",5.011193901727218e-06,0.002789017720758
 Qwen_Qwen3-8B-Base,World-Knowledge Model,C(semantic_role),0.0,0.0
 Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
-Qwen_Qwen3-8B-Base,World-Knowledge Model,C(syntactic_role),0.0,0.0
+Qwen_Qwen3-8B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 Qwen_Qwen3-8B-Base,World-Knowledge Model,male_perc,0.0,0.0
-Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc:C(tense),0.0023296976557242,0.391920489234254
-Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc:C(syntactic_role),0.0008542429614509,0.1437076259892232
-Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc:C(semantic_role),0.0007873487740224,0.1324541474103568
-Qwen_Qwen3-8B-Base,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0007194924774035,0.1210388150803655
-Qwen_Qwen3-8B-Base,Human-Perception Model,C(syntactic_role):C(tense),0.0005024255853463,0.084522075527228
-Qwen_Qwen3-8B-Base,Human-Perception Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0003886597971601,0.0653834790426286
-Qwen_Qwen3-8B-Base,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.000221882040855,0.037326782636596
-Qwen_Qwen3-8B-Base,Human-Perception Model,C(semantic_role):C(tense),0.0001375674428756,0.0231427023940417
-Qwen_Qwen3-8B-Base,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",2.995235878100466e-06,0.0005038826853058
-Qwen_Qwen3-8B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
-Qwen_Qwen3-8B-Base,Human-Perception Model,C(tense),0.0,0.0
-Qwen_Qwen3-8B-Base,Human-Perception Model,C(semantic_role),0.0,0.0
-Qwen_Qwen3-8B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc:C(tense),0.0023296976557244,0.3919204892342475
+Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc:C(syntactic_role),0.0008542429614509,0.1437076259892071
+Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc:C(semantic_role),0.0007873487740224,0.1324541474103419
+Qwen_Qwen3-8B-Base,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0007194924774036,0.1210388150803706
+Qwen_Qwen3-8B-Base,Human-Perception Model,C(syntactic_role):C(tense),0.0005024255853463,0.0845220755272185
+Qwen_Qwen3-8B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(tense)",0.0003886597971601,0.0653834790426213
+Qwen_Qwen3-8B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.000221882040855,0.0373267826365918
+Qwen_Qwen3-8B-Base,Human-Perception Model,C(semantic_role):C(tense),0.0001375674428758,0.0231427023940765
+Qwen_Qwen3-8B-Base,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",2.9952358782114885e-06,0.0005038826853244
 Qwen_Qwen3-8B-Base,Human-Perception Model,C(syntactic_role),0.0,0.0
+Qwen_Qwen3-8B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+Qwen_Qwen3-8B-Base,Human-Perception Model,C(semantic_role),0.0,0.0
+Qwen_Qwen3-8B-Base,Human-Perception Model,C(tense),0.0,0.0
+Qwen_Qwen3-8B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 Qwen_Qwen3-8B-Base,Human-Perception Model,male_perc,0.0,0.0
-allenai_Olmo-3-1025-7B,World-Knowledge Model,male_perc:C(tense),0.0034850493131244,0.4950757876180616
-allenai_Olmo-3-1025-7B,World-Knowledge Model,C(semantic_role):C(syntactic_role),0.0008767698764839,0.1245513328966219
-allenai_Olmo-3-1025-7B,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006044770554473,0.0858702208877285
-allenai_Olmo-3-1025-7B,World-Knowledge Model,C(syntactic_role):C(tense),0.000544324014045,0.0773250579146525
-allenai_Olmo-3-1025-7B,World-Knowledge Model,C(semantic_role):C(tense),0.0003775084296886,0.0536277298736433
-allenai_Olmo-3-1025-7B,World-Knowledge Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",0.00027473377326,0.0390278664550819
-allenai_Olmo-3-1025-7B,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0002646733090703,0.0375987066972064
-allenai_Olmo-3-1025-7B,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0002641759154279,0.0375280484289482
-allenai_Olmo-3-1025-7B,World-Knowledge Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0001622421811047,0.023047643915053
-allenai_Olmo-3-1025-7B,World-Knowledge Model,male_perc:C(semantic_role),0.0001365859135654,0.0194029905061323
-allenai_Olmo-3-1025-7B,World-Knowledge Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",4.888610121500658e-05,0.0069446148068698
-allenai_Olmo-3-1025-7B,World-Knowledge Model,C(semantic_role),0.0,0.0
-allenai_Olmo-3-1025-7B,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
-allenai_Olmo-3-1025-7B,World-Knowledge Model,C(syntactic_role),0.0,0.0
-allenai_Olmo-3-1025-7B,World-Knowledge Model,C(tense),0.0,0.0
-allenai_Olmo-3-1025-7B,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+allenai_Olmo-3-1025-7B,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0023133814603697,0.6184155006747595
+allenai_Olmo-3-1025-7B,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006044770554473,0.1615894253907882
+allenai_Olmo-3-1025-7B,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0002646733090703,0.070752739981674
+allenai_Olmo-3-1025-7B,World-Knowledge Model,C(semantic_role),0.0002499754775862,0.0668237006201208
+allenai_Olmo-3-1025-7B,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0001717274099725,0.0459063470668414
+allenai_Olmo-3-1025-7B,World-Knowledge Model,male_perc:C(semantic_role),0.000136585913566,0.0365122862658159
 allenai_Olmo-3-1025-7B,World-Knowledge Model,male_perc,0.0,0.0
-allenai_Olmo-3-1025-7B,Human-Perception Model,male_perc:C(tense),0.0034850493131244,0.4950757876180616
-allenai_Olmo-3-1025-7B,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0008767698764839,0.1245513328966219
-allenai_Olmo-3-1025-7B,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006044770554473,0.0858702208877285
-allenai_Olmo-3-1025-7B,Human-Perception Model,C(syntactic_role):C(tense),0.000544324014045,0.0773250579146525
-allenai_Olmo-3-1025-7B,Human-Perception Model,C(semantic_role):C(tense),0.0003775084296886,0.0536277298736433
-allenai_Olmo-3-1025-7B,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",0.00027473377326,0.0390278664550819
-allenai_Olmo-3-1025-7B,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0002646733090703,0.0375987066972064
-allenai_Olmo-3-1025-7B,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0002641759154279,0.0375280484289482
-allenai_Olmo-3-1025-7B,Human-Perception Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0001622421811047,0.023047643915053
-allenai_Olmo-3-1025-7B,Human-Perception Model,male_perc:C(semantic_role),0.0001365859135654,0.0194029905061323
-allenai_Olmo-3-1025-7B,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",4.888610121500658e-05,0.0069446148068698
+allenai_Olmo-3-1025-7B,Human-Perception Model,male_perc:C(tense),0.0034850493131246,0.4950757876179371
+allenai_Olmo-3-1025-7B,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0008767698764842,0.1245513328966142
+allenai_Olmo-3-1025-7B,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006044770554471,0.0858702208876856
+allenai_Olmo-3-1025-7B,Human-Perception Model,C(syntactic_role):C(tense),0.0005443240140452,0.0773250579146597
+allenai_Olmo-3-1025-7B,Human-Perception Model,C(semantic_role):C(tense),0.0003775084296888,0.0536277298736579
+allenai_Olmo-3-1025-7B,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(syntactic_role)",0.0002747337732602,0.0390278664551012
+allenai_Olmo-3-1025-7B,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0002646733090703,0.0375987066971945
+allenai_Olmo-3-1025-7B,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.0002641759154282,0.0375280484289837
+allenai_Olmo-3-1025-7B,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(tense)",0.0001622421811049,0.0230476439150773
+allenai_Olmo-3-1025-7B,Human-Perception Model,male_perc:C(semantic_role),0.0001365859135659,0.0194029905061893
+allenai_Olmo-3-1025-7B,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(syntactic_role)",4.888610121522863e-05,0.0069446148068992
 allenai_Olmo-3-1025-7B,Human-Perception Model,C(semantic_role),0.0,0.0
-allenai_Olmo-3-1025-7B,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
-allenai_Olmo-3-1025-7B,Human-Perception Model,C(syntactic_role),0.0,0.0
 allenai_Olmo-3-1025-7B,Human-Perception Model,C(tense),0.0,0.0
 allenai_Olmo-3-1025-7B,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+allenai_Olmo-3-1025-7B,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+allenai_Olmo-3-1025-7B,Human-Perception Model,C(syntactic_role),0.0,0.0
 allenai_Olmo-3-1025-7B,Human-Perception Model,male_perc,0.0,0.0
-allenai_Olmo-3-1125-32B,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0010741155294496,0.2563174228639832
-allenai_Olmo-3-1125-32B,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0009795063674705,0.2337407298426717
-allenai_Olmo-3-1125-32B,World-Knowledge Model,C(semantic_role):C(syntactic_role),0.0009066775414265,0.2163615034093975
-allenai_Olmo-3-1125-32B,World-Knowledge Model,male_perc:C(tense),0.000522708197852,0.1247344578026508
-allenai_Olmo-3-1125-32B,World-Knowledge Model,male_perc:C(semantic_role),0.0003175523145841,0.0757778736710135
-allenai_Olmo-3-1125-32B,World-Knowledge Model,C(syntactic_role):C(tense),0.0002778573027324,0.06630540738649
-allenai_Olmo-3-1125-32B,World-Knowledge Model,C(semantic_role):C(tense),6.155109143968218e-05,0.0146880076674504
-allenai_Olmo-3-1125-32B,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",4.011237200418627e-05,0.0095720614172127
-allenai_Olmo-3-1125-32B,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",1.0487046433249604e-05,0.0025025359391299
-allenai_Olmo-3-1125-32B,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
-allenai_Olmo-3-1125-32B,World-Knowledge Model,C(tense),0.0,0.0
-allenai_Olmo-3-1125-32B,World-Knowledge Model,C(syntactic_role),0.0,0.0
+allenai_Olmo-3-1125-32B,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0010756725149545,0.3727287915727491
+allenai_Olmo-3-1125-32B,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0010741155294498,0.3721892841319503
+allenai_Olmo-3-1125-32B,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003784861588242,0.1311483622053435
+allenai_Olmo-3-1125-32B,World-Knowledge Model,male_perc:C(semantic_role),0.0003175523145846,0.1100343169791424
+allenai_Olmo-3-1125-32B,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",4.011237200440832e-05,0.0138992451108145
 allenai_Olmo-3-1125-32B,World-Knowledge Model,male_perc,0.0,0.0
-allenai_Olmo-3-1125-32B,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0010741155294496,0.2563174228639832
-allenai_Olmo-3-1125-32B,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0009795063674705,0.2337407298426717
-allenai_Olmo-3-1125-32B,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0009066775414265,0.2163615034093975
-allenai_Olmo-3-1125-32B,Human-Perception Model,male_perc:C(tense),0.000522708197852,0.1247344578026508
-allenai_Olmo-3-1125-32B,Human-Perception Model,male_perc:C(semantic_role),0.0003175523145841,0.0757778736710135
-allenai_Olmo-3-1125-32B,Human-Perception Model,C(syntactic_role):C(tense),0.0002778573027324,0.06630540738649
-allenai_Olmo-3-1125-32B,Human-Perception Model,C(semantic_role):C(tense),6.155109143968218e-05,0.0146880076674504
-allenai_Olmo-3-1125-32B,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",4.011237200418627e-05,0.0095720614172127
-allenai_Olmo-3-1125-32B,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",1.0487046433249604e-05,0.0025025359391299
-allenai_Olmo-3-1125-32B,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+allenai_Olmo-3-1125-32B,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0010741155294498,0.2563174228639553
+allenai_Olmo-3-1125-32B,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.0009795063674706,0.2337407298426486
+allenai_Olmo-3-1125-32B,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0009066775414265,0.2163615034093517
+allenai_Olmo-3-1125-32B,Human-Perception Model,male_perc:C(tense),0.000522708197852,0.1247344578026244
+allenai_Olmo-3-1125-32B,Human-Perception Model,male_perc:C(semantic_role),0.0003175523145844,0.0757778736710504
+allenai_Olmo-3-1125-32B,Human-Perception Model,C(syntactic_role):C(tense),0.0002778573027324,0.0663054073864759
+allenai_Olmo-3-1125-32B,Human-Perception Model,C(semantic_role):C(tense),6.155109143990423e-05,0.0146880076675003
+allenai_Olmo-3-1125-32B,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",4.011237200418627e-05,0.0095720614172106
+allenai_Olmo-3-1125-32B,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",1.0487046433471647e-05,0.0025025359391824
 allenai_Olmo-3-1125-32B,Human-Perception Model,C(tense),0.0,0.0
 allenai_Olmo-3-1125-32B,Human-Perception Model,C(syntactic_role),0.0,0.0
+allenai_Olmo-3-1125-32B,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 allenai_Olmo-3-1125-32B,Human-Perception Model,male_perc,0.0,0.0
-google_gemma-3-12b-pt,World-Knowledge Model,male_perc:C(tense),0.0008917613760954,0.4699180481257733
-google_gemma-3-12b-pt,World-Knowledge Model,C(semantic_role):C(syntactic_role),0.0004637874081867,0.2443950584120127
-google_gemma-3-12b-pt,World-Knowledge Model,C(syntactic_role):C(tense),0.0002353639966954,0.1240262169802235
-google_gemma-3-12b-pt,World-Knowledge Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.0001849808877267,0.097476589625065
-google_gemma-3-12b-pt,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001148421585286,0.0605166409142061
-google_gemma-3-12b-pt,World-Knowledge Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",6.959695746266981e-06,0.0036674459427191
-google_gemma-3-12b-pt,World-Knowledge Model,C(tense),0.0,0.0
-google_gemma-3-12b-pt,World-Knowledge Model,C(syntactic_role),0.0,0.0
+google_gemma-3-12b-pt,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0002769418770972,0.5746281069959858
+google_gemma-3-12b-pt,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",6.08872245899672e-05,0.1263352114641914
+google_gemma-3-12b-pt,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",5.198895500102552e-05,0.1078721467120238
+google_gemma-3-12b-pt,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",3.757640348567293e-05,0.0779674703912929
+google_gemma-3-12b-pt,World-Knowledge Model,male_perc:C(semantic_role),3.088678539975298e-05,0.0640871478574483
+google_gemma-3-12b-pt,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",2.3668512409869003e-05,0.0491099165790576
 google_gemma-3-12b-pt,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+google_gemma-3-12b-pt,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 google_gemma-3-12b-pt,World-Knowledge Model,male_perc,0.0,0.0
-google_gemma-3-12b-pt,Human-Perception Model,male_perc:C(tense),0.0008917613760954,0.4699180481257733
-google_gemma-3-12b-pt,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0004637874081867,0.2443950584120127
-google_gemma-3-12b-pt,Human-Perception Model,C(syntactic_role):C(tense),0.0002353639966954,0.1240262169802235
-google_gemma-3-12b-pt,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",0.0001849808877267,0.097476589625065
-google_gemma-3-12b-pt,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001148421585286,0.0605166409142061
-google_gemma-3-12b-pt,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",6.959695746266981e-06,0.0036674459427191
-google_gemma-3-12b-pt,Human-Perception Model,C(tense),0.0,0.0
+google_gemma-3-12b-pt,Human-Perception Model,male_perc:C(tense),0.0008917613760951,0.4699180481259277
+google_gemma-3-12b-pt,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0004637874081865,0.2443950584120672
+google_gemma-3-12b-pt,Human-Perception Model,C(syntactic_role):C(tense),0.0002353639966952,0.1240262169801936
+google_gemma-3-12b-pt,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(syntactic_role)",0.0001849808877265,0.0974765896250165
+google_gemma-3-12b-pt,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.0001148421585284,0.0605166409141316
+google_gemma-3-12b-pt,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(syntactic_role)",6.959695746155958e-06,0.0036674459426632
 google_gemma-3-12b-pt,Human-Perception Model,C(syntactic_role),0.0,0.0
 google_gemma-3-12b-pt,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+google_gemma-3-12b-pt,Human-Perception Model,C(tense),0.0,0.0
 google_gemma-3-12b-pt,Human-Perception Model,male_perc,0.0,0.0
-google_gemma-3-4b-pt,World-Knowledge Model,male_perc:C(syntactic_role),0.0010123242081343,0.2412161605593999
-google_gemma-3-4b-pt,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0007762462986307,0.1849636216338466
-google_gemma-3-4b-pt,World-Knowledge Model,male_perc:C(tense),0.0007510824635222,0.178967594233702
-google_gemma-3-4b-pt,World-Knowledge Model,C(syntactic_role):C(tense),0.0004773757598162,0.1137488830176335
-google_gemma-3-4b-pt,World-Knowledge Model,male_perc:C(semantic_role),0.000444954947502,0.106023666327374
-google_gemma-3-4b-pt,World-Knowledge Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0001874640179975,0.0446688425516722
-google_gemma-3-4b-pt,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001668110443187,0.0397476611999795
-google_gemma-3-4b-pt,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001493531854626,0.0355878103824077
-google_gemma-3-4b-pt,World-Knowledge Model,C(semantic_role):C(syntactic_role),0.0001246872097919,0.0297104127069266
-google_gemma-3-4b-pt,World-Knowledge Model,C(semantic_role):C(tense),0.0001064520517535,0.0253653473870576
-google_gemma-3-4b-pt,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
-google_gemma-3-4b-pt,World-Knowledge Model,C(tense),0.0,0.0
-google_gemma-3-4b-pt,World-Knowledge Model,C(syntactic_role),0.0,0.0
+google_gemma-3-4b-pt,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0007762462986307,0.4619131853738615
+google_gemma-3-4b-pt,World-Knowledge Model,male_perc:C(semantic_role),0.000444954947502,0.264774927121837
+google_gemma-3-4b-pt,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0001611101075198,0.0958701936378845
+google_gemma-3-4b-pt,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001493531854626,0.088874118645668
+google_gemma-3-4b-pt,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001334559632952,0.0794143163343924
+google_gemma-3-4b-pt,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",1.5382075151615382e-05,0.0091532588863563
+google_gemma-3-4b-pt,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 google_gemma-3-4b-pt,World-Knowledge Model,male_perc,0.0,0.0
-google_gemma-3-4b-pt,Human-Perception Model,male_perc:C(syntactic_role),0.0010123242081343,0.2412161605593999
-google_gemma-3-4b-pt,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0007762462986307,0.1849636216338466
-google_gemma-3-4b-pt,Human-Perception Model,male_perc:C(tense),0.0007510824635222,0.178967594233702
-google_gemma-3-4b-pt,Human-Perception Model,C(syntactic_role):C(tense),0.0004773757598162,0.1137488830176335
-google_gemma-3-4b-pt,Human-Perception Model,male_perc:C(semantic_role),0.000444954947502,0.106023666327374
-google_gemma-3-4b-pt,Human-Perception Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0001874640179975,0.0446688425516722
-google_gemma-3-4b-pt,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001668110443187,0.0397476611999795
-google_gemma-3-4b-pt,Human-Perception Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001493531854626,0.0355878103824077
-google_gemma-3-4b-pt,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0001246872097919,0.0297104127069266
-google_gemma-3-4b-pt,Human-Perception Model,C(semantic_role):C(tense),0.0001064520517535,0.0253653473870576
-google_gemma-3-4b-pt,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+google_gemma-3-4b-pt,Human-Perception Model,male_perc:C(syntactic_role),0.0010123242081343,0.2412161605593808
+google_gemma-3-4b-pt,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0007762462986306,0.1849636216338055
+google_gemma-3-4b-pt,Human-Perception Model,male_perc:C(tense),0.0007510824635221,0.1789675942336613
+google_gemma-3-4b-pt,Human-Perception Model,C(syntactic_role):C(tense),0.0004773757598164,0.1137488830176774
+google_gemma-3-4b-pt,Human-Perception Model,male_perc:C(semantic_role),0.000444954947502,0.1060236663273656
+google_gemma-3-4b-pt,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(tense)",0.0001874640179975,0.0446688425516687
+google_gemma-3-4b-pt,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.0001668110443189,0.0397476612000292
+google_gemma-3-4b-pt,Human-Perception Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001493531854626,0.0355878103824049
+google_gemma-3-4b-pt,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0001246872097918,0.0297104127068978
+google_gemma-3-4b-pt,Human-Perception Model,C(semantic_role):C(tense),0.0001064520517537,0.0253653473871084
 google_gemma-3-4b-pt,Human-Perception Model,C(tense),0.0,0.0
 google_gemma-3-4b-pt,Human-Perception Model,C(syntactic_role),0.0,0.0
+google_gemma-3-4b-pt,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 google_gemma-3-4b-pt,Human-Perception Model,male_perc,0.0,0.0
-gpt2,World-Knowledge Model,male_perc:C(tense),0.0030046228184409,0.7812164513571854
-gpt2,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0006449916744742,0.167700952011405
-gpt2,World-Knowledge Model,male_perc:C(syntactic_role),0.0001919333605243,0.0499036011727112
-gpt2,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",4.534513644571803e-06,0.0011789954586982
-gpt2,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
-gpt2,World-Knowledge Model,C(tense),0.0,0.0
+gpt2,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",7.285073032481382e-05,0.3713867190027185
+gpt2,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",6.205733132014224e-05,0.3163629048918689
+gpt2,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",4.790632270623707e-05,0.2442222875464398
+gpt2,World-Knowledge Model,male_perc:C(semantic_role),8.809786731789337e-06,0.0449115303970878
+gpt2,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",4.53451364446078e-06,0.0231165581618848
 gpt2,World-Knowledge Model,C(semantic_role),0.0,0.0
+gpt2,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+gpt2,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 gpt2,World-Knowledge Model,male_perc,0.0,0.0
-gpt2,Human-Perception Model,male_perc:C(tense),0.0030046228184409,0.7812164513571854
-gpt2,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0006449916744742,0.167700952011405
-gpt2,Human-Perception Model,male_perc:C(syntactic_role),0.0001919333605243,0.0499036011727112
+gpt2,Human-Perception Model,male_perc:C(tense),0.0030046228184407,0.7812164513571277
+gpt2,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.0006449916744742,0.167700952011405
+gpt2,Human-Perception Model,male_perc:C(syntactic_role),0.0001919333605242,0.0499036011726823
 gpt2,Human-Perception Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",4.534513644571803e-06,0.0011789954586982
-gpt2,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+gpt2,Human-Perception Model,C(semantic_role),1.1102230246251563e-16,2.8866335108336494e-14
+gpt2,Human-Perception Model,"C(valence, Treatment(reference='-val'))",1.1102230246251563e-16,2.8866335108336494e-14
+gpt2,Human-Perception Model,male_perc,1.1102230246251563e-16,2.8866335108336494e-14
 gpt2,Human-Perception Model,C(tense),0.0,0.0
-gpt2,Human-Perception Model,C(semantic_role),0.0,0.0
-gpt2,Human-Perception Model,male_perc,0.0,0.0
-meta-llama_Llama-3.1-70B,World-Knowledge Model,male_perc:C(tense),0.0045029794059938,0.5864590132415887
-meta-llama_Llama-3.1-70B,World-Knowledge Model,male_perc:C(syntactic_role),0.0013434971203833,0.1749743724042329
-meta-llama_Llama-3.1-70B,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0010554847447443,0.1374642178177391
-meta-llama_Llama-3.1-70B,World-Knowledge Model,C(syntactic_role):C(tense),0.0004571450815321,0.0595376592366237
-meta-llama_Llama-3.1-70B,World-Knowledge Model,male_perc:C(semantic_role),0.0003191444787283,0.041564737299801
-meta-llama_Llama-3.1-70B,World-Knowledge Model,C(tense),1.1102230246251563e-16,1.4459322168631033e-14
-meta-llama_Llama-3.1-70B,World-Knowledge Model,C(syntactic_role),0.0,0.0
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0006142329792424,0.4952751987637899
+meta-llama_Llama-3.1-70B,World-Knowledge Model,male_perc:C(semantic_role),0.0003191444787282,0.2573361419496793
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0001532232999725,0.1235487232267437
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",8.226664521504556e-05,0.0663341605505501
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",7.131781260771852e-05,0.0575057755092369
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+meta-llama_Llama-3.1-70B,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 meta-llama_Llama-3.1-70B,World-Knowledge Model,male_perc,0.0,0.0
-meta-llama_Llama-3.1-70B,Human-Perception Model,male_perc:C(tense),0.0045029794059938,0.5864590132415887
-meta-llama_Llama-3.1-70B,Human-Perception Model,male_perc:C(syntactic_role),0.0013434971203833,0.1749743724042329
-meta-llama_Llama-3.1-70B,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0010554847447443,0.1374642178177391
-meta-llama_Llama-3.1-70B,Human-Perception Model,C(syntactic_role):C(tense),0.0004571450815321,0.0595376592366237
-meta-llama_Llama-3.1-70B,Human-Perception Model,male_perc:C(semantic_role),0.0003191444787283,0.041564737299801
-meta-llama_Llama-3.1-70B,Human-Perception Model,C(tense),1.1102230246251563e-16,1.4459322168631033e-14
+meta-llama_Llama-3.1-70B,Human-Perception Model,male_perc:C(tense),0.004502979405994,0.5864590132416005
+meta-llama_Llama-3.1-70B,Human-Perception Model,male_perc:C(syntactic_role),0.0013434971203836,0.1749743724042568
+meta-llama_Llama-3.1-70B,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.0010554847447443,0.1374642178177352
+meta-llama_Llama-3.1-70B,Human-Perception Model,C(syntactic_role):C(tense),0.000457145081532,0.0595376592366075
+meta-llama_Llama-3.1-70B,Human-Perception Model,male_perc:C(semantic_role),0.0003191444787283,0.0415647372997998
+meta-llama_Llama-3.1-70B,Human-Perception Model,C(tense),0.0,0.0
 meta-llama_Llama-3.1-70B,Human-Perception Model,C(syntactic_role),0.0,0.0
 meta-llama_Llama-3.1-70B,Human-Perception Model,male_perc,0.0,0.0
-meta-llama_Llama-3.1-8B,World-Knowledge Model,male_perc:C(tense),0.0028055716623516,0.5432114495976273
-meta-llama_Llama-3.1-8B,World-Knowledge Model,C(syntactic_role):C(tense),0.0007069541050234,0.1368796132859688
-meta-llama_Llama-3.1-8B,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0005176507408846,0.1002269209924653
-meta-llama_Llama-3.1-8B,World-Knowledge Model,male_perc:C(syntactic_role),0.000396062547082,0.0766851594699308
-meta-llama_Llama-3.1-8B,World-Knowledge Model,C(semantic_role):C(syntactic_role),0.0002532601328555,0.0490359258114369
-meta-llama_Llama-3.1-8B,World-Knowledge Model,male_perc:C(semantic_role),0.0002007650252082,0.0388718854825035
-meta-llama_Llama-3.1-8B,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001473312045205,0.0285260926507628
-meta-llama_Llama-3.1-8B,World-Knowledge Model,C(semantic_role):C(tense),0.0001371920040431,0.0265629527092613
-meta-llama_Llama-3.1-8B,World-Knowledge Model,C(syntactic_role),1.1102230246251563e-16,2.1496006203519613e-14
-meta-llama_Llama-3.1-8B,World-Knowledge Model,C(tense),1.1102230246251563e-16,2.1496006203519613e-14
+meta-llama_Llama-3.1-8B,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0004502548972311,0.4613655340542228
+meta-llama_Llama-3.1-8B,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003222736064127,0.3302261351260395
+meta-llama_Llama-3.1-8B,World-Knowledge Model,male_perc:C(semantic_role),0.0002007650252082,0.2057191685070542
+meta-llama_Llama-3.1-8B,World-Knowledge Model,C(semantic_role),2.6244017190535374e-06,0.0026891623125696
+meta-llama_Llama-3.1-8B,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",1.1102230246251563e-16,1.1376192503965286e-13
+meta-llama_Llama-3.1-8B,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 meta-llama_Llama-3.1-8B,World-Knowledge Model,male_perc,0.0,0.0
-meta-llama_Llama-3.1-8B,Human-Perception Model,male_perc:C(tense),0.0028055716623516,0.5432114495976273
-meta-llama_Llama-3.1-8B,Human-Perception Model,C(syntactic_role):C(tense),0.0007069541050234,0.1368796132859688
-meta-llama_Llama-3.1-8B,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0005176507408846,0.1002269209924653
-meta-llama_Llama-3.1-8B,Human-Perception Model,male_perc:C(syntactic_role),0.000396062547082,0.0766851594699308
-meta-llama_Llama-3.1-8B,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0002532601328555,0.0490359258114369
-meta-llama_Llama-3.1-8B,Human-Perception Model,male_perc:C(semantic_role),0.0002007650252082,0.0388718854825035
-meta-llama_Llama-3.1-8B,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001473312045205,0.0285260926507628
-meta-llama_Llama-3.1-8B,Human-Perception Model,C(semantic_role):C(tense),0.0001371920040431,0.0265629527092613
-meta-llama_Llama-3.1-8B,Human-Perception Model,C(syntactic_role),1.1102230246251563e-16,2.1496006203519613e-14
-meta-llama_Llama-3.1-8B,Human-Perception Model,C(tense),1.1102230246251563e-16,2.1496006203519613e-14
+meta-llama_Llama-3.1-8B,Human-Perception Model,male_perc:C(tense),0.0028055716623516,0.5432114495976974
+meta-llama_Llama-3.1-8B,Human-Perception Model,C(syntactic_role):C(tense),0.0007069541050234,0.1368796132859865
+meta-llama_Llama-3.1-8B,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0005176507408845,0.1002269209924567
+meta-llama_Llama-3.1-8B,Human-Perception Model,male_perc:C(syntactic_role),0.000396062547082,0.0766851594699407
+meta-llama_Llama-3.1-8B,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0002532601328555,0.0490359258114432
+meta-llama_Llama-3.1-8B,Human-Perception Model,male_perc:C(semantic_role),0.0002007650252082,0.0388718854825085
+meta-llama_Llama-3.1-8B,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.0001473312045203,0.0285260926507235
+meta-llama_Llama-3.1-8B,Human-Perception Model,C(semantic_role):C(tense),0.000137192004043,0.0265629527092433
+meta-llama_Llama-3.1-8B,Human-Perception Model,C(syntactic_role),0.0,0.0
+meta-llama_Llama-3.1-8B,Human-Perception Model,C(tense),0.0,0.0
 meta-llama_Llama-3.1-8B,Human-Perception Model,male_perc,0.0,0.0
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,male_perc:C(tense),0.0009466875172879,0.2356489167447333
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,C(semantic_role):C(syntactic_role),0.0007588517346657,0.1888929408894271
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006836288297027,0.1701684982985932
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,C(syntactic_role):C(tense),0.0004003435538912,0.0996532890498864
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,male_perc:C(semantic_role),0.0003101469116033,0.0772015923062211
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0003034093233046,0.0755244756705078
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,male_perc:C(syntactic_role),0.0002836081542595,0.070595579967812
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0002026531824322,0.0504443145631063
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,C(semantic_role):C(tense),6.75535292422591e-05,0.0168153859615953
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",6.04814440425816e-05,0.0150550065481172
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+mistralai_Mistral-7B-v0.3,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006836288297027,0.6271003085836111
+mistralai_Mistral-7B-v0.3,World-Knowledge Model,male_perc:C(semantic_role),0.0003101469116034,0.2845012022932977
+mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",6.048144404247058e-05,0.0554802995056654
+mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",3.5885524430567806e-05,0.0329181896174258
 mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,C(semantic_role),0.0,0.0
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,C(syntactic_role),0.0,0.0
-mistralai_Mistral-7B-v0.3,World-Knowledge Model,C(tense),0.0,0.0
+mistralai_Mistral-7B-v0.3,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 mistralai_Mistral-7B-v0.3,World-Knowledge Model,male_perc,0.0,0.0
-mistralai_Mistral-7B-v0.3,Human-Perception Model,male_perc:C(tense),0.0009466875172879,0.2356489167447333
-mistralai_Mistral-7B-v0.3,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0007588517346657,0.1888929408894271
-mistralai_Mistral-7B-v0.3,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006836288297027,0.1701684982985932
-mistralai_Mistral-7B-v0.3,Human-Perception Model,C(syntactic_role):C(tense),0.0004003435538912,0.0996532890498864
-mistralai_Mistral-7B-v0.3,Human-Perception Model,male_perc:C(semantic_role),0.0003101469116033,0.0772015923062211
-mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0003034093233046,0.0755244756705078
-mistralai_Mistral-7B-v0.3,Human-Perception Model,male_perc:C(syntactic_role),0.0002836081542595,0.070595579967812
-mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0002026531824322,0.0504443145631063
-mistralai_Mistral-7B-v0.3,Human-Perception Model,C(semantic_role):C(tense),6.75535292422591e-05,0.0168153859615953
-mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",6.04814440425816e-05,0.0150550065481172
-mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
-mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
-mistralai_Mistral-7B-v0.3,Human-Perception Model,C(semantic_role),0.0,0.0
-mistralai_Mistral-7B-v0.3,Human-Perception Model,C(syntactic_role),0.0,0.0
+mistralai_Mistral-7B-v0.3,Human-Perception Model,male_perc:C(tense),0.0009466875172879,0.2356489167447072
+mistralai_Mistral-7B-v0.3,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0007588517346659,0.1888929408894615
+mistralai_Mistral-7B-v0.3,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0006836288297026,0.1701684982985467
+mistralai_Mistral-7B-v0.3,Human-Perception Model,C(syntactic_role):C(tense),0.0004003435538912,0.0996532890498753
+mistralai_Mistral-7B-v0.3,Human-Perception Model,male_perc:C(semantic_role),0.0003101469116034,0.0772015923062402
+mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.0003034093233046,0.0755244756704994
+mistralai_Mistral-7B-v0.3,Human-Perception Model,male_perc:C(syntactic_role),0.0002836081542597,0.0705955799678595
+mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(tense)",0.0002026531824323,0.0504443145631283
+mistralai_Mistral-7B-v0.3,Human-Perception Model,C(semantic_role):C(tense),6.75535292422591e-05,0.0168153859615934
+mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",6.048144404247058e-05,0.0150550065480879
 mistralai_Mistral-7B-v0.3,Human-Perception Model,C(tense),0.0,0.0
+mistralai_Mistral-7B-v0.3,Human-Perception Model,C(syntactic_role),0.0,0.0
+mistralai_Mistral-7B-v0.3,Human-Perception Model,C(semantic_role),0.0,0.0
+mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+mistralai_Mistral-7B-v0.3,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 mistralai_Mistral-7B-v0.3,Human-Perception Model,male_perc,0.0,0.0
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,C(semantic_role):C(syntactic_role),0.0013689786672124,0.4377226884306024
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,C(syntactic_role):C(tense),0.0007586344858336,0.2425688103317708
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0005595506192817,0.1789129423643462
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0001237915983821,0.039581618433323
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001072802136116,0.0343022025413339
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",6.675156997926202e-05,0.0213434126974254
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",5.5205084869225374e-05,0.0176514935862382
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,male_perc:C(syntactic_role),4.753877126362216e-05,0.0152002359573448
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,C(semantic_role):C(tense),3.977118078390962e-05,0.0127165956575795
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,C(syntactic_role),1.1102230246251563e-16,3.5498712926333214e-14
-tiiuae_Falcon3-10B-Base,World-Knowledge Model,C(tense),0.0,0.0
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0002403648107239,0.3531584818962617
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0001237915983822,0.1818820850877293
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001072802136115,0.1576225623976736
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",8.318024801035051e-05,0.1222134389081735
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",8.11008334697938e-05,0.1191582376074336
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",4.489687267239528e-05,0.065965194102728
 tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 tiiuae_Falcon3-10B-Base,World-Knowledge Model,C(semantic_role),0.0,0.0
+tiiuae_Falcon3-10B-Base,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
 tiiuae_Falcon3-10B-Base,World-Knowledge Model,male_perc,0.0,0.0
-tiiuae_Falcon3-10B-Base,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0013689786672124,0.4377226884306024
-tiiuae_Falcon3-10B-Base,Human-Perception Model,C(syntactic_role):C(tense),0.0007586344858336,0.2425688103317708
-tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(tense):C(valence, Treatment(reference='-val'))",0.0005595506192817,0.1789129423643462
-tiiuae_Falcon3-10B-Base,Human-Perception Model,male_perc:C(semantic_role),0.0001237915983821,0.039581618433323
-tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001072802136116,0.0343022025413339
-tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",6.675156997926202e-05,0.0213434126974254
-tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",5.5205084869225374e-05,0.0176514935862382
-tiiuae_Falcon3-10B-Base,Human-Perception Model,male_perc:C(syntactic_role),4.753877126362216e-05,0.0152002359573448
-tiiuae_Falcon3-10B-Base,Human-Perception Model,C(semantic_role):C(tense),3.977118078390962e-05,0.0127165956575795
-tiiuae_Falcon3-10B-Base,Human-Perception Model,C(syntactic_role),1.1102230246251563e-16,3.5498712926333214e-14
-tiiuae_Falcon3-10B-Base,Human-Perception Model,C(tense),0.0,0.0
+tiiuae_Falcon3-10B-Base,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0013689786672121,0.4377226884304692
+tiiuae_Falcon3-10B-Base,Human-Perception Model,C(syntactic_role):C(tense),0.0007586344858336,0.2425688103317363
+tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(tense)",0.0005595506192815,0.1789129423642853
+tiiuae_Falcon3-10B-Base,Human-Perception Model,male_perc:C(semantic_role),0.0001237915983819,0.0395816184332464
+tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001072802136116,0.034302202541329
+tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(syntactic_role)",6.675156997937304e-05,0.0213434126974579
+tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(syntactic_role)",5.520508486955844e-05,0.0176514935863421
+tiiuae_Falcon3-10B-Base,Human-Perception Model,male_perc:C(syntactic_role),4.753877126406625e-05,0.0152002359574846
+tiiuae_Falcon3-10B-Base,Human-Perception Model,C(semantic_role):C(tense),3.977118078413167e-05,0.0127165956576487
 tiiuae_Falcon3-10B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
+tiiuae_Falcon3-10B-Base,Human-Perception Model,C(syntactic_role),0.0,0.0
+tiiuae_Falcon3-10B-Base,Human-Perception Model,C(tense),0.0,0.0
 tiiuae_Falcon3-10B-Base,Human-Perception Model,C(semantic_role),0.0,0.0
 tiiuae_Falcon3-10B-Base,Human-Perception Model,male_perc,0.0,0.0
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(semantic_role):C(syntactic_role),0.0017207643306303,0.4718330222207096
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.000608330252906,0.166803958350188
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(syntactic_role):C(tense),0.0004254711588509,0.1166640539758534
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(semantic_role):C(tense),0.0003514307809052,0.0963622063197762
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",0.0003256008253367,0.0892796408674409
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001754600273118,0.0481110826693755
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,male_perc:C(syntactic_role),3.991994355945217e-05,0.0109460355966561
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(tense),0.0,0.0
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(syntactic_role),0.0,0.0
-tiiuae_Falcon3-3B-Base,World-Knowledge Model,C(semantic_role),0.0,0.0
+tiiuae_Falcon3-3B-Base,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0006083302529064,0.4496078378300921
+tiiuae_Falcon3-3B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003671569601321,0.2713602458542677
+tiiuae_Falcon3-3B-Base,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0002197845194132,0.1624394678545414
+tiiuae_Falcon3-3B-Base,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0001577523959582,0.1165924484610987
+tiiuae_Falcon3-3B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 tiiuae_Falcon3-3B-Base,World-Knowledge Model,male_perc,0.0,0.0
-tiiuae_Falcon3-3B-Base,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0017207643306303,0.4718330222207096
-tiiuae_Falcon3-3B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.000608330252906,0.166803958350188
-tiiuae_Falcon3-3B-Base,Human-Perception Model,C(syntactic_role):C(tense),0.0004254711588509,0.1166640539758534
-tiiuae_Falcon3-3B-Base,Human-Perception Model,C(semantic_role):C(tense),0.0003514307809052,0.0963622063197762
-tiiuae_Falcon3-3B-Base,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",0.0003256008253367,0.0892796408674409
-tiiuae_Falcon3-3B-Base,Human-Perception Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001754600273118,0.0481110826693755
-tiiuae_Falcon3-3B-Base,Human-Perception Model,male_perc:C(syntactic_role),3.991994355945217e-05,0.0109460355966561
-tiiuae_Falcon3-3B-Base,Human-Perception Model,C(tense),0.0,0.0
+tiiuae_Falcon3-3B-Base,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0017207643306306,0.4718330222206126
+tiiuae_Falcon3-3B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom'))",0.0006083302529064,0.1668039583502235
+tiiuae_Falcon3-3B-Base,Human-Perception Model,C(syntactic_role):C(tense),0.0004254711588511,0.1166640539758752
+tiiuae_Falcon3-3B-Base,Human-Perception Model,C(semantic_role):C(tense),0.0003514307809054,0.0963622063198048
+tiiuae_Falcon3-3B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(syntactic_role)",0.0003256008253368,0.0892796408674414
+tiiuae_Falcon3-3B-Base,Human-Perception Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",0.0001754600273117,0.0481110826693289
+tiiuae_Falcon3-3B-Base,Human-Perception Model,male_perc:C(syntactic_role),3.991994355934114e-05,0.010946035596622
+tiiuae_Falcon3-3B-Base,Human-Perception Model,male_perc,2.220446049250313e-16,6.088455876532752e-14
+tiiuae_Falcon3-3B-Base,Human-Perception Model,C(semantic_role),1.1102230246251563e-16,3.044227938266376e-14
 tiiuae_Falcon3-3B-Base,Human-Perception Model,C(syntactic_role),0.0,0.0
-tiiuae_Falcon3-3B-Base,Human-Perception Model,C(semantic_role),0.0,0.0
-tiiuae_Falcon3-3B-Base,Human-Perception Model,male_perc,0.0,0.0
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,C(syntactic_role):C(tense),0.0020385235443738,0.2773149656995904
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,male_perc:C(tense),0.0017444760944307,0.2373135839544162
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,male_perc:C(syntactic_role),0.0014211842776972,0.1933338814310627
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0004856166831934,0.0660619173198271
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,C(semantic_role):C(syntactic_role),0.0003760516882318,0.0511570059178888
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0003681582781831,0.0500832087851802
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003371594991439,0.0458662227367641
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",0.0002930708443713,0.0398685270909426
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001606224788545,0.0218506268112806
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001247125936518,0.0169655477987134
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",1.3563385641290893e-06,0.0001845124543332
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,C(tense),0.0,0.0
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,C(syntactic_role),0.0,0.0
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
-tiiuae_Falcon3-7B-Base,World-Knowledge Model,male_perc,0.0,0.0
-tiiuae_Falcon3-7B-Base,Human-Perception Model,C(syntactic_role):C(tense),0.0020385235443738,0.2773149656995904
-tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc:C(tense),0.0017444760944307,0.2373135839544162
-tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc:C(syntactic_role),0.0014211842776972,0.1933338814310627
-tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc:C(semantic_role),0.0004856166831934,0.0660619173198271
-tiiuae_Falcon3-7B-Base,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0003760516882318,0.0511570059178888
-tiiuae_Falcon3-7B-Base,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0003681582781831,0.0500832087851802
-tiiuae_Falcon3-7B-Base,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003371594991439,0.0458662227367641
-tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",0.0002930708443713,0.0398685270909426
-tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(tense):C(dominance, Treatment(reference='-dom'))",0.0001606224788545,0.0218506268112806
-tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001247125936518,0.0169655477987134
-tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(syntactic_role):C(valence, Treatment(reference='-val'))",1.3563385641290893e-06,0.0001845124543332
+tiiuae_Falcon3-3B-Base,Human-Perception Model,C(tense),0.0,0.0
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,male_perc:C(semantic_role),0.0004856166831935,0.3017291059595444
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0003681582781832,0.2287484593760543
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003371594991443,0.2094879310438465
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",0.0002930708443716,0.1820942461728176
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.0001247125936519,0.0774879049398518
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(semantic_role):C(valence, Treatment(reference='-val'))",7.280369049844637e-07,0.0004523525077472
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(valence, Treatment(reference='-val'))",1.1102230246251563e-16,6.898169116284571e-14
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,male_perc,1.1102230246251563e-16,6.898169116284571e-14
+tiiuae_Falcon3-7B-Base,World-Knowledge Model,"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+tiiuae_Falcon3-7B-Base,Human-Perception Model,C(syntactic_role):C(tense),0.002038523544374,0.2773149656995243
+tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc:C(tense),0.0017444760944309,0.237313583954364
+tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc:C(syntactic_role),0.0014211842776974,0.1933338814310257
+tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc:C(semantic_role),0.0004856166831936,0.0660619173198344
+tiiuae_Falcon3-7B-Base,Human-Perception Model,C(semantic_role):C(syntactic_role),0.0003760516882318,0.0511570059178711
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"male_perc:C(dominance, Treatment(reference='-dom'))",0.0003681582781832,0.0500832087851779
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"male_perc:C(valence, Treatment(reference='-val'))",0.0003371594991441,0.0458662227367784
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(semantic_role):C(dominance, Treatment(reference='-dom'))",0.0002930708443715,0.039868527090959
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(dominance, Treatment(reference='-dom')):C(tense)",0.0001606224788549,0.0218506268113334
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",0.000124712593652,0.0169655477987377
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val')):C(syntactic_role)",1.356338564351134e-06,0.0001845124543633
+tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val'))",2.220446049250313e-16,3.02063187685462e-14
 tiiuae_Falcon3-7B-Base,Human-Perception Model,C(tense),0.0,0.0
 tiiuae_Falcon3-7B-Base,Human-Perception Model,C(syntactic_role),0.0,0.0
-tiiuae_Falcon3-7B-Base,Human-Perception Model,"C(valence, Treatment(reference='-val'))",0.0,0.0
 tiiuae_Falcon3-7B-Base,Human-Perception Model,male_perc,0.0,0.0

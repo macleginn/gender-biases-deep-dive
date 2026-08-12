@@ -12,14 +12,14 @@
       "model_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/knowledge_perception_model_data/runs/he_she_odds_results__meta-llama_Llama-3.1-70B/world_knowledge/models/selected_model",
       "run_dir": "/mnt/hum01-rds/Nikolaev_Dmitry/flos-code/knowledge_perception_model_data/runs/he_she_odds_results__meta-llama_Llama-3.1-70B/world_knowledge",
       "selected_terms": [
-        "C(syntactic_role)",
-        "C(tense)",
-        "C(syntactic_role):C(tense)",
-        "C(tense):C(dominance, Treatment(reference='-dom'))",
+        "C(valence, Treatment(reference='-val'))",
+        "C(dominance, Treatment(reference='-dom'))",
+        "C(semantic_role):C(valence, Treatment(reference='-val'))",
+        "C(semantic_role):C(dominance, Treatment(reference='-dom'))",
+        "C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",
         "male_perc",
         "male_perc:C(semantic_role)",
-        "male_perc:C(syntactic_role)",
-        "male_perc:C(tense)"
+        "male_perc:C(valence, Treatment(reference='-val'))"
       ],
       "selected_predictor_count": 8,
       "name": "selected_model"
@@ -31,8 +31,8 @@
       "selected_terms": [
         "C(syntactic_role)",
         "C(tense)",
+        "C(dominance, Treatment(reference='-dom')):C(tense)",
         "C(syntactic_role):C(tense)",
-        "C(tense):C(dominance, Treatment(reference='-dom'))",
         "male_perc",
         "male_perc:C(semantic_role)",
         "male_perc:C(syntactic_role)",
