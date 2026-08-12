@@ -1,18 +1,18 @@
 predictor,unique_r2,relative_r2
-male_perc:C(tense),0.003485049313124433,0.49507578761806165
-C(semantic_role):C(syntactic_role),0.000876769876483996,0.12455133289662196
-"male_perc:C(valence, Treatment(reference='-val'))",0.0006044770554473056,0.0858702208877285
-C(syntactic_role):C(tense),0.0005443240140450278,0.07732505791465259
-C(semantic_role):C(tense),0.0003775084296886444,0.053627729873643316
-"C(syntactic_role):C(valence, Treatment(reference='-val'))",0.00027473377326003856,0.03902786645508198
-"male_perc:C(dominance, Treatment(reference='-dom'))",0.00026467330907031794,0.03759870669720644
-"C(tense):C(dominance, Treatment(reference='-dom'))",0.0002641759154279333,0.03752804842894824
-"C(tense):C(valence, Treatment(reference='-val'))",0.00016224218110472144,0.023047643915053054
-male_perc:C(semantic_role),0.0001365859135654679,0.01940299050613237
-"C(syntactic_role):C(dominance, Treatment(reference='-dom'))",4.888610121500658e-05,0.006944614806869887
+male_perc:C(tense),0.003485049313124655,0.4950757876179371
+C(semantic_role):C(syntactic_role),0.000876769876484218,0.12455133289661421
+"male_perc:C(valence, Treatment(reference='-val'))",0.0006044770554471945,0.08587022088768564
+C(syntactic_role):C(tense),0.0005443240140452499,0.07732505791465974
+C(semantic_role):C(tense),0.00037750842968886644,0.053627729873657944
+"C(valence, Treatment(reference='-val')):C(syntactic_role)",0.0002747337732602606,0.039027866455101215
+"male_perc:C(dominance, Treatment(reference='-dom'))",0.00026467330907031794,0.037598706697194575
+"C(dominance, Treatment(reference='-dom')):C(tense)",0.00026417591542826635,0.03752804842898372
+"C(valence, Treatment(reference='-val')):C(tense)",0.00016224218110494348,0.02304764391507733
+male_perc:C(semantic_role),0.000136585913565912,0.019402990506189335
+"C(dominance, Treatment(reference='-dom')):C(syntactic_role)",4.888610121522863e-05,0.006944614806899239
 C(semantic_role),0.0,0.0
-"C(dominance, Treatment(reference='-dom'))",0.0,0.0
-C(syntactic_role),0.0,0.0
 C(tense),0.0,0.0
 "C(valence, Treatment(reference='-val'))",0.0,0.0
+"C(dominance, Treatment(reference='-dom'))",0.0,0.0
+C(syntactic_role),0.0,0.0
 male_perc,0.0,0.0

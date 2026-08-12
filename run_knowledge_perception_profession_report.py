@@ -39,19 +39,25 @@ else:
 MODEL_SPECS = {
     "world_knowledge": {
         "label": "World-Knowledge Model",
+        "predictors": (
+            "male_perc",
+            "semantic_role",
+            "valence",
+            "dominance",
+        ),
     },
     "human_perception": {
         "label": "Human-Perception Model",
+        "predictors": (
+            "male_perc",
+            "semantic_role",
+            "valence",
+            "dominance",
+            "syntactic_role",
+            "tense",
+        ),
     },
 }
-PREDICTORS = (
-    "male_perc",
-    "semantic_role",
-    "syntactic_role",
-    "tense",
-    "valence",
-    "dominance",
-)
 NUMERICAL_PREDICTORS = ("male_perc",)
 PREPROCESSING_VERSION = "zscore_numeric-model-predictors_v1"
 
@@ -145,8 +151,8 @@ def prepare_data(path: Path, metadata: base.pd.DataFrame) -> base.pd.DataFrame:
     return merged
 
 
-def model_terms() -> list[str]:
-    names = list(PREDICTORS)
+def model_terms(predictors: tuple[str, ...]) -> list[str]:
+    names = list(predictors)
     main = [base.term(name) for name in names]
     return main + [f"{a}:{b}" for a, b in combinations(main, 2)]
 
@@ -248,12 +254,13 @@ def decompose_shapley_r_squared(
 def select_model(
     df: base.pd.DataFrame,
     run_dir: Path,
+    predictors: tuple[str, ...],
     maxiter: int,
     shapley_permutations: int,
     shapley_random_state: int,
 ) -> tuple[dict[str, Any], list[str], base.pd.DataFrame]:
     run_dir.mkdir(parents=True, exist_ok=True)
-    all_terms = model_terms()
+    all_terms = model_terms(predictors)
     formula = "log_he_she_odds ~ " + " + ".join(all_terms)
     response, design = base.dmatrices(formula, data=df, return_type="dataframe")
     x_scaled = base.StandardScaler().fit_transform(design)
@@ -327,6 +334,7 @@ def run_one(
         selected, terms, decomposition = select_model(
             df,
             run_dir / key,
+            spec["predictors"],
             maxiter,
             shapley_permutations,
             shapley_random_state,

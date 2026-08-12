@@ -18,14 +18,14 @@ git add -A && \
 	git commit -m "Update reports" && \
 	git push
 
-uv run python run_model_selection_random_slopes_report.py "$@"
-
-git add -A && \
-	git commit -m "Update reports" && \
-	git push
-
-uv run run_lasso_profession_selected_collocates_report.py "$@"
-
-git add -A && \
-	git commit -m "Update reports" && \
-	git push
+# uv run python run_model_selection_random_slopes_report.py "$@"
+# 
+# git add -A && \
+# 	git commit -m "Update reports" && \
+# 	git push
+# 
+# uv run run_lasso_profession_selected_collocates_report.py "$@"
+# 
+# git add -A && \
+# 	git commit -m "Update reports" && \
+# 	git push

@@ -1,5 +1,5 @@
 {
-  "formula": "log_he_she_odds ~ C(syntactic_role) + C(tense) + C(dominance, Treatment(reference='-dom')) + C(semantic_role):C(tense) + C(syntactic_role):C(valence, Treatment(reference='-val')) + C(syntactic_role):C(dominance, Treatment(reference='-dom')) + C(tense):C(dominance, Treatment(reference='-dom')) + male_perc + male_perc:C(semantic_role) + male_perc:C(tense)",
+  "formula": "log_he_she_odds ~ C(dominance, Treatment(reference='-dom')) + C(syntactic_role) + C(tense) + C(semantic_role):C(tense) + C(valence, Treatment(reference='-val')):C(syntactic_role) + C(dominance, Treatment(reference='-dom')):C(syntactic_role) + C(dominance, Treatment(reference='-dom')):C(tense) + male_perc + male_perc:C(semantic_role) + male_perc:C(tense)",
   "model_type": "OLS",
   "optimizer": "closed_form",
   "converged": true,
@@ -11,14 +11,14 @@
   "R2m": 0.49705184631301114,
   "R2c": 0.49705184631301114,
   "warnings": [],
-  "fixed_effect_variance_C(syntactic_role)": 0.00012542842645078432,
-  "fixed_effect_variance_C(tense)": 0.02065090654956056,
-  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.00047856233579240764,
-  "fixed_effect_variance_C(semantic_role):C(tense)": -0.0009064873756254613,
-  "fixed_effect_variance_C(syntactic_role):C(valence, Treatment(reference='-val'))": 0.00017116557981129403,
-  "fixed_effect_variance_C(syntactic_role):C(dominance, Treatment(reference='-dom'))": 0.00215197094755795,
-  "fixed_effect_variance_C(tense):C(dominance, Treatment(reference='-dom'))": 0.001852036680584912,
-  "fixed_effect_variance_male_perc": 1.731281505413109,
-  "fixed_effect_variance_male_perc:C(semantic_role)": 0.049630667207867976,
-  "fixed_effect_variance_male_perc:C(tense)": -0.17208843084728848
+  "fixed_effect_variance_C(dominance, Treatment(reference='-dom'))": 0.0004785623357924106,
+  "fixed_effect_variance_C(syntactic_role)": 0.00012542842645078635,
+  "fixed_effect_variance_C(tense)": 0.020650906549561216,
+  "fixed_effect_variance_C(semantic_role):C(tense)": -0.0009064873756255539,
+  "fixed_effect_variance_C(valence, Treatment(reference='-val')):C(syntactic_role)": 0.00017116557981123863,
+  "fixed_effect_variance_C(dominance, Treatment(reference='-dom')):C(syntactic_role)": 0.0021519709475579176,
+  "fixed_effect_variance_C(dominance, Treatment(reference='-dom')):C(tense)": 0.0018520366805848826,
+  "fixed_effect_variance_male_perc": 1.7312815054131154,
+  "fixed_effect_variance_male_perc:C(semantic_role)": 0.04963066720786764,
+  "fixed_effect_variance_male_perc:C(tense)": -0.17208843084729053
 }

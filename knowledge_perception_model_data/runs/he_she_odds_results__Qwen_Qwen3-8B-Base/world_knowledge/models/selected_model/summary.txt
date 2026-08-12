@@ -1,62 +1,32 @@
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:        log_he_she_odds   R-squared:                       0.519
-Model:                            OLS   Adj. R-squared:                  0.517
-Method:                 Least Squares   F-statistic:                     449.6
-Date:                Tue, 11 Aug 2026   Prob (F-statistic):               0.00
-Time:                        15:39:46   Log-Likelihood:                -25096.
-No. Observations:               16320   AIC:                         5.027e+04
-Df Residuals:                   16280   BIC:                         5.058e+04
-Df Model:                          39                                         
+Dep. Variable:        log_he_she_odds   R-squared:                       0.496
+Model:                            OLS   Adj. R-squared:                  0.496
+Method:                 Least Squares   F-statistic:                     1785.
+Date:                Wed, 12 Aug 2026   Prob (F-statistic):               0.00
+Time:                        11:05:50   Log-Likelihood:                -25467.
+No. Observations:               16320   AIC:                         5.095e+04
+Df Residuals:                   16310   BIC:                         5.103e+04
+Df Model:                           9                                         
 Covariance Type:            nonrobust                                         
-====================================================================================================================================================
-                                                                                       coef    std err          t      P>|t|      [0.025      0.975]
-----------------------------------------------------------------------------------------------------------------------------------------------------
-Intercept                                                                            2.2464      0.049     45.713      0.000       2.150       2.343
-C(semantic_role)[T.patient]                                                          0.0911      0.047      1.950      0.051      -0.000       0.183
-C(syntactic_role)[T.subject]                                                        -0.3015      0.043     -6.972      0.000      -0.386      -0.217
-C(tense)[T.past perfect]                                                             0.3076      0.068      4.499      0.000       0.174       0.442
-C(tense)[T.present continuous]                                                      -0.2790      0.068     -4.081      0.000      -0.413      -0.145
-C(tense)[T.present perfect]                                                          0.0687      0.068      1.006      0.315      -0.065       0.203
-C(tense)[T.simple future]                                                            0.0915      0.068      1.339      0.181      -0.042       0.226
-C(tense)[T.simple past]                                                              0.0761      0.068      1.113      0.266      -0.058       0.210
-C(valence, Treatment(reference='-val'))[T.+val]                                     -0.1577      0.043     -3.647      0.000      -0.242      -0.073
-C(dominance, Treatment(reference='-dom'))[T.+dom]                                    0.0756      0.047      1.620      0.105      -0.016       0.167
-C(semantic_role)[T.patient]:C(tense)[T.past perfect]                                 0.0255      0.061      0.416      0.677      -0.094       0.145
-C(semantic_role)[T.patient]:C(tense)[T.present continuous]                          -0.0363      0.061     -0.594      0.553      -0.156       0.084
-C(semantic_role)[T.patient]:C(tense)[T.present perfect]                             -0.0582      0.061     -0.952      0.341      -0.178       0.062
-C(semantic_role)[T.patient]:C(tense)[T.simple future]                                0.0576      0.061      0.942      0.346      -0.062       0.177
-C(semantic_role)[T.patient]:C(tense)[T.simple past]                                 -0.0099      0.061     -0.161      0.872      -0.130       0.110
-C(semantic_role)[T.patient]:C(dominance, Treatment(reference='-dom'))[T.+dom]       -0.0112      0.035     -0.318      0.750      -0.080       0.058
-C(syntactic_role)[T.subject]:C(tense)[T.past perfect]                               -0.1601      0.061     -2.618      0.009      -0.280      -0.040
-C(syntactic_role)[T.subject]:C(tense)[T.present continuous]                          0.0138      0.061      0.226      0.821      -0.106       0.134
-C(syntactic_role)[T.subject]:C(tense)[T.present perfect]                            -0.0752      0.061     -1.230      0.219      -0.195       0.045
-C(syntactic_role)[T.subject]:C(tense)[T.simple future]                              -0.0574      0.061     -0.939      0.348      -0.177       0.062
-C(syntactic_role)[T.subject]:C(tense)[T.simple past]                                 0.0669      0.061      1.095      0.274      -0.053       0.187
-C(tense)[T.past perfect]:C(valence, Treatment(reference='-val'))[T.+val]            -0.1342      0.061     -2.195      0.028      -0.254      -0.014
-C(tense)[T.present continuous]:C(valence, Treatment(reference='-val'))[T.+val]       0.0785      0.061      1.284      0.199      -0.041       0.198
-C(tense)[T.present perfect]:C(valence, Treatment(reference='-val'))[T.+val]         -0.0595      0.061     -0.973      0.331      -0.179       0.060
-C(tense)[T.simple future]:C(valence, Treatment(reference='-val'))[T.+val]           -0.0167      0.061     -0.274      0.784      -0.137       0.103
-C(tense)[T.simple past]:C(valence, Treatment(reference='-val'))[T.+val]             -0.0339      0.061     -0.554      0.579      -0.154       0.086
-C(tense)[T.past perfect]:C(dominance, Treatment(reference='-dom'))[T.+dom]          -0.0602      0.061     -0.985      0.325      -0.180       0.060
-C(tense)[T.present continuous]:C(dominance, Treatment(reference='-dom'))[T.+dom]    -0.0341      0.061     -0.558      0.577      -0.154       0.086
-C(tense)[T.present perfect]:C(dominance, Treatment(reference='-dom'))[T.+dom]       -0.0048      0.061     -0.079      0.937      -0.125       0.115
-C(tense)[T.simple future]:C(dominance, Treatment(reference='-dom'))[T.+dom]          0.0957      0.061      1.566      0.117      -0.024       0.216
-C(tense)[T.simple past]:C(dominance, Treatment(reference='-dom'))[T.+dom]            0.0070      0.061      0.114      0.909      -0.113       0.127
-male_perc                                                                            1.1554      0.026     43.635      0.000       1.103       1.207
-male_perc:C(semantic_role)[T.patient]                                                0.0911      0.018      5.160      0.000       0.056       0.126
-male_perc:C(syntactic_role)[T.subject]                                               0.0949      0.018      5.375      0.000       0.060       0.129
-male_perc:C(tense)[T.past perfect]                                                   0.0340      0.031      1.114      0.265      -0.026       0.094
-male_perc:C(tense)[T.present continuous]                                            -0.1167      0.031     -3.817      0.000      -0.177      -0.057
-male_perc:C(tense)[T.present perfect]                                               -0.1048      0.031     -3.429      0.001      -0.165      -0.045
-male_perc:C(tense)[T.simple future]                                                 -0.1964      0.031     -6.422      0.000      -0.256      -0.136
-male_perc:C(tense)[T.simple past]                                                   -0.0282      0.031     -0.924      0.356      -0.088       0.032
-male_perc:C(valence, Treatment(reference='-val'))[T.+val]                           -0.0871      0.018     -4.933      0.000      -0.122      -0.052
+=====================================================================================================================================================================
+                                                                                                        coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                                             2.1042      0.022     95.231      0.000       2.061       2.148
+C(semantic_role)[T.patient]                                                                           0.1307      0.026      5.124      0.000       0.081       0.181
+C(valence, Treatment(reference='-val'))[T.+val]                                                      -0.1437      0.031     -4.600      0.000      -0.205      -0.082
+C(dominance, Treatment(reference='-dom'))[T.+dom]                                                     0.0633      0.026      2.483      0.013       0.013       0.113
+C(semantic_role)[T.patient]:C(valence, Treatment(reference='-val'))[T.+val]                          -0.0977      0.036     -2.708      0.007      -0.168      -0.027
+C(valence, Treatment(reference='-val'))[T.+val]:C(dominance, Treatment(reference='-dom'))[T.+dom]     0.0145      0.036      0.403      0.687      -0.056       0.085
+male_perc                                                                                             1.1465      0.018     63.551      0.000       1.111       1.182
+male_perc:C(semantic_role)[T.patient]                                                                 0.0911      0.018      5.049      0.000       0.056       0.126
+male_perc:C(valence, Treatment(reference='-val'))[T.+val]                                            -0.0871      0.018     -4.826      0.000      -0.122      -0.052
+male_perc:C(dominance, Treatment(reference='-dom'))[T.+dom]                                          -0.0248      0.018     -1.375      0.169      -0.060       0.011
 ==============================================================================
-Omnibus:                      314.016   Durbin-Watson:                   0.387
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):              535.556
-Skew:                           0.166   Prob(JB):                    5.08e-117
-Kurtosis:                       3.823   Cond. No.                         29.9
+Omnibus:                      297.782   Durbin-Watson:                   0.370
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              461.916
+Skew:                           0.190   Prob(JB):                    4.97e-101
+Kurtosis:                       3.732   Cond. No.                         8.34
 ==============================================================================
 
 Notes:

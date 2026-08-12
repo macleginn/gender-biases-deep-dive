@@ -1,14 +1,14 @@
 {
   "selected_model": "selected_model",
-  "candidate_formula": "log_he_she_odds ~ male_perc + C(semantic_role) + C(syntactic_role) + C(tense) + C(valence, Treatment(reference='-val')) + C(dominance, Treatment(reference='-dom')) + male_perc:C(semantic_role) + male_perc:C(syntactic_role) + male_perc:C(tense) + male_perc:C(valence, Treatment(reference='-val')) + male_perc:C(dominance, Treatment(reference='-dom')) + C(semantic_role):C(syntactic_role) + C(semantic_role):C(tense) + C(semantic_role):C(valence, Treatment(reference='-val')) + C(semantic_role):C(dominance, Treatment(reference='-dom')) + C(syntactic_role):C(tense) + C(syntactic_role):C(valence, Treatment(reference='-val')) + C(syntactic_role):C(dominance, Treatment(reference='-dom')) + C(tense):C(valence, Treatment(reference='-val')) + C(tense):C(dominance, Treatment(reference='-dom')) + C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom'))",
+  "candidate_formula": "log_he_she_odds ~ male_perc + C(semantic_role) + C(valence, Treatment(reference='-val')) + C(dominance, Treatment(reference='-dom')) + C(syntactic_role) + C(tense) + male_perc:C(semantic_role) + male_perc:C(valence, Treatment(reference='-val')) + male_perc:C(dominance, Treatment(reference='-dom')) + male_perc:C(syntactic_role) + male_perc:C(tense) + C(semantic_role):C(valence, Treatment(reference='-val')) + C(semantic_role):C(dominance, Treatment(reference='-dom')) + C(semantic_role):C(syntactic_role) + C(semantic_role):C(tense) + C(valence, Treatment(reference='-val')):C(dominance, Treatment(reference='-dom')) + C(valence, Treatment(reference='-val')):C(syntactic_role) + C(valence, Treatment(reference='-val')):C(tense) + C(dominance, Treatment(reference='-dom')):C(syntactic_role) + C(dominance, Treatment(reference='-dom')):C(tense) + C(syntactic_role):C(tense)",
   "selected_terms": [
+    "C(dominance, Treatment(reference='-dom'))",
     "C(syntactic_role)",
     "C(tense)",
-    "C(dominance, Treatment(reference='-dom'))",
     "C(semantic_role):C(tense)",
-    "C(syntactic_role):C(valence, Treatment(reference='-val'))",
-    "C(syntactic_role):C(dominance, Treatment(reference='-dom'))",
-    "C(tense):C(dominance, Treatment(reference='-dom'))",
+    "C(valence, Treatment(reference='-val')):C(syntactic_role)",
+    "C(dominance, Treatment(reference='-dom')):C(syntactic_role)",
+    "C(dominance, Treatment(reference='-dom')):C(tense)",
     "male_perc",
     "male_perc:C(semantic_role)",
     "male_perc:C(tense)"
